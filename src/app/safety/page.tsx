@@ -10,7 +10,7 @@ export default function SafetyPage() {
                     className="h-[60vh] bg-cover bg-center relative flex items-center justify-center text-white"
                     style={{
                         backgroundImage:
-                            "url('https://cdn.moto.mn/moto/landing/09_specialmining/05a78513-5ff8-4fc4-9e62-d9cf801f8b3b.jpg')",
+                            "url('https://specialmining.bloomlink.mn/moavolen/2023/09/special-iin-1.png')",
                     }}
                 >
                     <div className="absolute inset-0 bg-black/40" />
@@ -44,7 +44,7 @@ export default function SafetyPage() {
             {/* Big Landscape Image */}
             <section className="bg-white px-4">
                 <img
-                    src="https://cdn.moto.mn/moto/landing/09_specialmining/safety-landscape.jpg"
+                    src="https://specialmining.bloomlink.mn/moavolen/2023/09/special-iin-4-1536x362.png"
                     alt="Community and Environment"
                     className="w-full object-cover"
                 />
@@ -60,9 +60,8 @@ export default function SafetyPage() {
                     </p>
                 </div>
             </section>
-
             {/* Safe operation */}
-            <section className="bg-white py-16 px-4">
+            <section className="bg-white px-4">
                 <div className="max-w-screen-xl mx-auto space-y-6">
                     <h2 className="text-[#c8102e] text-2xl font-bold mb-2">Safe operation</h2>
                     <p className="text-gray-700 text-base leading-relaxed">
@@ -77,15 +76,25 @@ export default function SafetyPage() {
                         practices and is a fundamental part of our operations.”
                     </p>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                        {["safety1", "safety2", "safety3"].map((img, idx) => (
-                            <img
-                                key={idx}
-                                src={`https://cdn.moto.mn/moto/landing/09_specialmining/gallery/${img}.jpg`}
-                                alt={img}
-                                className="rounded shadow"
-                            />
-                        ))}
+                        <img
+                            src="https://specialmining.bloomlink.mn/moavolen/2023/09/special-iin-5-1536x1017.png"
+                            alt="safety1"
+                            className="rounded shadow"
+                        />
+
+                        <img
+                            src="https://specialmining.bloomlink.mn/moavolen/2023/09/special-iin-6-1536x1021.png"
+                            alt="safety2"
+                            className="rounded shadow"
+                        />
+
+                        <img
+                            src="https://specialmining.bloomlink.mn/moavolen/2023/09/special-iin-13-768x511.png"
+                            alt="safety3"
+                            className="rounded shadow"
+                        />
                     </div>
+
                 </div>
             </section>
 

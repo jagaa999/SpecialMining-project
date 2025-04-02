@@ -90,7 +90,7 @@ export default function Navbar() {
           {/* ✅ INQUIRY Button */}
           <div className="flex">
             <Link
-              href="/inquiry"
+              href="/contact"
               className="ml-auto bg-[#c8102e] text-white text-[14px] font-bold px-10 py-[14px] rounded-md transition-all hover:bg-[#a80e26] whitespace-nowrap"
             >
               INQUIRY →

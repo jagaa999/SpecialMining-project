@@ -10,7 +10,7 @@ export default function AboutPage() {
                     className="h-[60vh] bg-cover bg-center relative flex items-center justify-center text-white"
                     style={{
                         backgroundImage:
-                            "url('https://cdn.moto.mn/moto/landing/09_specialmining/2dd8cfde-3731-45f0-b946-12cde2cd5e82.jpg')",
+                            "url('https://specialmining.bloomlink.mn/moavolen/2023/09/special-iin-1.png')",
                     }}
                 >
                     <div className="absolute inset-0 bg-black/40" />
@@ -64,17 +64,17 @@ export default function AboutPage() {
             <section className="bg-white py-16 px-4">
                 <div className="max-w-screen-xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
                     <img
-                        src="https://cdn.moto.mn/moto/landing/09_specialmining/7d3888b2-2fc0-4c16-8489-c3d8222a89db.jpg"
+                        src="https://specialmining.bloomlink.mn/moavolen/2023/09/special-iin-8.png"
                         alt="expertise1"
                         className="rounded shadow"
                     />
                     <img
-                        src="https://cdn.moto.mn/moto/landing/09_specialmining/5091666b-f5e6-4c71-9f5a-93ed98f83df3.jpg"
+                        src="https://specialmining.bloomlink.mn/moavolen/2023/09/special-iin-9.png"
                         alt="expertise2"
                         className="rounded shadow"
                     />
                     <img
-                        src="https://cdn.moto.mn/moto/landing/09_specialmining/88e8b2b2-0645-40b4-8808-d432aa9a265f.jpg"
+                        src="https://specialmining.bloomlink.mn/moavolen/2023/09/special-iin-10.png"
                         alt="expertise3"
                         className="rounded shadow"
                     />
@@ -89,43 +89,86 @@ export default function AboutPage() {
                         We listen and act with honesty and integrity, look after our people and communities and build
                         maintain relationships with customers and other stakeholders.
                     </p>
+                    <p>&nbsp;</p>
+                    <p className="text-base leading-relaxed">
+                        List of national and international networks and organizations:
+                    </p>
                 </div>
             </section>
 
             {/* Clients & Logos */}
             <section className="bg-[#121c2b] py-12 px-4">
                 <div className="max-w-screen-xl mx-auto flex flex-wrap justify-between gap-4">
-                    {[
-                        "Tsairt",
-                        "SouthGobi Sands",
-                        "Erdenes Tavan Tolgoi",
-                        "DMP",
-                        "TERRA ENERGY",
-                    ].map((name, i) => (
-                        <div key={i} className="w-[18%]">
-                            <img
-                                src={`https://cdn.moto.mn/moto/landing/09_specialmining/logos/logo-${i + 1}.png`}
-                                alt={name}
-                                className="w-full object-contain h-20 mx-auto"
-                            />
-                        </div>
-                    ))}
+
+                    <div className="w-[18%]">
+                        <img
+                            src="https://specialmining.bloomlink.mn/moavolen/2020/05/tsairt.jpg"
+                            alt="Tsairt"
+                            className="w-full object-contain h-20 mx-auto"
+                        />
+                    </div>
+
+                    <div className="w-[18%]">
+                        <img
+                            src="https://specialmining.bloomlink.mn/moavolen/2020/05/southgobi-160054-1178811298.jpeg"
+                            alt="SouthGobi Sands"
+                            className="w-full object-contain h-20 mx-auto"
+                        />
+                    </div>
+
+                    <div className="w-[18%]">
+                        <img
+                            src="https://specialmining.bloomlink.mn/moavolen/2020/05/Erdenes-TavanTolgoi.jpg"
+                            alt="Erdenes Tavan Tolgoi"
+                            className="w-full object-contain h-20 mx-auto"
+                        />
+                    </div>
+
+                    <div className="w-[18%]">
+                        <img
+                            src="https://specialmining.bloomlink.mn/moavolen/2020/05/DMP.jpg"
+                            alt="DMP"
+                            className="w-full object-contain h-20 mx-auto"
+                        />
+                    </div>
+
+                    <div className="w-[18%]">
+                        <img
+                            src="https://specialmining.bloomlink.mn/moavolen/2020/05/Terra.jpg"
+                            alt="TERRA ENERGY"
+                            className="w-full object-contain h-20 mx-auto"
+                        />
+                    </div>
+
                 </div>
             </section>
+
 
             {/* Final Image Row */}
             <section className="bg-[#f5f6f8] py-12 px-4">
                 <div className="max-w-screen-xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
-                    {["expertise4", "expertise5", "expertise6"].map((img, idx) => (
-                        <img
-                            key={idx}
-                            src={`https://cdn.moto.mn/moto/landing/09_specialmining/gallery/${img}.jpg`}
-                            alt={img}
-                            className="rounded shadow"
-                        />
-                    ))}
+
+                    <img
+                        src="https://specialmining.bloomlink.mn/moavolen/2023/09/special-iin-11.png"
+                        alt="expertise4"
+                        className="rounded shadow"
+                    />
+
+                    <img
+                        src="https://specialmining.bloomlink.mn/moavolen/2023/09/special-iin-12.png"
+                        alt="expertise5"
+                        className="rounded shadow"
+                    />
+
+                    <img
+                        src="https://specialmining.bloomlink.mn/moavolen/2023/09/special-iin-13.png"
+                        alt="expertise6"
+                        className="rounded shadow"
+                    />
+
                 </div>
             </section>
+
 
             {/* ✅ Footer here */}
             <Footer />

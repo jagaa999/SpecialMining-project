@@ -8,7 +8,7 @@ export default function Hero() {
             className="h-[100vh] bg-cover bg-center flex items-center justify-center text-white relative"
             style={{
                 backgroundImage:
-                    "url('https://cdn.moto.mn/moto/landing/09_specialmining/9d81f6cd-365e-497a-94ec-e4e4b755cb48.jpg')",
+                    "url('https://specialmining.bloomlink.mn/moavolen/2023/09/special-iin-1.png')",
             }}
         >
             {/* Overlay */}

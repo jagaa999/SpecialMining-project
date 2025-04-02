@@ -30,7 +30,7 @@ export default function ServicesPage() {
                     className="h-[60vh] bg-cover bg-center relative flex items-center justify-center text-white"
                     style={{
                         backgroundImage:
-                            "url('')",
+                            "url('https://specialmining.bloomlink.mn/moavolen/2023/09/special-iin-1.png')",
                     }}
                 >
                     <div className="absolute inset-0 bg-black/40" />
