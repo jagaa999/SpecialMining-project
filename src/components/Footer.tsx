@@ -2,136 +2,124 @@
 
 import React from "react";
 import {
-    FaFacebookF,
-    FaInstagram,
-    FaLinkedinIn,
-    FaPhoneAlt,
+  FaFacebookF,
+  FaInstagram,
+  FaLinkedinIn,
+  FaPhoneAlt,
 } from "react-icons/fa";
+import PanelContainer from "../config/PanelContainer";
+
+const iconMap = {
+  facebook: <FaFacebookF />,
+  instagram: <FaInstagram />,
+  linkedin: <FaLinkedinIn />,
+};
 
 export default function Footer() {
-    return (
-        <footer className="text-white text-sm relative">
-            {/* ✅ Top Section */}
-            <div className="flex flex-col md:flex-row w-full relative min-h-[450px]">
-                {/* ✅ Background */}
-                <div className="absolute inset-0">
-                    <img
-                        src="https://cdn.moto.mn/moto/landing/09_specialmining/21f27520-6430-43b5-95d0-535ea2f7bcb4.png"
-                        alt="bg"
-                        className="w-full h-full object-cover brightness-[.2] blur-sm"
-                    />
-                </div>
+  return (
+    <footer className="w-full bg-neutral-800 text-white relative">
+      {/* ✅ Top Section */}
+      <TopSection />
 
-                {/* ✅ Left side */}
-                <div className="relative z-10 md:w-3/4 w-full px-6 pt-16 pb-10 h-full flex items-stretch">
-                    <div className="max-w-screen-xl mx-auto w-full grid grid-cols-1 md:grid-cols-3 gap-10">
-                        {/* Contact */}
-                        <div className="space-y-5 h-full">
-                            <img
-                                src="https://cdn.moto.mn/moto/landing/09_specialmining/21f27520-6430-43b5-95d0-535ea2f7bcb4.png?t=1742973021250"
-                                alt="Logo"
-                                className="w-40 mb-2"
-                            />
-                            <p className="text-gray-300">Expert in mining services</p>
-                            <p className="text-xs font-semibold uppercase mt-4">Contact us</p>
-                            <div className="flex items-center gap-2 text-lg">
-                                <FaPhoneAlt className="text-[#c8102e] text-xl" />
-                                <span className="font-bold text-white text-xl">976-7000 0369</span>
-                            </div>
-                        </div>
-
-                        {/* Industry */}
-                        <div className="h-full">
-                            <h3 className="font-bold text-white text-lg mb-4">Industry company</h3>
-                            <ul className="space-y-3 text-gray-300">
-                                <li>FAQ</li>
-                                <li>Awards</li>
-                                <li>Services</li>
-                                <li>Contact Us</li>
-                                <li>Out Team</li>
-                            </ul>
-                        </div>
-
-                        {/* Services */}
-                        <div className="h-full">
-                            <h3 className="font-bold text-white text-lg mb-4">Services</h3>
-                            <ul className="space-y-3 text-gray-300">
-                                <li>Blasting work</li>
-                                <li>Production</li>
-                                <li>Technical services</li>
-                                <li>Monitoring</li>
-                                <li>Quality management</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                {/* ✅ Right side - Products */}
-                <div className="relative z-10 md:w-1/4 w-full bg-[#31346e] px-10 py-16 flex items-center">
-                    <div className="max-w-screen-xl mx-auto">
-                        <h3 className="font-bold text-white text-lg mb-4">Products</h3>
-                        <ul className="space-y-4 text-gray-200 text-sm">
-                            <li>Hypersonic E series – Bulk emulsion</li>
-                            <li>Hypersonic EX series – Packaged emulsion</li>
-                            <li>Hypersonic Power series – Bulk ANFO</li>
-                            <li>
-                                Electronic and non-electronic initiating systems <br />
-                                for Open cut and underground
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            {/* ✅ Bottom Bar */}
-            <div className="flex w-full relative z-10">
-                {/* Left */}
-                <div className="w-full md:w-3/4 bg-[#10121e] py-6 px-4 border-t border-[#15152e]">
-                    <div className="max-w-screen-xl mx-auto text-center md:text-left">
-                        <p className="text-xs text-white">
-                            Copyright © 2023 All Rights Reserved. Developed by BloomLink LLC
-                        </p>
-                    </div>
-                </div>
-
-                {/* Right - Social */}
-                <div className="w-1/4 hidden md:flex items-center justify-center bg-[#2f2f7e] border-t border-[#15152e] gap-4">
-                    <a
-                        href="https://www.facebook.com/miningthemoon"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="w-10 h-10 bg-white text-[#2f2f7e] rounded flex items-center justify-center"
-                    >
-                        <FaFacebookF />
-                    </a>
-                    <a
-                        href="https://www.instagram.com/specialminingservices/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="w-10 h-10 bg-white text-[#2f2f7e] rounded flex items-center justify-center"
-                    >
-                        <FaInstagram />
-                    </a>
-                    <a
-                        href="https://www.linkedin.com/company/specialminingservices"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="w-10 h-10 bg-white text-[#2f2f7e] rounded flex items-center justify-center"
-                    >
-                        <FaLinkedinIn />
-                    </a>
-                </div>
-            </div>
-
-            {/* ✅ Back to Top */}
-            <div className="fixed bottom-6 right-6 z-50">
-                <button
-                    onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-                    className="bg-[#c8102e] text-white w-12 h-12 flex items-center justify-center rounded shadow-lg"
-                >
-                    ↑
-                </button>
-            </div>
-        </footer>
-    );
+      {/* ✅ Back to Top */}
+      <div className="fixed bottom-6 right-6 z-50">
+        <button
+          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+          className="bg-[#c8102e] text-white w-12 h-12 flex items-center justify-center rounded shadow-lg cursor-pointer hover:brightness-90 transition duration-300 ease-in-out">
+          ↑
+        </button>
+      </div>
+    </footer>
+  );
 }
+
+const staticItem = {
+  contact: {
+    logo: "https://cdn.moto.mn/moto/landing/09_specialmining/21f27520-6430-43b5-95d0-535ea2f7bcb4.png?t=1742973021250",
+    description: "Expert in mining services",
+    phone: "976-7000-0369",
+  },
+  industry: {
+    title: "Industry company",
+    items: ["FAQ", "Awards", "Services", "Contact Us", "Out Team"],
+  },
+  services: {
+    title: "Services",
+    items: [
+      "Blasting work",
+      "Production",
+      "Technical services",
+      "Monitoring",
+      "Quality management",
+    ],
+  },
+  products: {
+    title: "Products",
+    items: [
+      "Hypersonic E series – Bulk emulsion",
+      "Hypersonic EX series – Packaged emulsion",
+      "Hypersonic Power series – Bulk ANFO",
+      "Electronic and non-electronic initiating systems for Open cut and underground",
+    ],
+  },
+  socialLinks: [
+    {
+      icon: "facebook",
+      url: "https://www.facebook.com/miningthemoon",
+    },
+    {
+      icon: "instagram",
+      url: "https://www.instagram.com/specialminingservices/",
+    },
+    {
+      icon: "linkedin",
+      url: "https://www.linkedin.com/company/specialminingservices",
+    },
+  ],
+  copyright: "All Rights Reserved.",
+};
+
+const TopSection = () => {
+  return (
+    <PanelContainer>
+      <div className="w-full flex flex-row gap-7 lg:gap-24 items-start py-10">
+        <div className="flex flex-col gap-2">
+          <img
+            src={staticItem?.contact.logo}
+            alt="Logo"
+            className="w-40 h-auto"
+          />
+        </div>
+
+        <div className="flex flex-col gap-2 justify-center items-center pt-3">
+          <p className="text-gray-500 text-sm">Contact us</p>
+          <div className="flex items-center gap-2 text-lg">
+            <FaPhoneAlt className="text-[#c8102e] text-xl" />
+            <span className="text-gray-300 text-xl">
+              {staticItem?.contact.phone}
+            </span>
+          </div>
+        </div>
+        <div className="flex flex-col gap-2 justify-center items-center pt-3">
+          <p className="text-gray-500 text-sm">
+            {staticItem?.contact.description}
+          </p>
+          <p className="text-gray-500 text-sm">{staticItem?.copyright}</p>
+        </div>
+
+        <div className="flex flex-row gap-3 justify-center items-center pt-3">
+          {staticItem?.socialLinks.map((social, idx) => (
+            <a
+              key={idx}
+              href={social.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-14 h-14 bg-gray-700 text-gray-400 rounded flex items-center justify-center">
+              {iconMap[social.icon]}
+            </a>
+          ))}
+        </div>
+      </div>
+    </PanelContainer>
+  );
+};

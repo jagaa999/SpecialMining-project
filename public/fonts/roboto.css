@@ -1,0 +1,45 @@
+/* roboto-300 - cyrillic-ext */
+@font-face {
+  font-display: "swap";
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 300;
+  src: url("https://cdn.moto.mn/public/fonts/roboto/roboto-v32-cyrillic-ext_latin-300.woff2")
+    format("woff2");
+}
+/* roboto-regular - cyrillic-ext */
+@font-face {
+  font-display: "swap";
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  src: url("https://cdn.moto.mn/public/fonts/roboto/roboto-v32-cyrillic-ext_latin-regular.woff2")
+    format("woff2");
+}
+/* roboto-500 - cyrillic-ext */
+@font-face {
+  font-display: "swap";
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 500;
+  src: url("https://cdn.moto.mn/public/fonts/roboto/roboto-v32-cyrillic-ext_latin-500.woff2")
+    format("woff2");
+}
+/* roboto-700 - cyrillic-ext */
+@font-face {
+  font-display: "swap";
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 700;
+  src: url("https://cdn.moto.mn/public/fonts/roboto/roboto-v32-cyrillic-ext_latin-700.woff2")
+    format("woff2");
+}
+/* roboto-900 - cyrillic-ext */
+@font-face {
+  font-display: "swap";
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 900;
+  src: url("https://cdn.moto.mn/public/fonts/roboto/roboto-v32-cyrillic-ext_latin-900.woff2")
+    format("woff2");
+}

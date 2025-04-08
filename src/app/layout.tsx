@@ -1,24 +1,21 @@
-import './globals.css'
-import Navbar from '../components/Navbar'
-import type { ReactNode } from 'react'
-import React from 'react'
+import Footer from "../components/Footer";
+import Navbar from "../components/Navbar";
+import "./globals.css";
+import "../../public/fonts/roboto.css";
 
 export const metadata = {
-  title: 'SpecialMining',
-  description: 'Special Mining компанийн танилцуулга сайт',
-}
+  title: "SpecialMining",
+  description: "Special Mining компанийн танилцуулга сайт",
+};
 
-interface RootLayoutProps {
-  children: ReactNode
-}
-
-export default function RootLayout({ children }: RootLayoutProps) {
+export default function RootLayout({ children }: any) {
   return (
     <html lang="mn">
-      <body>
+      <body className="min-h-screen bg-gray-100 text-gray-900 antialiased dark:bg-gray-900 dark:text-gray-100 font-roboto">
         <Navbar />
         <main>{children}</main>
+        <Footer />
       </body>
     </html>
-  )
+  );
 }

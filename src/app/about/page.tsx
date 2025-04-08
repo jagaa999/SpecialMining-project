@@ -1,177 +1,153 @@
-import React from "react";
-import Footer from "../../components/Footer";
+import _ from "lodash";
+import Banner from "../../components/Banner";
+import { generalTheme } from "../../config/generalConfig";
+import PanelMain from "../../config/PanelMain";
 
 export default function AboutPage() {
-    return (
-        <main className="text-gray-800">
-            {/* Header Banner */}
-            <section>
-                <div
-                    className="h-[60vh] bg-cover bg-center relative flex items-center justify-center text-white"
-                    style={{
-                        backgroundImage:
-                            "url('https://specialmining.bloomlink.mn/moavolen/2023/09/special-iin-1.png')",
-                    }}
-                >
-                    <div className="absolute inset-0 bg-black/40" />
-                    <div className="relative z-10 text-center">
-                        <h1 className="text-4xl md:text-5xl font-bold">About Us</h1>
-                        <p className="mt-2 text-sm font-light">Special Mining LLC &gt; About Us</p>
-                    </div>
-                </div>
-            </section>
+  return (
+    <main>
+      <Banner item={staticItem?.banner} />
 
-            {/* Company Overview */}
-            <section className="bg-[#f5f6f8] py-12 px-4">
-                <div className="max-w-screen-xl mx-auto space-y-6 text-base leading-relaxed">
-                    <p>
-                        Special Mining Services LLC (SMS) is a mining technology company that established in 2012 and is
-                        specialized in Drill &amp; Blast and industrial chemicals. We are truly committed to safety,
-                        responsible operation and our clients’ interest.
-                    </p>
-                    <div>
-                        <h3 className="font-semibold">Our expertise:</h3>
-                        <ul className="list-disc list-inside">
-                            <li>Explosives Manufacturing</li>
-                            <li>Drill and Blast design and solutions</li>
-                            <li>High Explosives and initiating systems</li>
-                            <li>Industrial Chemicals</li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h3 className="font-semibold">Value proposition:</h3>
-                        <ul className="list-disc list-inside">
-                            <li>Technical services</li>
-                            <li>Consulting</li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h3 className="font-semibold">Collaboration and industry participation:</h3>
-                        <ul className="list-disc list-inside">
-                            <li>Mongolian explosives service providers’ association</li>
-                            <li>Mongolian National Chamber of Commerce and Industry, “Diamond” member</li>
-                            <li>International Society of Explosives Engineers</li>
-                            <li>The Mongolia-Australia Chamber of Commerce</li>
-                            <li>The Australian Institute of Mining and Metallurgy</li>
-                            <li>The European Federation of Explosives Engineer</li>
-                            <li>Mining IQ Division of IQPC</li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
+      <PanelMain>
+        {/* Company Overview */}
+        <section className="space-y-6 my-24">
+          <p>{staticItem?.companyOverview.description}</p>
 
-            {/* Expertise Grid Images */}
-            <section className="bg-white py-16 px-4">
-                <div className="max-w-screen-xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <img
-                        src="https://specialmining.bloomlink.mn/moavolen/2023/09/special-iin-8.png"
-                        alt="expertise1"
-                        className="rounded shadow"
-                    />
-                    <img
-                        src="https://specialmining.bloomlink.mn/moavolen/2023/09/special-iin-9.png"
-                        alt="expertise2"
-                        className="rounded shadow"
-                    />
-                    <img
-                        src="https://specialmining.bloomlink.mn/moavolen/2023/09/special-iin-10.png"
-                        alt="expertise3"
-                        className="rounded shadow"
-                    />
-                </div>
-            </section>
+          <div>
+            <p className={generalTheme?.title2}>Our expertise:</p>
+            <ul className="list-disc list-inside">
+              {staticItem?.companyOverview.expertise.map((item, index) => (
+                <li key={index}>{item}</li>
+              ))}
+            </ul>
+          </div>
+          <div>
+            <p className={generalTheme?.title2}>Value proposition:</p>
+            <ul className="list-disc list-inside">
+              {staticItem?.companyOverview.valueProposition.map(
+                (item, index) => (
+                  <li key={index}>{item}</li>
+                )
+              )}
+            </ul>
+          </div>
+          <div>
+            <p className={generalTheme?.title2}>
+              Collaboration and industry participation:
+            </p>
+            <ul className="list-disc list-inside">
+              {staticItem?.companyOverview.collaboration.map((item, index) => (
+                <li key={index}>{item}</li>
+              ))}
+            </ul>
+          </div>
+        </section>
 
-            {/* Relationship Section */}
-            <section className="bg-[#f5f6f8] py-16 px-4">
-                <div className="max-w-screen-xl mx-auto">
-                    <h2 className="text-[#c8102e] text-2xl font-bold uppercase mb-4">Relationships</h2>
-                    <p className="text-base leading-relaxed">
-                        We listen and act with honesty and integrity, look after our people and communities and build
-                        maintain relationships with customers and other stakeholders.
-                    </p>
-                    <p>&nbsp;</p>
-                    <p className="text-base leading-relaxed">
-                        List of national and international networks and organizations:
-                    </p>
-                </div>
-            </section>
+        {/* Expertise Grid Images */}
 
-            {/* Clients & Logos */}
-            <section className="bg-[#121c2b] py-12 px-4">
-                <div className="max-w-screen-xl mx-auto flex flex-wrap justify-between gap-4">
+        <section className="w-full grid grid-cols-1 md:grid-cols-3 gap-8 my-24">
+          {_.map(staticItem?.expertiseImages, (item: any, index: number) => (
+            <img
+              key={item?.id || index}
+              src={item}
+              alt={`expertise${index + 1}`}
+              className="rounded-md shadow-lg transition-transform transform hover:scale-105 duration-300"
+            />
+          ))}
+        </section>
 
-                    <div className="w-[18%]">
-                        <img
-                            src="https://specialmining.bloomlink.mn/moavolen/2020/05/tsairt.jpg"
-                            alt="Tsairt"
-                            className="w-full object-contain h-20 mx-auto"
-                        />
-                    </div>
+        {/* Relationship Section */}
+        <section className="my-24">
+          <p className={generalTheme?.title2}>
+            {staticItem?.relationships.title}
+          </p>
+          <p>{staticItem?.relationships.description}</p>
+        </section>
 
-                    <div className="w-[18%]">
-                        <img
-                            src="https://specialmining.bloomlink.mn/moavolen/2020/05/southgobi-160054-1178811298.jpeg"
-                            alt="SouthGobi Sands"
-                            className="w-full object-contain h-20 mx-auto"
-                        />
-                    </div>
+        {/* Clients & Logos */}
+        <section className="my-24">
+          <p className={generalTheme?.title2}>
+            {staticItem?.relationships.networks}
+          </p>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-12 my-12">
+            {_.map(staticItem?.clientsLogos, (item: any, index: number) => (
+              <img
+                key={item?.id || index}
+                src={item}
+                alt={`client-${index + 1}`}
+                className="w-full h-auto rounded-lg"
+              />
+            ))}
+          </div>
+        </section>
 
-                    <div className="w-[18%]">
-                        <img
-                            src="https://specialmining.bloomlink.mn/moavolen/2020/05/Erdenes-TavanTolgoi.jpg"
-                            alt="Erdenes Tavan Tolgoi"
-                            className="w-full object-contain h-20 mx-auto"
-                        />
-                    </div>
-
-                    <div className="w-[18%]">
-                        <img
-                            src="https://specialmining.bloomlink.mn/moavolen/2020/05/DMP.jpg"
-                            alt="DMP"
-                            className="w-full object-contain h-20 mx-auto"
-                        />
-                    </div>
-
-                    <div className="w-[18%]">
-                        <img
-                            src="https://specialmining.bloomlink.mn/moavolen/2020/05/Terra.jpg"
-                            alt="TERRA ENERGY"
-                            className="w-full object-contain h-20 mx-auto"
-                        />
-                    </div>
-
-                </div>
-            </section>
-
-
-            {/* Final Image Row */}
-            <section className="bg-[#f5f6f8] py-12 px-4">
-                <div className="max-w-screen-xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
-
-                    <img
-                        src="https://specialmining.bloomlink.mn/moavolen/2023/09/special-iin-11.png"
-                        alt="expertise4"
-                        className="rounded shadow"
-                    />
-
-                    <img
-                        src="https://specialmining.bloomlink.mn/moavolen/2023/09/special-iin-12.png"
-                        alt="expertise5"
-                        className="rounded shadow"
-                    />
-
-                    <img
-                        src="https://specialmining.bloomlink.mn/moavolen/2023/09/special-iin-13.png"
-                        alt="expertise6"
-                        className="rounded shadow"
-                    />
-
-                </div>
-            </section>
-
-
-            {/* ✅ Footer here */}
-            <Footer />
-        </main>
-    );
+        {/* Final Image Row */}
+        <section className="my-24">
+          <p className={generalTheme?.title2}>Зураг</p>
+          <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-8">
+            {_.map(staticItem?.finalImages, (item: any, index: number) => (
+              <img
+                key={item?.id || index}
+                src={item}
+                alt={`expertise${index + 1}`}
+                className="rounded-md shadow-lg transition-transform transform hover:scale-105 duration-300"
+              />
+            ))}
+          </div>
+        </section>
+      </PanelMain>
+    </main>
+  );
 }
+
+const staticItem = {
+  banner: {
+    title: "About Us",
+    subtitle: "Special Mining LLC > About Us",
+    mainimage:
+      "https://specialmining.bloomlink.mn/moavolen/2023/09/special-iin-1.png",
+  },
+  companyOverview: {
+    description:
+      "Special Mining Services LLC (SMS) is a mining technology company that established in 2012 and is specialized in Drill & Blast and industrial chemicals. We are truly committed to safety, responsible operation and our clients’ interest.",
+    expertise: [
+      "Explosives Manufacturing",
+      "Drill and Blast design and solutions",
+      "High Explosives and initiating systems",
+      "Industrial Chemicals",
+    ],
+    valueProposition: ["Technical services", "Consulting"],
+    collaboration: [
+      "Mongolian explosives service providers’ association",
+      "Mongolian National Chamber of Commerce and Industry, “Diamond” member",
+      "International Society of Explosives Engineers",
+      "The Mongolia-Australia Chamber of Commerce",
+      "The Australian Institute of Mining and Metallurgy",
+      "The European Federation of Explosives Engineer",
+      "Mining IQ Division of IQPC",
+    ],
+  },
+  expertiseImages: [
+    "https://specialmining.bloomlink.mn/moavolen/2023/09/special-iin-8.png",
+    "https://specialmining.bloomlink.mn/moavolen/2023/09/special-iin-9.png",
+    "https://specialmining.bloomlink.mn/moavolen/2023/09/special-iin-10.png",
+  ],
+  relationships: {
+    title: "Relationships",
+    description:
+      "We listen and act with honesty and integrity, look after our people and communities and build maintain relationships with customers and other stakeholders.",
+    networks: "List of national and international networks and organizations:",
+  },
+  clientsLogos: [
+    "https://specialmining.bloomlink.mn/moavolen/2020/05/tsairt.jpg",
+    "https://specialmining.bloomlink.mn/moavolen/2020/05/southgobi-160054-1178811298.jpeg",
+    "https://specialmining.bloomlink.mn/moavolen/2020/05/Erdenes-TavanTolgoi.jpg",
+    "https://specialmining.bloomlink.mn/moavolen/2020/05/DMP.jpg",
+    "https://specialmining.bloomlink.mn/moavolen/2020/05/Terra.jpg",
+  ],
+  finalImages: [
+    "https://specialmining.bloomlink.mn/moavolen/2023/09/special-iin-11.png",
+    "https://specialmining.bloomlink.mn/moavolen/2023/09/special-iin-12.png",
+    "https://specialmining.bloomlink.mn/moavolen/2023/09/special-iin-13.png",
+  ],
+};

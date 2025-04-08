@@ -1,129 +1,124 @@
-import React from "react";
-import Footer from "../../components/Footer";
+import _ from "lodash";
+import Banner from "../../components/Banner";
+import { generalTheme } from "../../config/generalConfig";
+import PanelMain from "../../config/PanelMain";
 
 export default function SafetyPage() {
-    return (
-        <main className="text-gray-800">
-            {/* Header Banner */}
-            <section>
-                <div
-                    className="h-[60vh] bg-cover bg-center relative flex items-center justify-center text-white"
-                    style={{
-                        backgroundImage:
-                            "url('https://specialmining.bloomlink.mn/moavolen/2023/09/special-iin-1.png')",
-                    }}
-                >
-                    <div className="absolute inset-0 bg-black/40" />
-                    <div className="relative z-10 text-center">
-                        <h1 className="text-4xl md:text-5xl font-bold">Safety</h1>
-                        <p className="mt-2 text-sm font-light">Special Mining LLC &gt; Safety</p>
-                    </div>
-                </div>
-            </section>
+  return (
+    <main>
+      <Banner item={staticItem?.banner} />
 
-            {/* Policy Text */}
-            <section className="bg-white py-16 px-4">
-                <div className="max-w-screen-xl mx-auto space-y-6 text-base leading-relaxed">
-                    <p className="font-semibold text-lg">
-                        We work to achieve our HSE goal through our “Zero harm Zero incident” policy. Our management
-                        process from supply chain to delivery of final products and services is ISO 45001:2018(HSE)
-                        certified, and regularly assessed and audited.
-                    </p>
+      <PanelMain>
+        {/* Policy Text */}
+        <section className="my-24">
+          <p>{staticItem?.policy.text}</p>
+          <p className={generalTheme?.title2}>{staticItem?.community.title}</p>
+          <p>{staticItem?.community.text}</p>
+        </section>
 
-                    <div>
-                        <h2 className="text-[#c8102e] text-2xl font-bold mb-2">Community and Environment</h2>
-                        <p className="text-gray-600">
-                            Anywhere SMS operates, we are very committed to protecting environment and take steps to ensure
-                            to minimize the environmental impact of our operations, to implement reuse and recycling, to
-                            review regularly our environmental footprint.
-                        </p>
-                    </div>
-                </div>
-            </section>
+        <img
+          src={staticItem?.landscapeImage}
+          alt="Community and Environment"
+          className="w-full h-auto rounded-lg shadow-lg"
+        />
 
-            {/* Big Landscape Image */}
-            <section className="bg-white px-4">
-                <img
-                    src="https://specialmining.bloomlink.mn/moavolen/2023/09/special-iin-4-1536x362.png"
-                    alt="Community and Environment"
-                    className="w-full object-cover"
-                />
-            </section>
+        {/* People Section */}
+        <section className="my-24">
+          <p className={generalTheme?.titleMain}>{staticItem?.people.title}</p>
+          <p>{staticItem?.people.text}</p>
+        </section>
 
-            {/* People Section */}
-            <section className="bg-white py-16 px-4">
-                <div className="max-w-screen-xl mx-auto">
-                    <h2 className="text-[#c8102e] text-2xl font-bold mb-4">People</h2>
-                    <p className="text-gray-700">
-                        At SMS, we care and ensure to have a diverse and inclusive workforce. To do so, we create designated
-                        workplace training programs to strengthen our current and prospective employees’ skills.
-                    </p>
-                </div>
-            </section>
-            {/* Safe operation */}
-            <section className="bg-white px-4">
-                <div className="max-w-screen-xl mx-auto space-y-6">
-                    <h2 className="text-[#c8102e] text-2xl font-bold mb-2">Safe operation</h2>
-                    <p className="text-gray-700 text-base leading-relaxed">
-                        “We are diligently enforcing regulations such as the ‘Safety Regulations for Explosive Work,’
-                        ‘Unified Regulations for Blasting Work,’ and ‘Safety Regulations for Mining Operations,’ among
-                        others, to ensure compliance with safety standards. In addition to these established regulations,
-                        we are actively working on implementing our own daily work practices to prevent unforeseen
-                        incidents and maintain a safe working environment. As of today, we have been successful in our
-                        daily operations, with no accidents or incidents that have caused harm, damage, or disruptions. We
-                        are committed to upholding these safety measures and adhering to our ‘Safety at Work’ policies. Our
-                        commitment to safety extends beyond regulatory compliance; it is embedded in our daily work
-                        practices and is a fundamental part of our operations.”
-                    </p>
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                        <img
-                            src="https://specialmining.bloomlink.mn/moavolen/2023/09/special-iin-5-1536x1017.png"
-                            alt="safety1"
-                            className="rounded shadow"
-                        />
+        {/* Safe operation */}
+        <section className="my-24">
+          <p className={generalTheme?.titleMain}>
+            {staticItem?.safeOperation.title}
+          </p>
+          <p>{staticItem?.safeOperation.text}</p>
 
-                        <img
-                            src="https://specialmining.bloomlink.mn/moavolen/2023/09/special-iin-6-1536x1021.png"
-                            alt="safety2"
-                            className="rounded shadow"
-                        />
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 my-8">
+            {staticItem?.safeOperation.images.map((img, idx) => (
+              <img
+                key={idx}
+                src={img}
+                alt={`safety${idx + 1}`}
+                className="rounded-md shadow-lg transition-transform transform hover:scale-105 duration-300"
+              />
+            ))}
+          </div>
+        </section>
 
-                        <img
-                            src="https://specialmining.bloomlink.mn/moavolen/2023/09/special-iin-13-768x511.png"
-                            alt="safety3"
-                            className="rounded shadow"
-                        />
-                    </div>
+        {/* Internal regulations */}
+        <section className="my-24">
+          <div className="bg-rose-200 grid grid-cols-2 gap-8 p-10 rounded-lg">
+            <div className="w-full">
+              <p className={generalTheme?.titleMain}>Internal Regulations</p>
+              <ul className="list-disc list-inside">
+                {_.map(
+                  staticItem?.internalRegulations.internal,
+                  (item: any, index: number) => (
+                    <li key={item?.id || index}>{item}</li>
+                  )
+                )}
+              </ul>
+            </div>
 
-                </div>
-            </section>
-
-            {/* Internal regulations - fixed width */}
-            <section className="bg-[#f5f6f8] py-16 px-4">
-                <div className="max-w-screen-xl mx-auto">
-                    <div className="bg-[#c8102e] text-white grid md:grid-cols-2 gap-8 p-10 rounded-lg">
-                        <div>
-                            <h3 className="text-2xl font-bold uppercase mb-4">Internal Regulations</h3>
-                            <ul className="list-disc list-inside text-lg">
-                                <li>Occupational Safety and Health Internal Regulations</li>
-                                <li>Environmental Protection Plan</li>
-                            </ul>
-                        </div>
-                        <div>
-                            <h3 className="text-2xl font-bold uppercase mb-4">Legal Document</h3>
-                            <ul className="list-disc list-inside text-lg">
-                                <li>Environmental impact assessment</li>
-                                <li>Feasibility study</li>
-                                <li>Environmental Conservation Law</li>
-                                <li>Disaster Mitigation Plan</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            {/* ✅ Footer here */}
-            <Footer />
-        </main>
-    );
+            <div className="w-full">
+              <p className={generalTheme?.titleMain}>Legal Document</p>
+              <ul className="list-disc list-inside">
+                {_.map(
+                  staticItem?.internalRegulations.legal,
+                  (item: any, index: number) => (
+                    <li key={item?.id || index}>{item}</li>
+                  )
+                )}
+              </ul>
+            </div>
+          </div>
+        </section>
+      </PanelMain>
+    </main>
+  );
 }
+
+const staticItem = {
+  banner: {
+    title: "Safety",
+    subtitle: "Special Mining LLC > Safety",
+    mainimage:
+      "https://specialmining.bloomlink.mn/moavolen/2023/09/special-iin-1.png",
+  },
+  policy: {
+    text: "We work to achieve our HSE goal through our “Zero harm Zero incident” policy. Our management process from supply chain to delivery of final products and services is ISO 45001:2018(HSE) certified, and regularly assessed and audited.",
+  },
+  community: {
+    title: "Community and Environment",
+    text: "Anywhere SMS operates, we are very committed to protecting environment and take steps to ensure to minimize the environmental impact of our operations, to implement reuse and recycling, to review regularly our environmental footprint.",
+  },
+  landscapeImage:
+    "https://specialmining.bloomlink.mn/moavolen/2023/09/special-iin-4-1536x362.png",
+  people: {
+    title: "People",
+    text: "At SMS, we care and ensure to have a diverse and inclusive workforce. To do so, we create designated workplace training programs to strengthen our current and prospective employees’ skills.",
+  },
+  safeOperation: {
+    title: "Safe operation",
+    text: "We are diligently enforcing regulations such as the ‘Safety Regulations for Explosive Work,’ ...",
+    images: [
+      "https://specialmining.bloomlink.mn/moavolen/2023/09/special-iin-5-1536x1017.png",
+      "https://specialmining.bloomlink.mn/moavolen/2023/09/special-iin-6-1536x1021.png",
+      "https://specialmining.bloomlink.mn/moavolen/2023/09/special-iin-13-768x511.png",
+    ],
+  },
+  internalRegulations: {
+    internal: [
+      "Occupational Safety and Health Internal Regulations",
+      "Environmental Protection Plan",
+    ],
+    legal: [
+      "Environmental impact assessment",
+      "Feasibility study",
+      "Environmental Conservation Law",
+      "Disaster Mitigation Plan",
+    ],
+  },
+};

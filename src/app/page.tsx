@@ -1,14 +1,5 @@
-import Overview from "../components/Overview";
-import Footer from "../components/Footer";
-import Hero from "../components/Hero";
-import React from "react";
+import Home from "./home/page";
 
-export default function Home() {
-  return (
-    <>
-      <Hero />
-      <Overview />
-      <Footer />
-    </>
-  );
+export default function HomePage() {
+  return <Home />;
 }
