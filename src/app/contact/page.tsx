@@ -2,6 +2,7 @@ import _ from "lodash";
 import Banner from "../../components/Banner";
 import { generalTheme } from "../../config/generalConfig";
 import PanelMain from "../../config/PanelMain";
+import Link from "next/link";
 
 export default function ContactPage() {
   return (
@@ -59,7 +60,11 @@ export default function ContactPage() {
             {/* Right Form */}
             <div className="bg-gray-200 p-8 rounded-lg shadow-lg space-y-4">
               <p className={generalTheme?.title2}>{staticItem?.form.title}</p>
-              <div className="grid grid-cols-2 gap-4">
+
+              <Link href={"/career"} className="underline text-[#c8102e]">
+                Click here to apply for a job
+              </Link>
+              {/* <div className="grid grid-cols-2 gap-4">
                 {_.map(staticItem?.formFields, (field: any, index: number) =>
                   field.type === "select" ? (
                     <div key={index} className="w-full">
@@ -92,7 +97,7 @@ export default function ContactPage() {
               </div>
               <button className="bg-[#c8102e] text-white px-6 py-2 rounded hover:bg-red-700 transition-all">
                 {staticItem?.form.buttonLabel}
-              </button>
+              </button> */}
             </div>
           </div>
         </section>

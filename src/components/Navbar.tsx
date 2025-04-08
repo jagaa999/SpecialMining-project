@@ -2,9 +2,10 @@
 
 import _ from "lodash";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FaFacebookF, FaInstagram, FaLinkedinIn } from "react-icons/fa";
 import PanelContainer from "../config/PanelContainer";
+import { usePathname } from "next/navigation";
 
 const iconMap = {
   FaFacebookF: <FaFacebookF />,
@@ -14,6 +15,18 @@ const iconMap = {
 
 export default function Navbar() {
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const pathname = usePathname();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const isScrolled = window.scrollY > 20;
+      setScrolled(isScrolled);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <>
@@ -46,15 +59,22 @@ export default function Navbar() {
       </PanelContainer>
 
       {/* Main Navbar */}
-      <nav className="bg-white shadow-md sticky top-0 z-50">
+      <nav
+        className={`sticky top-0 z-50 transition-all duration-300 ${
+          scrolled
+            ? "bg-gradient-to-r from-white/50 via-pink-50/70 to-pink-100/80 backdrop-blur-md shadow-md py-2"
+            : "bg-white shadow-none py-4"
+        }`}>
         <PanelContainer>
-          <div className="w-full py-4 flex justify-between items-center">
+          <div className="w-full flex justify-between items-center">
             {/* Logo + Nav */}
             <div className="flex items-center gap-12">
               <Link href="/">
                 <img
                   src={staticItem?.logo}
-                  className="w-[130px] h-auto object-contain"
+                  className={`${
+                    scrolled ? "w-[80px]" : "w-[130px]"
+                  } h-auto object-contain`}
                   alt="Special Mining Logo"
                 />
               </Link>
@@ -69,7 +89,11 @@ export default function Navbar() {
                       onMouseLeave={() => setDropdownOpen(false)}>
                       <Link
                         href={item.href}
-                        className="flex items-center gap-1 text-[#111] text-[14px] font-bold tracking-wide hover:text-[#c8102e]">
+                        className={`flex items-center text-[14px] font-bold tracking-wide transition-all ${
+                          pathname === item.href
+                            ? "text-[#c8102e]"
+                            : "text-[#111] hover:text-[#c8102e]"
+                        }`}>
                         {item.title}
                         <svg
                           className="w-4 h-4"
@@ -79,10 +103,11 @@ export default function Navbar() {
                         </svg>
                       </Link>
                       <ul
-                        className={`absolute top-full left-0 mt-2 w-56 bg-white border shadow-lg text-sm z-50 transition-all duration-300 ${dropdownOpen
+                        className={`absolute top-full left-0 mt-2 w-56 bg-white border shadow-lg text-sm z-50 transition-all duration-300 ${
+                          dropdownOpen
                             ? "opacity-100 visible"
                             : "opacity-0 invisible"
-                          }`}>
+                        }`}>
                         {item.dropdown.map((sub, i) => (
                           <li
                             key={i}
@@ -96,7 +121,12 @@ export default function Navbar() {
                     <li key={index}>
                       <Link
                         href={item.href}
-                        className="flex items-center text-[#111] text-[14px] font-bold tracking-wide hover:text-[#c8102e]">
+                        // className="flex items-center text-[#111] text-[14px] font-bold tracking-wide hover:text-[#c8102e]">
+                        className={`flex items-center text-[14px] font-bold tracking-wide transition-all ${
+                          pathname === item.href
+                            ? "text-[#c8102e]"
+                            : "text-[#111] hover:text-[#c8102e]"
+                        }`}>
                         {item.title}
                       </Link>
                     </li>
@@ -182,7 +212,8 @@ const staticItem = {
       ],
     },
     { title: "PRODUCTS", href: "/products" },
-    { title: "CONTACT/CAREER", href: "/contact" },
+    { title: "CAREER", href: "/career" },
+    { title: "CONTACT", href: "/contact" },
   ],
   inquiryButton: {
     title: "INQUIRY →",
