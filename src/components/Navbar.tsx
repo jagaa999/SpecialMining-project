@@ -79,11 +79,10 @@ export default function Navbar() {
                         </svg>
                       </Link>
                       <ul
-                        className={`absolute top-full left-0 mt-2 w-56 bg-white border shadow-lg text-sm z-50 transition-all duration-300 ${
-                          dropdownOpen
+                        className={`absolute top-full left-0 mt-2 w-56 bg-white border shadow-lg text-sm z-50 transition-all duration-300 ${dropdownOpen
                             ? "opacity-100 visible"
                             : "opacity-0 invisible"
-                        }`}>
+                          }`}>
                         {item.dropdown.map((sub, i) => (
                           <li
                             key={i}
