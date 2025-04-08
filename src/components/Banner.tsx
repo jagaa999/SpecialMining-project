@@ -16,7 +16,7 @@ export default function Banner({
   const { imageUrl, loading, error } = useUnsplash("mining");
 
   // Default image in case of error or loading
-  const defaultImage = "/images/dddd.jpg"; // Replace with your default image path
+  const defaultImage = "/images/dddd.jpg";
   const [hasLoaded, setHasLoaded] = useState(false);
 
   useEffect(() => {

@@ -25,12 +25,14 @@ const staticItem = {
 
 export default function Hero() {
   const { imageUrl, loading, error } = useUnsplash("mining");
-
+  const defaultImage = "/images/dddd.jpg";
   return (
     <section
       className="h-[100vh] bg-cover bg-center flex items-center justify-center text-white relative"
       style={{
-        backgroundImage: `url('${imageUrl}')`,
+        backgroundImage: `url(${
+          error ? defaultImage : imageUrl || defaultImage
+        })`, // Use default if there's an error
       }}>
       {/* Overlay */}
       <div className="absolute inset-0 bg-black/40" />
