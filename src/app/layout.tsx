@@ -4,8 +4,11 @@ import "./globals.css";
 import "../../public/fonts/roboto.css";
 
 export const metadata = {
-  title: "SpecialMining",
+  title: "Special Mining",
   description: "Special Mining компанийн танилцуулга сайт",
+  icons: {
+    icon: "/favicon.png",
+  },
 };
 
 export default function RootLayout({ children }: any) {

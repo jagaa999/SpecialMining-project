@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import _ from "lodash";
+import useUnsplash from "../config/useUnsplash";
 
 export default function Banner({
   item,
@@ -12,39 +13,7 @@ export default function Banner({
     subtitle: string;
   };
 }) {
-  const [imageUrl, setImageUrl] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-
-  useEffect(() => {
-    async function fetchRandomImage() {
-      const UNSPLASH_ACCESS_KEY = process.env.NEXT_PUBLIC_ACCESS_KEY;
-      const url =
-        "https://api.unsplash.com/photos/random?query=mining&orientation=landscape";
-
-      try {
-        const response = await fetch(url, {
-          headers: {
-            Authorization: `Client-ID ${UNSPLASH_ACCESS_KEY}`,
-          },
-        });
-
-        if (!response.ok) {
-          throw new Error(`Error: ${response.status}`);
-        }
-
-        const data = await response.json();
-        setImageUrl(data.urls.full); // Fetch the full image URL
-      } catch (err) {
-        console.error("Error fetching the image:", err.message);
-        setError(err.message);
-      } finally {
-        setLoading(false);
-      }
-    }
-
-    fetchRandomImage();
-  }, []);
+  const { imageUrl, loading, error } = useUnsplash("mining");
 
   return (
     <section

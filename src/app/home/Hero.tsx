@@ -2,6 +2,7 @@
 
 import React from "react";
 import _ from "lodash";
+import useUnsplash from "../../config/useUnsplash";
 
 const staticItem = {
   backgroundImage:
@@ -23,11 +24,13 @@ const staticItem = {
 };
 
 export default function Hero() {
+  const { imageUrl, loading, error } = useUnsplash("mining");
+
   return (
     <section
       className="h-[100vh] bg-cover bg-center flex items-center justify-center text-white relative"
       style={{
-        backgroundImage: `url('${staticItem?.backgroundImage}')`,
+        backgroundImage: `url('${imageUrl}')`,
       }}>
       {/* Overlay */}
       <div className="absolute inset-0 bg-black/40" />
