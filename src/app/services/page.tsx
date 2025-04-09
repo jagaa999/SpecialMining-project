@@ -78,7 +78,7 @@ export default function ServicesPage() {
               (item: any, index: number) => (
                 <div key={item?.id || index}>
                   <p className={generalTheme?.title2}>{item.title}</p>
-                  <ul className="list-disc">
+                  <ul className="list-disc list-inside">
                     {item.items.map((text: any, jindex: number) => (
                       <li key={jindex}>{text}</li>
                     ))}
@@ -124,7 +124,7 @@ export default function ServicesPage() {
         <section className="my-24" id="quality">
           <p className={generalTheme?.titleMain}>{sections.quality.title}</p>
 
-          <div className="grid grid-cols-2 gap-6 items-start">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
             <div>
               <p>{sections.quality.description}</p>
               <ul className="list-disc list-inside text-gray-700 space-y-2 mt-8">

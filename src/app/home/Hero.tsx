@@ -46,7 +46,7 @@ export default function Hero() {
         <p className="text-xl md:text-3xl max-w-3xl mx-auto mb-10">
           {staticItem?.subtitle}
         </p>
-        <div className="flex justify-center gap-6">
+        <div className="flex flex-col md:flex-row justify-center gap-6">
           {_.map(staticItem?.buttons, (item: any, index: number) => (
             <a
               key={index}

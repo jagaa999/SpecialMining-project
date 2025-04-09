@@ -16,7 +16,7 @@ export default function CareerPage() {
           <p>{staticItem?.community.text}</p>
         </section>
 
-        <section className="min-h-screen flex justify-center items-center p-4">
+        <section className="min-h-screen flex justify-center items-center">
           <iframe
             src="https://docs.google.com/forms/d/e/1FAIpQLSc_DrifDJYpvBS-LONvuVMLzXkiyaL3ILafoidlqSoUowpczg/viewform?usp=dialog"
             width="100%"

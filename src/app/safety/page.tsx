@@ -49,7 +49,7 @@ export default function SafetyPage() {
 
         {/* Internal regulations */}
         <section className="my-24">
-          <div className="bg-rose-200 grid grid-cols-2 gap-8 p-10 rounded-lg">
+          <div className="bg-rose-200 grid grid-cols-1 md:grid-cols-2 gap-8 p-10 rounded-lg">
             <div className="w-full">
               <p className={generalTheme?.titleMain}>Internal Regulations</p>
               <ul className="list-disc list-inside">
