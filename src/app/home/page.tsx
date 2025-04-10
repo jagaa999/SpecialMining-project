@@ -19,7 +19,8 @@ export default function HomePage() {
           className="w-full h-auto rounded-lg shadow-xl bg-gray-500 pt-16"
           poster={staticItem?.video.poster}
           autoPlay
-          loop>
+          loop
+          muted>
           <source src={staticItem?.video.src} type="video/mp4" />
           Your browser does not support the video tag.
         </video>

@@ -171,7 +171,7 @@ const staticItem = {
       title2: "Our projects",
       description:
         "Our mission is to deliver sustainable and innovative solutions to even most challenging projects and value to our customers, while decreasing carbon footprint.",
-      title3: "Blasting Work",
+      title3: "Down-the-hole (DTH) services",
       works: [
         "Open pit mining coal and metal",
         "Quarrying",

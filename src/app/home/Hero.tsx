@@ -7,8 +7,8 @@ import useUnsplash from "../../config/useUnsplash";
 const staticItem = {
   backgroundImage:
     "https://specialmining.bloomlink.mn/moavolen/2023/09/special-iin-1.png",
-  title: "Blasting and\nDrilling Services",
-  subtitle: "Expert in mining service. Contact us to start a project today.",
+  title: "A Mining Technology Company",
+  subtitle: "Expert in a drill & blast technology, industrial chemicals.",
   buttons: [
     {
       label: "Our Services",

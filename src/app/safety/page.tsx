@@ -2,6 +2,7 @@ import _ from "lodash";
 import Banner from "../../components/Banner";
 import { generalTheme } from "../../config/generalConfig";
 import PanelMain from "../../config/PanelMain";
+import { twMerge } from "tailwind-merge";
 
 export default function SafetyPage() {
   return (
@@ -49,26 +50,34 @@ export default function SafetyPage() {
 
         {/* Internal regulations */}
         <section className="my-24">
-          <div className="bg-rose-200 grid grid-cols-1 md:grid-cols-2 gap-8 p-10 rounded-lg">
-            <div className="w-full">
-              <p className={generalTheme?.titleMain}>Internal Regulations</p>
+          <div className=" grid grid-cols-1 md:grid-cols-2">
+            <div className="w-full bg-[#a81c1b] px-5 py-3 rounded-l-lg">
+              <p className={twMerge(generalTheme?.titleMain, "text-white")}>
+                Internal Regulations
+              </p>
               <ul className="list-disc list-inside">
                 {_.map(
                   staticItem?.internalRegulations.internal,
                   (item: any, index: number) => (
-                    <li key={item?.id || index}>{item}</li>
+                    <li key={item?.id || index} className="text-white">
+                      {item}
+                    </li>
                   )
                 )}
               </ul>
             </div>
 
-            <div className="w-full">
-              <p className={generalTheme?.titleMain}>Legal Document</p>
+            <div className="w-full bg-[#d71724] px-5 py-3  rounded-r-lg">
+              <p className={twMerge(generalTheme?.titleMain, "text-white")}>
+                Legal Document
+              </p>
               <ul className="list-disc list-inside">
                 {_.map(
                   staticItem?.internalRegulations.legal,
                   (item: any, index: number) => (
-                    <li key={item?.id || index}>{item}</li>
+                    <li key={item?.id || index} className="text-white">
+                      {item}
+                    </li>
                   )
                 )}
               </ul>

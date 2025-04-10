@@ -163,5 +163,6 @@ const staticItem = {
     { label: "Message", type: "textarea", placeholder: "Message" },
   ],
   mapSrc:
-    "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2620.985429525627!2d106.854799!3d47.9047!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDfCsDU0JzE2LjkiTiAxMDbCsDUxJzI1LjciRQ!5e0!3m2!1sen!2smn!4v1711546500000",
+    "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d778.4218124003837!2d106.90978491097576!3d47.90067709640233!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5d96936ef95fd02b%3A0x4ddcd9c18ef16c15!2sRegis%20Place!5e1!3m2!1sen!2smn!4v1744281165290!5m2!1sen!2smn",
+  // "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2620.985429525627!2d106.854799!3d47.9047!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDfCsDU0JzE2LjkiTiAxMDbCsDUxJzI1LjciRQ!5e0!3m2!1sen!2smn!4v1711546500000",
 };

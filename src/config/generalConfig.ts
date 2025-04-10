@@ -1,5 +1,5 @@
 export const generalTheme = {
-  containerMain: "container mx-auto px-4 md:px-0",
+  containerMain: "container mx-auto px-4 md:px-2",
   colorMain: "#c8102e",
   // titleMain: "text-[#c8102e] text-2xl md:text-3xl font-bold uppercase py-6",
   // title2: "font-semibold text-xl md:text-2xl text-gray-700 py-4",
