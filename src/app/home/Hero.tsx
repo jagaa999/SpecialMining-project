@@ -4,26 +4,7 @@ import React from "react";
 import _ from "lodash";
 import useUnsplash from "../../config/useUnsplash";
 
-const staticItem = {
-  backgroundImage:
-    "https://specialmining.bloomlink.mn/moavolen/2023/09/special-iin-1.png",
-  title: "A Mining Technology Company",
-  subtitle: "Expert in a drill & blast technology, industrial chemicals.",
-  buttons: [
-    {
-      label: "Our Services",
-      href: "/services",
-      style: "light",
-    },
-    {
-      label: "About Us",
-      href: "/about",
-      style: "primary",
-    },
-  ],
-};
-
-export default function Hero() {
+export default function Hero({ item }: { item: any }) {
   const { imageUrl, loading, error } = useUnsplash("mining");
   const defaultImage = "/images/dddd.jpg";
   return (
@@ -41,13 +22,13 @@ export default function Hero() {
       <div className="relative z-10 text-center px-4">
         <div className="w-40 h-[3px] bg-[#c8102e] mx-auto mb-8" />
         <p className="text-6xl md:text-8xl font-extrabold leading-tight mb-8 whitespace-pre-line">
-          {staticItem?.title}
+          {item?.title}
         </p>
         <p className="text-xl md:text-3xl max-w-3xl mx-auto mb-10">
-          {staticItem?.subtitle}
+          {item?.subtitle}
         </p>
         <div className="flex flex-col md:flex-row justify-center gap-6">
-          {_.map(staticItem?.buttons, (item: any, index: number) => (
+          {_.map(item?.buttons, (item: any, index: number) => (
             <a
               key={index}
               href={item.href}

@@ -3,48 +3,6 @@
 import Banner from "../../components/Banner";
 import PanelMain from "../../config/PanelMain";
 
-const staticItem = {
-  banner: {
-    title: "Products",
-    subtitle: "Special Mining LLC > Products",
-    mainimage:
-      "https://specialmining.bloomlink.mn/moavolen/2023/09/DSC_7513-1536x1025.jpg",
-  },
-  productList: [
-    {
-      mainimage: "/images/products.png",
-      title: "Cut elemets",
-      description:
-        "Electronic and non-electronic initiating systems for Open cut and underground",
-    },
-    {
-      mainimage: "/images/products.png",
-      title: "Bulk Emulsion",
-      description: "Bulk Emulsion Plant Operation and Services",
-    },
-    {
-      mainimage: "/images/products.png",
-      title: "Explosives",
-      description: "Explosives Storage and Transport",
-    },
-    {
-      mainimage: "/images/products.png",
-      title: "Projects",
-      description: "Technical Support for Blasting Projects",
-    },
-    {
-      mainimage: "/images/products.png",
-      title: "Services",
-      description: "On-site Consultation Services",
-    },
-    {
-      mainimage: "/images/products.png",
-      title: "Packaged Emulsion",
-      description: "Hypersonic EX series – Packaged emulsion",
-    },
-  ],
-};
-
 export default function ProductsPage() {
   return (
     <main>
@@ -138,3 +96,45 @@ export default function ProductsPage() {
     </main>
   );
 }
+
+const staticItem = {
+  banner: {
+    title: "Products",
+    subtitle: "Special Mining LLC > Products",
+    mainimage:
+      "https://specialmining.bloomlink.mn/moavolen/2023/09/DSC_7513-1536x1025.jpg",
+  },
+  productList: [
+    {
+      mainimage: "/images/products.png",
+      title: "Cut elemets",
+      description:
+        "Electronic and non-electronic initiating systems for Open cut and underground",
+    },
+    {
+      mainimage: "/images/products.png",
+      title: "Bulk Emulsion",
+      description: "Bulk Emulsion Plant Operation and Services",
+    },
+    {
+      mainimage: "/images/products.png",
+      title: "Explosives",
+      description: "Explosives Storage and Transport",
+    },
+    {
+      mainimage: "/images/products.png",
+      title: "Projects",
+      description: "Technical Support for Blasting Projects",
+    },
+    {
+      mainimage: "/images/products.png",
+      title: "Services",
+      description: "On-site Consultation Services",
+    },
+    {
+      mainimage: "/images/products.png",
+      title: "Packaged Emulsion",
+      description: "Hypersonic EX series – Packaged emulsion",
+    },
+  ],
+};

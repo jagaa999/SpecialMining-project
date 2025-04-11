@@ -8,7 +8,7 @@ import { generalTheme } from "../../config/generalConfig";
 export default function HomePage() {
   return (
     <>
-      <Hero />
+      <Hero item={staticItem?.hero} />
 
       <PanelMain>
         <p className={generalTheme?.titleMain}>{staticItem?.title}</p>
@@ -36,5 +36,23 @@ const staticItem = {
   video: {
     poster: "https://cdn.moto.mn/moto/landing/09_specialmining/thumb.jpg",
     src: "https://specialmining.bloomlink.mn/moavolen/2023/10/Teselgee.mp4",
+  },
+  hero: {
+    backgroundImage:
+      "https://specialmining.bloomlink.mn/moavolen/2023/09/special-iin-1.png",
+    title: "A Mining Technology Company",
+    subtitle: "Expert in a drill & blast technology, industrial chemicals.",
+    buttons: [
+      {
+        label: "Our Services",
+        href: "/services",
+        style: "light",
+      },
+      {
+        label: "About Us",
+        href: "/about",
+        style: "primary",
+      },
+    ],
   },
 };
