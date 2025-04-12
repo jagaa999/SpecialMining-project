@@ -3,16 +3,16 @@
 import Banner from "../../components/Banner";
 import PanelMain from "../../config/PanelMain";
 
-export default function ProductsPage() {
+export default function ProductsPage({ item }: { item: any }) {
   return (
     <main>
-      <Banner item={staticItem?.banner} />
+      <Banner item={item?.banner} />
 
       {/* ✅ Logo Grid with Hover Text */}
       <PanelMain>
         <section className="my-24">
           <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
-            {staticItem.productList.map((item: any, index: number) => (
+            {item.productList.map((item: any, index: number) => (
               <div
                 key={item?.id || index}
                 className="bg-white rounded-lg shadow hover:shadow-lg transition-shadow duration-300 p-4 flex flex-col items-center text-center group cursor-pointer border border-gray-50">
@@ -37,7 +37,7 @@ export default function ProductsPage() {
 
         {/* <section className="my-24">
           <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
-            {staticItem.productList.map((product, i) => (
+            {item.productList.map((product, i) => (
               <div
                 key={i}
                 className="relative overflow-hidden rounded shadow group">
@@ -62,7 +62,7 @@ export default function ProductsPage() {
         {/* ✅ Product Images */}
         {/* <section className="bg-white py-16 px-4">
         <div className=" grid grid-cols-1 md:grid-cols-3 gap-8">
-          {staticItem?.productImages.map((src, i) => (
+          {item?.productImages.map((src, i) => (
             <img
               key={i}
               src={src}
@@ -79,11 +79,11 @@ export default function ProductsPage() {
           <button className="px-3 py-1 bg-white border rounded hover:bg-gray-100">
             ←
           </button>
-          {staticItem?.pagination.pages.map((page) => (
+          {item?.pagination.pages.map((page) => (
             <button
               key={page}
               className={`px-3 py-1 border rounded hover:bg-gray-100 ${
-                page === staticItem?.pagination.currentPage
+                page === item?.pagination.currentPage
                   ? "bg-[#c8102e] text-white"
                   : "bg-white"
               }`}>
@@ -97,7 +97,7 @@ export default function ProductsPage() {
   );
 }
 
-const staticItem = {
+const item_local = {
   banner: {
     title: "Products",
     subtitle: "Special Mining LLC > Products",

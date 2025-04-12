@@ -3,6 +3,18 @@ import Navbar from "../components/Navbar";
 import "./globals.css";
 import "../../public/fonts/roboto.css";
 
+export default function RootLayout({ children }: any) {
+  return (
+    <html lang="mn">
+      <body className="min-h-screen bg-gray-100 text-gray-900 antialiased font-roboto">
+        <Navbar />
+        <main>{children}</main>
+        <Footer />
+      </body>
+    </html>
+  );
+}
+
 export const metadata = {
   title: "Special Mining",
   description: "Special Mining компанийн танилцуулга сайт",
@@ -34,15 +46,3 @@ export const metadata = {
     creator: "@Special", // Twitter хэрэглэгчийн нэр байгаа бол
   },
 };
-
-export default function RootLayout({ children }: any) {
-  return (
-    <html lang="mn">
-      <body className="min-h-screen bg-gray-100 text-gray-900 antialiased font-roboto">
-        <Navbar />
-        <main>{children}</main>
-        <Footer />
-      </body>
-    </html>
-  );
-}

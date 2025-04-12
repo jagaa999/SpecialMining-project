@@ -4,21 +4,21 @@ import { generalTheme } from "../../config/generalConfig";
 import PanelMain from "../../config/PanelMain";
 import Link from "next/link";
 
-export default function ContactPage() {
+export default function ContactPage({ item }: { item: any }) {
   return (
     <main>
-      <Banner item={staticItem?.banner} />
+      <Banner item={item?.banner} />
 
       <PanelMain>
         {/* ✅ Career Section */}
         <section className="my-24">
-          <p className={generalTheme?.titleMain}>{staticItem?.career.title}</p>
+          <p className={generalTheme?.titleMain}>{item?.career.title}</p>
 
           <p className={generalTheme?.title2}>HR Policy</p>
-          <p>{staticItem?.career.hrPolicy}</p>
+          <p>{item?.career.hrPolicy}</p>
 
           <p className={generalTheme?.title2}>Open positions</p>
-          <p>{staticItem?.career.openPositions}</p>
+          <p>{item?.career.openPositions}</p>
         </section>
 
         {/* ✅ Get in touch + Form */}
@@ -27,45 +27,43 @@ export default function ContactPage() {
             {/* Left Info */}
             <div className="space-y-6">
               <p className={generalTheme?.titleMain}>
-                {staticItem?.contactInfo.sectionSubtitle}
+                {item?.contactInfo.sectionSubtitle}
               </p>
               <p className="text-3xl font-bold">
-                {staticItem?.contactInfo.sectionTitle}
+                {item?.contactInfo.sectionTitle}
               </p>
 
               <div>
                 <p className={generalTheme?.title2}>
-                  {staticItem?.contactInfo.officeTitle}
+                  {item?.contactInfo.officeTitle}
                 </p>
-                <p className="text-gray-700">
-                  {staticItem?.contactInfo.office}
-                </p>
+                <p className="text-gray-700">{item?.contactInfo.office}</p>
               </div>
 
               <div>
                 <p className={generalTheme?.title2}>
-                  {staticItem?.contactInfo.phoneTitle}
+                  {item?.contactInfo.phoneTitle}
                 </p>
-                <p className="text-gray-700">{staticItem?.contactInfo.phone}</p>
+                <p className="text-gray-700">{item?.contactInfo.phone}</p>
               </div>
 
               <div>
                 <p className={generalTheme?.title2}>
-                  {staticItem?.contactInfo.emailTitle}
+                  {item?.contactInfo.emailTitle}
                 </p>
-                <p className="text-gray-700">{staticItem?.contactInfo.email}</p>
+                <p className="text-gray-700">{item?.contactInfo.email}</p>
               </div>
             </div>
 
             {/* Right Form */}
             <div className="bg-gray-200 p-8 rounded-lg shadow-lg space-y-4">
-              <p className={generalTheme?.title2}>{staticItem?.form.title}</p>
+              <p className={generalTheme?.title2}>{item?.form.title}</p>
 
               <Link href={"/career"} className="underline text-[#c8102e]">
                 Click here to apply for a job
               </Link>
               {/* <div className="grid grid-cols-2 gap-4">
-                {_.map(staticItem?.formFields, (field: any, index: number) =>
+                {_.map(item?.formFields, (field: any, index: number) =>
                   field.type === "select" ? (
                     <div key={index} className="w-full">
                       <label className="block text-sm">{field.label}</label>
@@ -96,7 +94,7 @@ export default function ContactPage() {
                 )}
               </div>
               <button className="bg-[#c8102e] text-white px-6 py-2 rounded hover:bg-red-700 transition-all">
-                {staticItem?.form.buttonLabel}
+                {item?.form.buttonLabel}
               </button> */}
             </div>
           </div>
@@ -105,7 +103,7 @@ export default function ContactPage() {
         {/* ✅ Google Map Section */}
         <section className="w-full h-[500px] rounded-3xl">
           <iframe
-            src={staticItem?.mapSrc}
+            src={item?.mapSrc}
             width="100%"
             height="100%"
             loading="lazy"
@@ -118,7 +116,7 @@ export default function ContactPage() {
   );
 }
 
-const staticItem = {
+const item_local = {
   banner: {
     title: "Contact Us",
     subtitle: "Special Mining LLC > Contact Us",

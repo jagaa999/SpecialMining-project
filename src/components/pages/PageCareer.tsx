@@ -3,17 +3,17 @@ import Banner from "../../components/Banner";
 import { generalTheme } from "../../config/generalConfig";
 import PanelMain from "../../config/PanelMain";
 
-export default function CareerPage() {
+export default function CareerPage({ item }: { item: any }) {
   return (
     <main>
-      <Banner item={staticItem?.banner} />
+      <Banner item={item?.banner} />
 
       <PanelMain>
         {/* Policy Text */}
         <section className="my-24">
-          <p>{staticItem?.policy.text}</p>
-          <p className={generalTheme?.title2}>{staticItem?.community.title}</p>
-          <p>{staticItem?.community.text}</p>
+          <p>{item?.policy.text}</p>
+          <p className={generalTheme?.title2}>{item?.community.title}</p>
+          <p>{item?.community.text}</p>
         </section>
 
         <section className="min-h-screen flex justify-center items-center">
@@ -30,7 +30,7 @@ export default function CareerPage() {
   );
 }
 
-const staticItem = {
+const item_local = {
   banner: {
     title: "Career",
     subtitle: "Make Your Career with Us",

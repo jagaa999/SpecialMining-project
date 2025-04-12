@@ -5,12 +5,12 @@ import Banner from "../../components/Banner";
 import PanelMain from "../../config/PanelMain";
 import { generalTheme } from "../../config/generalConfig";
 
-export default function ServicesPage() {
-  const { sections } = staticItem;
+export default function ServicesPage({ item }: { item: any }) {
+  const { sections } = item;
 
   return (
     <main>
-      <Banner item={staticItem?.banner} />
+      <Banner item={item?.banner} />
 
       <PanelMain>
         {/* ✅ Blasting */}
@@ -151,7 +151,7 @@ export default function ServicesPage() {
   );
 }
 
-const staticItem = {
+const item_local = {
   banner: {
     title: "Services",
     subtitle: "Special Mining LLC > Services",

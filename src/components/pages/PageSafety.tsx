@@ -1,43 +1,43 @@
+"use client";
+
 import _ from "lodash";
+import { twMerge } from "tailwind-merge";
 import Banner from "../../components/Banner";
 import { generalTheme } from "../../config/generalConfig";
 import PanelMain from "../../config/PanelMain";
-import { twMerge } from "tailwind-merge";
 
-export default function SafetyPage() {
+export default function SafetyPage({ item }: { item: any }) {
   return (
     <main>
-      <Banner item={staticItem?.banner} />
+      <Banner item={item?.banner} />
 
       <PanelMain>
         {/* Policy Text */}
         <section className="my-24">
-          <p>{staticItem?.policy.text}</p>
-          <p className={generalTheme?.title2}>{staticItem?.community.title}</p>
-          <p>{staticItem?.community.text}</p>
+          <p>{item?.policy.text}</p>
+          <p className={generalTheme?.title2}>{item?.community.title}</p>
+          <p>{item?.community.text}</p>
         </section>
 
         <img
-          src={staticItem?.landscapeImage}
+          src={item?.landscapeImage}
           alt="Community and Environment"
           className="w-full h-auto rounded-lg shadow-lg"
         />
 
         {/* People Section */}
         <section className="my-24">
-          <p className={generalTheme?.titleMain}>{staticItem?.people.title}</p>
-          <p>{staticItem?.people.text}</p>
+          <p className={generalTheme?.titleMain}>{item?.people.title}</p>
+          <p>{item?.people.text}</p>
         </section>
 
         {/* Safe operation */}
         <section className="my-24">
-          <p className={generalTheme?.titleMain}>
-            {staticItem?.safeOperation.title}
-          </p>
-          <p>{staticItem?.safeOperation.text}</p>
+          <p className={generalTheme?.titleMain}>{item?.safeOperation.title}</p>
+          <p>{item?.safeOperation.text}</p>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 my-8">
-            {staticItem?.safeOperation.images.map((img, idx) => (
+            {item?.safeOperation.images.map((img, idx) => (
               <img
                 key={idx}
                 src={img}
@@ -57,7 +57,7 @@ export default function SafetyPage() {
               </p>
               <ul className="list-disc list-inside">
                 {_.map(
-                  staticItem?.internalRegulations.internal,
+                  item?.internalRegulations.internal,
                   (item: any, index: number) => (
                     <li key={item?.id || index} className="text-white">
                       {item}
@@ -73,7 +73,7 @@ export default function SafetyPage() {
               </p>
               <ul className="list-disc list-inside">
                 {_.map(
-                  staticItem?.internalRegulations.legal,
+                  item?.internalRegulations.legal,
                   (item: any, index: number) => (
                     <li key={item?.id || index} className="text-white">
                       {item}
@@ -89,7 +89,7 @@ export default function SafetyPage() {
   );
 }
 
-const staticItem = {
+const item_local = {
   banner: {
     title: "Safety",
     subtitle: "Special Mining LLC > Safety",

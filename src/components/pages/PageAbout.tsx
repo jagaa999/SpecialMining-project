@@ -1,31 +1,39 @@
+"use client";
+
 import _ from "lodash";
 import Banner from "../../components/Banner";
 import { generalTheme } from "../../config/generalConfig";
 import PanelMain from "../../config/PanelMain";
 
-export default function AboutPage() {
+export default function AboutPage({ item }: { item: any }) {
+  console.log("dfsdfdsf", item);
+
   return (
     <main>
-      <Banner item={staticItem?.banner} />
+      <Banner item={item?.banner} />
 
       <PanelMain>
         {/* Company Overview */}
         <section className="space-y-6 my-24">
-          <p>{staticItem?.companyOverview.description}</p>
+          <p>{item?.companyOverview?.description}</p>
 
           <div>
             <p className={generalTheme?.title2}>Our expertise:</p>
             <ul className="list-disc list-inside">
-              {staticItem?.companyOverview.expertise.map((item, index) => (
-                <li key={index}>{item}</li>
-              ))}
+              {_.map(
+                item?.companyOverview?.expertise,
+                (item: any, index: number) => (
+                  <li key={index}>{item}</li>
+                )
+              )}
             </ul>
           </div>
           <div>
             <p className={generalTheme?.title2}>Value proposition:</p>
             <ul className="list-disc list-inside">
-              {staticItem?.companyOverview.valueProposition.map(
-                (item, index) => (
+              {_.map(
+                item?.companyOverview?.valueProposition,
+                (item: any, index: number) => (
                   <li key={index}>{item}</li>
                 )
               )}
@@ -36,9 +44,12 @@ export default function AboutPage() {
               Collaboration and industry participation:
             </p>
             <ul className="list-disc list-inside">
-              {staticItem?.companyOverview.collaboration.map((item, index) => (
-                <li key={index}>{item}</li>
-              ))}
+              {_.map(
+                item?.companyOverview?.collaboration,
+                (item: any, index: number) => (
+                  <li key={index}>{item}</li>
+                )
+              )}
             </ul>
           </div>
         </section>
@@ -46,7 +57,7 @@ export default function AboutPage() {
         {/* Expertise Grid Images */}
 
         <section className="w-full grid grid-cols-1 md:grid-cols-3 gap-8 my-24">
-          {_.map(staticItem?.expertiseImages, (item: any, index: number) => (
+          {_.map(item?.expertiseImages, (item: any, index: number) => (
             <img
               key={item?.id || index}
               src={item}
@@ -58,19 +69,17 @@ export default function AboutPage() {
 
         {/* Relationship Section */}
         <section className="my-24">
-          <p className={generalTheme?.title2}>
-            {staticItem?.relationships.title}
-          </p>
-          <p>{staticItem?.relationships.description}</p>
+          <p className={generalTheme?.title2}>{item?.relationships?.title}</p>
+          <p>{item?.relationships?.description}</p>
         </section>
 
         {/* Clients & Logos */}
         <section className="my-24">
           <p className={generalTheme?.title2}>
-            {staticItem?.relationships.networks}
+            {item?.relationships?.networks}
           </p>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-12 my-12">
-            {_.map(staticItem?.clientsLogos, (item: any, index: number) => (
+            {_.map(item?.clientsLogos, (item: any, index: number) => (
               <img
                 key={item?.id || index}
                 src={item}
@@ -85,7 +94,7 @@ export default function AboutPage() {
         <section className="my-24">
           <p className={generalTheme?.title2}>Зураг</p>
           <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-8">
-            {_.map(staticItem?.finalImages, (item: any, index: number) => (
+            {_.map(item?.finalImages, (item: any, index: number) => (
               <img
                 key={item?.id || index}
                 src={item}
@@ -100,7 +109,7 @@ export default function AboutPage() {
   );
 }
 
-const staticItem = {
+const item_local = {
   banner: {
     title: "About Us",
     subtitle: "Special Mining LLC > About Us",
