@@ -255,7 +255,7 @@ const staticItem = {
   menu: [
     { title: "HOME", href: "/" },
     { title: "ABOUT US", href: "/about" },
-    { title: "SAFETY", href: "/safety" },
+    { title: "SUSTAINABILITY", href: "/sustainability" },
     {
       title: "SERVICES",
       href: "/services",

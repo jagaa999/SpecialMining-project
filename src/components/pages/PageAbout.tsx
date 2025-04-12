@@ -19,7 +19,7 @@ export default function AboutPage({ item }: { item: any }) {
 
           <div>
             <p className={generalTheme?.title2}>Our expertise:</p>
-            <ul className="list-disc list-inside">
+            <ul className="list-disc list-outside pl-5">
               {_.map(
                 item?.companyOverview?.expertise,
                 (item: any, index: number) => (
@@ -30,7 +30,7 @@ export default function AboutPage({ item }: { item: any }) {
           </div>
           <div>
             <p className={generalTheme?.title2}>Value proposition:</p>
-            <ul className="list-disc list-inside">
+            <ul className="list-disc list-outside pl-5">
               {_.map(
                 item?.companyOverview?.valueProposition,
                 (item: any, index: number) => (
@@ -43,7 +43,7 @@ export default function AboutPage({ item }: { item: any }) {
             <p className={generalTheme?.title2}>
               Collaboration and industry participation:
             </p>
-            <ul className="list-disc list-inside">
+            <ul className="list-disc list-outside pl-5">
               {_.map(
                 item?.companyOverview?.collaboration,
                 (item: any, index: number) => (

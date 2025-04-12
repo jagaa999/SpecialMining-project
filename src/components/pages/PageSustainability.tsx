@@ -2,7 +2,7 @@
 
 import _ from "lodash";
 import { twMerge } from "tailwind-merge";
-import Banner from "../../components/Banner";
+import Banner from "../Banner";
 import { generalTheme } from "../../config/generalConfig";
 import PanelMain from "../../config/PanelMain";
 
@@ -55,7 +55,7 @@ export default function SafetyPage({ item }: { item: any }) {
               <p className={twMerge(generalTheme?.titleMain, "text-white")}>
                 Internal Regulations
               </p>
-              <ul className="list-disc list-inside">
+              <ul className="list-disc list-outside pl-5">
                 {_.map(
                   item?.internalRegulations.internal,
                   (item: any, index: number) => (
@@ -71,7 +71,7 @@ export default function SafetyPage({ item }: { item: any }) {
               <p className={twMerge(generalTheme?.titleMain, "text-white")}>
                 Legal Document
               </p>
-              <ul className="list-disc list-inside">
+              <ul className="list-disc list-outside pl-5">
                 {_.map(
                   item?.internalRegulations.legal,
                   (item: any, index: number) => (

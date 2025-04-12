@@ -78,7 +78,7 @@ export default function ServicesPage({ item }: { item: any }) {
               (item: any, index: number) => (
                 <div key={item?.id || index}>
                   <p className={generalTheme?.title2}>{item.title}</p>
-                  <ul className="list-disc list-inside">
+                  <ul className="list-disc list-outside pl-5">
                     {item.items.map((text: any, jindex: number) => (
                       <li key={jindex}>{text}</li>
                     ))}
