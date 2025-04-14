@@ -25,6 +25,10 @@ export function middleware(request: NextRequest) {
     domain = "special";
   }
 
+  if (domain === "specialminingvercel") {
+    domain = "special";
+  }
+
   // Layout төрлийг cookie-д дамжуулах
   const response = NextResponse.next();
   response.cookies.set("domain", domain);
