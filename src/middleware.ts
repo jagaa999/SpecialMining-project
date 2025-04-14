@@ -25,6 +25,8 @@ export function middleware(request: NextRequest) {
     domain = "special";
   }
 
+  //Энийг special дээр Vercel дээр ажиллуулахын тулд хийгдсэн
+  // Vercel дээр ажиллаж байгаа тохиолдолд domain-ыг "special" гэж тохируулах
   if (domain === "specialminingvercel") {
     domain = "special";
   }
