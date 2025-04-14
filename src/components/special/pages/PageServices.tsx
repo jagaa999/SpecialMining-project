@@ -1,11 +1,11 @@
 "use client";
 
 import _ from "lodash";
-import Banner from "../../components/Banner";
-import PanelMain from "../../config/PanelMain";
-import { generalTheme } from "../../config/generalConfig";
+import PanelMain from "atom/Panel/PanelMain";
+import { generalTheme } from "../generalConfig";
+import Banner from "../Widget/Banner";
 
-export default function ServicesPage({ item }: { item: any }) {
+export default function ServicesPage({ item = item_local }: { item: any }) {
   const { sections } = item;
 
   return (
@@ -18,8 +18,8 @@ export default function ServicesPage({ item }: { item: any }) {
           <p className={generalTheme?.titleMain}>{sections.blasting.title1}</p>
 
           <ul className="list-disc list-inside space-y-2">
-            {sections.blasting.fields.map((field, i) => (
-              <li key={i}>{field}</li>
+            {sections.blasting.fields.map((field: any, index: number) => (
+              <li key={index}>{field}</li>
             ))}
           </ul>
           <p className={generalTheme?.titleMain}>{sections.blasting.title2}</p>
@@ -128,18 +128,18 @@ export default function ServicesPage({ item }: { item: any }) {
             <div>
               <p>{sections.quality.description}</p>
               <ul className="list-disc list-inside text-gray-700 space-y-2 mt-8">
-                {sections.quality.tests.map((test, i) => (
-                  <li key={i}>{test}</li>
+                {sections.quality.tests.map((test: any, index: number) => (
+                  <li key={index}>{test}</li>
                 ))}
               </ul>
             </div>
 
             <div className="col-span-1 flex flex-col gap-4">
-              {sections.quality.images.map((src, i) => (
+              {sections.quality.images.map((src: any, index: number) => (
                 <img
-                  key={i}
+                  key={index}
                   src={src}
-                  alt={`quality-${i}`}
+                  alt={`quality-${index}`}
                   className="rounded-lg shadow-lg transition-transform transform duration-300"
                 />
               ))}

@@ -7,11 +7,11 @@ import {
   FaLinkedinIn,
   FaPhoneAlt,
 } from "react-icons/fa";
-import PanelContainer from "../config/PanelContainer";
+import PanelContainer from "../../../../atom/Panel/PanelContainer";
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-const iconMap = {
+const iconMap: any = {
   facebook: <FaFacebookF />,
   instagram: <FaInstagram />,
   linkedin: <FaLinkedinIn />,

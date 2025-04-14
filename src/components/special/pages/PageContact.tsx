@@ -1,10 +1,10 @@
 import _ from "lodash";
-import Banner from "../../components/Banner";
-import { generalTheme } from "../../config/generalConfig";
-import PanelMain from "../../config/PanelMain";
 import Link from "next/link";
+import PanelMain from "atom/Panel/PanelMain";
+import { generalTheme } from "../generalConfig";
+import Banner from "../Widget/Banner";
 
-export default function ContactPage({ item }: { item: any }) {
+export default function ContactPage({ item = item_local }: { item: any }) {
   return (
     <main>
       <Banner item={item?.banner} />

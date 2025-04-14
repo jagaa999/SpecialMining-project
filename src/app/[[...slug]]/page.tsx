@@ -3,7 +3,7 @@
 import dynamic from "next/dynamic";
 import { useParams } from "next/navigation";
 import { useMemo } from "react";
-import { useStaticItem } from "../../config/useStaticItem";
+import { useStaticItem } from "src/config/hooks/useStaticItem";
 
 export default function DynamicSlugPage() {
   const params = useParams();
@@ -20,8 +20,8 @@ export default function DynamicSlugPage() {
   const PageComponent: any = useMemo(() => {
     return dynamic(
       () =>
-        import(`../../components/pages/Page${capitalize(slug)}`).catch(
-          () => import("../../components/pages/NotFoundPage")
+        import(`src/components/special/pages/Page${capitalize(slug)}`).catch(
+          () => import("src/components/Public/NotFoundPage")
         ),
       {
         ssr: false,

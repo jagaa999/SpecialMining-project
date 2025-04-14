@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import { motion, useTransform, useScroll } from "framer-motion";
-import useUnsplash from "../config/useUnsplash";
+import useUnsplash from "../../../config/hooks/useUnsplash";
 
 export default function Banner({
   item,
@@ -39,7 +39,7 @@ export default function Banner({
         className="absolute inset-0 bg-cover bg-center scale-110"
         style={{
           backgroundImage: `url(${
-            error ? defaultImage : imageUrl || defaultImage
+            error ? defaultImage : imageUrl?.regular || defaultImage
           })`, // Use default if there's an error
         }}
         initial={{ scale: 1.1 }}

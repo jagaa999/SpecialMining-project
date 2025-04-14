@@ -2,11 +2,11 @@
 
 import _ from "lodash";
 import { twMerge } from "tailwind-merge";
-import Banner from "../Banner";
-import { generalTheme } from "../../config/generalConfig";
-import PanelMain from "../../config/PanelMain";
+import Banner from "../Widget/Banner";
+import PanelMain from "atom/Panel/PanelMain";
+import { generalTheme } from "../generalConfig";
 
-export default function SafetyPage({ item }: { item: any }) {
+export default function SafetyPage({ item = item_local }: { item: any }) {
   return (
     <main>
       <Banner item={item?.banner} />
@@ -37,7 +37,7 @@ export default function SafetyPage({ item }: { item: any }) {
           <p>{item?.safeOperation.text}</p>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 my-8">
-            {item?.safeOperation.images.map((img, idx) => (
+            {item?.safeOperation.images.map((img: any, idx: number) => (
               <img
                 key={idx}
                 src={img}

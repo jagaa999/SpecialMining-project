@@ -1,10 +1,10 @@
 "use client";
 
-import PanelMain from "../../config/PanelMain";
-import { generalTheme } from "../../config/generalConfig";
+import PanelMain from "atom/Panel/PanelMain";
 import Hero from "./HomeHero";
+import { generalTheme } from "../generalConfig";
 
-export default function HomePage({ item }: { item: any }) {
+export default function HomePage({ item = item_local }: { item: any }) {
   return (
     <>
       <Hero item={item?.hero} />

@@ -1,9 +1,9 @@
 "use client";
 
-import Banner from "../../components/Banner";
-import PanelMain from "../../config/PanelMain";
+import PanelMain from "atom/Panel/PanelMain";
+import Banner from "../Widget/Banner";
 
-export default function ProductsPage({ item }: { item: any }) {
+export default function ProductsPage({ item = item_local }: { item: any }) {
   return (
     <main>
       <Banner item={item?.banner} />

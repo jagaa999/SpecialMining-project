@@ -2,17 +2,27 @@
 
 import React from "react";
 import _ from "lodash";
-import useUnsplash from "../../config/useUnsplash";
+import useUnsplash from "../../../config/hooks/useUnsplash";
 
 export default function Hero({ item }: { item: any }) {
   const { imageUrl, loading, error } = useUnsplash("mining");
   const defaultImage = "/images/dddd.jpg";
+
+  // If loading, show a placeholder or loading state
+  if (loading) {
+    return (
+      <section className="h-[100vh] bg-gray-200 flex items-center justify-center text-gray-500">
+        Loading...
+      </section>
+    );
+  }
+
   return (
     <section
       className="h-[100vh] bg-cover bg-center flex items-center justify-center text-white relative"
       style={{
         backgroundImage: `url(${
-          error ? defaultImage : imageUrl || defaultImage
+          error ? defaultImage : imageUrl?.regular || defaultImage
         })`, // Use default if there's an error
       }}>
       {/* Overlay */}

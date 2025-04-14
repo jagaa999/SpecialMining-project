@@ -1,5 +1,5 @@
 import { twMerge } from "tailwind-merge";
-import { generalTheme } from "./generalConfig";
+import { generalTheme } from "src/components/special/generalConfig";
 
 export default function PanelMain({ children }: any) {
   return (

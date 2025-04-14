@@ -1,9 +1,9 @@
 import _ from "lodash";
-import Banner from "../../components/Banner";
-import { generalTheme } from "../../config/generalConfig";
-import PanelMain from "../../config/PanelMain";
+import Banner from "../Widget/Banner";
+import PanelMain from "atom/Panel/PanelMain";
+import { generalTheme } from "../generalConfig";
 
-export default function CareerPage({ item }: { item: any }) {
+export default function CareerPage({ item = item_local }: { item: any }) {
   return (
     <main>
       <Banner item={item?.banner} />

@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
 
 interface UnsplashResult {
-  imageUrl: string | null;
+  imageUrl: any;
   loading: boolean;
   error: string | null;
 }
 
 export default function useUnsplash(query: string = "mining"): UnsplashResult {
-  const [imageUrl, setImageUrl] = useState<string | null>(null);
+  const [imageUrl, setImageUrl] = useState<any>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -28,7 +28,7 @@ export default function useUnsplash(query: string = "mining"): UnsplashResult {
         }
 
         const data = await response.json();
-        setImageUrl(data.urls.full);
+        setImageUrl(data.urls);
       } catch (err: any) {
         console.error("Error fetching the image:", err.message);
         setError(err.message);
