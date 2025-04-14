@@ -30,6 +30,7 @@
     "@types/lodash": "^4.14.202",
     "@types/node": "^22.13.13",
     "@types/react": "^19.0.12",
+    "@types/react-dom": "^19.1.2",
     "eslint": "^9",
     "eslint-config-next": "15.2.4",
     "tailwindcss": "^4.1.3",
