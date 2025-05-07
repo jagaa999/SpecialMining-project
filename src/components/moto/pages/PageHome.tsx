@@ -5,6 +5,7 @@ import PanelMain from "atom/Panel/PanelMain";
 // import { generalTheme } from "../generalConfig";
 
 export default function HomePage({ item = item_local }: { item: any }) {
+  console.log("sddfsdf item", item);
   return (
     <>
       {/* <Hero item={item?.hero} /> */}
