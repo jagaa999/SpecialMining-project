@@ -62,3 +62,13 @@ export const config = {
     "/((?!api|_next/static|_next/image|favicon.ico).*)",
   ],
 };
+
+// Жич
+// http://www.special.local:3000/
+// http://www.moto.local:3000/ гэж дуудах ёстой
+
+// hosts файл дотор
+// 127.0.0.1   www.special.local
+// 127.0.0.1   www.moto.local
+// 127.0.0.1   www.digitalservice.local
+// 127.0.0.1   www.mungundent.local

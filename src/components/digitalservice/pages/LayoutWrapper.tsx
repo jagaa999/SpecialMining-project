@@ -1,7 +1,7 @@
 "use client";
 
-import Footer from "../Widget/Footer";
-import Navbar from "../Widget/NavMenu/Navbar";
+import DigitalServiceFooter from "../Widget/DigitalServiceFooter";
+import DigitalServiceNavbar from "../Widget/DigitalServiceNavMenu/DigitalServiceNavbar";
 
 export default function LayoutWrapper({
   children,
@@ -10,9 +10,9 @@ export default function LayoutWrapper({
 }) {
   return (
     <main className="flex flex-col min-h-screen">
-      <Navbar />
+      <DigitalServiceNavbar />
       <section className="flex-grow">{children}</section>
-      <Footer />
+      <DigitalServiceFooter />
     </main>
   );
 }

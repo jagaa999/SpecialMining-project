@@ -6,7 +6,7 @@ import { generalTheme } from "../generalConfig";
 import Banner from "../Widget/Banner";
 import { useDomain } from "src/config/context/DomainContext";
 
-export default function AboutPage({ item = item_local }: { item: any }) {
+export default function PageTest({ item = item_local }: { item: any }) {
   console.log("dfsdfdsf", item);
   const domain = useDomain();
   console.log("MyContext Value:", domain);
