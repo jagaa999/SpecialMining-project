@@ -9,6 +9,7 @@ export default function LayoutWrapper({
 
   return (
     <>
+      Энэ юу вэ?
       <main>{children}</main>
     </>
   );

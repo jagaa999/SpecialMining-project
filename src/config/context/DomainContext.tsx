@@ -3,7 +3,7 @@
 import { createContext, useContext } from "react";
 
 // DomainContext.tsx
-const DomainContext = createContext("default");
+const DomainContext = createContext({ domain: "default" });
 export const useDomain = () => useContext(DomainContext);
 
 export function DomainProvider({
@@ -14,6 +14,8 @@ export function DomainProvider({
   children: React.ReactNode;
 }) {
   return (
-    <DomainContext.Provider value={domain}>{children}</DomainContext.Provider>
+    <DomainContext.Provider value={{ domain }}>
+      {children}
+    </DomainContext.Provider>
   );
 }

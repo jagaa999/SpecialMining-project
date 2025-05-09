@@ -34,6 +34,8 @@ export default function Hero({ item }: { item: any }) {
         <p className="text-6xl md:text-8xl font-extrabold leading-tight mb-8 whitespace-pre-line">
           {item?.title}
         </p>
+        <span className="icon-[mdi-light--home]"></span>
+        <button className="icon-[mdi--refresh] text-xl animate-spin"></button>
         <p className="text-xl md:text-3xl max-w-3xl mx-auto mb-10">
           {item?.subtitle}
         </p>
