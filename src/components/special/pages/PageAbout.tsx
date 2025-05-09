@@ -1,10 +1,11 @@
 "use client";
 
-import _ from "lodash";
+import AtomImageV3 from "atom/Atom/V3/AtomImageV3";
 import PanelMain from "atom/Panel/PanelMain";
+import _ from "lodash";
+import { useDomain } from "src/config/context/DomainContext";
 import { generalTheme } from "../generalConfig";
 import Banner from "../Widget/Banner";
-import { useDomain } from "src/config/context/DomainContext";
 
 export default function AboutPage({ item = item_local }: { item: any }) {
   console.log("dfsdfdsf", item);
@@ -61,12 +62,9 @@ export default function AboutPage({ item = item_local }: { item: any }) {
 
         <section className="w-full grid grid-cols-1 md:grid-cols-3 gap-8 my-24">
           {_.map(item?.expertiseImages, (item: any, index: number) => (
-            <img
-              key={item?.id || index}
-              src={item}
-              alt={`expertise${index + 1}`}
-              className="rounded-md shadow-lg transition-transform transform hover:scale-105 duration-300"
-            />
+            <div key={index} className="relative w-full aspect-[4/3]">
+              <AtomImageV3 key={item?.id || index} item={item} />
+            </div>
           ))}
         </section>
 
@@ -83,12 +81,14 @@ export default function AboutPage({ item = item_local }: { item: any }) {
           </p>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-12 my-12">
             {_.map(item?.clientsLogos, (item: any, index: number) => (
-              <img
-                key={item?.id || index}
-                src={item}
-                alt={`client-${index + 1}`}
-                className="w-full h-auto rounded-lg"
-              />
+              <div key={index} className="relative w-full aspect-[4/3]">
+                <AtomImageV3
+                  key={item?.id || index}
+                  item={item}
+                  alt={`client-${index + 1}`}
+                  className="object-contain shadow-none"
+                />
+              </div>
             ))}
           </div>
         </section>
@@ -98,12 +98,13 @@ export default function AboutPage({ item = item_local }: { item: any }) {
           <p className={generalTheme?.title2}>Зураг</p>
           <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-8">
             {_.map(item?.finalImages, (item: any, index: number) => (
-              <img
-                key={item?.id || index}
-                src={item}
-                alt={`expertise${index + 1}`}
-                className="rounded-md shadow-lg transition-transform transform hover:scale-105 duration-300"
-              />
+              <div key={index} className="relative w-full aspect-[4/3]">
+                <AtomImageV3
+                  key={item?.id || index}
+                  item={item}
+                  alt={`expertise-${index + 1}`}
+                />
+              </div>
             ))}
           </div>
         </section>

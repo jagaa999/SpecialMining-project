@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  experimental: {
-    appDir: true,
+  images: {
+    domains: ["cdn.moto.mn", "cdn.unsplash.com", "res.cloudinary.com"],
   },
 };
 
