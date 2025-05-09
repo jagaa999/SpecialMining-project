@@ -14,9 +14,9 @@ module.exports = {
   content: [
     "./src/**/*.{js,ts,jsx,tsx}",
     "./atom/**/*.{js,ts,jsx,tsx}",
-    // "./src/config/tailwind/**/*.{js,ts,jsx,tsx,json}",
+    "./src/config/tailwind/**/*.{js,ts,jsx,tsx,json}",
   ],
-  // safelist: safelistIcons,
+  safelist: safelistIcons,
   theme: {
     extend: {
       fontFamily: {
@@ -24,6 +24,5 @@ module.exports = {
       },
     },
   },
-  // plugins: [require("@iconify/tailwind4")()],
-  plugins: [require("@iconify/tailwind4")()],
+  plugins: [],
 };

@@ -1,14 +1,9 @@
 "use client";
 
+import { Icon } from "@iconify/react";
+import PanelContainer from "atom/Panel/PanelContainer";
 import _ from "lodash";
 import NavbarMenu from "./NavbarMenu";
-import PanelContainer from "atom/Panel/PanelContainer";
-
-const iconMap: any = {
-  facebook: "fa6-brands--facebook-f",
-  instagram: "fa6-brands--instagram",
-  linkedin: "fa6-brands--linkedin-in",
-};
 
 export default function Navbar() {
   return (
@@ -25,9 +20,7 @@ export default function Navbar() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-[#0f2e6d] hover:text-[#c8102e] transition-all duration-300">
-                <span className={`${item.icon} w-5 h-5 text-gray-800`}></span>
-                <span className="icon-[mdi-light--home]"></span>
-                <button className="icon-[mdi--refresh] text-xl animate-spin"></button>
+                <Icon icon={item.icon} />
               </a>
             ))}
           </div>
@@ -52,19 +45,19 @@ export default function Navbar() {
   );
 }
 
-// STATIC DATA (мөн icon нэрийг react-icons биш text болгон шинэчилсэн)
+// STATIC DATA
 const staticItem: any = {
   socials: [
     {
-      icon: "icon-[fa6-brands--facebook-f]",
+      icon: "fa6-brands:facebook-f",
       href: "https://www.facebook.com/miningthemoon",
     },
     {
-      icon: "icon-[fa6-brands--instagram]",
+      icon: "fa6-brands:instagram",
       href: "https://www.instagram.com/specialminingservices/",
     },
     {
-      icon: "icon-[fa6-brands--linkedin-in]",
+      icon: "fa6-brands:linkedin-in",
       href: "https://www.linkedin.com/company/specialminingservices/",
     },
   ],

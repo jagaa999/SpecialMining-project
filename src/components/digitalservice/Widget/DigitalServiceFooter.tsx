@@ -1,21 +1,10 @@
 "use client";
 
-import React from "react";
-import {
-  FaFacebookF,
-  FaInstagram,
-  FaLinkedinIn,
-  FaPhoneAlt,
-} from "react-icons/fa";
-import PanelContainer from "../../../../atom/Panel/PanelContainer";
+import { Icon } from "@iconify/react";
+import { AnimatePresence, motion } from "framer-motion";
+import _ from "lodash";
 import { useEffect, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-
-const iconMap: any = {
-  facebook: <FaFacebookF />,
-  instagram: <FaInstagram />,
-  linkedin: <FaLinkedinIn />,
-};
+import PanelContainer from "../../../../atom/Panel/PanelContainer";
 
 export default function DigitalServiceFooter() {
   return (
@@ -62,16 +51,16 @@ const staticItem = {
   },
   socialLinks: [
     {
-      icon: "facebook",
-      url: "https://www.facebook.com/miningthemoon",
+      icon: "fa6-brands:facebook-f",
+      href: "https://www.facebook.com/miningthemoon",
     },
     {
-      icon: "instagram",
-      url: "https://www.instagram.com/specialminingservices/",
+      icon: "fa6-brands:instagram",
+      href: "https://www.instagram.com/specialminingservices/",
     },
     {
-      icon: "linkedin",
-      url: "https://www.linkedin.com/company/specialminingservices",
+      icon: "fa6-brands:linkedin-in",
+      href: "https://www.linkedin.com/company/specialminingservices/",
     },
   ],
   copyright: "All Rights Reserved.",
@@ -94,7 +83,7 @@ const TopSection = () => {
         <div className="flex flex-col gap-2 justify-center items-center md:items-start pt-3">
           <p className="text-gray-500 text-sm">Contact us</p>
           <div className="flex items-center gap-2 text-lg">
-            <FaPhoneAlt className="text-[#c8102e] text-xl" />
+            <Icon icon="fa:phone" className="text-[#c8102e] text-xl" />
             <span className="text-gray-300 text-xl">
               {staticItem?.contact.phone}
             </span>
@@ -111,14 +100,14 @@ const TopSection = () => {
 
         {/* Social links */}
         <div className="flex flex-wrap gap-3 justify-center md:justify-start items-center pt-3">
-          {staticItem?.socialLinks.map((social, idx) => (
+          {_.map(staticItem?.socialLinks, (item: any, index: number) => (
             <a
-              key={idx}
-              href={social.url}
+              key={item?.id || index}
+              href={item.href}
               target="_blank"
               rel="noopener noreferrer"
               className="w-12 h-12 bg-gray-700 text-gray-400 rounded flex items-center justify-center hover:bg-gray-600 transition">
-              {iconMap[social.icon]}
+              <Icon icon={item.icon} />
             </a>
           ))}
         </div>

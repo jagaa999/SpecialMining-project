@@ -71,7 +71,14 @@ export async function getDomainMetadata() {
 
   const content = await metadataContentMap[domain];
   if (!content) {
-    throw new Error(`❌ Metadata not found for domain: ${domain}`);
+    return metadataTemplate({
+      favicon: "/default/favicon.png",
+      title: "Default Title",
+      description: "Default description for the website.",
+      url: "https://www.default.com",
+      image: "/images/default.jpg",
+      creator: "@Default",
+    });
   }
 
   return metadataTemplate(content);

@@ -1,15 +1,10 @@
 "use client";
 
 import _ from "lodash";
-import { FaFacebookF, FaInstagram, FaLinkedinIn } from "react-icons/fa";
+
 import NavbarMenu from "./DigitalServiceNavbarMenu";
 import PanelContainer from "atom/Panel/PanelContainer";
-
-const iconMap = {
-  FaFacebookF: <FaFacebookF />,
-  FaInstagram: <FaInstagram />,
-  FaLinkedinIn: <FaLinkedinIn />,
-};
+import { Icon } from "@iconify/react";
 
 export default function DigitalServiceNavbar() {
   return (
@@ -26,7 +21,8 @@ export default function DigitalServiceNavbar() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-[#0f2e6d] text-xl hover:text-[#c8102e] transition-all duration-300">
-                {iconMap[item.icon as keyof typeof iconMap]}
+                {/* {iconMap[item.icon as keyof typeof iconMap]} */}
+                <Icon icon={item.icon} />
               </a>
             ))}
           </div>
@@ -51,15 +47,15 @@ export default function DigitalServiceNavbar() {
 const staticItem = {
   socials: [
     {
-      icon: "FaFacebookF",
+      icon: "fa6-brands:facebook-f",
       href: "https://www.facebook.com/miningthemoon",
     },
     {
-      icon: "FaInstagram",
+      icon: "fa6-brands:instagram",
       href: "https://www.instagram.com/specialminingservices/",
     },
     {
-      icon: "FaLinkedinIn",
+      icon: "fa6-brands:linkedin-in",
       href: "https://www.linkedin.com/company/specialminingservices/",
     },
   ],

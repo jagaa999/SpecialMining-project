@@ -7,5 +7,9 @@
   "icon-[ph--user-circle]",
   "icon-[ri--truck-line]",
   "icon-[heroicons--home]",
-  "icon-[mdi-light--home"
+  "icon-[mdi-light--home",
+  "i-mdi:home",
+  "i-fa6-solid:user",
+  "i-tabler:arrow-right",
+  "mdi-light--alert-circle"
 ]
