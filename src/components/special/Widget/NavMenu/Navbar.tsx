@@ -1,23 +1,22 @@
 "use client";
 
 import _ from "lodash";
-import { FaFacebookF, FaInstagram, FaLinkedinIn } from "react-icons/fa";
 import NavbarMenu from "./NavbarMenu";
 import PanelContainer from "atom/Panel/PanelContainer";
 
-const iconMap = {
-  FaFacebookF: <FaFacebookF />,
-  FaInstagram: <FaInstagram />,
-  FaLinkedinIn: <FaLinkedinIn />,
+const iconMap: any = {
+  facebook: "fa6-brands--facebook-f",
+  instagram: "fa6-brands--instagram",
+  linkedin: "fa6-brands--linkedin-in",
 };
 
 export default function Navbar() {
   return (
     <>
       {/* Top Bar */}
-
       <PanelContainer>
         <div className="hidden md:flex justify-between items-center py-3 border-b border-gray-100">
+          {/* Social Icons */}
           <div className="flex flex-row gap-4">
             {_.map(staticItem?.socials, (item: any, index: number) => (
               <a
@@ -25,11 +24,16 @@ export default function Navbar() {
                 href={item.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[#0f2e6d] text-xl hover:text-[#c8102e] transition-all duration-300">
-                {iconMap[item.icon as keyof typeof iconMap]}
+                className="text-[#0f2e6d] hover:text-[#c8102e] transition-all duration-300">
+                <span className={`${item.icon} w-5 h-5 text-gray-800`}></span>
+                <span className="icon-[mdi-light--home]"></span>
+                <button className="icon-[mdi--refresh] text-xl animate-spin"></button>
               </a>
             ))}
           </div>
+          <span className="icon-[mdi-light--home]" />
+
+          {/* Contact Info */}
           <div className="flex flex-row gap-6 items-center">
             {_.map(staticItem?.contacts, (item: any, index: number) => (
               <span
@@ -48,18 +52,19 @@ export default function Navbar() {
   );
 }
 
-const staticItem = {
+// STATIC DATA (мөн icon нэрийг react-icons биш text болгон шинэчилсэн)
+const staticItem: any = {
   socials: [
     {
-      icon: "FaFacebookF",
+      icon: "icon-[fa6-brands--facebook-f]",
       href: "https://www.facebook.com/miningthemoon",
     },
     {
-      icon: "FaInstagram",
+      icon: "icon-[fa6-brands--instagram]",
       href: "https://www.instagram.com/specialminingservices/",
     },
     {
-      icon: "FaLinkedinIn",
+      icon: "icon-[fa6-brands--linkedin-in]",
       href: "https://www.linkedin.com/company/specialminingservices/",
     },
   ],
