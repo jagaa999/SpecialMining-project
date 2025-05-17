@@ -27,11 +27,13 @@ export default function DynamicSlugPage() {
       async () => {
         try {
           return (
-            await import(`src/components/${domain}/pages/Page${CapitalSlug}`)
+            await import(
+              `src/components/domains/${domain}/pages/Page${CapitalSlug}`
+            )
           ).default;
         } catch (err) {
           console.warn(
-            `❌ Page not found: src/components/${domain}/pages/Page${CapitalSlug}, loading NotFoundPage`
+            `❌ Page not found: src/components/domains/${domain}/pages/Page${CapitalSlug}, loading NotFoundPage`
           );
           return (await import("src/components/Public/NotFoundPage")).default;
         }
