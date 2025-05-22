@@ -6,10 +6,12 @@
     "dev": "next dev --hostname 0.0.0.0 --port 3000 --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "doc": "typedoc"
   },
   "dependencies": {
     "@iconify/react": "^6.0.0",
+    "@tailwindcss/typography": "^0.5.16",
     "accounting": "^0.4.1",
     "antd": "^5.24.6",
     "clsx": "^2.1.1",
@@ -21,6 +23,7 @@
     "pupa": "^3.1.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "react-intersection-observer": "^9.16.0",
     "react-markdown": "^10.1.0",
     "react-player": "^2.16.0",
     "react-slick": "^0.30.3",
@@ -28,6 +31,7 @@
     "rehype-raw": "^7.0.0",
     "remark-gfm": "^4.0.1",
     "slick-carousel": "^1.8.1",
+    "swiper": "^11.2.7",
     "tailwind-merge": "^3.2.0",
     "uuid": "^11.1.0"
   },
@@ -39,9 +43,13 @@
     "@types/node": "^22.13.13",
     "@types/react": "^19.0.12",
     "@types/react-dom": "^19.1.2",
+    "@types/react-slick": "^0.23.13",
+    "autoprefixer": "^10.4.21",
     "eslint": "^9",
     "eslint-config-next": "15.2.4",
+    "tailwind-scrollbar": "^4.0.2",
     "tailwindcss": "^4.1.3",
+    "typedoc": "^0.28.4",
     "typescript": "^5.8.2"
   }
 }

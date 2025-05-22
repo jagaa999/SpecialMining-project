@@ -1,7 +1,7 @@
 "use client";
 
-import AtomImageV3 from "atom/Atom/V3/AtomImageV3";
-import PanelMain from "atom/Panel/PanelMain";
+import AtomImageV3 from "atomv2/components/Atoms/AtomImageV3";
+import PanelMain from "atomv2/components/Panel/PanelMain";
 import _ from "lodash";
 import { useDomain } from "src/config/context/DomainContext";
 import { generalTheme } from "../generalConfig";

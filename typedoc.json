@@ -1,0 +1,9 @@
+{
+  
+  "entryPoints": ["./atomv2/components/**/*"],
+  "out": "doc",
+  "tsconfig": "tsconfig.typedoc.json",
+  "readme": "none",
+}
+
+  

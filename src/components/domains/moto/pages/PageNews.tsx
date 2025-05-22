@@ -1,8 +1,5 @@
 "use client";
 
-import PanelMain from "atom/Panel/PanelMain";
-import { Icon } from "@iconify/react";
-import MotoNewsList from "../Widget/MotoNewsList";
 // import Hero from "./HomeHero";
 // import { generalTheme } from "../generalConfig";
 

@@ -1,20 +1,60 @@
 "use client";
 
-import PanelMain from "atom/Panel/PanelMain";
 import { Icon } from "@iconify/react";
-import RenderAtom from "atomv2/component/system/RenderAtom";
-import AtomTextV2 from "atomv2/component/Atoms/AtomTextV2";
+import AtomAnimationV2 from "atomv2/components/Atoms/AtomAnimationV2";
+import AtomIconV2 from "atomv2/components/Atoms/AtomIconV2";
+import AtomTextV2 from "atomv2/components/Atoms/AtomTextV2";
+import BlockAffix from "atomv2/components/Blocks/BlockAffix";
+import BlockDiv from "atomv2/components/Blocks/BlockDiv";
+import BlockSliderSlick from "atomv2/components/Blocks/BlockSlider";
+import PanelMain from "atomv2/components/Panel/PanelMain";
+import RenderAtom from "atomv2/components/system/RenderAtom";
+import useScrollTop from "atomv2/hooks/useScrollTop";
+
 // import Hero from "./HomeHero";
 // import { generalTheme } from "../generalConfig";
 
 export default function HomePage({ item = item_local }: { item: any }) {
+  const { goToTop } = useScrollTop();
+
   console.log("sddfsdf item", item);
   return (
     <>
       <PanelMain>
         {/* <p className={generalTheme?.titleMain}>{item?.title}</p>
         <p className={generalTheme?.textMain}>{item?.description}</p> */}
-        haha
+        <BlockSliderSlick>
+          <BlockDiv type="span" className="bg-yellow-200 p-5 rounded-lg h-48">
+            hahaыбөб ыө
+          </BlockDiv>
+          <BlockDiv type="span" className="bg-yellow-200 p-5 w-32 rounded-lg">
+            haha быө быөбыөб ыөөаөба быөаб ыөбы ө
+          </BlockDiv>
+          <AtomIconV2
+            icon="mdi-light:alert-circle"
+            className="text-2xl text-blue-500"
+          />
+        </BlockSliderSlick>
+        hahaha
+        <BlockAffix offsetTop={150}>dsfdsf dsfdsfdsf dsfsdfdsfdsf</BlockAffix>
+        killer
+        <AtomIconV2 icon="fa6-regular:sun" className="text-6xl animate-spin" />
+        <RenderAtom
+          type={"icon"}
+          value="fa6-regular:sun"
+          className="text-pink-600 block text-6xl animate-pulse w-64 h-64 bg-amber-200"
+          tooltip={{ title: "Энэ бол tooltip" }}
+          animation={{
+            type: "fadeIn",
+            duration: 1.0,
+            triggerOnce: false,
+            threshold: 0.3,
+            // loop: 3,
+          }}
+          // loading={true}
+          // spinning={{ spinning: true }}
+          // url={{ href: "/newsss" }}
+        />
         <RenderAtom
           type={"text"}
           value="Энэ бол текст"
@@ -28,35 +68,43 @@ export default function HomePage({ item = item_local }: { item: any }) {
           value="товч товч"
           className="text-red-200 rounded-lg bg-gray-800 w-64 h-32 mt-10"
           tooltip={{ title: "Энэ бол tooltip", placement: "rightBottom" }}
+          // loading={true}
           // spinning={{ spinning: true }}
           // url={{ href: "/cooool" }}
         />
         <RenderAtom
           type={"image"}
           value="https://automobiles.honda.com/-/media/Honda-Automobiles/Vehicles/2025/civic-type-r/Hero/hero-mobile-2x-A.jpg%202x"
-          className=" rounded-lg bg-gray-800 w-[500px] h-64 mt-10 object-cover object-center"
+          className=" rounded-lg w-[500px] h-64 mt-10 object-cover object-center"
           tooltip={{ title: "Энэ бол tooltip" }}
-          spinning={{ spinning: true }}
+          animation={{
+            type: "slideUp",
+            delay: 0.3,
+            duration: 1.6,
+            triggerOnce: false,
+            threshold: 0.3,
+            loop: 3,
+          }}
+          // spinning={{ spinning: true }}
+          // loading={true}
           width={500}
           height={200}
           alt="Banner"
           // className="rounded-lg"
           // url={{ href: "/dfdfdf" }}
         />
-        <AtomTextV2 value="Энэ дахиад текст" className="text-pink-600" />
-        <i className="icon-[mdi-light--home]"></i>
-        <button className="icon-[mdi--refresh] text-xl animate-spin"></button>
-        <i className="icon-mdi:home text-xl text-red-500" />
-        <span className="icon-fa6-solid:car text-2xl text-blue-600" />
+        <AtomAnimationV2
+          type="fadeIn"
+          delay={0.1}
+          duration={0.6}
+          triggerOnce={false}
+          threshold={0.3}>
+          <div className="bg-white shadow-md rounded-xl p-4">
+            Scroll to Animate
+          </div>
+        </AtomAnimationV2>
+        <AtomTextV2 className="text-pink-600">sdfdsf dsfdsf</AtomTextV2>
         ddd-
-        <span className="mdi-light--alert-circle text-yellow-500"></span>
-        <span className="fa6-regular--face-grin-hearts text-yellow-500"></span>
-        <span className="i-mdi-light:home" />
-        <button className="i-mdi:refresh animate-spin text-xl" />
-        <span className="i-mdi--home text-xl text-red-500" />
-        <span className="i-fa6-solid:car text-2xl text-blue-600" />
-        <span className="i-mdi-light:alert-circle text-yellow-500" />
-        <i className="i-fa6-regular:face-grin-hearts text-yellow-500 w-6 h-6 bg-gray-400" />
         <img
           src="https://api.iconify.design/mdi:home.svg"
           alt="Home icon"
@@ -80,6 +128,9 @@ export default function HomePage({ item = item_local }: { item: any }) {
         <Icon icon="fa6-regular:sun" className="text-6xl" />
         <Icon icon="fa6-regular:sun" className="text-6xl iconify--spin" />
         +fdgfdgfd
+        <button onClick={goToTop} className="bg-green-600">
+          Back to Top
+        </button>
       </PanelMain>
     </>
   );

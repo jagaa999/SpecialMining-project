@@ -1,6 +1,6 @@
-import RenderAtom from "atom/Atom/RenderAtom";
-import BlockDiv from "atom/Block/BlockDiv";
-import BlockMobileDesktop from "atom/Block/BlockMobileDesktop";
+import BlockDiv from "atomv2/components/Blocks/BlockDiv";
+import BlockMobileDesktop from "atomv2/components/Blocks/BlockMobileDesktop";
+import RenderAtom from "atomv2/components/system/RenderAtom";
 
 export default function MotoHeaderMenuV3({
   itemList,
@@ -12,7 +12,7 @@ export default function MotoHeaderMenuV3({
   return (
     <BlockDiv
       className="flex flex-row gap-6"
-      divNumber="MotoHeaderV2HeaderMenuOuter">
+      data-block="MotoHeaderV2HeaderMenuOuter">
       {itemList.map((item: any, index: number) => {
         return (
           <MenuItem
@@ -40,7 +40,7 @@ const MenuItem = ({ item, defaultValue }: any) => {
               },
             },
           }}
-          renderType="icon"
+          type="icon"
           className={`text-lg uppercase ${
             isActive ? "text-moto fas" : "text-white"
           }`}
@@ -54,7 +54,7 @@ const MenuItem = ({ item, defaultValue }: any) => {
               },
             },
           }}
-          renderType="text"
+          type="text"
           className={`text-[13px] uppercase ${
             isActive ? "text-moto font-semibold" : "text-white font-light"
           }`}

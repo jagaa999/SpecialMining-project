@@ -3,7 +3,7 @@
 import _ from "lodash";
 
 import NavbarMenu from "./DigitalServiceNavbarMenu";
-import PanelContainer from "atom/Panel/PanelContainer";
+import PanelContainer from "atomv2/components/Panel/PanelContainer";
 import { Icon } from "@iconify/react";
 
 export default function DigitalServiceNavbar() {

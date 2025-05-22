@@ -3,7 +3,7 @@
 import { Icon } from "@iconify/react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useState } from "react";
-import PanelContainer from "../../../../../atom/Panel/PanelContainer";
+import PanelContainer from "../../../../../atomv2/components/Panel/PanelContainer";
 import _ from "lodash";
 
 export default function Footer() {

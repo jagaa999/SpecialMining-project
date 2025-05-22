@@ -1,6 +1,6 @@
 "use client";
 
-import PanelMain from "atom/Panel/PanelMain";
+import PanelMain from "atomv2/components/Panel/PanelMain";
 import Banner from "../Widget/Banner";
 
 export default function ProductsPage({ item = item_local }: { item: any }) {

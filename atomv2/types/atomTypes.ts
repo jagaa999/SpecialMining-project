@@ -1,8 +1,9 @@
 import { TooltipProps } from "antd";
 import { CSSProperties, ReactNode } from "react";
-import { AtomSpinningV2Props } from "../component/Atoms/AtomSpinningV2";
-import { AtomUrlV2Props } from "../component/Atoms/AtomUrlV2";
-import renderAtomMap from "../registry/renderAtomMap";
+import { AtomSpinningV2Props } from "../components/Atoms/AtomSpinningV2";
+import { AtomUrlV2Props } from "../components/Atoms/AtomUrlV2";
+import { AtomAnimationV2Props } from "../components/Atoms/AtomAnimationV2";
+import { AtomType } from "../registry/atom.registry";
 
 export interface AtomBaseProps {
   className?: string;
@@ -16,12 +17,13 @@ export interface AtomBaseProps {
 }
 
 export interface RenderAtomProps {
-  type: keyof typeof renderAtomMap;
+  type: AtomType;
   value?: any;
   tooltip?: TooltipProps | string;
   url?: AtomUrlV2Props;
   loading?: boolean;
   spinning?: AtomSpinningV2Props;
+  animation?: AtomAnimationV2Props;
   className?: string;
   [key: string]: any;
   children?: ReactNode;

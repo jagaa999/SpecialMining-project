@@ -1,9 +1,6 @@
-import BlockDiv from "atom/Block/BlockDiv";
-import BlockMobileDesktop from "atom/Block/BlockMobileDesktop";
-import _ from "lodash";
-import { useContext } from "react";
+import BlockDiv from "atomv2/components/Blocks/BlockDiv";
+import BlockMobileDesktop from "atomv2/components/Blocks/BlockMobileDesktop";
 import { useWindowScroll } from "react-use";
-import MotoHeaderMenuV3 from "./MotoHeaderMenuV3";
 
 // import { useCloud } from "atom/middleware/hooks/use-cloud";
 // import BlockDiv from "atom/Block/BlockDiv";
@@ -37,10 +34,12 @@ export default function MotoHeaderTopV3() {
   return (
     <BlockDiv
       className={`w-full fixed z-40 ${headerEffect} transition-all duration-1000 ease-in-out`}
-      divNumber="MotoHeaderTopV3Outer">
+      // divNumber="MotoHeaderTopV3Outer"
+    >
       <BlockDiv
         className="w-full {mainContainer}"
-        divNumber="MotoHeaderTopV3Inner">
+        // divNumber="MotoHeaderTopV3Inner"
+      >
         <BlockMobileDesktop>
           {/* <BlockDiv
             className={`flex flex-row justify-between items-center w-full ${headerHeight}`}>
@@ -57,15 +56,15 @@ export default function MotoHeaderTopV3() {
 
           <BlockDiv
             className={`flex flex-row justify-between items-center w-full ${headerHeight}`}>
-            <MotoHeaderMenuV3
-              itemList={staticItem1}
-              defaultValue={menuDefaultValue}
-            />
-            <MotoHeaderMiddleLogoV3 itemList={staticItem2} />
+            {/* <MotoHeaderMenuV3
+            itemList={staticItem1}
+            defaultValue={menuDefaultValue}
+            /> */}
+            {/* <MotoHeaderMiddleLogoV3 itemList={staticItem2} /> */}
             <BlockDiv
               className={`flex flex-row justify-end items-center ${headerHeight}`}>
-              <MotoHeaderRightSectionV3 />
-              <MotoCustomerV3 />
+              {/* <MotoHeaderRightSectionV3 />
+              <MotoCustomerV3 /> */}
             </BlockDiv>
           </BlockDiv>
         </BlockMobileDesktop>

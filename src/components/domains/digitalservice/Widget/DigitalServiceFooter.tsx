@@ -4,7 +4,7 @@ import { Icon } from "@iconify/react";
 import { AnimatePresence, motion } from "framer-motion";
 import _ from "lodash";
 import { useEffect, useState } from "react";
-import PanelContainer from "atom/Panel/PanelContainer";
+import PanelContainer from "atomv2/components/Panel/PanelContainer";
 
 export default function DigitalServiceFooter() {
   return (

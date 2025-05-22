@@ -1,6 +1,6 @@
 "use client";
 
-import PanelContainer from "atom/Panel/PanelContainer";
+import PanelContainer from "atomv2/components/Panel/PanelContainer";
 import MotoBanner from "../Widget/MotoLayout/MotoBanner";
 import MotoFooter from "../Widget/MotoLayout/MotoFooter";
 import MotoHeader from "../Widget/MotoLayout/MotoHeader";
@@ -16,15 +16,13 @@ export default function LayoutWrapper({
         <MotoHeader />
       </header>
 
-      <section
-        className="h-[200px] md:h-[300px] bg-cover bg-center relative"
-        data-widget="MotoBanner">
+      <section className="w-full h-full relative" data-widget="MotoBanner">
         <MotoBanner />
       </section>
 
       <main className="flex-grow">
         <PanelContainer>
-          <div className="bg-blue-300 h-[800px]">{children}</div>
+          <div className="bg-blue-300 h-full">{children}</div>
         </PanelContainer>
       </main>
 

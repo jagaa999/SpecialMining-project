@@ -1,6 +1,6 @@
 "use client";
 
-import PanelMain from "atom/Panel/PanelMain";
+import PanelMain from "atomv2/components/Panel/PanelMain";
 import Hero from "./HomeHero";
 import { generalTheme } from "../generalConfig";
 

@@ -3,8 +3,8 @@
 module.exports = {
   content: [
     "./src/**/*.{js,ts,jsx,tsx}",
-    "./atom/**/*.{js,ts,jsx,tsx}",
     "./src/config/tailwind/**/*.{js,ts,jsx,tsx,json}",
+    "./atomv2/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
     extend: {
@@ -13,5 +13,5 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [require("@tailwindcss/typography")],
 };

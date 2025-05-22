@@ -1,7 +1,7 @@
 "use client";
 
 import _ from "lodash";
-import PanelMain from "atom/Panel/PanelMain";
+import PanelMain from "atomv2/components/Panel/PanelMain";
 import { generalTheme } from "../generalConfig";
 import Banner from "../Widget/Banner";
 import { useDomain } from "src/config/context/DomainContext";

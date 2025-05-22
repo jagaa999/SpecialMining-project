@@ -4,7 +4,7 @@ import _ from "lodash";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import PanelContainer from "atom/Panel/PanelContainer";
+import PanelContainer from "atomv2/components/Panel/PanelContainer";
 
 export default function NavbarMenu({ item }: { item: any }) {
   const [scrolled, setScrolled] = useState(false);
