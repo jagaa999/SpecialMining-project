@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import PanelContainer from "atomv2/components/Panel/PanelContainer";
+import BlockDiv from "atomv2/components/Blocks/BlockDiv";
 
 export default function NavbarMenu({ item }: { item: any }) {
   const [scrolled, setScrolled] = useState(false);
@@ -26,20 +27,21 @@ export default function NavbarMenu({ item }: { item: any }) {
   }, [pathname]);
 
   return (
-    <nav
+    <BlockDiv
+      type="nav"
       className={`sticky top-0 z-50 transition-all duration-300 ${
         scrolled
           ? "bg-gradient-to-r from-white/50 via-pink-50/70 to-pink-100/80 backdrop-blur-md shadow-md py-2"
           : "bg-white shadow-none py-4"
       }`}>
       <PanelContainer>
-        <div className="w-full flex justify-between items-center">
+        <BlockDiv className="w-full flex justify-between items-center">
           {/* Logo */}
           <Link href="/">
             <img
               src={item?.logo}
               className={`${
-                scrolled ? "w-[80px]" : "w-[130px]"
+                scrolled ? "w-[30px]" : "w-[50px]"
               } h-auto object-contain`}
               alt="Special Mining Logo"
             />
@@ -84,10 +86,10 @@ export default function NavbarMenu({ item }: { item: any }) {
               </svg>
             )}
           </button>
-        </div>
+        </BlockDiv>
 
         {/* Mobile Menu */}
-        <div
+        <BlockDiv
           className={`md:hidden mt-4 transition-all duration-300 overflow-hidden ${
             mobileMenuOpen ? "max-h-[1000px]" : "max-h-0"
           }`}>
@@ -106,9 +108,9 @@ export default function NavbarMenu({ item }: { item: any }) {
               </li>
             ))}
           </ul>
-        </div>
+        </BlockDiv>
       </PanelContainer>
-    </nav>
+    </BlockDiv>
   );
 }
 

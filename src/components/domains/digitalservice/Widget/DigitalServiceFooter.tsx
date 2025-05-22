@@ -22,9 +22,9 @@ export default function DigitalServiceFooter() {
 
 const staticItem = {
   contact: {
-    logo: "https://cdn.moto.mn/moto/landing/09_specialmining/21f27520-6430-43b5-95d0-535ea2f7bcb4.png?t=1742973021250",
-    description: "Expert in mining services",
-    phone: "976-7000-0369",
+    logo: "https://cdn.moto.mn/moto/landing/10_digitalservice/ddf6d2bf-6066-45f9-b365-031bc3a15ccc.png",
+    description: "Бүх зүйлийг дижиталаар шийдье",
+    phone: "976-9192-2038",
   },
   industry: {
     title: "Industry company",
@@ -52,15 +52,11 @@ const staticItem = {
   socialLinks: [
     {
       icon: "fa6-brands:facebook-f",
-      href: "https://www.facebook.com/miningthemoon",
+      href: "https://www.facebook.com/digitalservicemng/",
     },
     {
       icon: "fa6-brands:instagram",
-      href: "https://www.instagram.com/specialminingservices/",
-    },
-    {
-      icon: "fa6-brands:linkedin-in",
-      href: "https://www.linkedin.com/company/specialminingservices/",
+      href: "https://www.instagram.com/digitalservicemongolia/",
     },
   ],
   copyright: "All Rights Reserved.",
@@ -75,7 +71,7 @@ const TopSection = () => {
           <img
             src={staticItem?.contact.logo}
             alt="Logo"
-            className="w-32 md:w-40 h-auto"
+            className="w-16 md:w-24 h-auto"
           />
         </div>
 

@@ -5,15 +5,14 @@ import _ from "lodash";
 import NavbarMenu from "./DigitalServiceNavbarMenu";
 import PanelContainer from "atomv2/components/Panel/PanelContainer";
 import { Icon } from "@iconify/react";
+import BlockDiv from "atomv2/components/Blocks/BlockDiv";
 
 export default function DigitalServiceNavbar() {
   return (
     <>
-      {/* Top Bar */}
-
       <PanelContainer>
-        <div className="hidden md:flex justify-between items-center py-3 border-b border-gray-100">
-          <div className="flex flex-row gap-4">
+        <BlockDiv className="hidden md:flex justify-between items-center py-3 border-b border-gray-100">
+          <BlockDiv className="flex flex-row gap-4">
             {_.map(staticItem?.socials, (item: any, index: number) => (
               <a
                 key={index}
@@ -25,8 +24,8 @@ export default function DigitalServiceNavbar() {
                 <Icon icon={item.icon} />
               </a>
             ))}
-          </div>
-          <div className="flex flex-row gap-6 items-center">
+          </BlockDiv>
+          <BlockDiv className="flex flex-row gap-6 items-center">
             {_.map(staticItem?.contacts, (item: any, index: number) => (
               <span
                 key={item?.id || index}
@@ -34,10 +33,9 @@ export default function DigitalServiceNavbar() {
                 <span className="text-pink-600">{item.icon}</span> {item.text}
               </span>
             ))}
-          </div>
-        </div>
+          </BlockDiv>
+        </BlockDiv>
       </PanelContainer>
-
       {/* Main Navbar */}
       <NavbarMenu item={staticItem} />
     </>
@@ -48,32 +46,28 @@ const staticItem = {
   socials: [
     {
       icon: "fa6-brands:facebook-f",
-      href: "https://www.facebook.com/miningthemoon",
+      href: "https://www.facebook.com/digitalservicemng",
     },
     {
       icon: "fa6-brands:instagram",
-      href: "https://www.instagram.com/specialminingservices/",
-    },
-    {
-      icon: "fa6-brands:linkedin-in",
-      href: "https://www.linkedin.com/company/specialminingservices/",
+      href: "https://www.instagram.com/digitalservicemongolia/",
     },
   ],
   contacts: [
     {
       icon: "📍",
-      text: "Regis Place, Suite 1702, 15th khoroo, Khan-Uul district",
+      text: "Бүх зүйлийг дижиталаар шийдье",
     },
     {
       icon: "✉",
-      text: "info@special.mn",
+      text: "mgl.digitalservice@gmail.com",
     },
     {
       icon: "📞",
-      text: "+976 7000-0369",
+      text: "+976 9192-2038",
     },
   ],
-  logo: "https://cdn.moto.mn/moto/landing/09_specialmining/21f27520-6430-43b5-95d0-535ea2f7bcb4.png?t=1742973021250",
+  logo: "https://cdn.moto.mn/moto/landing/10_digitalservice/ddf6d2bf-6066-45f9-b365-031bc3a15ccc.png",
   menu: [
     { title: "HOME", href: "/" },
     { title: "SHOP", href: "/shop" },

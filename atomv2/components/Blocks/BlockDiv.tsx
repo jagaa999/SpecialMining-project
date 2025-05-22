@@ -7,6 +7,7 @@ export type BlockElementType =
   | "div"
   | "span"
   | "p"
+  | "nav"
   | "section"
   | "article"
   | "aside"
