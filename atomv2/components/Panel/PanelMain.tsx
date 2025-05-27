@@ -1,15 +1,19 @@
-import { twMerge } from "tailwind-merge";
+import { cn } from "atomv2/util/atomHelperV2";
 import { generalTheme } from "src/components/domains/special/generalConfig";
+import BlockDiv from "../Blocks/BlockDiv";
 
-export default function PanelMain({ children }: any) {
+export default function PanelMain({ className, children }: any) {
   return (
-    <section
-      className={twMerge(
+    <BlockDiv
+      type="section"
+      data-block="PanelMain"
+      className={cn(
         generalTheme?.containerMain,
         "max-w-4xl py-20",
-        generalTheme?.textMain
+        generalTheme?.textMain,
+        className
       )}>
       {children}
-    </section>
+    </BlockDiv>
   );
 }

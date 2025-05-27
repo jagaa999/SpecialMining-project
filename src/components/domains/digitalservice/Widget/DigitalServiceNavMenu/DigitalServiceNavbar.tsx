@@ -72,8 +72,8 @@ const staticItem = {
     { title: "HOME", href: "/" },
     { title: "SHOP", href: "/shop" },
     {
-      title: "SERVICES",
-      href: "/services",
+      title: "SERVICE",
+      href: "/service",
     },
     { title: "ABOUT US", href: "/about" },
     { title: "CONTACT", href: "/contact" },
