@@ -1,54 +1,47 @@
+import _ from "lodash";
 import { NextRequest, NextResponse } from "next/server";
+
+// Монгол болон олон улсад нийтлэг хэрэглэгддэг хоёр үе шаттай TLD-ууд
+const secondLevelTLDs = ["kt.mn", "moto.mn", "atom.mn", "gov.mn", "org.mn"];
 
 export function middleware(request: NextRequest) {
   const hostname = request.headers.get("host") || "";
+  const hostnameLower = _.toLower(hostname);
 
-  // Hostname-ыг хэсгүүдэд хуваах
-  const parts = hostname.split(".");
+  // www-гүйгээр hostname
+  const baseHost = hostnameLower.replace(/^www\./, "");
 
-  let domain;
+  // Сүүлчийн 2 хэсгийг domain гэж үзэх TLD байна уу шалгах
+  const matchedTLD = secondLevelTLDs.find((tld) => baseHost.endsWith(tld));
+  const parts = baseHost.split(".");
 
-  if (parts.length > 2) {
-    // Subdomain байгаа тохиолдолд (e.g., sub.example.com)
-    if (parts[0] === "www") {
-      // www.sub.example.com гэх мэт тохиолдолд
-      domain = parts.slice(1, -1).join("");
+  let domain = "special"; // default fallback
+
+  if (matchedTLD) {
+    // 2-оос олон хэсэгтэй үед subdomain орсон гэж үзнэ
+    if (parts.length > 2) {
+      domain = parts.slice(0, -2).join(""); // subdomain(s)
     } else {
-      // sub.example.com гэх мэт энгийн тохиолдолд
-      domain = parts.slice(0, -1).join("");
+      domain = parts[0]; // e.g., digitalservice.kt.mn
     }
-  } else if (parts.length === 2) {
-    // Энгийн домэйн (e.g., example.com)
-    domain = parts[0];
   } else {
-    // Хэрэв домэйн олдоогүй бол 'default' утга оноох
-    domain = "special";
+    // Жирийн TLD (.com, .mn гэх мэт)
+    if (parts.length > 2) {
+      domain = parts.slice(0, -2).join("");
+    } else if (parts.length === 2) {
+      domain = parts[0];
+    }
   }
 
-  //Энийг special дээр Vercel дээр ажиллуулахын тулд хийгдсэн
-  // Vercel дээр ажиллаж байгаа тохиолдолд domain-ыг "special" гэж тохируулах
+  // Vercel дээрх тусгай тохиргоо
   if (domain === "specialminingvercel") {
     domain = "special";
   }
 
-  // Layout төрлийг cookie-д дамжуулах
   const response = NextResponse.next();
   response.cookies.set("domain", domain);
-
   return response;
 }
-
-// Subdomain + Domain нийлсэн формат (TLD-гүй):
-// sub.example.com -> domain = "subexample"
-// another.sub.example.com -> domain = "anothersubexample"
-
-// www дэмжлэг:
-// www.example.com -> domain = "example"
-// www.sub.example.com -> domain = "subexample"
-
-// Энгийн домэйн дэмжлэг:
-// example.com -> domain = "example"
-// mysite.org -> domain = "mysite"
 
 export const config = {
   matcher: [

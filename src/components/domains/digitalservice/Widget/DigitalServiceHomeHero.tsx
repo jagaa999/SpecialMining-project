@@ -5,7 +5,7 @@ import _ from "lodash";
 import useUnsplash from "src/config/hooks/useUnsplash";
 
 export default function DigitalServiceHomeHero({ item }: { item: any }) {
-  const { imageUrl, loading, error } = useUnsplash("printer toner");
+  const { imageUrl, loading, error } = useUnsplash("beautiful background");
   const defaultImage = "/images/dddd.jpg";
 
   // If loading, show a placeholder or loading state

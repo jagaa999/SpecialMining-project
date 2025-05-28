@@ -13,7 +13,7 @@ export default function Banner({
     subtitle: string;
   };
 }) {
-  const { imageUrl, loading, error } = useUnsplash("printing");
+  const { imageUrl, loading, error } = useUnsplash("printer");
 
   // Default image in case of error or loading
   const defaultImage = "/images/dddd.jpg";
