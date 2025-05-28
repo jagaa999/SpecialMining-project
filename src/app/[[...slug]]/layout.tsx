@@ -12,7 +12,7 @@ export default async function Layout({
 }) {
   const cookieStore = await cookies();
   const domain = cookieStore.get("domain")?.value || "default";
-  console.log("🚀 ~ DOMAIN:", domain);
+  // console.log("🚀 ~ DOMAIN:", domain);
 
   // ЭНЭ ХАМГИЙН ЧУХАЛ НЬ!!
   const LayoutWrapper = await getLayoutWrapper(domain);
