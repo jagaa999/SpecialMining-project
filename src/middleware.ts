@@ -1,4 +1,3 @@
-import _ from "lodash";
 import { NextRequest, NextResponse } from "next/server";
 
 // Монгол болон олон улсад нийтлэг хэрэглэгддэг хоёр үе шаттай TLD-ууд
@@ -6,7 +5,7 @@ const secondLevelTLDs = ["kt.mn", "moto.mn", "atom.mn", "gov.mn", "org.mn"];
 
 export function middleware(request: NextRequest) {
   const hostname = request.headers.get("host") || "";
-  const hostnameLower = _.toLower(hostname);
+  const hostnameLower = hostname.toLowerCase();
 
   // www-гүйгээр hostname
   const baseHost = hostnameLower.replace(/^www\./, "");
@@ -31,11 +30,6 @@ export function middleware(request: NextRequest) {
     } else if (parts.length === 2) {
       domain = parts[0];
     }
-  }
-
-  // Vercel дээрх тусгай тохиргоо
-  if (domain === "specialminingvercel") {
-    domain = "special";
   }
 
   const response = NextResponse.next();
