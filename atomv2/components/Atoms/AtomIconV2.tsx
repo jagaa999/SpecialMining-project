@@ -2,6 +2,7 @@
 
 import { Icon, IconifyIcon } from "@iconify/react";
 import { AtomBaseProps } from "../../types/atomTypes";
+import { cn } from "atomv2/util/atomHelperV2";
 
 export interface AtomIconProps extends AtomBaseProps {
   icon: string | IconifyIcon;
@@ -28,7 +29,7 @@ export default function AtomIconV2({
       hFlip={hFlip}
       vFlip={vFlip}
       inline={inline}
-      className={className}
+      className={cn(className)}
       {...props}
     />
   );

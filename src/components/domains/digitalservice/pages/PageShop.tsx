@@ -1,37 +1,59 @@
 "use client";
 
+import { Pagination } from "antd";
+import MoleculeBasketButton from "atomv2/components/Molecules/MoleculeBasketButton";
 import PanelMain from "atomv2/components/Panel/PanelMain";
+import RenderAtom from "atomv2/components/system/RenderAtom";
+import _ from "lodash";
+import { useState } from "react";
+import useSWR from "swr";
 import Banner from "../Widget/DigitalServiceBanner";
 
-export default function PageShop({ item = item_local }: { item: any }) {
+export default function PageShop() {
+  const [currentPage, setCurrentPage] = useState(1);
+  const pageSize = 16;
+
+  const { data, error, isLoading } = useSWR(
+    `/api/moto-product?apicommand=list&look_company=1733312860727929&offset=${currentPage}&pagesize=${pageSize}`
+  );
+
+  // console.log("dsfdsfdsfsdf", { data, error, isLoading });
+
+  if (error) return <div>Error loading data</div>;
+  if (isLoading) return <div>Loading...</div>;
+  if (!data?.rows || data.rows.length === 0)
+    return <div>No products found</div>;
+
   return (
     <main>
-      <Banner item={item?.banner} />
+      <Banner
+        item={{
+          title: "Дэлгүр",
+          subtitle: "Принтерийн хор, цэнэглэгч",
+          mainimage:
+            "https://specialmining.bloomlink.mn/moavolen/2023/09/DSC_7513-1536x1025.jpg",
+        }}
+      />
 
-      {/* ✅ Logo Grid with Hover Text */}
       <PanelMain>
         <section className="my-24">
           <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
-            {item.productList.map((item: any, index: number) => (
-              <div
-                key={item?.id || index}
-                className="bg-white rounded-lg shadow hover:shadow-lg transition-shadow duration-300 p-4 flex flex-col items-center text-center group cursor-pointer border border-gray-50">
-                {/* Жижиг зураг */}
-                <img
-                  src={item?.mainimage}
-                  alt={`product-${index}`}
-                  className="w-auto h-20 object-contain mb-7 group-hover:scale-105 transition-transform duration-300"
-                />
-
-                {/* Том гарчиг */}
-                <h3 className="font-semibold text-gray-800 group-hover:text-[#c8102e] transition-colors duration-300 mb-3">
-                  {item?.title}
-                </h3>
-
-                {/* Тайлбар */}
-                <p className="text-gray-500 text-sm">{item?.description}</p>
-              </div>
+            {_.map(data.rows, (item: any, index: number) => (
+              <ProductCard key={item?.id || index} item={item} />
             ))}
+          </div>
+
+          {/* Pagination Component */}
+          <div className="mt-8 flex justify-center">
+            <Pagination
+              current={currentPage}
+              pageSize={pageSize}
+              total={data.paging.totalcount}
+              onChange={(page) => setCurrentPage(page)}
+              showTotal={(total) => `Нийт: ${total}`}
+              showSizeChanger={false}
+              showQuickJumper={false}
+            />
           </div>
         </section>
       </PanelMain>
@@ -39,44 +61,31 @@ export default function PageShop({ item = item_local }: { item: any }) {
   );
 }
 
-const item_local = {
-  banner: {
-    title: "Дэлгүр",
-    subtitle: "Принтерийн хор, засвар үйлчилгээ",
-    mainimage:
-      "https://specialmining.bloomlink.mn/moavolen/2023/09/DSC_7513-1536x1025.jpg",
-  },
-  productList: [
-    {
-      mainimage: "/images/products.png",
-      title: "Cut elemets",
-      description:
-        "Electronic and non-electronic initiating systems for Open cut and underground",
-    },
-    {
-      mainimage: "/images/products.png",
-      title: "Bulk Emulsion",
-      description: "Bulk Emulsion Plant Operation and Services",
-    },
-    {
-      mainimage: "/images/products.png",
-      title: "Explosives",
-      description: "Explosives Storage and Transport",
-    },
-    {
-      mainimage: "/images/products.png",
-      title: "Projects",
-      description: "Technical Support for Blasting Projects",
-    },
-    {
-      mainimage: "/images/products.png",
-      title: "Services",
-      description: "On-site Consultation Services",
-    },
-    {
-      mainimage: "/images/products.png",
-      title: "Packaged Emulsion",
-      description: "Hypersonic EX series – Packaged emulsion",
-    },
-  ],
+const ProductCard = ({ item }: { item: any }) => {
+  return (
+    <div className="bg-white rounded-lg shadow hover:shadow-lg transition-shadow duration-300 p-4 flex flex-col items-center text-center group cursor-pointer border border-gray-50 relative">
+      <img
+        src={
+          item.mainimage ||
+          "https://cdn11.bigcommerce.com/s-sp9oc95xrw/images/stencil/1280x1280/products/13261/59754/PRODUCT_IMAGE_toner__36208.1684504666.jpg?c=2"
+        }
+        alt={`product-${item.id}`}
+        className="w-auto h-28 object-contain mb-7 group-hover:scale-105 transition-transform duration-300"
+      />
+
+      <RenderAtom
+        value={item.title}
+        type="text"
+        className="text-xl font-semibold text-gray-800 group-hover:text-[#c8102e] transition-colors duration-300 mb-3"
+      />
+
+      <RenderAtom
+        value={item.description}
+        type="text"
+        className="text-gray-500 text-sm"
+      />
+
+      <MoleculeBasketButton item={item} />
+    </div>
+  );
 };

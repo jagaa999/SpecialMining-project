@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { AtomBaseProps } from "atomv2/types/atomTypes";
 import { useInView } from "react-intersection-observer";
+import { cn } from "atomv2/util/atomHelperV2";
 
 export interface AtomAnimationV2Props extends AtomBaseProps {
   delay?: number;
@@ -31,7 +32,7 @@ export default function AtomAnimationV2({
   return (
     <motion.div
       ref={ref}
-      className={className}
+      className={cn(className)}
       variants={variants[type]}
       initial="hidden"
       animate={inView ? "visible" : "hidden"}

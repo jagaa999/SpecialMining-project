@@ -1,7 +1,7 @@
 "use client";
 
+import { cn } from "atomv2/util/atomHelperV2";
 import Image from "next/image";
-import { twMerge } from "tailwind-merge";
 
 export default function AtomImageV3({
   item,
@@ -23,7 +23,7 @@ export default function AtomImageV3({
       src={item}
       alt={alt || item}
       fill
-      className={twMerge(
+      className={cn(
         `w-full h-full object-cover rounded-md shadow-lg transition-transform transform hover:scale-105 duration-300`,
         className
       )}

@@ -1,9 +1,9 @@
 "use client";
 
+import { cn } from "atomv2/util/atomHelperV2";
 import _ from "lodash";
 import Link from "next/link";
 import { ReactNode } from "react";
-import { twMerge } from "tailwind-merge";
 
 export interface AtomUrlV2Props {
   baseUrl?: string; // external URL (e.g., https://google.com)
@@ -27,12 +27,12 @@ export default function AtomUrlV2({
 }: AtomUrlV2Props) {
   if (_.isEmpty(href) && _.isEmpty(baseUrl)) return <>{children}</>;
 
-  const classNameReady = twMerge(
+  const classNameReady = cn(
     className,
     "w-fit h-fit block hover:brightness-90 transition-all duration-200 ease-in-out"
   );
 
-  console.log("AtomUrlV2 df", { href, baseUrl, className, classNameReady });
+  // console.log("AtomUrlV2 df", { href, baseUrl, className, classNameReady });
 
   if (!_.isEmpty(baseUrl)) {
     return (
