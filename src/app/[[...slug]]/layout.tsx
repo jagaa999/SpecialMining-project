@@ -2,8 +2,8 @@ import { cookies } from "next/headers";
 import "public/fonts/roboto.css";
 import "public/globals.css";
 import { DomainProvider } from "src/config/context/DomainContext";
-import { getDomainMetadata } from "src/config/getDomainMetadata";
-import { getLayoutWrapper } from "src/config/getLayoutWrapper";
+import { getDomainMetadata } from "src/config/utils/getDomainMetadata";
+import { getLayoutWrapper } from "src/config/utils/getLayoutWrapper";
 
 export default async function Layout({
   children,

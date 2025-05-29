@@ -1,36 +1,9 @@
 import { NextRequest, NextResponse } from "next/server";
-
-// Монгол болон олон улсад нийтлэг хэрэглэгддэг хоёр үе шаттай TLD-ууд
-const secondLevelTLDs = ["kt.mn", "moto.mn", "atom.mn", "gov.mn", "org.mn"];
+import { extractDomainFromHost } from "./config/utils/extractDomainFromHost";
 
 export function middleware(request: NextRequest) {
-  const hostname = request.headers.get("host") || "";
-  const hostnameLower = hostname.toLowerCase();
-
-  // www-гүйгээр hostname
-  const baseHost = hostnameLower.replace(/^www\./, "");
-
-  // Сүүлчийн 2 хэсгийг domain гэж үзэх TLD байна уу шалгах
-  const matchedTLD = secondLevelTLDs.find((tld) => baseHost.endsWith(tld));
-  const parts = baseHost.split(".");
-
-  let domain = "special"; // default fallback
-
-  if (matchedTLD) {
-    // 2-оос олон хэсэгтэй үед subdomain орсон гэж үзнэ
-    if (parts.length > 2) {
-      domain = parts.slice(0, -2).join(""); // subdomain(s)
-    } else {
-      domain = parts[0]; // e.g., digitalservice.kt.mn
-    }
-  } else {
-    // Жирийн TLD (.com, .mn гэх мэт)
-    if (parts.length > 2) {
-      domain = parts.slice(0, -2).join("");
-    } else if (parts.length === 2) {
-      domain = parts[0];
-    }
-  }
+  const host = request.headers.get("host") || "";
+  const domain = extractDomainFromHost(host);
 
   const response = NextResponse.next();
   response.cookies.set("domain", domain);
