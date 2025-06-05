@@ -8,10 +8,12 @@ import _ from "lodash";
 import { useState } from "react";
 import useSWR from "swr";
 import Banner from "../Widget/DigitalServiceBanner";
+import MoleculeBasketPanel from "atomv2/components/Molecules/MoleculeBasketPanel";
+import { toMotoPrice } from "atomv2/util/widgetHelper";
 
-export default function PageShop() {
+export default function DigitalServicePageShop() {
   const [currentPage, setCurrentPage] = useState(1);
-  const pageSize = 16;
+  const pageSize = 15;
 
   const { data, error, isLoading } = useSWR(
     `/api/moto-product?apicommand=list&look_company=1733312860727929&offset=${currentPage}&pagesize=${pageSize}`
@@ -57,6 +59,8 @@ export default function PageShop() {
           </div>
         </section>
       </PanelMain>
+
+      <MoleculeBasketPanel />
     </main>
   );
 }
@@ -65,10 +69,7 @@ const ProductCard = ({ item }: { item: any }) => {
   return (
     <div className="bg-white rounded-lg shadow hover:shadow-lg transition-shadow duration-300 p-4 flex flex-col items-center text-center group cursor-pointer border border-gray-50 relative">
       <img
-        src={
-          item.mainimage ||
-          "https://cdn11.bigcommerce.com/s-sp9oc95xrw/images/stencil/1280x1280/products/13261/59754/PRODUCT_IMAGE_toner__36208.1684504666.jpg?c=2"
-        }
+        src={item.mainimage}
         alt={`product-${item.id}`}
         className="w-auto h-28 object-contain mb-7 group-hover:scale-105 transition-transform duration-300"
       />
@@ -77,6 +78,12 @@ const ProductCard = ({ item }: { item: any }) => {
         value={item.title}
         type="text"
         className="text-xl font-semibold text-gray-800 group-hover:text-[#c8102e] transition-colors duration-300 mb-3"
+      />
+
+      <RenderAtom
+        value={toMotoPrice(item.price)}
+        type="text"
+        className="font-light text-gray-500"
       />
 
       <RenderAtom

@@ -42,6 +42,16 @@ const atomRegistry: Record<string, AtomRegistryItem> = {
     category: "Utility",
     description: "Iconify дээр суурилсан icon renderer",
   },
+  line: {
+    type: "line",
+    component: dynamic(() => import("../components/Atoms/AtomLineV2"), {
+      ssr: false,
+    }),
+    displayName: "Тусгаарлагч шугам",
+    icon: "mdi:minus",
+    category: "Layout",
+    description: "Тусгаарлагч line элемент",
+  },
 };
 
 export type AtomType = keyof typeof atomRegistry;

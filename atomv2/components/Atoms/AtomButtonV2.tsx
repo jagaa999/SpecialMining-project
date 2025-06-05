@@ -17,17 +17,17 @@ export default function AtomButtonV2({
   ...props
 }: AtomButtonProps) {
   const variants = {
-    primary: "bg-primary text-white hover:bg-primary/90",
-    secondary: "bg-gray-200 text-gray-800 hover:bg-gray-300",
-    danger: "bg-red-600 text-white hover:bg-red-700",
-    ghost: "bg-transparent text-gray-700 hover:bg-gray-100",
+    primary: "bg-primary text-white",
+    secondary: "bg-gray-200 text-gray-800",
+    danger: "bg-red-600 text-white",
+    ghost: "bg-transparent text-gray-700",
   };
 
   return (
     <button
       type={type}
       className={cn(
-        "px-4 py-2 rounded-lg text-sm font-medium transition-colors block w-full h-full cursor-pointer",
+        "px-4 py-2 rounded-lg text-sm font-medium transition duration-200 block w-full h-full cursor-pointer hover:brightness-95 ",
         variants[variant],
         className
       )}

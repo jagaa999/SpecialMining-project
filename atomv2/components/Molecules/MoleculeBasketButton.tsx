@@ -35,10 +35,10 @@ export default function MoleculeBasketButton({
       }
       type="text"
       style={style}
-      className={`text-sm text-center text-white hover:scale-105 px-7 py-2 rounded-lg transition-all duration-300 cursor-pointer ${
+      className={`text-sm text-center text-white hover:scale-105 px-7 py-4 rounded-lg transition-all duration-300 cursor-pointer ${
         isInBasket
           ? `bg-gray-300 ${objectRemove?.className || ""}`
-          : `bg-green-300 ${objectAdd?.className || ""}`
+          : `bg-teal-400 ${objectAdd?.className || ""}`
       } ${className}`}
       onClick={() => {
         const updatedList = isInBasket

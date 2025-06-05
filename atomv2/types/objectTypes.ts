@@ -10,3 +10,12 @@ export interface ObjectFull {
   description?: ObjectLight;
   mainImage?: ObjectLight;
 }
+
+export interface BasketItemLight {
+  id: number | string;
+  title: string;
+  mainimage: string;
+  price: number | string;
+  description?: string;
+  count?: number;
+}

@@ -10,6 +10,7 @@ interface BlockScrollProps extends HTMLAttributes<HTMLDivElement> {
   direction?: ScrollDirection;
   /** Tailwind class */
   className?: string;
+  isActive?: boolean;
   /** Scrollable элементүүд */
   children: ReactNode;
 }
@@ -21,8 +22,11 @@ export default function BlockScroll({
   direction = "auto",
   children,
   className,
+  isActive = true,
   ...props
 }: BlockScrollProps) {
+  if (!isActive) children;
+
   const directionClasses: Record<ScrollDirection, string> = {
     x: "overflow-x-auto whitespace-nowrap",
     y: "overflow-y-auto",
@@ -33,7 +37,7 @@ export default function BlockScroll({
   return (
     <BlockDiv
       data-block="BlockScroll"
-      className={`w-full scrollbar scrollbar-thumb-slate-300 hover:scrollbar-thumb-slate-400 scrollbar-thumb-rounded scrollbar-w-[8px] ${directionClasses[direction]} ${className}`}
+      className={`w-full scrollbar scrollbar-thumb-slate-50 hover:scrollbar-thumb-slate-200 scrollbar-thumb-rounded scrollbar-w-[5px] ${directionClasses[direction]} ${className}`}
       {...props}>
       {children}
     </BlockDiv>
