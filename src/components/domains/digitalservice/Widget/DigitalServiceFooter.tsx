@@ -23,8 +23,9 @@ export default function DigitalServiceFooter() {
 const staticItem = {
   contact: {
     logo: "https://cdn.moto.mn/moto/landing/10_digitalservice/ddf6d2bf-6066-45f9-b365-031bc3a15ccc.png",
-    description: "Бүх зүйлийг дижиталаар шийдье",
-    phone: "976-9192-2038",
+    description: " Технологийн шийдлийг хэрэглэгчийн гарт",
+    phone1: "976-701220388",
+    phone2: "976-96012038",
   },
   industry: {
     title: "Industry company",
@@ -78,10 +79,16 @@ const TopSection = () => {
         {/* Contact */}
         <div className="flex flex-col gap-2 justify-center items-center md:items-start pt-3">
           <p className="text-gray-500 text-sm">Contact us</p>
-          <div className="flex items-center gap-2 text-lg">
-            <Icon icon="fa:phone" className="text-[#c8102e] text-xl" />
-            <span className="text-gray-300 text-xl">
-              {staticItem?.contact.phone}
+          <div className="flex items-center gap-2 text-base">
+            <Icon icon="fa:phone" className="text-[#c8102e] text-base" />
+            <span className="text-gray-300 text-base">
+              {staticItem?.contact.phone1}
+            </span>
+          </div>
+          <div className="flex items-center gap-2 text-base">
+            <Icon icon="fa:phone" className="text-[#c8102e] text-base" />
+            <span className="text-gray-300 text-base">
+              {staticItem?.contact.phone2}
             </span>
           </div>
         </div>

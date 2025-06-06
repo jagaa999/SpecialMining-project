@@ -1,6 +1,8 @@
 "use client";
 
+import RenderAtom from "atomv2/components/system/RenderAtom";
 import DigitalServiceHomeHero from "../Widget/DigitalServiceHomeHero";
+import BlockDiv from "atomv2/components/Blocks/BlockDiv";
 
 export default function DigitalServicePageAbout() {
   //   {
@@ -15,41 +17,79 @@ export default function DigitalServicePageAbout() {
       {/* <PanelMain> */}
       <div className="w-full bg-white text-gray-900">
         {/* Hero */}
-        <section className="min-h-screen bg-gradient-to-r from-red-600 to-red-400 text-white flex items-center justify-center px-10">
-          <div className="max-w-2xl text-center space-y-6">
-            <h1 className="text-5xl font-bold">Бид хэн бэ?</h1>
-            <p className="text-xl">
-              Принтерийн хор, засвар үйлчилгээ, дахин цэнэглэлтээр мэргэшсэн
-              компани юм.
-            </p>
-            <p className="text-xl">
-              15+ жилийн туршлага, мянга мянган сэтгэл ханамжтай хэрэглэгчидтэй.
-            </p>
-          </div>
+        <section className="min-h-screen bg-gradient-to-r from-red-600 to-red-400 text-white flex flex-col gap-24 items-center justify-center px-10">
+          <BlockDiv className="max-w-2xl text-center space-y-6">
+            <RenderAtom
+              value="Бид хэн бэ?"
+              type="text"
+              className="text-slate-100 text-5xl font-bold"
+            />
+            <RenderAtom
+              value="Принтерийн хор, засвар үйлчилгээ, дахин цэнэглэлтээр мэргэшсэн
+              компани юм."
+              type="text"
+              className="text-white text-xl"
+            />
+            <RenderAtom
+              value="15+ жилийн туршлага, мянга мянган сэтгэл ханамжтай хэрэглэгчидтэй."
+              type="text"
+              className="text-white text-xl"
+            />
+          </BlockDiv>
+          <BlockDiv className="max-w-2xl text-center space-y-6">
+            <RenderAtom
+              value="Уриа"
+              type="text"
+              className="text-slate-100 text-5xl font-bold"
+            />
+            <RenderAtom
+              value="Технологийн шийдлийг хэрэглэгчийн гарт ..."
+              type="text"
+              className="text-white text-xl"
+            />
+          </BlockDiv>
         </section>
 
         <section className="min-h-screen bg-gradient-to-r from-gray-200 to-gray-300 text-gray-700 flex items-center justify-center px-10">
           <div className="max-w-2xl text-center space-y-6">
             <h1 className="text-5xl font-bold">Товч түүх</h1>
 
-            <p className="text-xl">
-              2007 онд байгуулагдан, 2010 онд програм хангамжийн үйлчилгээ,
-              компьютерийн засвар үйлчилгээ, гадаад, дотоод худалдаа чиглэлээр
-              байгуулагдан өнөөг хүртэл тасралтгүй үйл ажиллагаа явуулж байгаа
-              болно. Бид мэдээллийн технологийн бүтээгдэхүүнүүд, компьютер
-              тэдгээрийн дагалдах хэрэгслийг БНХАУ, Малайз улсаас импортоор
-              оруулан ирж борлуулдаг.
+            <p className="text-xl text-justify">
+              “Дижитал Сервис” ХХК 2007 онд байгуулагдан, 2010 онд мэдээллийн
+              технологийн тоног төхөөрөмж, энтерпрайз шийдэл, үйлчилгээ,програм
+              хангамж, мэдээллийн технологийн онлайн худалдааны платформ
+              чиглэлээр хуулийн этгээд болон үйл ажиллагаагаа өнөөг хүртэл
+              тасралтгүй явуулж байна.
             </p>
-            <p className="text-xl">
-              Хүний биед сөрөг нөлөөгүй чанар стандартын шаардлага хангасан
-              хэвлэгч, хувилагч ийн “ACO” брэндийн хорыг Монгол улсад албан ёсны
+            <p className="text-xl text-justify">
+              Бид 2011 оноос эцсийн хэрэглэгчдэд бараа бүтээгдэхүүнээ борлуулдаг
+              баталгаат хүргэлттэй бизнес загварыг эхлүүлж, хамгийн том шууд
+              борлуулалтын багуудыг бүрдүүлж, Монгол улсын нийслэл Улаанбаатар
+              хотын 8 дүүрэг, 21 аймгийн 360 суманд шууд борлуулалт хийж
+              ажилласан. 2017 оноос Төрийн худалдан авах ажиллагаанд оролцож
+              нийт давхардсан тоогоор 280-аад удаагийн ажилаар бараа ажил
+              үйлчилгээг төрийн байгуууллагуудад амжилттай хүргэн, чанарын
+              баталгааг үзүүлэн ажиллаа.
+            </p>
+            <p className="text-xl text-justify">
+              Компани 2024 оноос “АСО” брэндийн ISO9001, ISO14001, ISO45001,
+              STMC олон улсын чанар, стандартын гэрчилгээтэй байгаль орчинд
+              ээлтэй, хүний биед харшил үүсгэхгүй хэвлэгч, хувилагчийн хорны
+              Монгол улс дахь албан ёсны борлуулагч болон орон даяар борлуулалт
+              хийн ажиллаж байна.
+            </p>
+            <p className="text-xl text-justify">
+              2025 оны байдлаар Dell, HP, Canon, Samsung, Acer, Brother, Xerox,
+              Apple, UPS, Santak зэрэг брэндийн компьютер болон тэдгээрийн
+              дагалдах хэрэгсэл, бичгийн хэрэглэлийн Deli, Schneider, бичгийн
+              цаасны Double A брэндийн бараа бүтээгдэхүүнүүдийг албан ёсны
               эрхтэйгээр борлуулж байна.
             </p>
           </div>
         </section>
 
         {/* Philosophy */}
-        <section className="min-h-screen bg-white flex items-center px-10 py-20">
+        <section className="min-h-screen bg-white flex flex-col gap-24 items-center px-10 py-20">
           <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-10 items-center">
             <img
               src="https://c1.wallpaperflare.com/preview/474/958/384/cmyk-printer-colors-print.jpg"
@@ -66,6 +106,24 @@ export default function DigitalServicePageAbout() {
                 <li>Хэрэглэгчийн сэтгэл ханамжийг тэргүүнд тавих</li>
               </ul>
             </div>
+          </div>
+          <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-10 items-center">
+            <div>
+              <h2 className="text-3xl font-bold text-red-700 mb-4">
+                Борлуулдаг бүтээгдэхүүн
+              </h2>
+              <ul className="list-disc list-inside space-y-2 text-lg text-gray-800">
+                <li>Суурин болон зөөврийн компьютер </li>
+                <li>Сервер компьютер </li>
+                <li>Канон, принтер </li>
+                <li>Канон, принтерийн хор </li>
+              </ul>
+            </div>
+            <img
+              src="https://img.freepik.com/premium-photo/printer-toner-hd-8k-wallpaper-stock-photographic-image_915071-69883.jpg"
+              alt="Philosophy"
+              className="rounded-xl shadow-lg"
+            />
           </div>
         </section>
 

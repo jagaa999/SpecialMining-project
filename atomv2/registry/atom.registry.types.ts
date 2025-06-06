@@ -6,6 +6,7 @@ export type AtomCategory =
   | "Action"
   | "Input"
   | "Layout"
+  | "Form"
   | "Utility";
 
 export type AtomRegistryItem = {

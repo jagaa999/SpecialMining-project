@@ -2,6 +2,7 @@
 
 import { Icon } from "@iconify/react";
 import DigitalServiceHomeHero from "../Widget/DigitalServiceHomeHero";
+import RenderAtom from "atomv2/components/system/RenderAtom";
 
 export default function DigitalServicePageContact() {
   //   {
@@ -38,8 +39,8 @@ export default function DigitalServicePageContact() {
               {
                 icon: "ic:baseline-phone",
                 label: "Утас",
-                content: "7012-2038",
-                href: "tel:70122038",
+                content: "+976 - 70122038<br /> +976 - 96012038",
+                href: "tel:96012038",
               },
               {
                 icon: "mdi:facebook",
@@ -56,13 +57,14 @@ export default function DigitalServicePageContact() {
               {
                 icon: "ic:baseline-email",
                 label: "Имэйл",
-                content: "info@digital.mn",
-                href: "mailto:info@digital.mn",
+                content: "info@digitalservice.mn",
+                href: "mailto:info@digitalservice.mn",
               },
               {
                 icon: "mdi:map-marker",
                 label: "Байршил",
-                content: "Улаанбаатар, СБД, 1-р хороо, Монгол шуудангийн төв",
+                content:
+                  "Улаанбаатар, ЧД, 9-р хороо, Их тойруу 54, Компьютер Молл төв, 5007 тоот",
                 href: "https://goo.gl/maps/abc123", // өөрийнхөө map холбоосоор солиорой
               },
             ].map((item, index) => (
@@ -81,7 +83,14 @@ export default function DigitalServicePageContact() {
                 <p className="text-xl font-semibold text-red-700">
                   {item.label}
                 </p>
-                <p>{item.content}</p>
+                <RenderAtom
+                  value={item.content}
+                  type="text"
+                  className=""
+                  isHtml={true}
+                />
+
+                {/* <p>{item.content}</p> */}
               </a>
             ))}
           </div>

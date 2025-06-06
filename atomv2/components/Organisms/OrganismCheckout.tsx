@@ -27,7 +27,9 @@ export default function OrganismCheckout() {
   );
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    console.log("ddddfdsfdsfsdsfdsf ", e.target);
     const { name, value } = e.target;
+    console.log("ddddfdsfdsfs", name, value);
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 

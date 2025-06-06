@@ -55,16 +55,16 @@ const staticItem = {
   ],
   contacts: [
     {
-      icon: "📍",
-      text: "Бүх зүйлийг дижиталаар шийдье",
+      icon: "",
+      text: "Технологийн шийдлийг хэрэглэгчийн гарт",
     },
     {
       icon: "✉",
-      text: "mgl.digitalservice@gmail.com",
+      text: "info@digitalservice.mn",
     },
     {
       icon: "📞",
-      text: "+976 9192-2038",
+      text: "+976 9601-2038",
     },
   ],
   logo: "https://cdn.moto.mn/moto/landing/10_digitalservice/ddf6d2bf-6066-45f9-b365-031bc3a15ccc.png",
