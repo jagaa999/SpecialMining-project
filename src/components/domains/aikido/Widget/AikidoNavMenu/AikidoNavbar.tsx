@@ -1,0 +1,81 @@
+"use client";
+
+import _ from "lodash";
+
+import PanelContainer from "atomv2/components/Panel/PanelContainer";
+import { Icon } from "@iconify/react";
+import BlockDiv from "atomv2/components/Blocks/BlockDiv";
+import AikidoNavbarMenu from "./AikidoNavbarMenu";
+
+export default function AikidoNavbar() {
+  return (
+    <>
+      <PanelContainer>
+        <BlockDiv className="hidden md:flex justify-between items-center py-3 border-b border-gray-100">
+          <BlockDiv className="flex flex-row gap-4">
+            {_.map(staticItem?.socials, (item: any, index: number) => (
+              <a
+                key={index}
+                href={item.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[#0f2e6d] text-xl hover:text-[#c8102e] transition-all duration-300">
+                {/* {iconMap[item.icon as keyof typeof iconMap]} */}
+                <Icon icon={item.icon} />
+              </a>
+            ))}
+          </BlockDiv>
+          <BlockDiv className="flex flex-row gap-6 items-center">
+            {_.map(staticItem?.contacts, (item: any, index: number) => (
+              <span
+                key={item?.id || index}
+                className="flex items-center gap-1 text-gray-800 text-xs">
+                <span className="text-pink-600">{item.icon}</span> {item.text}
+              </span>
+            ))}
+          </BlockDiv>
+        </BlockDiv>
+      </PanelContainer>
+      {/* Main Navbar */}
+      <AikidoNavbarMenu item={staticItem} />
+    </>
+  );
+}
+
+const staticItem = {
+  socials: [
+    {
+      icon: "fa6-brands:facebook-f",
+      href: "https://www.facebook.com/aikidoinmongolia",
+    },
+    {
+      icon: "fa6-brands:instagram",
+      href: "https://www.instagram.com/aikidoinmongolia/",
+    },
+  ],
+  contacts: [
+    {
+      icon: "",
+      text: "Хүн бүр айкидо хийж чадна",
+    },
+    {
+      icon: "✉",
+      text: "info@aikido.mn",
+    },
+    {
+      icon: "📞",
+      text: "+976 8070-0888",
+    },
+  ],
+  logo: "https://cdn.moto.mn/moto/landing/11_aikido/4fbf4f4f-d6a2-4901-8a44-f3a5b5fd32fb.png",
+  menu: [
+    { title: "HOME", href: "/" },
+    { title: "AIKIDO", href: "/aikido" },
+    {
+      title: "СУРГАЛТ",
+      href: "/class",
+    },
+    { title: "ABOUT US", href: "/about" },
+    { title: "CONTACT", href: "/contact" },
+  ],
+};

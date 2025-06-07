@@ -4,6 +4,7 @@ import { Icon } from "@iconify/react";
 import BlockHalf from "atomv2/components/Blocks/BlockHalf";
 import PanelMain from "atomv2/components/Panel/PanelMain";
 import _ from "lodash";
+import AikidoHomeHero from "../Widget/AikidoHomeHero";
 // import DigitalServiceHomeHero from "../Widget/DigitalServiceHomeHero";
 
 export default function DigitalServicePageHome() {
@@ -14,7 +15,25 @@ export default function DigitalServicePageHome() {
   // }
   return (
     <>
-      {/* <DigitalServiceHomeHero item={item_local?.hero} /> */}
+      <AikidoHomeHero
+        item={{
+          backgroundImage: "https://wallpapercave.com/wp/wp2848821.jpg",
+          title: "Aikido in Mongolia",
+          subtitle: "Бүгд суралцах болох гайхамшигт бие хамгаалах урлаг",
+          buttons: [
+            {
+              label: "Хичээллэх",
+              href: "/class",
+              style: "primary",
+            },
+            {
+              label: "About Us",
+              href: "/about",
+              style: "light",
+            },
+          ],
+        }}
+      />
 
       {/* <PanelMain> */}
       <div className="w-full bg-white text-gray-900">
@@ -22,21 +41,21 @@ export default function DigitalServicePageHome() {
         <section className="h-screen bg-white text-gray-700 flex items-center justify-center px-10">
           <div className="max-w-4xl text-center space-y-12">
             <h1 className="text-5xl font-light uppercase leading-snug text-red-600">
-              Принтерийн Хорны Бүх Шийдэл Бидэнд Байна
+              Айкидо хичээллэхийг урьж байна.
             </h1>
             <p className="text-xl">
-              Чанартай хороор найдвартай үйлчилгээ үзүүлнэ.
+              Хар бүс, дантай туршлагатай, найрсаг багш нар
               <br />
-              Хамгийн өргөн сонголттой, шуурхай хүргэлттэй.
+              танд хичээнгүйлэн заах болно.
             </p>
             <button className="bg-slate-200 text-red-600 px-12 py-6 text-xl rounded-full font-bold hover:bg-gray-100 transition">
-              Захиалга өгөх
+              Хичээллэх
             </button>
           </div>
         </section>
 
         {/* Хорны ач холбогдол */}
-        <section className="min-h-screen bg-gradient-to-br from-white via-red-200 to-pink-100 py-24 space-y-24">
+        {/* <section className="min-h-screen bg-gradient-to-br from-white via-red-200 to-pink-100 py-24 space-y-24">
           <h2 className="text-4xl font-bold text-red-700 text-center">
             Чухал ойлголт
           </h2>
@@ -73,7 +92,7 @@ export default function DigitalServicePageHome() {
               </BlockHalf>
             ))}
           </PanelMain>
-        </section>
+        </section> */}
 
         {/* Давуу талууд */}
         <section className="min-h-screen bg-white flex items-center px-10 py-20">
@@ -84,16 +103,16 @@ export default function DigitalServicePageHome() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-lg">
               {[
                 {
-                  icon: "mdi:medal", // туршлага
-                  title: "10+ жилийн туршлага, өөрийн сүлжээ",
+                  icon: "mdi:school", // сургалтын тогтолцоо
+                  title: "Тогтмол сургалт, мэргэжлийн багш нарын удирдлага",
                 },
                 {
-                  icon: "mdi:printer-alert", // баталгаат хор
-                  title: "Өндөр чанартай баталгаат хор",
+                  icon: "mdi:earth", // олон улсын холбоо
+                  title: "Олон улсын Айкидогийн холбоодод бүрэн эрхтэй гишүүн",
                 },
                 {
-                  icon: "mdi:truck-delivery", // хүргэлт
-                  title: "Улаанбаатар хот даяар хүргэлттэй",
+                  icon: "mdi:account-group", // олон нийтэд нээлттэй
+                  title: "Нас, хүйс хамаарахгүй хүн бүрт тохирсон хичээл",
                 },
               ].map((item, index) => (
                 <div
@@ -116,41 +135,42 @@ export default function DigitalServicePageHome() {
         <section className="h-screen bg-red-50 flex items-center px-10">
           <div className="max-w-5xl mx-auto text-center space-y-6">
             <h2 className="text-3xl font-bold text-red-700">
-              Хорны өргөн нэр төрөл
+              Янз бүрийн довтолгооноос хамгаалж сурна
             </h2>
             <p className="text-lg">
-              Бүх төрлийн лазер, инкжет, хувилагч машины хор бидэнд бий
+              Хүүхэд, залуус, насанд хүрэгчдэд зориулсан ангилалтай
+              хичээлүүдтэй.
             </p>
             <p>
-              HP, Canon, Epson, Brother, Samsung, Lexmark гээд танд байгаа
-              бүхэнд хор, засвар бий.
+              Анхан шатнаас ахисан түвшин хүртэлх сургалтуудыг мэргэжлийн багш
+              нар удирдан явуулдаг.
             </p>
 
             <div className="flex flex-wrap justify-center gap-6 px-4 py-6">
               {[
                 {
-                  name: "HP",
-                  logo: "https://logowik.com/content/uploads/images/640_hp.jpg",
+                  name: "Бугуйнаас атгах (Katate-dori)",
+                  logo: "https://thumbs.dreamstime.com/b/hand-sketch-fighters-aikido-vector-illustration-69144110.jpg",
                 },
                 {
-                  name: "Canon",
-                  logo: "https://logowik.com/content/uploads/images/canon-new6894.jpg",
+                  name: "Хоёр гараар бугуй атгах (Ryote-dori)",
+                  logo: "https://thumbs.dreamstime.com/b/hand-sketch-fighters-aikido-vector-illustration-69144110.jpg",
                 },
                 {
-                  name: "Epson",
-                  logo: "https://logowik.com/content/uploads/images/t_154_epson.jpg",
+                  name: "Толгой руу цохих (Shomen-uchi)",
+                  logo: "https://thumbs.dreamstime.com/b/hand-sketch-fighters-aikido-vector-illustration-69144110.jpg",
                 },
                 {
-                  name: "Brother",
-                  logo: "https://logowik.com/content/uploads/images/brother4525.logowik.com.webp",
+                  name: "Хажуунаас цохих (Yokomen-uchi)",
+                  logo: "https://thumbs.dreamstime.com/b/hand-sketch-fighters-aikido-vector-illustration-69144110.jpg",
                 },
                 {
-                  name: "Samsung",
-                  logo: "https://logowik.com/content/uploads/images/samsung35309.logowik.com.webp",
+                  name: "Цээж рүү түлхэх (Mune-tsuki)",
+                  logo: "https://thumbs.dreamstime.com/b/hand-sketch-fighters-aikido-vector-illustration-69144110.jpg",
                 },
                 {
-                  name: "Lexmark",
-                  logo: "https://logowik.com/content/uploads/images/965_lexmark.jpg",
+                  name: "Хутгатай дайрах (Tanto-tori)",
+                  logo: "https://thumbs.dreamstime.com/b/hand-sketch-fighters-aikido-vector-illustration-69144110.jpg",
                 },
               ].map((brand) => (
                 <div
@@ -171,7 +191,7 @@ export default function DigitalServicePageHome() {
         </section>
 
         {/* Захиалга CTA */}
-        <section className="h-screen bg-red-600 text-white flex flex-col items-center justify-center px-10 text-center space-y-12">
+        {/* <section className="h-screen bg-red-600 text-white flex flex-col items-center justify-center px-10 text-center space-y-12">
           <h2 className="text-4xl font-bold">Онлайнаар захиалаарай</h2>
           <p className="text-xl max-w-xl">
             Та бидэнтэй холбогдож хүссэн хороо яг одоо захиалаарай. Бид 1-3
@@ -180,41 +200,12 @@ export default function DigitalServicePageHome() {
           <button className="bg-white text-red-600 px-12 py-6 text-xl rounded-full font-bold hover:bg-gray-100 transition">
             Захиалга өгөх
           </button>
-        </section>
+        </section> */}
       </div>
       {/* </PanelMain> */}
     </>
   );
 }
-
-const item_local = {
-  title: "Overview",
-  description:
-    "Special Mining Services LLC (SMS) is a mining technology company that established in 2012 and is specialized in Drill & Blast and industrial chemicals. We are truly committed to safety, responsible operation and our clients’ interest.",
-  video: {
-    poster: "https://cdn.moto.mn/moto/landing/09_specialmining/thumb.jpg",
-    src: "https://specialmining.bloomlink.mn/moavolen/2023/10/Teselgee.mp4",
-  },
-  hero: {
-    backgroundImage:
-      "https://specialmining.bloomlink.mn/moavolen/2023/09/special-iin-1.png",
-    title: "Дижитал Сервис",
-    subtitle:
-      "Принтер, принтерийн хортой холбоотой худалдаа, засвар үйлчилгээ бүгд нэг дор",
-    buttons: [
-      {
-        label: "Манай хорнууд",
-        href: "/shop",
-        style: "primary",
-      },
-      {
-        label: "About Us",
-        href: "/about",
-        style: "light",
-      },
-    ],
-  },
-};
 
 const tonerTips = [
   {

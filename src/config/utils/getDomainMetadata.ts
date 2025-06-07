@@ -63,6 +63,15 @@ const metadataContentMap: any = {
     image: "/images/dddd.jpg",
     creator: "@DigitalService",
   },
+  aikido: {
+    favicon:
+      "https://cdn.moto.mn/moto/landing/11_aikido/4fbf4f4f-d6a2-4901-8a44-f3a5b5fd32fb.png",
+    title: "Aikido in Mongolia",
+    description: "Бүх хүн хичээллэж болох гайхамшигт бие хамгаалах урлаг",
+    url: "https://www.aikido.mn",
+    image: "/images/dddd.jpg",
+    creator: "@AikidoInMongolia",
+  },
 };
 
 export async function getDomainMetadata() {
