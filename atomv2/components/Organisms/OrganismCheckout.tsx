@@ -7,6 +7,8 @@ import BlockDiv from "../Blocks/BlockDiv";
 import BlockScroll from "../Blocks/BlockScroll";
 import RenderAtom from "../system/RenderAtom";
 import PanelContainer from "../Panel/PanelContainer";
+import { FormProvider, useForm } from "react-hook-form";
+import MoleculeFormField from "../Molecules/MoleculeFormField";
 
 export default function OrganismCheckout() {
   const { localConfig } = useConfig();
@@ -84,6 +86,61 @@ export default function OrganismCheckout() {
 }
 
 const ЗахиалгынМэдээлэл = ({ formData, handleInputChange }: any) => {
+  const methods = useForm({
+    defaultValues: {
+      fullname: "",
+      phone: "",
+      email: "",
+      address: "",
+    },
+  });
+
+  const onSubmit = (data: any) => {
+    console.log("Form Data:", data);
+  };
+
+  return (
+    <FormProvider {...methods}>
+      <form onSubmit={methods.handleSubmit(onSubmit)} className="space-y-4">
+        <h2 className="text-2xl font-semibold mb-4">Захиалгын мэдээлэл</h2>
+
+        <MoleculeFormField
+          name="fullname"
+          label="Овог, нэр"
+          placeholder="Овог, нэрээ бичнэ үү"
+          type="input"
+          rules={{ required: true }}
+        />
+        <MoleculeFormField
+          name="phone"
+          label="Утас"
+          placeholder="Утасны дугаараа оруулна уу"
+          type="input"
+          rules={{ required: true }}
+        />
+        <MoleculeFormField
+          name="email"
+          label="Имэйл"
+          placeholder="Имэйл хаяг"
+          type="input"
+        />
+        <MoleculeFormField
+          name="address"
+          label="Хаяг"
+          placeholder="Хүргэлтийн хаяг"
+          type="textarea"
+        />
+
+        <RenderAtom
+          type="button"
+          value="Захиалга илгээх"
+          variant="primary"
+          className="w-full py-3 text-lg bg-teal-500 hover:bg-teal-600 text-white rounded"
+          onClick={methods.handleSubmit(onSubmit)}
+        />
+      </form>
+    </FormProvider>
+  );
   return (
     <>
       <h2 className="text-2xl font-semibold mb-4">Захиалгын мэдээлэл</h2>

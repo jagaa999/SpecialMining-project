@@ -9,6 +9,7 @@ import AtomLoadingV2 from "../Atoms/AtomLoadingV2";
 import AtomSpinningV2 from "../Atoms/AtomSpinningV2";
 import AtomTooltipV2 from "../Atoms/AtomTooltipV2";
 import AtomUrlV2 from "../Atoms/AtomUrlV2";
+import { isEmpty } from "lodash";
 
 export default function RenderAtom({
   type,
@@ -22,6 +23,8 @@ export default function RenderAtom({
   children,
   ...props
 }: RenderAtomProps) {
+  if (isEmpty(value) && isEmpty(children)) return null;
+
   const DynamicComponent = atomRegistry[type]?.component;
 
   const RenderComponent = (

@@ -5,7 +5,7 @@ import { AtomBaseProps } from "../../types/atomTypes";
 import { cn } from "atomv2/util/atomHelperV2";
 
 export interface AtomIconProps extends AtomBaseProps {
-  icon: string | IconifyIcon;
+  icon?: string | IconifyIcon;
   rotate?: number;
   hFlip?: boolean;
   vFlip?: boolean;

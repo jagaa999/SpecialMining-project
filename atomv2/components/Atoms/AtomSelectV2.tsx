@@ -1,14 +1,23 @@
+"use client";
+
 import React, { SelectHTMLAttributes } from "react";
 import { cn } from "atomv2/util/atomHelperV2";
 
+interface OptionType {
+  label: string;
+  value: string | number;
+}
+
 interface AtomSelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
   className?: string;
-  children: React.ReactNode;
+  options?: OptionType[]; // Dropdown-ий сонголтууд
+  children?: React.ReactNode; // Альтернатив slot
 }
 
 export default function AtomSelectV2({
   className = "",
   children,
+  options,
   ...props
 }: AtomSelectProps) {
   return (
@@ -18,7 +27,12 @@ export default function AtomSelectV2({
         className
       )}
       {...props}>
-      {children}
+      {children ||
+        options?.map((opt, index) => (
+          <option key={index} value={opt.value}>
+            {opt.label}
+          </option>
+        ))}
     </select>
   );
 }

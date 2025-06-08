@@ -1,5 +1,6 @@
 "use client";
 
+import { isEmpty } from "lodash";
 import { AtomBaseProps } from "../../types/atomTypes";
 import { cn } from "../../util/atomHelperV2";
 
@@ -16,6 +17,8 @@ export default function AtomTextV2({
   children,
   ...props
 }: AtomTextProps) {
+  if (isEmpty(value) && isEmpty(children)) return null;
+
   const variants = {
     default: "text-base text-gray-900",
     muted: "text-sm text-gray-500",

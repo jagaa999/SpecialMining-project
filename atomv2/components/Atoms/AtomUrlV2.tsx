@@ -21,15 +21,15 @@ export interface AtomUrlV2Props {
 export default function AtomUrlV2({
   href,
   baseUrl,
-  className = "",
+  className,
   children,
   ...props
 }: AtomUrlV2Props) {
   if (_.isEmpty(href) && _.isEmpty(baseUrl)) return <>{children}</>;
 
   const classNameReady = cn(
-    className,
-    "w-fit h-fit block hover:brightness-90 transition-all duration-200 ease-in-out"
+    "w-fit h-fit block hover:brightness-90 transition-all duration-200 ease-in-out",
+    className
   );
 
   // console.log("AtomUrlV2 df", { href, baseUrl, className, classNameReady });

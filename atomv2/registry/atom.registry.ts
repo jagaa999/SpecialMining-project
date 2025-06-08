@@ -1,7 +1,7 @@
 import dynamic from "next/dynamic";
-import { AtomRegistryItem } from "./atom.registry.types";
+// import { AtomRegistryItem } from "./atom.registry.types";
 
-const atomRegistry: Record<string, AtomRegistryItem> = {
+const atomRegistry = {
   text: {
     type: "text",
     component: dynamic(() => import("../components/Atoms/AtomTextV2"), {
@@ -92,7 +92,16 @@ const atomRegistry: Record<string, AtomRegistryItem> = {
     category: "Form",
     description: "Dropdown сонголтын талбар",
   },
-};
+} as const;
 
 export type AtomType = keyof typeof atomRegistry;
+export type FormAtomType = keyof {
+  [K in keyof typeof atomRegistry as (typeof atomRegistry)[K]["category"] extends "Form"
+    ? K
+    : never]: any;
+};
 export default atomRegistry;
+
+// const dddd: AtomType = "image";
+// const dddrerw: FormAtomType = "select";
+// console.log("dfdf", dddd);

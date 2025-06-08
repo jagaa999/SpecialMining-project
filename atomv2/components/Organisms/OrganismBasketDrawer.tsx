@@ -59,9 +59,10 @@ export default function OrganismBasketDrawer() {
         </BlockDiv>
 
         <RenderAtom
-          value={"Захиалга хийх"}
+          value={"Сагсны дэлгэрэнгүй"}
           type="button"
           className="w-full bg-teal-500 hover:brightness-95 text-white py-4 rounded transition text-base"
+          url={{ href: "/cart", className: "w-full" }}
         />
       </BlockDiv>
     </BlockDiv>

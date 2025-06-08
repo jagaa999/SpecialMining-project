@@ -63,7 +63,7 @@ export default function BlockTab({
               <RenderAtom
                 key={item?.id || index}
                 item={item?.title}
-                type="title"
+                type="text"
                 className={`pb-3 cursor-pointer font-robotocondensed ${
                   number === index ? activeTabClassName : normalTabClassName
                 }`}

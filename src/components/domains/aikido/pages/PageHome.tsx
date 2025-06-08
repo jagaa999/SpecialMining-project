@@ -129,7 +129,7 @@ export default function DigitalServicePageHome() {
         </section>
 
         {/* Хорны төрөл */}
-        <section className="h-screen bg-red-50 flex items-center px-10">
+        <section className="min-h-screen bg-red-50 flex items-center px-10 py-12">
           <div className="max-w-5xl mx-auto text-center space-y-6">
             <h2 className="text-3xl font-bold text-red-700">
               Янз бүрийн довтолгооноос хамгаалж сурна

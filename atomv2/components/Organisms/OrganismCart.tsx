@@ -53,6 +53,7 @@ const СагсныМэдээлэл = ({ total }: any) => {
           value={"Захиалах"}
           type="button"
           className="bg-teal-500 text-white py-3 text-lg"
+          url={{ href: "/checkout", className: "w-full" }}
         />
         <RenderAtom
           value={"Төлбөр төлөх"}

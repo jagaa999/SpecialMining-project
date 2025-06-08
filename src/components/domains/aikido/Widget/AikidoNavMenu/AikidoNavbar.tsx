@@ -75,7 +75,10 @@ const staticItem = {
       title: "СУРГАЛТ",
       href: "/class",
     },
+    {
+      title: "ШАВЬ",
+      href: "/student",
+    },
     { title: "ABOUT US", href: "/about" },
-    { title: "CONTACT", href: "/contact" },
   ],
 };
