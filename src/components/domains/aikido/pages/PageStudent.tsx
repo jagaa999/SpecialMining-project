@@ -8,7 +8,7 @@ export default function PageStudent() {
             {/* Banner */}
             <AikidoHomeHero
                 item={{
-                    backgroundImage: "https://wallpapercave.com/wp/wp10826264.jpg", // Зургаа сольж болно
+                    backgroundImage: "https://wallpapercave.com/wp/wp10826264.jpg",
                     title: "Айкидо шавь нарт зориулав",
                     subtitle: "Биеэ хянах ухаан, сахилга бат, хамт олонч чанар энд эхэлнэ",
                     buttons: [
@@ -80,6 +80,44 @@ export default function PageStudent() {
                         >
                             <p className="text-gray-700 italic mb-4">"{item.quote}"</p>
                             <p className="text-sm font-semibold text-red-600">— {item.name}</p>
+                        </div>
+                    ))}
+                </div>
+            </section>
+
+            {/* Амжилтын Тайз */}
+            <section className="bg-white px-10 py-20 text-center">
+                <h2 className="text-4xl font-bold text-red-700 mb-6">Амжилтын Тайз</h2>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-10 max-w-6xl mx-auto">
+                    {[
+                        {
+                            name: "Бат-Оргил",
+                            image: "/achievements/bat-orgil.jpg",
+                            level: "1-р дан хар бүс",
+                            result: "2024 оны Улсын Айкидо тэмцээний хүрэл медаль",
+                            date: "2024.03.22",
+                        },
+                        {
+                            name: "Номин-Эрдэнэ",
+                            image: "/achievements/nominerdene.jpg",
+                            level: "2-р кю",
+                            result: "Айкидо шалгалт амжилттай өгч дэвшив",
+                            date: "2025.01.10",
+                        },
+                    ].map((student, i) => (
+                        <div
+                            key={i}
+                            className="bg-red-50 p-6 rounded-xl shadow-md space-y-4"
+                        >
+                            <img
+                                src={student.image}
+                                alt={student.name}
+                                className="rounded-lg w-full h-48 object-cover"
+                            />
+                            <h3 className="text-xl font-bold text-red-700">{student.name}</h3>
+                            <p className="text-sm italic text-gray-600">{student.level}</p>
+                            <p className="text-gray-700">{student.result}</p>
+                            <p className="text-xs text-gray-500">{student.date}</p>
                         </div>
                     ))}
                 </div>
