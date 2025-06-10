@@ -1,5 +1,5 @@
 import { cn } from "atomv2/util/atomHelperV2";
-import RenderAtom from "../system/RenderAtom";
+import RenderAtom from "../Atoms/RenderAtom";
 import { generalTheme } from "src/components/domains/aikido/Widget/AikidoGeneralConfig";
 
 export default function PanelTextMain({

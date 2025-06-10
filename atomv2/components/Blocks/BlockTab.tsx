@@ -5,7 +5,7 @@ import React from "react";
 import { useCounter } from "react-use";
 import BlockAffix from "./BlockAffix";
 import BlockDiv from "./BlockDiv";
-import RenderAtom from "../system/RenderAtom";
+import RenderAtom from "../Atoms/RenderAtom";
 import BlockSlider from "./BlockSlider";
 
 interface BlockTabProps {

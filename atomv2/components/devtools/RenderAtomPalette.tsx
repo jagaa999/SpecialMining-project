@@ -4,7 +4,7 @@ import _ from "lodash";
 import { Switch } from "antd";
 import { useToggle } from "react-use";
 import atomRegistry from "../../registry/atom.registry";
-import RenderAtom from "../system/RenderAtom";
+import RenderAtom from "../Atoms/RenderAtom";
 
 export default function RenderAtomPalette() {
   const voidElements = ["image", "input", "hr", "br"];

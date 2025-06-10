@@ -1,6 +1,6 @@
 "use client";
 
-import RenderAtom from "atomv2/components/system/RenderAtom";
+import RenderAtom from "atomv2/components/Atoms/RenderAtom";
 import DigitalServiceHomeHero from "../Widget/DigitalServiceHomeHero";
 import BlockDiv from "atomv2/components/Blocks/BlockDiv";
 

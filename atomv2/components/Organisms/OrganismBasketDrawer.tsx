@@ -2,7 +2,7 @@ import { toMotoPrice } from "atomv2/util/widgetHelper";
 import { useConfig } from "src/config/context/ConfigContext";
 import BlockDiv from "../Blocks/BlockDiv";
 import BlockScroll from "../Blocks/BlockScroll";
-import RenderAtom from "../system/RenderAtom";
+import RenderAtom from "../Atoms/RenderAtom";
 import OrganismBasketListPanel from "./OrganismBasketListPanel";
 
 export default function OrganismBasketDrawer() {

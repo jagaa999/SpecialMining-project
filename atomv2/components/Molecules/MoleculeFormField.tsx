@@ -16,7 +16,7 @@ interface MoleculeFormFieldProps {
   disabled?: boolean;
   className?: string;
   type: FormAtomType;
-  options?: any[]; // select field-д зориулсан
+  options?: any[];
   rules?: Record<string, any>; // ← нэмж өгнө
 }
 
@@ -60,7 +60,7 @@ export default function MoleculeFormField({
           id={id || name}
           placeholder={placeholder}
           disabled={disabled}
-          {...(type === "select" && { options })}
+          options={options}
           {...props}
           {...register(name, rules)}
         />

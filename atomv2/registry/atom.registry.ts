@@ -19,7 +19,7 @@ const atomRegistry = {
     }),
     displayName: "Зураг",
     icon: "ImageIcon",
-    category: "Media",
+    category: "Basic",
     description: "Image буюу зураг үзүүлнэ",
   },
   button: {
@@ -29,7 +29,7 @@ const atomRegistry = {
     }),
     displayName: "Товч",
     icon: "ButtonIcon",
-    category: "Action",
+    category: "Basic",
     description: "Click үйлдэлтэй товч",
   },
   icon: {
@@ -39,7 +39,7 @@ const atomRegistry = {
     }),
     displayName: "Icon",
     icon: "fa6-regular:star",
-    category: "Utility",
+    category: "Basic",
     description: "Iconify дээр суурилсан icon renderer",
   },
   line: {
@@ -59,7 +59,7 @@ const atomRegistry = {
     }),
     displayName: "Шошго",
     icon: "mdi:label-outline",
-    category: "Form",
+    category: "Basic",
     description: "Input-ийн шошго",
   },
   input: {
@@ -91,6 +91,27 @@ const atomRegistry = {
     icon: "mdi:form-dropdown",
     category: "Form",
     description: "Dropdown сонголтын талбар",
+  },
+  checkbox: {
+    type: "checkbox",
+    component: dynamic(() => import("../components/Atoms/AtomCheckBoxV2"), {
+      ssr: false,
+    }),
+    displayName: "Checkbox",
+    icon: "mdi:checkbox-marked-outline",
+    category: "Form",
+    description: "Олон сонголт бүхий checkbox жагсаалт",
+  },
+
+  radio: {
+    type: "radio",
+    component: dynamic(() => import("../components/Atoms/AtomRadioV2"), {
+      ssr: false,
+    }),
+    displayName: "Radio",
+    icon: "mdi:radiobox-marked",
+    category: "Form",
+    description: "Нэг сонголт бүхий radio жагсаалт",
   },
 } as const;
 

@@ -2,10 +2,13 @@
 
 import React, { SelectHTMLAttributes } from "react";
 import { cn } from "atomv2/util/atomHelperV2";
+import { map } from "lodash";
 
 interface OptionType {
-  label: string;
-  value: string | number;
+  id?: string | number;
+  title?: string;
+  label?: string;
+  value?: string | number;
 }
 
 interface AtomSelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
@@ -28,9 +31,9 @@ export default function AtomSelectV2({
       )}
       {...props}>
       {children ||
-        options?.map((opt, index) => (
-          <option key={index} value={opt.value}>
-            {opt.label}
+        map(options, (opt: any, index: number) => (
+          <option key={opt?.id || index} value={opt?.value || opt?.id}>
+            {opt?.title || opt?.label}
           </option>
         ))}
     </select>

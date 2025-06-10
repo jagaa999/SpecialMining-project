@@ -6,7 +6,7 @@ import {
   removeItemArrayBasket2,
   updateArrayBasket2,
 } from "../../util/widgetHelper";
-import RenderAtom from "../system/RenderAtom";
+import RenderAtom from "../Atoms/RenderAtom";
 import { ObjectLight } from "atomv2/types/objectTypes";
 
 export default function MoleculeBasketButton({

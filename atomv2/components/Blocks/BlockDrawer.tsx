@@ -2,7 +2,7 @@ import { Drawer } from "antd";
 import useResponsiveBreakpoint from "atomv2/hooks/useResponsiveBreakpoint";
 import { ObjectLight } from "atomv2/types/objectTypes";
 import { ReactNode } from "react";
-import RenderAtom from "../system/RenderAtom";
+import RenderAtom from "../Atoms/RenderAtom";
 import BlockDiv from "./BlockDiv";
 import BlockScroll from "./BlockScroll";
 

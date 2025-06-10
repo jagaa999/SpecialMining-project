@@ -2,7 +2,7 @@
 
 import { Icon } from "@iconify/react";
 import DigitalServiceHomeHero from "../Widget/DigitalServiceHomeHero";
-import RenderAtom from "atomv2/components/system/RenderAtom";
+import RenderAtom from "atomv2/components/Atoms/RenderAtom";
 
 export default function DigitalServicePageContact() {
   //   {

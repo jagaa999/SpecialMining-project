@@ -1,8 +1,6 @@
 import _ from "lodash";
 import Slider from "react-slick";
-import "slick-carousel/slick/slick-theme.css";
-import "slick-carousel/slick/slick.css";
-import RenderAtom from "../system/RenderAtom";
+import RenderAtom from "../Atoms/RenderAtom";
 
 export default function BlockSlider({
   type = "simple",

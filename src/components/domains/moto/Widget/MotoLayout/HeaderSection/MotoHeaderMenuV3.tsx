@@ -1,6 +1,6 @@
 import BlockDiv from "atomv2/components/Blocks/BlockDiv";
 import BlockMobileDesktop from "atomv2/components/Blocks/BlockMobileDesktop";
-import RenderAtom from "atomv2/components/system/RenderAtom";
+import RenderAtom from "atomv2/components/Atoms/RenderAtom";
 
 export default function MotoHeaderMenuV3({
   itemList,

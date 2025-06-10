@@ -6,7 +6,7 @@ import BlockDiv from "../Blocks/BlockDiv";
 import PanelContainer from "../Panel/PanelContainer";
 import OrganismBasketListPanel from "./OrganismBasketListPanel";
 import BlockAffix from "../Blocks/BlockAffix";
-import RenderAtom from "../system/RenderAtom";
+import RenderAtom from "../Atoms/RenderAtom";
 
 export default function OrganismCart() {
   const { localConfig } = useConfig();

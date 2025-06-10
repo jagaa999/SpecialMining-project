@@ -3,7 +3,7 @@
 import { Pagination } from "antd";
 import MoleculeBasketButton from "atomv2/components/Molecules/MoleculeBasketButton";
 import PanelMain from "atomv2/components/Panel/PanelMain";
-import RenderAtom from "atomv2/components/system/RenderAtom";
+import RenderAtom from "atomv2/components/Atoms/RenderAtom";
 import _ from "lodash";
 import { useState } from "react";
 import useSWR from "swr";

@@ -3,7 +3,7 @@ import { toMotoPrice } from "atomv2/util/widgetHelper";
 import { CSSProperties } from "react";
 import BlockDiv from "../Blocks/BlockDiv";
 import BlockFlexCol from "../Blocks/BlockFlexCol";
-import RenderAtom from "../system/RenderAtom";
+import RenderAtom from "../Atoms/RenderAtom";
 
 export default function MoleculeBasketItem({
   item,

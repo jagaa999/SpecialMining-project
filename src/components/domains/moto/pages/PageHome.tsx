@@ -8,7 +8,7 @@ import BlockAffix from "atomv2/components/Blocks/BlockAffix";
 import BlockDiv from "atomv2/components/Blocks/BlockDiv";
 import BlockSliderSlick from "atomv2/components/Blocks/BlockSlider";
 import PanelMain from "atomv2/components/Panel/PanelMain";
-import RenderAtom from "atomv2/components/system/RenderAtom";
+import RenderAtom from "atomv2/components/Atoms/RenderAtom";
 import useScrollTop from "atomv2/hooks/useScrollTop";
 
 // import Hero from "./HomeHero";
