@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import AikidoHomeHero from "../Widget/AikidoHomeHero";
 
 export default function PageStudent() {
@@ -83,7 +84,7 @@ export default function PageStudent() {
             <div
               key={i}
               className="bg-white p-6 rounded-xl shadow-lg border border-red-200 text-left">
-              <p className="text-gray-700 italic mb-4">"{item.quote}"</p>
+              <p className="text-gray-700 italic mb-4">{item.quote}</p>
               <p className="text-sm font-semibold text-red-600">
                 — {item.name}
               </p>
@@ -137,11 +138,11 @@ export default function PageStudent() {
         <p className="text-lg mb-8">
           Айкидо бол амьдралын ур чадварыг заадаг. Өнөөдөр л эхэл!
         </p>
-        <a
+        <Link
           href="/register"
           className="inline-block bg-white text-red-600 px-12 py-4 rounded-full text-lg font-bold hover:bg-gray-100 transition">
           Хичээлд бүртгүүлэх
-        </a>
+        </Link>
       </section>
     </div>
   );
