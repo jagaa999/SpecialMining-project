@@ -102,7 +102,7 @@ const ЗахиалгынМэдээлэл = ({ formData, handleInputChange }: any
   return (
     <FormProvider {...methods}>
       <form onSubmit={methods.handleSubmit(onSubmit)} className="space-y-4">
-        <h2 className="text-2xl font-semibold mb-4">Захиалгын мэдээлэл</h2>
+        <h2 className="text-2xl font-semibold mb-4">Таны мэдээлэл</h2>
 
         <MoleculeFormField
           name="fullname"
