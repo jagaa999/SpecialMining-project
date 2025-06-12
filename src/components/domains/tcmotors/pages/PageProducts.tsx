@@ -5,7 +5,7 @@ import PanelMain from "atomv2/components/Panel/PanelMain";
 import PanelTitle from "atomv2/components/Panel/PanelTitleMain";
 import PanelTextMain from "atomv2/components/Panel/PanelTextMain";
 import TcmotorsHomeHero from "../widget/TcmotorsHomeHero";
-import RenderAtom from "atomv2/components/system/RenderAtom";
+import RenderAtom from "atomv2/components/Atoms/RenderAtom";
 
 const sampleProducts = [
     {
