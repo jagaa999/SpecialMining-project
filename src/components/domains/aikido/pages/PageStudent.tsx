@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import AikidoHomeHero from "../Widget/AikidoHomeHero";
+import RenderAtom from "atomv2/components/Atoms/RenderAtom";
 
 export default function PageStudent() {
   return (
@@ -30,13 +31,31 @@ export default function PageStudent() {
 
       {/* Шавь нарт зориулсан контент */}
       <section className="bg-white px-10 py-20 text-center space-y-12">
-        <h2 className="text-4xl font-bold text-red-700">Шавь нарт зориулав</h2>
-        <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+        <h1>h1 Шавь нарт зориулав</h1>
+        <h2>h2 Шавь нарт зориулав</h2>
+        <h3>h3 Шавь нарт зориулав</h3>
+        <h4>h4 Шавь нарт зориулав</h4>
+        <h5>h5 Шавь нарт зориулав</h5>
+        <h6 className="max-w-brand mx-auto">
+          h6 Шавь нарт зориулавШавь нарт зориулавШавь нарт зориулавШавь нарт
+          зориулавШавь нарт зориулавШавь нарт зориулавШавь нарт зориулавШавь
+          нарт зориулавШавь нарт зориулавШавь нарт зориулавШавь нарт
+          зориулавШавь нарт зориулавШавь нарт зориулавШавь нарт зориулавШавь
+          нарт зориулавШавь нарт зориулавШавь нарт зориулавШавь нарт
+          зориулавШавь нарт зориулавШавь нарт зориулавШавь нарт зориулавШавь
+          нарт зориулавШавь нарт зориулавШавь нарт зориулавШавь нарт
+          зориулавШавь нарт зориулавШавь нарт зориулавШавь нарт зориулавШавь
+          нарт зориулавШавь нарт зориулав{" "}
+        </h6>
+        <p className="text-fg max-w-2xl mx-auto">
           Айкидо бол зөвхөн бие хамгаалах урлаг биш — харин хүн чанар, хүндлэл,
           тууштай байдал, багийн харилцаа зэргийг хамтад нь хөгжүүлдэг
           гайхамшигт сургууль юм.
         </p>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+        <RenderAtom value={"Энэ бол theme"} type="button" className="" />
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 container mx-auto">
           {[
             {
               title: "Сахилга бат",
@@ -53,19 +72,17 @@ export default function PageStudent() {
           ].map((item, i) => (
             <div
               key={i}
-              className="p-8 bg-red-50 rounded-xl shadow-md ring-1 ring-red-200 hover:ring-red-400 transition space-y-4">
-              <h3 className="text-xl font-semibold text-red-700">
-                {item.title}
-              </h3>
-              <p className="text-gray-600">{item.desc}</p>
+              className="p-8 bg-bg rounded-xl shadow-brand ring-1 ring-brand hover:ring-brand/70 transition space-y-4">
+              <h3 className="text-xl font-semibold text-fg">{item.title}</h3>
+              <p className="text-secondary">{item.desc}</p>
             </div>
           ))}
         </div>
       </section>
 
       {/* Дэвжээний дурсамжууд */}
-      <section className="bg-red-50 px-10 py-20 text-center">
-        <h2 className="text-4xl font-bold text-red-700 mb-6">
+      <section className="bg-brand/5 px-10 py-20 text-center">
+        <h2 className="text-4xl font-bold text-brand mb-6">
           Шавь нарын дурсамж
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-5xl mx-auto">
@@ -83,19 +100,22 @@ export default function PageStudent() {
           ].map((item, i) => (
             <div
               key={i}
-              className="bg-white p-6 rounded-xl shadow-lg border border-red-200 text-left">
+              className="bg-brand/2 p-6 rounded-xl shadow-lg border border-brand/70 text-left">
               <p className="text-gray-700 italic mb-4">{item.quote}</p>
-              <p className="text-sm font-semibold text-red-600">
-                — {item.name}
-              </p>
+              <p className="text-sm font-semibold text-brand">— {item.name}</p>
             </div>
           ))}
         </div>
       </section>
 
       {/* Амжилтын Тайз */}
-      <section className="bg-white px-10 py-20 text-center">
-        <h2 className="text-4xl font-bold text-red-700 mb-6">Амжилтын Тайз</h2>
+      <section className="bg-primary px-10 py-20 text-center">
+        <div className="text-4xl font-bold text-primary bg-pink-200 mb-6">
+          Амжилтын Тайз ddd
+        </div>
+        <div className="text-4xl text-primary bg-secondary p-4 rounded">
+          Hello from theme!
+        </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 max-w-6xl mx-auto">
           {[
             {

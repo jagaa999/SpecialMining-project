@@ -2,7 +2,6 @@
 
 import { createContext, useContext } from "react";
 
-// DomainContext.tsx
 const DomainContext = createContext({ domain: "default" });
 export const useDomain = () => useContext(DomainContext);
 

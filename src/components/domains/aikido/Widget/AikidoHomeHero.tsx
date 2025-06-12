@@ -45,10 +45,10 @@ export default function AikidoHomeHero({ item }: { item: any }) {
             <a
               key={index}
               href={item.href}
-              className={`font-semibold px-8 py-4 text-lg transition-all flex items-center gap-2 ${
+              className={`font-semibold px-[var(--button-padding-x)] py-[var(--button-padding-y)] rounded-[var(--button-radius)] text-lg transition-all flex items-center gap-2 ${
                 item.style === "primary"
-                  ? "bg-[#c8102e] text-white hover:bg-red-700"
-                  : "bg-white text-black border hover:bg-gray-100"
+                  ? "bg-primary text-fg hover:brightness-95"
+                  : "bg-info text-bg hover:brightness-95"
               }`}>
               {item.label}
               {item.style === "light" && <span className="text-xl">→</span>}

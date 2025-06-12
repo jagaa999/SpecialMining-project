@@ -17,17 +17,25 @@ export default function AtomButtonV2({
   ...props
 }: AtomButtonProps) {
   const variants = {
-    primary: "bg-primary text-white",
-    secondary: "bg-gray-200 text-gray-800",
-    danger: "bg-red-600 text-white",
-    ghost: "bg-transparent text-gray-700",
+    primary: "bg-brand text-bg",
+    secondary: "bg-secondary text-bg",
+    danger: "bg-error text-bg",
+    ghost: "bg-transparent text-fg",
   };
+
+  const buttonThemeBrandClass = `
+      rounded-brand
+      px-brand-x
+      py-brand-y
+      shadow-brand
+  `;
 
   return (
     <button
       type={type}
       className={cn(
-        "px-4 py-2 rounded-lg text-sm font-medium transition duration-200 block w-full h-full cursor-pointer hover:brightness-95 ",
+        "block w-fit h-fit cursor-pointer transition duration-200 hover:brightness-95",
+        buttonThemeBrandClass,
         variants[variant],
         className
       )}

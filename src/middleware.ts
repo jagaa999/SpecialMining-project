@@ -7,6 +7,7 @@ export function middleware(request: NextRequest) {
 
   const response = NextResponse.next();
   response.cookies.set("domain", domain);
+  response.headers.set("x-theme", domain);
   return response;
 }
 

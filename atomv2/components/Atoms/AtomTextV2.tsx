@@ -20,9 +20,9 @@ export default function AtomTextV2({
   if (isEmpty(value) && isEmpty(children)) return null;
 
   const variants = {
-    default: "text-base text-gray-900",
-    muted: "text-sm text-gray-500",
-    error: "text-sm text-red-600",
+    default: "text-base text-fg", // <-- Theme token
+    muted: "text-sm text-muted",
+    error: "text-sm text-error",
     highlight: "text-base font-semibold text-primary",
   };
 
