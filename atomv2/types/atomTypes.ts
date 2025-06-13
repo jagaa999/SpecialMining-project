@@ -17,7 +17,7 @@ export interface AtomBaseProps {
 }
 
 export interface RenderAtomProps {
-  type: AtomType;
+  type?: AtomType;
   value?: any;
   tooltip?: TooltipProps | string;
   url?: AtomUrlV2Props;

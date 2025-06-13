@@ -2,6 +2,7 @@
 
 import { Spin } from "antd";
 import { RenderAtomProps } from "atomv2/types/atomTypes";
+import { isEmpty } from "lodash";
 import { Suspense } from "react";
 import atomRegistry from "../../registry/atom.registry";
 import AtomAnimationV2 from "./AtomAnimationV2";
@@ -9,10 +10,9 @@ import AtomLoadingV2 from "./AtomLoadingV2";
 import AtomSpinningV2 from "./AtomSpinningV2";
 import AtomTooltipV2 from "./AtomTooltipV2";
 import AtomUrlV2 from "./AtomUrlV2";
-import { isEmpty } from "lodash";
 
 export default function RenderAtom({
-  type,
+  type = "text",
   value,
   tooltip,
   url,

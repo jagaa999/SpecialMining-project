@@ -3,6 +3,7 @@
 import BlockDiv from "atomv2/components/Blocks/BlockDiv";
 import AikidoFooter from "../Widget/AikidoFooter";
 import AikidoNavbar from "../Widget/AikidoNavMenu/AikidoNavbar";
+import AikidoContactPanel from "../Widget/AikidoContactPanel";
 
 export default function LayoutWrapper({
   children,
@@ -15,6 +16,7 @@ export default function LayoutWrapper({
       <BlockDiv type="section" className="flex-grow">
         {children}
       </BlockDiv>
+      <AikidoContactPanel />
       <AikidoFooter />
     </BlockDiv>
   );

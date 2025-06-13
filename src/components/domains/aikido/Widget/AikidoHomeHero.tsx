@@ -1,14 +1,14 @@
 "use client";
 
-import React from "react";
-import _ from "lodash";
+import RenderAtom from "atomv2/components/Atoms/RenderAtom";
+import BlockDiv from "atomv2/components/Blocks/BlockDiv";
+import { map } from "lodash";
 import useUnsplash from "src/config/hooks/useUnsplash";
 
 export default function AikidoHomeHero({ item }: { item: any }) {
   const { imageUrl, loading, error } = useUnsplash("japanese");
-  const defaultImage = "/images/dddd.jpg";
+  const defaultImage = "https://wallpapercave.com/wp/wp2848821.jpg";
 
-  // If loading, show a placeholder or loading state
   if (loading) {
     return (
       <section className="h-[100vh] bg-gray-200 flex items-center justify-center text-gray-500">
@@ -17,10 +17,9 @@ export default function AikidoHomeHero({ item }: { item: any }) {
     );
   }
 
-  console.log("dfsdfdsf sdf dsf sd:", { item });
-
   return (
-    <section
+    <BlockDiv
+      type="section"
       className="h-screen bg-cover bg-center flex items-center justify-center text-white relative"
       style={{
         backgroundImage: `url(${
@@ -28,34 +27,39 @@ export default function AikidoHomeHero({ item }: { item: any }) {
         })`, // Use default if there's an error
       }}>
       {/* Overlay */}
-      <div className="absolute inset-0 bg-black/40" />
+      <BlockDiv className="absolute inset-0 bg-black/40" />
 
       {/* Content */}
-      <div className="relative z-10 text-center px-4">
-        <div className="w-40 h-[3px] bg-[#c8102e] mx-auto mb-8" />
-        <p className="text-6xl md:text-8xl font-extrabold leading-tight mb-8 whitespace-pre-line">
-          {item?.title}
-        </p>
+      <BlockDiv className="relative z-10 text-center px-4">
+        <RenderAtom
+          value=" "
+          type="line"
+          className="w-40 bg-brand mx-auto mb-8"
+          height="4px"
+        />
 
-        <p className="text-xl md:text-3xl max-w-3xl mx-auto mb-10">
-          {item?.subtitle}
-        </p>
-        <div className="flex flex-col md:flex-row justify-center gap-6">
-          {_.map(item?.buttons, (item: any, index: number) => (
-            <a
-              key={index}
-              href={item.href}
-              className={`font-semibold px-[var(--button-padding-x)] py-[var(--button-padding-y)] rounded-[var(--button-radius)] text-lg transition-all flex items-center gap-2 ${
-                item.style === "primary"
-                  ? "bg-primary text-fg hover:brightness-95"
-                  : "bg-info text-bg hover:brightness-95"
-              }`}>
-              {item.label}
-              {item.style === "light" && <span className="text-xl">→</span>}
-            </a>
+        <RenderAtom
+          value={item?.title}
+          type="text"
+          className="text-6xl md:text-8xl font-extrabold leading-tight mb-8 whitespace-pre-line text-bg"
+        />
+        <RenderAtom
+          value={item?.subtitle}
+          type="text"
+          className="text-xl md:text-3xl max-w-3xl mx-auto mb-10 text-bg"
+        />
+        <BlockDiv className="flex flex-col md:flex-row justify-center gap-6">
+          {map(item?.buttons, (item: any, index: number) => (
+            <RenderAtom
+              key={item?.id || index}
+              value={item?.label}
+              type="button"
+              className=""
+              url={{ href: item.href }}
+            />
           ))}
-        </div>
-      </div>
-    </section>
+        </BlockDiv>
+      </BlockDiv>
+    </BlockDiv>
   );
 }

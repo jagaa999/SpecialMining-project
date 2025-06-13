@@ -1,6 +1,6 @@
 "use client";
 
-import _ from "lodash";
+import { map } from "lodash";
 
 import PanelContainer from "atomv2/components/Panel/PanelContainer";
 import { Icon } from "@iconify/react";
@@ -9,28 +9,25 @@ import AikidoNavbarMenu from "./AikidoNavbarMenu";
 
 export default function AikidoNavbar() {
   return (
-    <>
+    <BlockDiv className="w-full">
       <PanelContainer>
-        <BlockDiv className="hidden md:flex justify-between items-center py-3 border-b border-gray-100">
+        <BlockDiv className="hidden md:flex flex-row justify-between items-center py-3">
           <BlockDiv className="flex flex-row gap-4">
-            {_.map(staticItem?.socials, (item: any, index: number) => (
+            {map(staticItem?.socials, (item: any, index: number) => (
               <a
                 key={index}
                 href={item.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[#0f2e6d] text-xl hover:text-[#c8102e] transition-all duration-300">
-                {/* {iconMap[item.icon as keyof typeof iconMap]} */}
+                className="text-brand text-xl block">
                 <Icon icon={item.icon} />
               </a>
             ))}
           </BlockDiv>
           <BlockDiv className="flex flex-row gap-6 items-center">
-            {_.map(staticItem?.contacts, (item: any, index: number) => (
-              <span
-                key={item?.id || index}
-                className="flex items-center gap-1 text-gray-800 text-xs">
-                <span className="text-pink-600">{item.icon}</span> {item.text}
+            {map(staticItem?.contacts, (item: any, index: number) => (
+              <span key={item?.id || index} className="flex items-center gap-1">
+                <span className="text-brand">{item.icon}</span> {item.text}
               </span>
             ))}
           </BlockDiv>
@@ -38,7 +35,7 @@ export default function AikidoNavbar() {
       </PanelContainer>
       {/* Main Navbar */}
       <AikidoNavbarMenu item={staticItem} />
-    </>
+    </BlockDiv>
   );
 }
 
