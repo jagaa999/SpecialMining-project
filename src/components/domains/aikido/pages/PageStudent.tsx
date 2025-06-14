@@ -2,15 +2,16 @@
 
 import RenderAtom from "atomv2/components/Atoms/RenderAtom";
 import BlockDiv from "atomv2/components/Blocks/BlockDiv";
+import OrganismHeroPanel from "atomv2/components/Organisms/OrganismHeroPanel";
 import PanelMain from "atomv2/components/Panel/PanelMain";
 import { map } from "lodash";
-import AikidoHomeHero from "../Widget/AikidoHomeHero";
 
 export default function PageStudent() {
   return (
     <BlockDiv type="main" className="w-full bg-bg">
       {/* Banner */}
-      <AikidoHomeHero
+      <OrganismHeroPanel
+        keyword="samurai"
         item={{
           backgroundImage: "https://wallpapercave.com/wp/wp10826264.jpg",
           title: "Айкидо шавь нарт зориулав",

@@ -1,13 +1,20 @@
-"use client";
+// components/Organisms/OrganismCart.tsx
 
-import RenderAtom from "atomv2/components/Atoms/RenderAtom";
-import BlockDiv from "atomv2/components/Blocks/BlockDiv";
 import { map } from "lodash";
 import useUnsplash from "src/config/hooks/useUnsplash";
+import RenderAtom from "../Atoms/RenderAtom";
+import BlockDiv from "../Blocks/BlockDiv";
 
-export default function AikidoHomeHero({ item }: { item: any }) {
-  const { imageUrl, loading, error } = useUnsplash("japanese");
-  const defaultImage = "https://wallpapercave.com/wp/wp2848821.jpg";
+export default function OrganismHeroPanel({
+  keyword = "wallpaper",
+  item,
+}: {
+  keyword?: string;
+  item: any;
+}) {
+  const { imageUrl, loading, error } = useUnsplash(keyword);
+  const defaultImage =
+    "https://www.pixelstalk.net/wp-content/uploads/image10/Nature-4K-wallpaper-with-bamboo-forest-with-sunlight-filtering-through-serene-and-peaceful-atmosphere.jpg";
 
   if (loading) {
     return (
@@ -24,7 +31,7 @@ export default function AikidoHomeHero({ item }: { item: any }) {
       style={{
         backgroundImage: `url(${
           error ? defaultImage : imageUrl?.regular || defaultImage
-        })`, // Use default if there's an error
+        })`,
       }}>
       {/* Overlay */}
       <BlockDiv className="absolute inset-0 bg-black/40" />
@@ -48,6 +55,7 @@ export default function AikidoHomeHero({ item }: { item: any }) {
           type="text"
           className="text-xl md:text-3xl max-w-3xl mx-auto mb-10 text-bg"
         />
+
         <BlockDiv className="flex flex-col md:flex-row justify-center gap-6">
           {map(item?.buttons, (item: any, index: number) => (
             <RenderAtom

@@ -1,7 +1,7 @@
 "use client";
 
-import { cn } from "atomv2/util/atomHelperV2";
 import { HTMLAttributes, ReactNode } from "react";
+import AtomUrlV2, { AtomUrlV2Props } from "../Atoms/AtomUrlV2";
 
 export type BlockElementType =
   | "div"
@@ -17,20 +17,21 @@ export type BlockElementType =
 
 export interface BlockDivProps extends HTMLAttributes<HTMLElement> {
   type?: BlockElementType;
+  url?: AtomUrlV2Props;
   children?: ReactNode;
 }
 
 export default function BlockDiv({
   type = "div",
-  className,
+  url,
   children,
   ...props
 }: BlockDivProps) {
   const Element = type;
 
   return (
-    <Element className={cn(className)} {...props}>
-      {children}
-    </Element>
+    <AtomUrlV2 {...url}>
+      <Element {...props}>{children}</Element>
+    </AtomUrlV2>
   );
 }

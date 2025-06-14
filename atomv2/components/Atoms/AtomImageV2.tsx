@@ -19,7 +19,7 @@ export default function AtomImageV2({
   return (
     <img
       src={src ?? (value as string)}
-      className={cn("object-contain", className)}
+      className={cn("object-contain rounded-brand", className)}
       alt={alt}
       {...props}
     />

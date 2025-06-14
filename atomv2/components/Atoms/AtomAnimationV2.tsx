@@ -27,6 +27,17 @@ export default function AtomAnimationV2({
   className,
   ...rest
 }: AtomAnimationV2Props) {
+  const hasAnimationProps =
+    delay ||
+    duration ||
+    loop ||
+    loopType ||
+    !triggerOnce ||
+    threshold !== 0.2 ||
+    type !== "fadeIn";
+
+  if (!hasAnimationProps) return children;
+
   const { ref, inView } = useInView({ triggerOnce, threshold });
 
   return (

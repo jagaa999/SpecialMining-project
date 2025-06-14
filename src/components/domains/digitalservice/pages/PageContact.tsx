@@ -1,8 +1,16 @@
 "use client";
 
-import { Icon } from "@iconify/react";
-import DigitalServiceHomeHero from "../Widget/DigitalServiceHomeHero";
-import RenderAtom from "atomv2/components/Atoms/RenderAtom";
+import BlockDiv from "atomv2/components/Blocks/BlockDiv";
+import MoleculeCard02 from "atomv2/components/Molecules/MoleculeCard02";
+import MoleculeCTA01 from "atomv2/components/Molecules/MoleculeCTA01";
+import OrganismHeroPanel from "atomv2/components/Organisms/OrganismHeroPanel";
+import PanelMain from "atomv2/components/Panel/PanelMain";
+import PosIcon from "atomv2/components/Position/PosIcon";
+import PosTitle from "atomv2/components/Position/PosTitle";
+import PosValue from "atomv2/components/Position/PosValue";
+import TextH2 from "atomv2/components/Text/TextH2";
+import TextHtml from "atomv2/components/Text/TextHtml";
+import { map } from "lodash";
 
 export default function DigitalServicePageContact() {
   //   {
@@ -12,89 +20,85 @@ export default function DigitalServicePageContact() {
   // }
   return (
     <>
-      <DigitalServiceHomeHero item={item_local?.hero} />
+      <OrganismHeroPanel keyword="beatiful wallpaper" item={item_local?.hero} />
 
       {/* <PanelMain> */}
       <div className="w-full bg-white text-gray-900">
         {/* Hero */}
-        <section className="min-h-[60vh] bg-gradient-to-r from-red-600 to-red-400 text-white flex items-center justify-center px-10">
-          <div className="max-w-3xl text-center space-y-6">
-            <h1 className="text-5xl font-bold">Бидэнтэй холбогдох</h1>
-            <p className="text-xl">
-              Таны дуртай суваг — доор таныг хүлээж байна!
-            </p>
-          </div>
-        </section>
+        <MoleculeCTA01
+          item={{
+            title: { value: "Бидэнтэй холбогдоно уу?", as: "h1" },
+
+            description: "Таны дуртай суваг — доор таныг хүлээж байна!",
+            button: {
+              value: "Холбогдох",
+              onClick: () => {
+                console.log("Холбогдох товч дарав");
+              },
+            },
+          }}
+        />
 
         {/* Contact Grid */}
-        <section className="min-h-screen bg-red-50 flex flex-col items-center px-10 py-20 space-y-12">
-          <h2 className="text-4xl font-bold text-red-700 text-center">
-            Холбогдох суваг
-          </h2>
-          <p className="text-xl font-light text-gray-500 text-center">
-            Та өөрт тохиромжтой сувгаа сонгоно уу
-          </p>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl w-full text-lg">
-            {[
-              {
-                icon: "ic:baseline-phone",
-                label: "Утас",
-                content: "+976 - 70122038<br /> +976 - 96012038",
-                href: "tel:96012038",
-              },
-              {
-                icon: "mdi:facebook",
-                label: "Facebook хуудас",
-                content: "/DigitalService",
-                href: "https://facebook.com/DigitalService",
-              },
-              {
-                icon: "ic:baseline-facebook-messenger",
-                label: "FB Messenger",
-                content: "Шууд чатлах",
-                href: "https://m.me/DigitalService",
-              },
-              {
-                icon: "ic:baseline-email",
-                label: "Имэйл",
-                content: "info@digitalservice.mn",
-                href: "mailto:info@digitalservice.mn",
-              },
-              {
-                icon: "mdi:map-marker",
-                label: "Байршил",
-                content:
-                  "Улаанбаатар, ЧД, 9-р хороо, Их тойруу 54, Компьютер Молл төв, 5007 тоот",
-                href: "https://goo.gl/maps/abc123", // өөрийнхөө map холбоосоор солиорой
-              },
-            ].map((item, index) => (
-              <a
-                key={index}
-                href={item.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-white p-6 rounded-xl shadow-md hover:shadow-2xl hover:ring-2 hover:ring-red-300 transition-all flex flex-col items-center space-y-3 text-center">
-                <Icon
-                  icon={item.icon}
-                  className="text-red-600"
-                  width={40}
-                  height={40}
-                />
-                <p className="text-xl font-semibold text-red-700">
-                  {item.label}
-                </p>
-                <RenderAtom
-                  value={item.content}
-                  type="text"
-                  className=""
-                  isHtml={true}
-                />
-
-                {/* <p>{item.content}</p> */}
-              </a>
-            ))}
-          </div>
-        </section>
+        <BlockDiv type="section" className="min-h-screen h-auto bg-brand/7">
+          <PanelMain className="text-center space-y-12">
+            <TextH2 value="Холбогдох суваг" />
+            <TextHtml value="Та өөрт тохиромжтой сувгаа сонгоно уу" />
+            <BlockDiv className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {map(
+                [
+                  {
+                    icon: "ic:baseline-phone",
+                    title: "Утас",
+                    value: "+976 - 70122038<br /> +976 - 96012038",
+                    baseUrl: "tel:96012038",
+                  },
+                  {
+                    icon: "mdi:facebook",
+                    title: "Facebook хуудас",
+                    value: "/DigitalService",
+                    baseUrl: "https://facebook.com/DigitalService",
+                  },
+                  {
+                    icon: "ic:baseline-facebook",
+                    title: "FB Messenger",
+                    value: "Шууд чатлах",
+                    baseUrl: "https://m.me/DigitalService",
+                  },
+                  {
+                    icon: "ic:baseline-email",
+                    title: "Имэйл",
+                    value: "info@digitalservice.mn",
+                    baseUrl: "mailto:info@digitalservice.mn",
+                  },
+                  {
+                    icon: "mdi:map-marker",
+                    title: "Байршил",
+                    value:
+                      "Улаанбаатар, ЧД, 9-р хороо, Их тойруу 54, Компьютер Молл төв, 5007 тоот",
+                    baseUrl: "https://goo.gl/maps/abc123", // өөрийнхөө map холбоосоор солиорой
+                  },
+                ],
+                (item: any, index: number) => (
+                  <MoleculeCard02
+                    outerBlock={{
+                      className:
+                        "flex flex-col items-center space-y-3 text-center",
+                      url: {
+                        baseUrl: item.baseUrl,
+                        target: "_blank",
+                        className:
+                          "w-full h-full bg-bg p-6 rounded-brand shadow-brand hover:shadow-2xl transition-all block",
+                      },
+                    }}
+                    item={item}
+                    key={item?.id || index}
+                  />
+                )
+              )}
+            </BlockDiv>
+          </PanelMain>
+        </BlockDiv>
       </div>
       {/* </PanelMain> */}
     </>

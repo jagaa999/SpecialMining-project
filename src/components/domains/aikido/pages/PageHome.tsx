@@ -3,14 +3,15 @@
 import { Icon } from "@iconify/react";
 import RenderAtom from "atomv2/components/Atoms/RenderAtom";
 import BlockDiv from "atomv2/components/Blocks/BlockDiv";
-import AikidoHomeHero from "../Widget/AikidoHomeHero";
-import PanelMain from "atomv2/components/Panel/PanelMain";
 import BlockFlexCol from "atomv2/components/Blocks/BlockFlexCol";
+import OrganismHeroPanel from "atomv2/components/Organisms/OrganismHeroPanel";
+import PanelMain from "atomv2/components/Panel/PanelMain";
 
 export default function AikidoPageHome() {
   return (
     <>
-      <AikidoHomeHero
+      <OrganismHeroPanel
+        keyword="samurai"
         item={{
           backgroundImage: "https://wallpapercave.com/wp/wp2848821.jpg",
           title: "Aikido in Mongolia",

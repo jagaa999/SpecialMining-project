@@ -10,8 +10,10 @@ import AtomLoadingV2 from "./AtomLoadingV2";
 import AtomSpinningV2 from "./AtomSpinningV2";
 import AtomTooltipV2 from "./AtomTooltipV2";
 import AtomUrlV2 from "./AtomUrlV2";
+import { cn } from "atomv2/util/atomHelperV2";
 
 export default function RenderAtom({
+  item,
   type = "text",
   value,
   tooltip,
@@ -23,31 +25,37 @@ export default function RenderAtom({
   children,
   ...props
 }: RenderAtomProps) {
-  if (isEmpty(value) && isEmpty(children)) return null;
+  if (isEmpty(item) && isEmpty(value) && isEmpty(children)) return null;
 
   const DynamicComponent = atomRegistry[type]?.component;
 
   const RenderComponent = (
     <Suspense fallback={<Spin spinning size="small" />}>
-      <DynamicComponent className={className} value={value} {...props}>
+      <DynamicComponent
+        value={value || item?.value || item}
+        className={cn(item?.className, className)}
+        style={{ ...item?.style, ...props?.style }}
+        {...props}>
         {children}
       </DynamicComponent>
     </Suspense>
   );
 
   return (
-    <AtomTooltipV2 tooltip={tooltip}>
-      <AtomUrlV2 {...url}>
-        <AtomSpinningV2 {...spinning}>
-          <AtomAnimationV2 {...animation}>
-            {loading ? (
-              <AtomLoadingV2 className={className} {...props} />
-            ) : (
-              RenderComponent
-            )}
-          </AtomAnimationV2>
-        </AtomSpinningV2>
-      </AtomUrlV2>
-    </AtomTooltipV2>
+    <>
+      <AtomTooltipV2 tooltip={tooltip}>
+        <AtomUrlV2 {...url}>
+          <AtomSpinningV2 {...spinning}>
+            <AtomAnimationV2 {...animation}>
+              {loading ? (
+                <AtomLoadingV2 className={className} {...props} />
+              ) : (
+                RenderComponent
+              )}
+            </AtomAnimationV2>
+          </AtomSpinningV2>
+        </AtomUrlV2>
+      </AtomTooltipV2>
+    </>
   );
 }

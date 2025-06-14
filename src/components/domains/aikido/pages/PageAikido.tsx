@@ -2,14 +2,15 @@
 
 import RenderAtom from "atomv2/components/Atoms/RenderAtom";
 import BlockDiv from "atomv2/components/Blocks/BlockDiv";
+import OrganismHeroPanel from "atomv2/components/Organisms/OrganismHeroPanel";
 import PanelMain from "atomv2/components/Panel/PanelMain";
 import _ from "lodash";
-import AikidoHomeHero from "../Widget/AikidoHomeHero";
 
 export default function AikidoPageAikido() {
   return (
     <>
-      <AikidoHomeHero
+      <OrganismHeroPanel
+        keyword="samurai"
         item={{
           backgroundImage: "https://wallpapercave.com/wp/wp2848821.jpg",
           title: "Aikido in Mongolia",
