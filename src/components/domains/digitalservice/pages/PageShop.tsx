@@ -1,15 +1,18 @@
 "use client";
 
 import { Pagination } from "antd";
-import MoleculeBasketButton from "atomv2/components/Molecules/MoleculeBasketButton";
-import PanelMain from "atomv2/components/Panel/PanelMain";
 import RenderAtom from "atomv2/components/Atoms/RenderAtom";
-import _ from "lodash";
+import BlockDiv from "atomv2/components/Blocks/BlockDiv";
+import MoleculeBasketButton from "atomv2/components/Molecules/MoleculeBasketButton";
+import MoleculeBasketPanel from "atomv2/components/Molecules/MoleculeBasketPanel";
+import PanelMain from "atomv2/components/Panel/PanelMain";
+import PosDesc from "atomv2/components/Position/PosDesc";
+import PosPrice from "atomv2/components/Position/PosPrice";
+import TextH6 from "atomv2/components/Text/TextH6";
+import { map } from "lodash";
 import { useState } from "react";
 import useSWR from "swr";
 import Banner from "../Widget/DigitalServiceBanner";
-import MoleculeBasketPanel from "atomv2/components/Molecules/MoleculeBasketPanel";
-import { toMotoPrice } from "atomv2/util/widgetHelper";
 
 export default function DigitalServicePageShop() {
   const [currentPage, setCurrentPage] = useState(1);
@@ -27,7 +30,7 @@ export default function DigitalServicePageShop() {
     return <div>No products found</div>;
 
   return (
-    <main>
+    <BlockDiv type="main" className="w-full bg-bg ">
       <Banner
         item={{
           title: "Дэлгүр",
@@ -37,17 +40,19 @@ export default function DigitalServicePageShop() {
         }}
       />
 
-      <PanelMain>
-        <section className="my-24">
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
-            {_.map(data.rows, (item: any, index: number) => (
+      <BlockDiv type="section">
+        <PanelMain className="flex flex-col gap-12">
+          {/* Products */}
+          <BlockDiv className="grid grid-cols-2 md:grid-cols-3 gap-8">
+            {map(data.rows, (item: any, index: number) => (
               <ProductCard key={item?.id || index} item={item} />
             ))}
-          </div>
+          </BlockDiv>
 
           {/* Pagination Component */}
-          <div className="mt-8 flex justify-center">
+          <BlockDiv className="flex justify-center">
             <Pagination
+              size="default"
               current={currentPage}
               pageSize={pageSize}
               total={data.paging.totalcount}
@@ -56,43 +61,35 @@ export default function DigitalServicePageShop() {
               showSizeChanger={false}
               showQuickJumper={false}
             />
-          </div>
-        </section>
-      </PanelMain>
+          </BlockDiv>
+        </PanelMain>
+      </BlockDiv>
 
       <MoleculeBasketPanel />
-    </main>
+    </BlockDiv>
   );
 }
 
 const ProductCard = ({ item }: { item: any }) => {
   return (
-    <div className="bg-white rounded-lg shadow hover:shadow-lg transition-shadow duration-300 p-4 flex flex-col items-center text-center group cursor-pointer border border-gray-50 relative">
-      <img
-        src={item.mainimage}
+    <BlockDiv className="bg-white rounded-brand shadow-sm hover:shadow-brand transition-shadow duration-300 px-brand-x py-brand-y flex flex-col items-center gap-8 text-center group cursor-pointer relative">
+      <RenderAtom
+        value={item?.mainimage}
+        type="image"
+        className="w-auto h-28 object-contain group-hover:scale-105 transition-transform duration-300"
         alt={`product-${item.id}`}
-        className="w-auto h-28 object-contain mb-7 group-hover:scale-105 transition-transform duration-300"
       />
 
-      <RenderAtom
-        value={item.title}
-        type="text"
-        className="text-xl font-semibold text-gray-800 group-hover:text-[#c8102e] transition-colors duration-300 mb-3"
+      <TextH6
+        item={item}
+        className="text-slate-900 group-hover:text-brand transition-colors duration-300"
       />
 
-      <RenderAtom
-        value={toMotoPrice(item.price)}
-        type="text"
-        className="font-light text-gray-500"
-      />
+      <PosPrice item={item} />
 
-      <RenderAtom
-        value={item.description}
-        type="text"
-        className="text-gray-500 text-sm"
-      />
+      <PosDesc item={item} className="text-sm" />
 
       <MoleculeBasketButton item={item} />
-    </div>
+    </BlockDiv>
   );
 };

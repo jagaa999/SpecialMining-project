@@ -1,11 +1,16 @@
 // components/Organisms/OrganismCheckout.tsx
 
 import { toMotoPrice } from "atomv2/util/widgetHelper";
+import { map } from "lodash";
 import { useConfig } from "src/config/context/ConfigContext";
 import RenderAtom from "../Atoms/RenderAtom";
 import BlockDiv from "../Blocks/BlockDiv";
+import BlockFlexRow from "../Blocks/BlockFlexRow";
 import BlockScroll from "../Blocks/BlockScroll";
-import PanelContainer from "../Panel/PanelContainer";
+import PanelMain from "../Panel/PanelMain";
+import PosTitle from "../Position/PosTitle";
+import TextH5 from "../Text/TextH5";
+import TextHtml from "../Text/TextHtml";
 import WidgetRenderForm from "../Widgets/WidgetRenderForm";
 
 export default function OrganismCheckout() {
@@ -18,21 +23,17 @@ export default function OrganismCheckout() {
   );
 
   return (
-    <>
-      <PanelContainer className="py-24">
-        <BlockDiv className="flex flex-col md:flex-row gap-6 w-full mx-auto">
-          {/* Зүүн талд: Захиалгын форм */}
-          <BlockDiv className="w-full md:w-1/2">
-            <ЗахиалгынМэдээлэл />
-          </BlockDiv>
+    <PanelMain className="grid grid-cols-12 gap-12">
+      {/* Зүүн талд: Захиалгын форм */}
+      <BlockDiv className="col-span-6">
+        <ЗахиалгынМэдээлэл />
+      </BlockDiv>
 
-          {/* Баруун талд: Сагсны мэдээлэл */}
-          <BlockDiv className="w-full md:w-1/2">
-            <СагсныХатууПанель basketItems={basketItems} total={total} />
-          </BlockDiv>
-        </BlockDiv>
-      </PanelContainer>
-    </>
+      {/* Баруун талд: Сагсны мэдээлэл */}
+      <BlockDiv className="col-span-6">
+        <СагсныХатууПанель basketItems={basketItems} total={total} />
+      </BlockDiv>
+    </PanelMain>
   );
 }
 
@@ -46,11 +47,11 @@ const ЗахиалгынМэдээлэл = () => {
       <WidgetRenderForm
         onSubmit={onSubmit}
         defaultValues={{
-          fullname: "Жаргал_Т",
+          fullname: "",
           phone: "",
           email: "",
           address: "",
-          paymentMethod: "cash",
+          paymentMethod: "",
           sdfdsfMethod: "",
           dsfsd: "",
         }}
@@ -119,42 +120,39 @@ const ЗахиалгынМэдээлэл = () => {
 
 const СагсныХатууПанель = ({ basketItems, total }: any) => {
   return (
-    <>
-      <BlockDiv className="bg-gray-100 px-3 py-5 rounded-lg shadow-md">
-        <h3 className="text-xl font-semibold mb-4">Таны сагс</h3>
-        <BlockScroll className="pr-3 divide-gray-200 divide-y">
-          {basketItems.map((item: any, index: number) => (
-            <BlockDiv
-              key={item.id || index}
-              className="flex flex-row items-center justify-between gap-4 py-2">
-              <BlockDiv className="flex flex-row gap-2 items-center">
-                <img
-                  src={item.mainimage || "/placeholder.png"}
-                  alt={item.title}
-                  className="object-contain rounded border border-gray-200 w-6 h-6"
-                />
+    <BlockDiv className="bg-info/10 px-brand-x py-brand-y rounded-brand shadow-brand space-y-8">
+      <TextH5 value="Таны сагс" />
 
-                <RenderAtom
-                  value={item.title}
-                  type="text"
-                  className="text-xs text-gray-600 line-clamp-2"
-                />
-              </BlockDiv>
-
+      <BlockScroll className="pr-3 divide-gray-200 divide-y">
+        {map(basketItems, (item: any, index: number) => (
+          <BlockDiv
+            key={item.id || index}
+            className="flex flex-row items-center justify-between gap-4 py-2 w-full">
+            <BlockFlexRow className="gap-2 w-full grow">
               <RenderAtom
-                value={`${item.count} x ${toMotoPrice(item.price)}`}
-                type="text"
-                className="text-sm text-gray-600 block w-full whitespace-nowrap"
+                value={item.mainimage}
+                type="image"
+                className="object-contain rounded-none border border-gray-200 w-12 h-12"
               />
-            </BlockDiv>
-          ))}
-        </BlockScroll>
+              <PosTitle
+                item={item}
+                className="text-xs text-gray-700 line-clamp-2"
+              />
+            </BlockFlexRow>
 
-        <BlockDiv className="flex justify-between mt-4 text-gray-700 text-base font-medium">
-          <span>Нийт дүн:</span>
-          <span>{toMotoPrice(total)}₮</span>
-        </BlockDiv>
+            <RenderAtom
+              value={`${item.count} x ${toMotoPrice(item.price)}`}
+              type="text"
+              className="text-xs text-gray-600 block w-fit whitespace-nowrap"
+            />
+          </BlockDiv>
+        ))}
+      </BlockScroll>
+
+      <BlockDiv className="flex justify-between">
+        <TextHtml value="Нийт дүн:" />
+        <TextHtml value={toMotoPrice(total)} />
       </BlockDiv>
-    </>
+    </BlockDiv>
   );
 };

@@ -5,6 +5,7 @@ import { ReactNode } from "react";
 import RenderAtom from "../Atoms/RenderAtom";
 import BlockDiv from "./BlockDiv";
 import BlockScroll from "./BlockScroll";
+import { cn } from "atomv2/util/atomHelperV2";
 
 interface BlockDrawerProps {
   isShowDrawer: boolean;
@@ -56,7 +57,9 @@ export default function BlockDrawer({
       {...drawerProps}>
       <BlockScroll isActive={isScroll}>
         <BlockDiv
-          className={`w-full h-full p-4 ${BlockDrawerOuter?.className || ""}`}
+          className={cn(
+            `w-full h-full p-4 ${BlockDrawerOuter?.className || ""}`
+          )}
           data-block="BlockDrawerOuter">
           {children}
         </BlockDiv>
@@ -95,9 +98,8 @@ const CloseButton = ({
     <RenderAtom
       value={CloseButtonObject?.value || "material-symbols:close"}
       type="icon"
-      className={`absolute ${positionClass} cursor-pointer text-white hover:brightness-90 z-20 ${
-        CloseButtonObject?.className || ""
-      }`}
+      className={`absolute ${positionClass} cursor-pointer text-white hover:brightness-90 z-20 transition-transform duration-300 ease-in-out
+  hover:rotate-180 ${CloseButtonObject?.className || ""}`}
       onClick={() => setIsShowDrawer(false)}
     />
   );

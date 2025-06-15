@@ -1,4 +1,4 @@
-import { prepareValue, toMotoPrice } from "../../util/widgetHelper";
+import { prepareMainNumber, toMotoPrice } from "../../util/widgetHelper";
 import RenderAtom from "../Atoms/RenderAtom";
 
 export default function PosPrice({
@@ -8,6 +8,6 @@ export default function PosPrice({
   item: any;
   [key: string]: any;
 }) {
-  const valueReady = toMotoPrice(prepareValue(item));
+  const valueReady = toMotoPrice(prepareMainNumber(item));
   return <RenderAtom value={valueReady} type="text" {...props} />;
 }

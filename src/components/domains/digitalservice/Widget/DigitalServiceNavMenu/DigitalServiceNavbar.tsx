@@ -2,15 +2,15 @@
 
 import _ from "lodash";
 
-import NavbarMenu from "./DigitalServiceNavbarMenu";
-import PanelContainer from "atomv2/components/Panel/PanelContainer";
 import { Icon } from "@iconify/react";
 import BlockDiv from "atomv2/components/Blocks/BlockDiv";
+import PanelMain from "atomv2/components/Panel/PanelMain";
+import NavbarMenu from "./DigitalServiceNavbarMenu";
 
 export default function DigitalServiceNavbar() {
   return (
     <>
-      <PanelContainer>
+      <PanelMain className="py-0 w-full">
         <BlockDiv className="hidden md:flex justify-between items-center py-3 border-b border-gray-100">
           <BlockDiv className="flex flex-row gap-4">
             {_.map(staticItem?.socials, (item: any, index: number) => (
@@ -19,8 +19,7 @@ export default function DigitalServiceNavbar() {
                 href={item.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[#0f2e6d] text-xl hover:text-[#c8102e] transition-all duration-300">
-                {/* {iconMap[item.icon as keyof typeof iconMap]} */}
+                className="text-xl hover:text-brand transition-all duration-300">
                 <Icon icon={item.icon} />
               </a>
             ))}
@@ -29,13 +28,13 @@ export default function DigitalServiceNavbar() {
             {_.map(staticItem?.contacts, (item: any, index: number) => (
               <span
                 key={item?.id || index}
-                className="flex items-center gap-1 text-gray-800 text-xs">
-                <span className="text-pink-600">{item.icon}</span> {item.text}
+                className="flex items-center gap-1 text-xs">
+                <span className="text-info">{item.icon}</span> {item.text}
               </span>
             ))}
           </BlockDiv>
         </BlockDiv>
-      </PanelContainer>
+      </PanelMain>
       {/* Main Navbar */}
       <NavbarMenu item={staticItem} />
     </>

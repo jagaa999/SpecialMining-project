@@ -8,7 +8,9 @@ import MoleculeCTA01 from "atomv2/components/Molecules/MoleculeCTA01";
 import OrganismHeroPanel from "atomv2/components/Organisms/OrganismHeroPanel";
 import PanelMain from "atomv2/components/Panel/PanelMain";
 import TextH1 from "atomv2/components/Text/TextH1";
+import TextH2 from "atomv2/components/Text/TextH2";
 import TextH4 from "atomv2/components/Text/TextH4";
+import TextH5 from "atomv2/components/Text/TextH5";
 import TextH6 from "atomv2/components/Text/TextH6";
 import TextHtml from "atomv2/components/Text/TextHtml";
 import { map } from "lodash";
@@ -136,40 +138,45 @@ export default function DigitalServicePageAbout() {
         </BlockDiv>
 
         {/* Why Choose Us */}
-        <section className="min-h-screen bg-white flex flex-col items-center justify-center px-10 py-20 space-y-24">
-          <h2 className="text-4xl font-bold text-red-700 text-center">
-            Яагаад биднийг сонгох вэ?
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-5xl w-full text-center text-lg">
-            <div className="bg-red-100 px-6 py-24 rounded-xl shadow-md">
-              <p className="font-semibold mb-2">10+ жилийн туршлага</p>
-              <p>Бид зах зээл дээр туршлагаараа тэргүүлдэг.</p>
-            </div>
-            <div className="bg-red-100 px-6 py-24 rounded-xl shadow-md">
-              <p className="font-semibold mb-2">Баталгаат хор</p>
-              <p>Чанарын баталгаатай бүтээгдэхүүнүүд.</p>
-            </div>
-            <div className="bg-red-100 px-6 py-24 rounded-xl shadow-md">
-              <p className="font-semibold mb-2">Шуурхай үйлчилгээ</p>
-              <p>1-3 цагийн дотор хүргэлт.</p>
-            </div>
-          </div>
-        </section>
+        <BlockDiv type="section" className="min-h-screen bg-bg">
+          <PanelMain className="h-full min-h-screen flex flex-col gap-24 items-center justify-center">
+            <TextH1 value="Яагаад биднийг сонгох вэ?" />
+            <BlockDiv className="grid grid-cols-1 md:grid-cols-3 gap-12">
+              {map(
+                [
+                  {
+                    title: "10+ жилийн туршлага",
+                    description: "Бид зах зээл дээр туршлагаараа тэргүүлдэг.",
+                  },
+                  {
+                    title: "Баталгаат хор",
+                    description: "Чанарын баталгаатай бүтээгдэхүүнүүд.",
+                  },
+                  {
+                    title: "Шуурхай үйлчилгээ",
+                    description: "1-3 цагийн дотор хүргэлт.",
+                  },
+                ],
+                (item: any, index: number) => (
+                  <BlockDiv
+                    key={item?.id || index}
+                    className="bg-slate-200 px-brand-x py-brand-y rounded-brand shadow-brand space-y-8">
+                    <TextH5 value={item.title} />
+                    <TextHtml value={item.description} />
+                  </BlockDiv>
+                )
+              )}
+            </BlockDiv>
+          </PanelMain>
+        </BlockDiv>
 
         {/* Order Info */}
-        <section className="min-h-screen bg-red-50 flex items-center px-10 py-20">
-          <div className="max-w-4xl mx-auto text-center space-y-6">
-            <h2 className="text-3xl font-bold text-red-700">
-              Захиалга өгөх тухай
-            </h2>
-            <p className="text-lg text-gray-700">
-              Бидэнтэй утсаар, мессежээр эсвэл вэбээр дамжуулан захиалга өгөх
-              боломжтой. Хэрвээ та шинэ хор захиалах, принтерийн хор цэнэглүүлэх
-              эсвэл засвар үйлчилгээ авахыг хүсвэл бид таны гарт хамгийн хурдан,
-              найдвартайгаар хүргэнэ.
-            </p>
-          </div>
-        </section>
+        <BlockDiv type="section" className="min-h-screen bg-gray-100">
+          <PanelMain className="h-full min-h-screen flex flex-col items-start justify-center space-y-12">
+            <TextH2 value="Захиалга өгөх тухай" />
+            <TextHtml value="Бидэнтэй утсаар, мессежээр эсвэл вэбээр дамжуулан захиалга өгөх боломжтой. Хэрвээ та шинэ хор захиалах, принтерийн хор цэнэглүүлэх эсвэл засвар үйлчилгээ авахыг хүсвэл бид таны гарт хамгийн хурдан, найдвартайгаар хүргэнэ." />
+          </PanelMain>
+        </BlockDiv>
 
         {/* CTA Footer */}
         <MoleculeCTA01

@@ -23,13 +23,11 @@ export default function AtomSelectV2({
   options,
   ...props
 }: AtomSelectProps) {
+  const inputBaseClassName =
+    "block bg-white w-full rounded-brand border-0 ring-1 ring-gray-200 px-3 py-2 text-sm shadow-none focus:outline-none focus:ring-brand placeholder-muted/30 placeholder:text-xs transition-all";
+
   return (
-    <select
-      className={cn(
-        "block w-full rounded-md border border-gray-300 px-3 py-2 text-sm shadow-sm bg-white text-gray-700 focus:outline-none focus:ring-1 focus:ring-primary-500 focus:border-primary-500 transition-all",
-        className
-      )}
-      {...props}>
+    <select className={cn(inputBaseClassName, className)} {...props}>
       {children ||
         map(options, (opt: any, index: number) => (
           <option key={opt?.id || index} value={opt?.value || opt?.id}>
