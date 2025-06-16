@@ -51,9 +51,6 @@ const ЗахиалгынМэдээлэл = () => {
           phone: "",
           email: "",
           address: "",
-          paymentMethod: "",
-          sdfdsfMethod: "",
-          dsfsd: "",
         }}
         submitText="Захиалга илгээх"
         fields={[
@@ -84,9 +81,10 @@ const ЗахиалгынМэдээлэл = () => {
             type: "textarea",
           },
           {
-            name: "paymentMethod",
+            name: "SelectAntd",
             label: "Төлбөрийн хэлбэр",
-            type: "select",
+            placeholder: "Овог, нэрээ бичнэ үү",
+            type: "selectantd",
             options: [
               { label: "qPay", value: "qpay" },
               { label: "Бэлнээр", value: "cash" },
@@ -94,7 +92,7 @@ const ЗахиалгынМэдээлэл = () => {
             rules: { required: "Төлбөрийн хэлбэр сонгоно уу" },
           },
           {
-            name: "checkddd",
+            name: "checkBox",
             label: "Төлбөрийн хэлбэр",
             type: "checkbox",
             options: [
@@ -103,7 +101,7 @@ const ЗахиалгынМэдээлэл = () => {
             ],
           },
           {
-            name: "radiosss",
+            name: "radioBox",
             label: "Төлбөрийн хэлбэр",
             type: "radio",
             options: [

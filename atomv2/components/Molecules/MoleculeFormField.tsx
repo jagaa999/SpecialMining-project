@@ -1,6 +1,6 @@
 "use client";
 
-import { useFormContext } from "react-hook-form";
+import { Control, FieldValues, useFormContext } from "react-hook-form";
 import { Suspense } from "react";
 import { Spin } from "antd";
 import BlockDiv from "../Blocks/BlockDiv";
@@ -16,6 +16,7 @@ interface MoleculeFormFieldProps {
   disabled?: boolean;
   className?: string;
   type: FormAtomType;
+  control: Control<any>;
   options?: any[];
   rules?: Record<string, any>; // ← нэмж өгнө
 }
@@ -28,6 +29,7 @@ export default function MoleculeFormField({
   disabled = false,
   className = "",
   type,
+  control,
   options = [],
   rules,
   ...props
@@ -62,6 +64,7 @@ export default function MoleculeFormField({
             placeholder={placeholder}
             disabled={disabled}
             options={options}
+            control={control}
             {...props}
             {...register(name, rules)}
           />

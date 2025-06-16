@@ -92,9 +92,9 @@ body {
 
 
   /* Typography */
-  --font-sans:             "Roboto, sans-serif";
-  --font-serif:            "Merriweather, serif";
-  --font-mono:             "Menlo, monospace";
+  --font-sans:             'Roboto', sans-serif;
+  --font-serif:            'Merriweather', serif;
+  --font-mono:             'Menlo', monospace;
 
   /* Font sizes */
   --text-xs:               0.75rem;
@@ -251,3 +251,39 @@ body {
 
   
 }
+
+/* Selector box */
+.atom-select .ant-select-selector {
+  @apply !bg-white !rounded-brand !border-0 !ring-1 !ring-gray-200
+         !px-3 !py-2 !text-sm !shadow-none focus:outline-none focus:ring-brand transition-all;
+  /* padding: 0 18px !important; */
+  /* font-family: var(--font-sans); */
+}
+
+/* Placeholder text */
+.atom-select .ant-select-selection-placeholder {
+  @apply text-muted/30 text-xs;
+}
+
+.atom-select .ant-select-selection-item {
+  /* font-family: var(--font-sans); */
+}
+
+.atom-select-popup .ant-select-item-option-content {
+  /* @apply font-roboto text-sm text-gray-800; */
+  /* font-family: var(--font-sans); */
+}
+
+.atom-select-popup .ant-select-dropdown {
+  /* @apply font-roboto text-sm; */
+  /* font-family: var(--font-sans); */
+}
+
+/* .atom-select .ant-select-selection-placeholder {
+  @apply font-roboto text-sm text-gray-400;
+} */
+
+/* Popup root */
+/* .atom-select-popup {
+  @apply rounded-lg border border-gray-100 bg-white z-50;
+} */

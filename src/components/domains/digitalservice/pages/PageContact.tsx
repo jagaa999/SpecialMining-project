@@ -10,11 +10,6 @@ import TextHtml from "atomv2/components/Text/TextHtml";
 import { map } from "lodash";
 
 export default function DigitalServicePageContact() {
-  //   {
-  //   item = item_local,
-  // }: {
-  //   item: any;
-  // }
   return (
     <>
       <OrganismHeroPanel keyword="beatiful wallpaper" item={item_local?.hero} />

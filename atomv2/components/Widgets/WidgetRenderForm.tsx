@@ -70,7 +70,11 @@ export default function WidgetRenderForm({
           onSubmit={methods.handleSubmit(onSubmit)}>
           <BlockDiv className="flex flex-col gap-1">
             {map(fields, (item: any, index: number) => (
-              <MoleculeFormField key={item?.id || index} {...item} />
+              <MoleculeFormField
+                key={item?.id || index}
+                {...item}
+                control={methods.control}
+              />
             ))}
           </BlockDiv>
 
