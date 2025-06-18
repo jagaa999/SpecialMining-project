@@ -22,17 +22,19 @@ export default function AtomCheckBoxV2({
   ...props
 }: AtomCheckBoxProps) {
   return (
-    <div className={cn("space-y-2", className)}>
-      {map(options, (opt: any, index: number) => (
-        <label key={index} className="inline-flex items-center space-x-2">
+    <div className={cn("flex flex-col gap-2", className)}>
+      {map(options, (item: any, index: number) => (
+        <label
+          key={item?.id || index}
+          className="inline-flex items-center space-x-2">
           <input
             type="checkbox"
-            value={opt.value}
+            value={item.value}
             name={name}
-            className="form-checkbox h-4 w-4 text-primary focus:ring-primary"
+            className="form-checkbox h-4 w-4 focus:ring-brand"
             {...props}
           />
-          <span className="text-sm text-gray-700">{opt.label}</span>
+          <span className="text-sm">{item.label}</span>
         </label>
       ))}
     </div>

@@ -25,9 +25,9 @@ export default function AtomLabelV2({
     <label
       htmlFor={htmlFor}
       style={style}
-      className={cn("block text-sm font-medium text-gray-700 mb-1", className)}>
+      className={cn("block text-sm", className)}>
       {value ?? children}
-      {required && <span className="text-red-500 ml-1">*</span>}
+      {required && <span className="text-error ml-1">*</span>}
     </label>
   );
 }

@@ -21,17 +21,19 @@ export default function AtomRadioV2({
   ...props
 }: AtomRadioProps) {
   return (
-    <div className={cn("space-y-2", className)}>
-      {options.map((opt, index) => (
-        <label key={index} className="inline-flex items-center space-x-2">
+    <div className={cn("flex flex-col gap-2", className)}>
+      {options.map((item: any, index: number) => (
+        <label
+          key={item?.id || index}
+          className="inline-flex items-center space-x-2">
           <input
             type="radio"
-            value={opt.value}
+            value={item.value}
             name={name}
-            className="form-radio h-4 w-4 text-primary focus:ring-primary"
+            className="form-radio h-4 w-4 focus:ring-brand"
             {...props}
           />
-          <span className="text-sm text-gray-700">{opt.label}</span>
+          <span className="text-sm">{item.label}</span>
         </label>
       ))}
     </div>

@@ -5,11 +5,13 @@ import { AtomBaseProps } from "../../types/atomTypes";
 import { cn } from "../../util/atomHelperV2";
 
 interface AtomTextProps extends AtomBaseProps {
+  as?: "p" | "span" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "small";
   variant?: "default" | "muted" | "error" | "highlight";
   isHtml?: boolean;
 }
 
-export default function AtomTextV2({
+export default function AtomTextV3({
+  as = "p",
   value,
   variant = "default",
   isHtml = false,
@@ -20,15 +22,17 @@ export default function AtomTextV2({
   if (isEmpty(value) && isEmpty(children)) return null;
 
   const variants = {
-    default: "text-base text-fg", // <-- Theme token
-    muted: "text-sm text-muted",
-    error: "text-sm text-error",
-    highlight: "text-base font-semibold text-primary",
+    default: "",
+    muted: "text-muted",
+    error: "text-error",
+    highlight: "font-semibold text-primary",
   };
+
+  const Tag = as;
 
   if (isHtml && typeof value === "string") {
     return (
-      <p
+      <Tag
         className={cn(variants[variant], className)}
         dangerouslySetInnerHTML={{ __html: value }}
         {...props}
@@ -37,8 +41,8 @@ export default function AtomTextV2({
   }
 
   return (
-    <p className={cn(variants[variant], className)} {...props}>
+    <Tag className={cn(variants[variant], className)} {...props}>
       {value ?? children}
-    </p>
+    </Tag>
   );
 }

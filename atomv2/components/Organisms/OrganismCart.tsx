@@ -2,11 +2,13 @@
 
 import { toMotoPrice } from "atomv2/util/widgetHelper";
 import { useConfig } from "src/config/context/ConfigContext";
-import BlockDiv from "../Blocks/BlockDiv";
-import PanelContainer from "../Panel/PanelContainer";
-import OrganismBasketListPanel from "./OrganismBasketListPanel";
-import BlockAffix from "../Blocks/BlockAffix";
 import RenderAtom from "../Atoms/RenderAtom";
+import BlockAffix from "../Blocks/BlockAffix";
+import BlockDiv from "../Blocks/BlockDiv";
+import PanelMain from "../Panel/PanelMain";
+import TextH2 from "../Text/TextH2";
+import OrganismBasketListPanel from "./OrganismBasketListPanel";
+import TextH3 from "../Text/TextH3";
 
 export default function OrganismCart() {
   const { localConfig } = useConfig();
@@ -18,28 +20,29 @@ export default function OrganismCart() {
   );
 
   return (
-    <PanelContainer className="flex flex-col md:flex-row gap-12">
+    <PanelMain className="grid grid-cols-12 gap-12">
       {/* Зүүн талд: Барааны жагсаалт */}
-      <BlockDiv className="w-full md:w-2/3">
-        <h2 className="text-2xl font-semibold mb-4">Таны сагс</h2>
+      <BlockDiv className="col-span-7 space-y-8">
+        <TextH2 value="Таны сагс" />
         <OrganismBasketListPanel />
       </BlockDiv>
 
       {/* Баруун талд: Сагсны мэдээлэл */}
-      <BlockDiv className="w-full md:w-1/3">
+      <BlockDiv className="col-span-5">
         <BlockAffix offsetTop={100}>
           <СагсныМэдээлэл total={total} />
         </BlockAffix>
       </BlockDiv>
-    </PanelContainer>
+    </PanelMain>
   );
 }
 
 const СагсныМэдээлэл = ({ total }: any) => {
   return (
-    <BlockDiv className="bg-gray-100 p-6 rounded-lg shadow-md">
-      <h3 className="text-xl font-semibold mb-4">Үнийн мэдээлэл</h3>
-      <BlockDiv className="flex justify-between mb-2">
+    <BlockDiv className="bg-white px-brand-x py-brand-y rounded-brand shadow-brand space-y-8">
+      <TextH3 value="Үнийн мэдээлэл" />
+
+      <BlockDiv className="flex justify-between">
         <RenderAtom value={"Нийт дүн:"} type="text" className="" />
         <RenderAtom
           value={toMotoPrice(total)}
@@ -52,14 +55,13 @@ const СагсныМэдээлэл = ({ total }: any) => {
         <RenderAtom
           value={"Захиалах"}
           type="button"
-          className="bg-teal-500 text-white py-3 text-lg"
+          className="bg-brand text-white py-2 text-base w-full shadow-none"
           url={{ href: "/checkout", className: "w-full" }}
         />
         <RenderAtom
           value={"Төлбөр төлөх"}
           type="button"
-          className="bg-sky-500 text-white py-3 text-lg"
-          variant="primary"
+          className="bg-sky-600 text-white py-2 text-base w-full shadow-none"
         />
       </BlockDiv>
     </BlockDiv>

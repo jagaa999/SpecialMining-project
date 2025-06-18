@@ -1,6 +1,6 @@
 "use client";
 
-import { useFormContext } from "react-hook-form";
+import { Control, FieldValues, useFormContext } from "react-hook-form";
 import { Suspense } from "react";
 import { Spin } from "antd";
 import BlockDiv from "../Blocks/BlockDiv";
@@ -16,6 +16,7 @@ interface MoleculeFormFieldProps {
   disabled?: boolean;
   className?: string;
   type: FormAtomType;
+  control: Control<any>;
   options?: any[];
   rules?: Record<string, any>; // ← нэмж өгнө
 }
@@ -28,6 +29,7 @@ export default function MoleculeFormField({
   disabled = false,
   className = "",
   type,
+  control,
   options = [],
   rules,
   ...props
@@ -47,24 +49,27 @@ export default function MoleculeFormField({
 
   return (
     <BlockDiv className={`mb-4 ${className}`}>
-      {/* Label */}
-      <AtomLabelV2
-        htmlFor={name}
-        required={Boolean(rules?.required)}
-        value={label}
-      />
-
-      {/* Field */}
-      <Suspense fallback={<Spin spinning size="small" />}>
-        <DynamicComponent
-          id={id || name}
-          placeholder={placeholder}
-          disabled={disabled}
-          options={options}
-          {...props}
-          {...register(name, rules)}
+      <BlockDiv className="flex flex-col gap-2">
+        {/* Label */}
+        <AtomLabelV2
+          htmlFor={name}
+          required={Boolean(rules?.required)}
+          value={label}
         />
-      </Suspense>
+
+        {/* Field */}
+        <Suspense fallback={<Spin spinning size="small" />}>
+          <DynamicComponent
+            id={id || name}
+            placeholder={placeholder}
+            disabled={disabled}
+            options={options}
+            control={control}
+            {...props}
+            {...register(name, rules)}
+          />
+        </Suspense>
+      </BlockDiv>
 
       {/* Error */}
       <AtomTextV2 className="text-red-500 text-sm mt-1" value={errorMessage} />

@@ -92,6 +92,16 @@ const atomRegistry = {
     category: "Form",
     description: "Dropdown сонголтын талбар",
   },
+  selectantd: {
+    type: "select",
+    component: dynamic(() => import("../components/Atoms/AtomSelectAntdV2"), {
+      ssr: false,
+    }),
+    displayName: "Select Antd",
+    icon: "mdi:form-dropdown",
+    category: "Form",
+    description: "Dropdown сонголтын талбар - Antd",
+  },
   checkbox: {
     type: "checkbox",
     component: dynamic(() => import("../components/Atoms/AtomCheckBoxV2"), {

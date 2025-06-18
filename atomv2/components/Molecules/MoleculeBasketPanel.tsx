@@ -14,25 +14,28 @@ export default function MoleculeBasketPanel({}: {}) {
 
   return (
     <>
-      <BlockDiv
-        className={`py-4 px-5 ${
-          _.isEmpty(datasrc) ? "bg-gray-500" : "bg-slate-200"
-        } fixed left-0 top-48 flex flex-col items-center justify-center shadow rounded-r-lg cursor-pointer focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[{colorPrimary}] text-base z-[9999] transition-all duration-500 ${
-          isOpenSidebar ? "" : "block"
-        }`}
-        onClick={() => {
-          setIsOpenSidebar(true);
-        }}>
-        Сагс ({totalCount})
+      <BlockDiv className={`fixed left-0 top-48 z-50 block`}>
+        <BlockDiv className={`relative rounded-r-lg z-50 w-fit h-fit`}>
+          <BlockDiv
+            className={`py-3 px-5 ${
+              _.isEmpty(datasrc) ? "bg-muted" : "bg-brand"
+            } flex flex-col items-center justify-center shadow-md rounded-r-lg cursor-pointer focus:outline-none text-base z-50 transition-all duration-700 `}
+            onClick={() => {
+              setIsOpenSidebar(true);
+            }}>
+            Сагс ({totalCount})
+          </BlockDiv>
+          <BlockDiv className="absolute inset-0 w-full h-full bg-brand rounded-r-lg opacity-75 animate-ping-soft1 transition-all duration-700 -z-10" />
+        </BlockDiv>
       </BlockDiv>
 
       <BlockDrawer
         isShowDrawer={isOpenSidebar}
         setIsShowDrawer={setIsOpenSidebar}
-        width={"45%"}
+        width={"490px"}
         placement="right"
         CloseButtonObject={{
-          className: "-left-20 top-20 text-7xl",
+          className: "-left-14 top-20 text-4xl",
         }}
         BlockDrawerOuter={{
           className: "p-0",

@@ -42,55 +42,53 @@ const staticItem = {
 
 const TopSection = () => {
   return (
-    <PanelContainer>
-      <div className="w-full flex flex-col md:flex-row gap-6 md:gap-7 lg:gap-24 items-center md:items-start py-10 text-center md:text-left">
-        {/* Logo */}
-        <div className="flex flex-col items-center md:items-start gap-2">
-          <img
-            src={staticItem?.contact.logo}
-            alt="Logo"
-            className="w-16 md:w-24 h-auto"
-          />
-        </div>
+    <PanelContainer className="w-full flex flex-row gap-6 items-center py-10 text-center">
+      {/* Logo */}
+      <div className="flex flex-col items-center md:items-start gap-2 w-1/5">
+        <img
+          src={staticItem?.contact.logo}
+          alt="Logo"
+          className="w-16 md:w-24 h-auto filter invert"
+        />
+      </div>
 
-        {/* Contact */}
-        <div className="flex flex-col gap-2 justify-center items-center md:items-start pt-3">
-          <p className="text-gray-500 text-sm">Contact us</p>
-          <div className="flex items-center gap-2 text-base">
-            <Icon icon="fa:phone" className="text-[#c8102e] text-base" />
-            <span className="text-gray-300 text-base">
-              {staticItem?.contact.phone1}
-            </span>
-          </div>
-          <div className="flex items-center gap-2 text-base">
-            <Icon icon="fa:phone" className="text-[#c8102e] text-base" />
-            <span className="text-gray-300 text-base">
-              {staticItem?.contact.phone2}
-            </span>
-          </div>
+      {/* Contact */}
+      <div className="flex flex-col gap-2 justify-center items-center md:items-start pt-3 w-2/5">
+        <p className="text-gray-500 text-sm">Contact us</p>
+        <div className="flex items-center gap-2 text-base">
+          <Icon icon="fa:phone" className="text-brand text-base" />
+          <span className="text-gray-300 text-base">
+            {staticItem?.contact.phone1}
+          </span>
         </div>
+        <div className="flex items-center gap-2 text-base">
+          <Icon icon="fa:phone" className="text-brand text-base" />
+          <span className="text-gray-300 text-base">
+            {staticItem?.contact.phone2}
+          </span>
+        </div>
+      </div>
 
-        {/* Description */}
-        <div className="flex flex-col gap-2 justify-center items-center md:items-start pt-3">
-          <p className="text-gray-500 text-sm">
-            {staticItem?.contact.description}
-          </p>
-          <p className="text-gray-500 text-sm">{staticItem?.copyright}</p>
-        </div>
+      {/* Description */}
+      <div className="flex flex-col gap-2 items-start pt-3 w-2/5">
+        <p className="text-gray-500 text-sm text-left">
+          {staticItem?.contact.description}
+        </p>
+        <p className="text-gray-500 text-sm">{staticItem?.copyright}</p>
+      </div>
 
-        {/* Social links */}
-        <div className="flex flex-wrap gap-3 justify-center md:justify-start items-center pt-3">
-          {_.map(staticItem?.socialLinks, (item: any, index: number) => (
-            <a
-              key={item?.id || index}
-              href={item.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-12 h-12 bg-gray-700 text-gray-400 rounded flex items-center justify-center hover:bg-gray-600 transition">
-              <Icon icon={item.icon} />
-            </a>
-          ))}
-        </div>
+      {/* Social links */}
+      <div className="flex flex-wrap gap-3 justify-center md:justify-start items-center pt-3 w-1/5">
+        {_.map(staticItem?.socialLinks, (item: any, index: number) => (
+          <a
+            key={item?.id || index}
+            href={item.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-12 h-12 bg-gray-700 text-gray-400 rounded flex items-center justify-center hover:bg-gray-600 transition">
+            <Icon icon={item.icon} />
+          </a>
+        ))}
       </div>
     </PanelContainer>
   );

@@ -16,9 +16,11 @@ export default function OrganismBasketListPanel() {
   return (
     <BlockDiv className="min-h-full flex-1">
       {basketItems.length === 0 ? (
-        <div className="p-6 text-center text-gray-400">Сагс хоосон байна</div>
+        <BlockDiv className="p-6 text-center text-warning">
+          Сагс хоосон байна
+        </BlockDiv>
       ) : (
-        <BlockDiv className="divide-y divide-gray-200">
+        <BlockDiv className="divide-y divide-muted/20">
           {_.map(basketItems, (item: any, index: number) => (
             <MoleculeBasketItem
               key={item.id || index}

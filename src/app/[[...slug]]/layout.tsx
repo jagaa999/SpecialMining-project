@@ -1,6 +1,7 @@
 import { cookies } from "next/headers";
 import "public/fonts/roboto.css";
 import "public/globals.css";
+import AntdThemeProvider from "src/config/context/AntdThemeProvider";
 // import "src/components/domains/aikido/Theme/theme.css";
 import { ConfigProvider } from "src/config/context/ConfigContext";
 import { DomainProvider } from "src/config/context/DomainContext";
@@ -32,11 +33,13 @@ export default async function Layout({
       <DomainProvider domain={domain}>
         <ClientSWRProvider>
           <ConfigProvider>
-            {/* <ThemeInjector> */}
-            <body className={bodyClassname}>
-              <LayoutWrapper>{children}</LayoutWrapper>
-            </body>
-            {/* </ThemeInjector> */}
+            <AntdThemeProvider>
+              {/* <ThemeInjector> */}
+              <body className={bodyClassname}>
+                <LayoutWrapper>{children}</LayoutWrapper>
+              </body>
+              {/* </ThemeInjector> */}
+            </AntdThemeProvider>
           </ConfigProvider>
         </ClientSWRProvider>
       </DomainProvider>

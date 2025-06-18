@@ -1161,48 +1161,56 @@ export const isValidPlate = (plate: any) => {
   return pattern.test(plate);
 };
 
-export const prepareTitle = (item: any) => {
-  if (!_.isObject(item) && _.isString(item)) return item;
-  return item?.title || item?.name || item?.label || item?.key;
+/*  --------------------  */
+
+// 🔧 Generalized extractor
+export const extractFromKeys = (item: any, keys: string[]): any => {
+  if (!_.isObject(item) && (_.isString(item) || _.isNumber(item))) return item;
+
+  const lowerItem = _.mapKeys(item, (_val, key) => key.toLowerCase());
+  const lowerKeys = keys.map((k) => k.toLowerCase());
+
+  for (const key of lowerKeys) {
+    const val = lowerItem?.[key];
+
+    if (_.isObject(val) && _.has(val, "value")) {
+      return val.value;
+    }
+
+    if (_.isString(val) || _.isNumber(val) || _.isBoolean(val)) {
+      return val;
+    }
+  }
+
+  return "";
 };
 
-export const prepareDescription = (item: any) => {
-  if (!_.isObject(item) && _.isString(item)) return item;
-  return item?.description || item?.text || item?.value;
-};
+export const titleKeys = ["title", "name", "label", "key"];
+export const descriptionKeys = ["description", "text", "value"];
+export const valueKeys = ["value", "text", "description"];
+export const subKeys = ["sub", "second", "footer", "dataContent", "note"];
+export const imageKeys = ["image", "mainimage", "objectstorage", "imageavatar"];
+export const iconKeys = ["icon", "logo"];
+export const mainNumberKeys = ["mainnumber", "price"];
 
-export const prepareValue = (item: any) => {
-  if (!_.isObject(item) && _.isString(item)) return item;
-  return item?.value || item?.text || item?.description;
-};
+export const prepareTitle = (item: any) => extractFromKeys(item, titleKeys);
 
-export const prepareSub = (item: any) => {
-  if (!_.isObject(item) && _.isString(item)) return item;
-  return (
-    item?.sub || item?.second || item?.footer || item?.dataContent || item?.note
-  );
-};
+export const prepareDescription = (item: any) =>
+  extractFromKeys(item, descriptionKeys);
 
-export const prepareImage = (item: any) => {
-  if (!_.isObject(item) && _.isString(item)) return item;
-  return (
-    item?.image ||
-    item?.mainimage ||
-    item?.objectstorage ||
-    item?.imageavatar ||
-    "/images/icon-no-image_tcse9o.svg"
-  );
-};
+export const prepareValue = (item: any) => extractFromKeys(item, valueKeys);
 
-export const prepareIcon = (item: any) => {
-  if (!_.isObject(item) && _.isString(item)) return item;
-  return item?.icon || item?.logo;
-};
+export const prepareSub = (item: any) => extractFromKeys(item, subKeys);
 
-export const prepareMainNumber = (item: any) => {
-  if (!_.isObject(item) && _.isString(item)) return item;
-  return item?.mainnumber || item?.price;
-};
+export const prepareImage = (item: any) =>
+  extractFromKeys(item, imageKeys) || "/images/icon-no-image_tcse9o.svg";
+
+export const prepareIcon = (item: any) => extractFromKeys(item, iconKeys);
+
+export const prepareMainNumber = (item: any) =>
+  extractFromKeys(item, mainNumberKeys);
+
+/*  --------------------  */
 
 export const updateArrayBasket = (array: any, newItem: any) => {
   const updateArray = _.cloneDeep(array || []);

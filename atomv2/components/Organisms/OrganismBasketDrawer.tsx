@@ -1,8 +1,11 @@
 import { toMotoPrice } from "atomv2/util/widgetHelper";
 import { useConfig } from "src/config/context/ConfigContext";
-import BlockDiv from "../Blocks/BlockDiv";
-import BlockScroll from "../Blocks/BlockScroll";
 import RenderAtom from "../Atoms/RenderAtom";
+import BlockDiv from "../Blocks/BlockDiv";
+import BlockFlexRow from "../Blocks/BlockFlexRow";
+import BlockScroll from "../Blocks/BlockScroll";
+import TextH4 from "../Text/TextH4";
+import TextHtml from "../Text/TextHtml";
 import OrganismBasketListPanel from "./OrganismBasketListPanel";
 
 export default function OrganismBasketDrawer() {
@@ -15,40 +18,25 @@ export default function OrganismBasketDrawer() {
   );
 
   return (
-    <BlockDiv className="flex flex-col h-full max-h-screen">
+    <BlockDiv className="flex flex-col h-screen max-h-screen">
       {/* Header */}
-      <BlockDiv className="p-4 border-b border-gray-300">
-        <RenderAtom
-          value={`Сагс (${basketItems.length})`}
-          type="text"
-          className="text-lg font-semibold text-gray-800"
-        />
+      <BlockDiv className="flex-none p-4 border-b border-gray-300">
+        <BlockFlexRow>
+          <TextH4 value="Сагс" />
+          <TextHtml
+            value={String(basketItems.length)}
+            className="bg-info text-bg rounded px-2 py-0.5 text-sm"
+          />
+        </BlockFlexRow>
       </BlockDiv>
 
       {/* Items with scroll */}
-      <BlockScroll isActive={true} className="">
+      <BlockScroll isActive={true} className="px-4">
         <OrganismBasketListPanel />
-        {/* <div className="min-h-full">
-          {basketItems.length === 0 ? (
-            <div className="p-6 text-center text-gray-400">
-              Сагс хоосон байна
-            </div>
-          ) : (
-            <BlockDiv className="divide-y divide-gray-200">
-              {_.map(basketItems, (item: any, index: number) => (
-                <MoleculeBasketItem
-                  key={item.id || index}
-                  item={item}
-                  onRemove={() => handleRemove(item)}
-                />
-              ))}
-            </BlockDiv>
-          )}
-        </div> */}
       </BlockScroll>
 
       {/* Footer fixed */}
-      <BlockDiv className="p-4 border-t border-gray-300">
+      <BlockDiv className="flex-none p-4 border-t border-gray-300">
         <BlockDiv className="flex justify-between mb-4">
           <RenderAtom value={"Нийт дүн:"} type="text" className="text-lg" />
           <RenderAtom
@@ -61,7 +49,7 @@ export default function OrganismBasketDrawer() {
         <RenderAtom
           value={"Сагсны дэлгэрэнгүй"}
           type="button"
-          className="w-full bg-teal-500 hover:brightness-95 text-white py-4 rounded transition text-base"
+          className="w-full bg-brand text-bg text-base"
           url={{ href: "/cart", className: "w-full" }}
         />
       </BlockDiv>

@@ -1,3 +1,4 @@
+import { ObjectLight } from "atomv2/types/objectTypes";
 import _ from "lodash";
 import { CSSProperties } from "react";
 import { useConfig } from "src/config/context/ConfigContext";
@@ -7,7 +8,6 @@ import {
   updateArrayBasket2,
 } from "../../util/widgetHelper";
 import RenderAtom from "../Atoms/RenderAtom";
-import { ObjectLight } from "atomv2/types/objectTypes";
 
 export default function MoleculeBasketButton({
   item,
@@ -35,10 +35,10 @@ export default function MoleculeBasketButton({
       }
       type="text"
       style={style}
-      className={`text-sm text-center text-white hover:scale-105 px-7 py-4 rounded-lg transition-all duration-300 cursor-pointer ${
+      className={`text-xs text-center text-white hover:scale-105 px-5 py-2.5 rounded-lg transition-all duration-300 cursor-pointer ${
         isInBasket
-          ? `bg-gray-300 ${objectRemove?.className || ""}`
-          : `bg-teal-400 ${objectAdd?.className || ""}`
+          ? `bg-slate-400 ${objectRemove?.className || ""}`
+          : `bg-brand ${objectAdd?.className || ""}`
       } ${className}`}
       onClick={() => {
         const updatedList = isInBasket

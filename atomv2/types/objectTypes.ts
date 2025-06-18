@@ -3,12 +3,23 @@ export interface ObjectLight {
   icon?: string;
   className?: string;
   style?: React.CSSProperties;
+  [key: string]: any;
+}
+
+export interface ObjectButton {
+  value?: string | number | boolean;
+  icon?: string;
+  className?: string;
+  style?: React.CSSProperties;
+  onClick?: () => void;
+  [key: string]: any;
 }
 
 export interface ObjectFull {
-  title?: ObjectLight;
-  description?: ObjectLight;
-  mainImage?: ObjectLight;
+  title?: string | ObjectLight;
+  description?: string | ObjectLight;
+  mainImage?: string | ObjectLight;
+  button?: ObjectButton;
 }
 
 export interface BasketItemLight {

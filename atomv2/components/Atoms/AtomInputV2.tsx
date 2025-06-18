@@ -9,13 +9,7 @@ export default function AtomInputV2({
   className = "",
   ...props
 }: AtomInputProps) {
-  return (
-    <input
-      {...props}
-      className={cn(
-        "block w-full rounded-md border border-gray-300 px-3 py-2 text-sm shadow-sm placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-primary-500 focus:border-primary-500 transition-all",
-        className
-      )}
-    />
-  );
+  const inputBaseClassName =
+    "block bg-white w-full rounded-brand border-0 ring-1 ring-gray-200 px-3 py-2 text-sm shadow-none focus:outline-none focus:ring-brand placeholder-muted/30 placeholder:text-xs transition-all";
+  return <input {...props} className={cn(inputBaseClassName, "", className)} />;
 }
