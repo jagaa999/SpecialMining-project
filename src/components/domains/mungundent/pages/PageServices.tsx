@@ -8,10 +8,16 @@ export default function PageServices() {
             <MungundentHeader />
 
             {/* Hero Section */}
-            <section className="bg-gradient-to-r from-[#00A8A8] to-[#006F6F] text-white py-24 text-center px-4">
-                <h1 className="text-5xl font-bold mb-4 drop-shadow">Бидний Үйлчилгээ</h1>
-                <p className="text-xl max-w-3xl mx-auto">Та бүхэнд зориулсан орчин үеийн, Япон аргачлалд суурилсан иж бүрэн шүдний эмчилгээ</p>
+            <section className="bg-gradient-to-r from-[#00A8A8] to-[#006F6F] text-white py-24 text-center px-4 font-[Arial]">
+                <h1 className="text-5xl font-bold mb-4 tracking-wide drop-shadow-lg text-white">
+                    Бидний Үйлчилгээ
+                </h1>
+                <p className="text-xl max-w-3xl mx-auto leading-relaxed text-white">
+                    Та бүхэнд зориулсан орчин үеийн, Япон аргачлалд суурилсан иж бүрэн шүдний эмчилгээ
+                </p>
             </section>
+
+
 
             {/* Service List */}
             <section className="max-w-7xl mx-auto py-24 px-6 space-y-24">

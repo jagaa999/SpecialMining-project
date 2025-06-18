@@ -8,10 +8,15 @@ export default function PageAbout() {
             <MungundentHeader />
 
             {/* Hero Section */}
-            <section className="bg-gradient-to-r from-[#00A8A8] to-[#006F6F] text-white py-24 text-center px-4">
-                <h1 className="text-5xl font-bold mb-4 drop-shadow">Бидний Тухай</h1>
-                <p className="text-xl max-w-3xl mx-auto">Мэргэжлийн хамт олон, орчин үеийн технологиор таны инээмсэглэлийг бид хамгаална</p>
+            <section className="bg-gradient-to-r from-[#00A8A8] to-[#006F6F] text-white py-24 text-center px-4 font-[Arial]">
+                <h1 className="text-5xl font-bold mb-4 tracking-wide drop-shadow-lg text-white">
+                    Бидний Тухай
+                </h1>
+                <p className="text-xl max-w-3xl mx-auto leading-relaxed text-white">
+                    Мэргэжлийн хамт олон, орчин үеийн технологиор таны инээмсэглэлийг бид хамгаална
+                </p>
             </section>
+
 
             {/* About Content */}
             <section className="max-w-7xl mx-auto py-24 px-6">
