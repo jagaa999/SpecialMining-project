@@ -1,30 +1,26 @@
 "use client";
 
-import { Select } from "antd";
+import { Input } from "antd";
 import { Control, Controller, FieldValues, Path } from "react-hook-form";
 
-interface AtomSelectAntdV2Props<T extends FieldValues> {
+interface AtomInputAntdV2Props<T extends FieldValues> {
   name?: Path<T>;
   control?: Control<T>;
-  options?: Array<{
-    label: string;
-    value: string | number;
-  }>;
   rules?: any;
   placeholder?: string;
   disabled?: boolean;
   className?: string;
 }
 
-export default function AtomSelectAntdV2<T extends FieldValues>({
+export default function AtomInputAntdV2<T extends FieldValues>({
   name,
   control,
-  options,
   rules,
   placeholder,
   disabled,
+  className = "",
   ...props
-}: AtomSelectAntdV2Props<T>) {
+}: AtomInputAntdV2Props<T>) {
   if (!name) return null;
   if (!control) return null;
 
@@ -34,20 +30,11 @@ export default function AtomSelectAntdV2<T extends FieldValues>({
       control={control}
       rules={rules}
       render={({ field }) => (
-        <Select
+        <Input
           {...field}
-          options={options}
           placeholder={placeholder}
           disabled={disabled}
-          value={field.value}
-          onChange={(val) => field.onChange(val)}
-          allowClear
-          showSearch
-          // mode="multiple"
-          className="atom-select w-full"
-          classNames={{
-            root: "atom-select-popup", // dropdown popup root override
-          }}
+          className={`atom-input w-full ${className}`}
           size="large"
           {...props}
         />

@@ -255,9 +255,26 @@ body {
 /* Selector box */
 .atom-select .ant-select-selector {
   @apply !bg-white !rounded-brand !border-0 !ring-1 !ring-gray-200
-         !px-3 !py-2 !text-sm !shadow-none focus:outline-none focus:ring-brand transition-all;
+         !px-3 !py-2 !text-sm !shadow-none transition-all;
   /* padding: 0 18px !important; */
   /* font-family: var(--font-sans); */
+}
+
+/* .atom-select .ant-select-selector:focus {
+  @apply !outline-none !ring !ring-brand;
+} */
+.atom-select.ant-select-focused .ant-select-selector {
+   @apply !outline-none !ring !ring-brand;
+}
+
+.atom-input {
+  @apply !bg-white !rounded-brand !border-0 !ring-1 !ring-gray-200
+         !px-3 !py-2 !text-sm !shadow-none transition-all;
+  /* padding: 0 18px !important; */
+  /* font-family: var(--font-sans); */
+}
+.atom-input:focus {
+  @apply !outline-none !ring-brand;
 }
 
 /* Placeholder text */

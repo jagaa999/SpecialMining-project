@@ -72,6 +72,16 @@ const atomRegistry = {
     category: "Form",
     description: "Text input field",
   },
+  inputantd: {
+    type: "input",
+    component: dynamic(() => import("../components/Atoms/AtomInputAntdV2"), {
+      ssr: false,
+    }),
+    displayName: "Input Antd",
+    icon: "mdi:text-box-outline",
+    category: "Form",
+    description: "Text input field with Antd",
+  },
   textarea: {
     type: "textarea",
     component: dynamic(() => import("../components/Atoms/AtomTextareaV2"), {

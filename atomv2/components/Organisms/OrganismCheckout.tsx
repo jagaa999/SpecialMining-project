@@ -72,7 +72,7 @@ const ЗахиалгынМэдээлэл = () => {
             name: "email",
             label: "Имэйл",
             placeholder: "Имэйл хаяг",
-            type: "input",
+            type: "inputantd",
           },
           {
             name: "address",
@@ -80,17 +80,17 @@ const ЗахиалгынМэдээлэл = () => {
             placeholder: "Хүргэлтийн хаяг",
             type: "textarea",
           },
-          {
-            name: "SelectAntd",
-            label: "Төлбөрийн хэлбэр",
-            placeholder: "Овог, нэрээ бичнэ үү",
-            type: "selectantd",
-            options: [
-              { label: "qPay", value: "qpay" },
-              { label: "Бэлнээр", value: "cash" },
-            ],
-            rules: { required: "Төлбөрийн хэлбэр сонгоно уу" },
-          },
+          // {
+          //   name: "SelectAntd",
+          //   label: "Төлбөрийн хэлбэр",
+          //   placeholder: "Овог, нэрээ бичнэ үү",
+          //   type: "selectantd",
+          //   options: [
+          //     { label: "qPay", value: "qpay" },
+          //     { label: "Бэлнээр", value: "cash" },
+          //   ],
+          //   rules: { required: "Төлбөрийн хэлбэр сонгоно уу" },
+          // },
           {
             name: "checkBox",
             label: "Төлбөрийн хэлбэр",
