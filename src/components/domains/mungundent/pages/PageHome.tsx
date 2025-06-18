@@ -15,16 +15,25 @@ export default function PageHome() {
 
             {/* Hero Banner */}
             <section
-                className="h-[100vh] bg-cover bg-center flex items-center justify-center text-white relative"
+                className="h-[100vh] bg-cover bg-center flex items-center justify-center relative"
                 style={{
                     backgroundImage: `url(${error ? defaultImage : imageUrl?.regular || defaultImage})`,
-                }}>
+                }}
+            >
                 <div className="absolute inset-0 bg-black/40" />
-                <div className="relative z-10 text-center px-4">
-                    <h1 className="text-6xl font-bold mb-6 drop-shadow-xl tracking-wide">
+                <div className="relative z-10 text-center px-4 font-[Arial]">
+                    <h1
+                        className="text-6xl font-bold mb-6 tracking-wide drop-shadow-xl"
+                        style={{ color: "#ffffff" }}
+                    >
                         Итгэлтэй инээмсэглэлээр амьдралаа гэрэлтүүл
                     </h1>
-                    <p className="text-2xl">Мөнгөндент – Орчин үеийн шүдний эмчилгээний төв</p>
+                    <p
+                        className="text-2xl"
+                        style={{ color: "#ffffff" }}
+                    >
+                        Мөнгөндент – Орчин үеийн шүдний эмчилгээний төв
+                    </p>
                 </div>
             </section>
 
