@@ -51,7 +51,7 @@ const ТөлбөрийнМэдээлэл = () => {
         {map(["Бэлэн мөнгө", "QPay", "Дансаар"], (item: any, index: number) => (
           <p
             key={item?.id || index}
-            className="w-full bg-muted text-bg p-3 rounded-brand border border-gray-300 text-center cursor-pointer hover:brightness-95 transition-colors"
+            className="w-full bg-brand/10 text-fg p-3 rounded-brand border border-brand/30 text-center cursor-pointer hover:brightness-95 transition-colors"
             onClick={() => setIsShowModal(true)}>
             {item}
           </p>
