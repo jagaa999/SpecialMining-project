@@ -92,6 +92,16 @@ const atomRegistry = {
     category: "Form",
     description: "Олон мөр текст оруулах талбар",
   },
+  textareaantd: {
+    type: "textarea",
+    component: dynamic(() => import("../components/Atoms/AtomTextareaAntdV2"), {
+      ssr: false,
+    }),
+    displayName: "Textarea Antd",
+    icon: "mdi:note-text-outline",
+    category: "Form",
+    description: "Олон мөр текст оруулах талбар",
+  },
   select: {
     type: "select",
     component: dynamic(() => import("../components/Atoms/AtomSelectV2"), {
@@ -122,6 +132,16 @@ const atomRegistry = {
     category: "Form",
     description: "Олон сонголт бүхий checkbox жагсаалт",
   },
+  checkboxantd: {
+    type: "checkbox",
+    component: dynamic(() => import("../components/Atoms/AtomCheckboxAntdV2"), {
+      ssr: false,
+    }),
+    displayName: "Checkbox Antd",
+    icon: "mdi:checkbox-marked-outline",
+    category: "Form",
+    description: "Олон сонголт бүхий checkbox жагсаалт",
+  },
 
   radio: {
     type: "radio",
@@ -129,6 +149,16 @@ const atomRegistry = {
       ssr: false,
     }),
     displayName: "Radio",
+    icon: "mdi:radiobox-marked",
+    category: "Form",
+    description: "Нэг сонголт бүхий radio жагсаалт",
+  },
+  radioantd: {
+    type: "radio",
+    component: dynamic(() => import("../components/Atoms/AtomRadioAntdV2"), {
+      ssr: false,
+    }),
+    displayName: "Radio Antd",
     icon: "mdi:radiobox-marked",
     category: "Form",
     description: "Нэг сонголт бүхий radio жагсаалт",

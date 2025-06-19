@@ -1,4 +1,3 @@
-import _ from "lodash";
 import Link from "next/link";
 import PanelMain from "atomv2/components/Panel/PanelMain";
 import { generalTheme } from "../generalConfig";

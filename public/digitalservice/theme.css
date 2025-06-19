@@ -1,15 +1,15 @@
 .theme-digitalservice {
   /* --color-brand:      oklch(0.4835 0.1983 29.11); */
-  --color-brand:      oklch(0.72 0.2233 143.66);
+  --color-brand:      oklch(61.839% 0.28376 324.036);
   --color-secondary:  oklch(0.4128 0.126663 252.8373);
   --color-accent:     oklch(0.8652 0.1768 90.38);
 
-  --radius-brand:             0.975rem;
+  /* --radius-brand:             0.975rem; */
 
-  --text-xs:    0.875rem;  /* өмнө нь sm */
-  --text-sm:    1rem;      /* өмнө нь base */
-  --text-base:  1.125rem;  /* өмнө нь lg */
-  --text-lg:    1.25rem;   /* өмнө нь xl */
-  --text-xl:    1.5rem;    /* өмнө нь 2xl */
-  --text-2xl:   1.875rem;  /* өмнө нь 3xl */
+  /* --text-xs:    0.875rem;  өмнө нь sm */
+  /* --text-sm:    1rem;      өмнө нь base */
+  /* --text-base:  1.125rem;  өмнө нь lg */
+  /* --text-lg:    1.25rem;   өмнө нь xl */
+  /* --text-xl:    1.5rem;    өмнө нь 2xl */
+  /* --text-2xl:   1.875rem;  өмнө нь 3xl */
 }

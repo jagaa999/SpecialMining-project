@@ -1,7 +1,8 @@
 // components/Organisms/OrganismCheckout.tsx
 
 import { toMotoPrice } from "atomv2/util/widgetHelper";
-import { map } from "lodash";
+import { isArray, map } from "lodash";
+import { useRouter } from "next/navigation";
 import { useConfig } from "src/config/context/ConfigContext";
 import RenderAtom from "../Atoms/RenderAtom";
 import BlockDiv from "../Blocks/BlockDiv";
@@ -38,79 +39,70 @@ export default function OrganismCheckout() {
 }
 
 const ЗахиалгынМэдээлэл = () => {
+  const router = useRouter();
+  const { localConfig, setLocalConfig } = useConfig();
+  console.log("Захиалгын мэдээлэл:", localConfig);
+
+  const orderFields: any[] = [
+    {
+      name: "fullname",
+      title: "Худалдан авагчийн нэр",
+      placeholder: "Нэрээ бичнэ үү",
+      type: "inputantd",
+      rules: { required: "Заавал бичнэ үү" },
+    },
+    {
+      name: "phone",
+      title: "Утас",
+      placeholder: "Утасны дугаараа оруулна уу",
+      type: "inputantd",
+      rules: { required: "Заавал бичнэ үү" },
+    },
+    {
+      name: "email",
+      title: "Имэйл",
+      placeholder: "Имэйл хаяг",
+      type: "inputantd",
+    },
+    {
+      name: "address",
+      title: "Хүргүүлэх хаяг",
+      placeholder: "Хүргэлтийн хаягаа аль болох дэлгэрэнгүй бичээрэй",
+      type: "textareaantd",
+    },
+  ];
+
   const onSubmit = (data: any) => {
-    console.log("Form Data:", data);
+    console.log("Захиалгын мэдээллийг хааш нь илгээх вэ?:", data);
+
+    const formattedOrderInfo = orderFields.map((field: any) => {
+      const value = data[field.name];
+
+      return {
+        name: field.name,
+        title: field?.label || field?.title,
+        value: value,
+      };
+    });
+
+    setLocalConfig({ ...localConfig, orderInfo: formattedOrderInfo });
+    router.push("/payment");
   };
 
   return (
     <>
       <WidgetRenderForm
         onSubmit={onSubmit}
-        defaultValues={{
-          fullname: "",
-          phone: "",
-          email: "",
-          address: "",
-        }}
+        defaultValues={
+          isArray(localConfig.orderInfo)
+            ? localConfig.orderInfo.reduce((acc: any, curr: any) => {
+                acc[curr.name] = curr.value;
+                return acc;
+              }, {})
+            : {}
+        }
         submitText="Захиалга илгээх"
-        fields={[
-          {
-            name: "fullname",
-            label: "Овог, нэр",
-            placeholder: "Овог, нэрээ бичнэ үү",
-            type: "input",
-            rules: { required: "Заавал бичнэ үү" },
-          },
-          {
-            name: "phone",
-            label: "Утас",
-            placeholder: "Утасны дугаараа оруулна уу",
-            type: "input",
-            rules: { required: "Заавал бичнэ үү" },
-          },
-          {
-            name: "email",
-            label: "Имэйл",
-            placeholder: "Имэйл хаяг",
-            type: "inputantd",
-          },
-          {
-            name: "address",
-            label: "Хаяг",
-            placeholder: "Хүргэлтийн хаяг",
-            type: "textarea",
-          },
-          // {
-          //   name: "SelectAntd",
-          //   label: "Төлбөрийн хэлбэр",
-          //   placeholder: "Овог, нэрээ бичнэ үү",
-          //   type: "selectantd",
-          //   options: [
-          //     { label: "qPay", value: "qpay" },
-          //     { label: "Бэлнээр", value: "cash" },
-          //   ],
-          //   rules: { required: "Төлбөрийн хэлбэр сонгоно уу" },
-          // },
-          {
-            name: "checkBox",
-            label: "Төлбөрийн хэлбэр",
-            type: "checkbox",
-            options: [
-              { label: "qPay", value: "qpay" },
-              { label: "Бэлнээр", value: "cash" },
-            ],
-          },
-          {
-            name: "radioBox",
-            label: "Төлбөрийн хэлбэр",
-            type: "radio",
-            options: [
-              { label: "qPay", value: "qpay" },
-              { label: "Бэлнээр", value: "cash" },
-            ],
-            rules: { required: "Төлбөрийн хэлбэр сонгоно уу" },
-          },
-        ]}
+        fields={orderFields}
       />
     </>
   );

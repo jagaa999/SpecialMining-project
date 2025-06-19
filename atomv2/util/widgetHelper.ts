@@ -5,6 +5,7 @@ import pupa from "pupa";
 import { useMemo } from "react";
 import { twMerge } from "tailwind-merge";
 import dayjs from "./dayjslocale";
+import { parse, converter } from "culori";
 
 export function jsonParse(json: any, isDecode: boolean = false) {
   try {
@@ -1444,6 +1445,54 @@ export function groupParentKeysFromObject(data: any, prefix = "parent_"): any {
       : { ...transformed, parent: grouped };
   }
   return data;
+}
+
+export function oklchToHex(oklch: string): string | null {
+  const rgb = converter("rgb")(parse(oklch));
+  if (!rgb) return null;
+
+  const toHex = (c: number) =>
+    Math.round(c * 255)
+      .toString(16)
+      .padStart(2, "0");
+
+  return `#${toHex(rgb.r)}${toHex(rgb.g)}${toHex(rgb.b)}`;
+}
+
+// utility функц: CSS variable-г pixel утга болгон хөрвүүлэх
+export function getFontSizePx(rawValue: string): number {
+  if (rawValue.includes("rem")) {
+    return parseFloat(rawValue) * 16;
+  } else if (rawValue.includes("px")) {
+    return parseFloat(rawValue);
+  }
+  return 14; // fallback
+}
+
+export function remToPx(remString: string, baseFontSize = 16): number {
+  const rem = parseFloat(remString);
+  return rem * baseFontSize;
+}
+export function getTailwindValueFromCss(cssName: string) {
+  const cssValue = getComputedStyle(document.documentElement)
+    .getPropertyValue(cssName) //--text-brant --color-brand etc
+    .trim();
+
+  return cssValue;
+}
+
+export function getHexWithOpacity(hexColor: string, opacity: number): string {
+  // if (!/^#([A-Fa-f0-9]{6})$/.test(hexColor)) {
+  //   throw new Error("hexColor нь #RRGGBB форматтай байх ёстой");
+  // }
+  if (opacity < 0 || opacity > 100) {
+    throw new Error("opacity нь 0-100 хооронд байх ёстой");
+  }
+
+  const alpha = Math.round((opacity / 100) * 255);
+  const alphaHex = alpha.toString(16).padStart(2, "0").toUpperCase();
+
+  return `${hexColor}${alphaHex}`;
 }
 
 //jagaa end

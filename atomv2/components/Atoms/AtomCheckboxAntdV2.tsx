@@ -1,25 +1,26 @@
-"use client";
-
-import { Input } from "antd";
+import { Checkbox } from "antd";
 import { Control, Controller, FieldValues, Path } from "react-hook-form";
 
-interface AtomInputAntdV2Props<T extends FieldValues> {
+interface AtomCheckboxAntdV2Props<T extends FieldValues> {
   name?: Path<T>;
   control?: Control<T>;
+  options?: Array<{
+    label: string;
+    value: string | number;
+  }>;
   rules?: any;
-  placeholder?: string;
   disabled?: boolean;
   className?: string;
 }
 
-export default function AtomInputAntdV2<T extends FieldValues>({
+export default function AtomCheckboxAntdV2<T extends FieldValues>({
   name,
   control,
+  options,
   rules,
-  placeholder,
   disabled,
-  className = "",
-}: AtomInputAntdV2Props<T>) {
+  className,
+}: AtomCheckboxAntdV2Props<T>) {
   if (!name) return null;
   if (!control) return null;
 
@@ -29,11 +30,11 @@ export default function AtomInputAntdV2<T extends FieldValues>({
       control={control}
       rules={rules}
       render={({ field }) => (
-        <Input
+        <Checkbox.Group
           {...field}
-          placeholder={placeholder}
+          options={options}
           disabled={disabled}
-          className={`atom-input w-full placeholder-muted/30 placeholder:text-xs ${className}`}
+          className={`atom-checkbox text-brand ${className || ""}`}
         />
       )}
     />

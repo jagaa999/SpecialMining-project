@@ -1,4 +1,3 @@
-import _ from "lodash";
 import Banner from "../Widget/Banner";
 import PanelMain from "atomv2/components/Panel/PanelMain";
 import { generalTheme } from "../generalConfig";

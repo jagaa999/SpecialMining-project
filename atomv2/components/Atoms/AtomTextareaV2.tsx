@@ -11,7 +11,7 @@ export default function AtomTextareaV2({
   ...props
 }: AtomTextareaProps) {
   const inputBaseClassName =
-    "block bg-white w-full rounded-brand border-0 ring-1 ring-gray-200 px-3 py-2 text-sm shadow-none focus:outline-none focus:ring-brand placeholder-muted/30 placeholder:text-xs transition-all";
+    "block bg-white w-full rounded-brand border-0 ring-1 ring-gray-200 px-3 py-2 text-base shadow-none focus:outline-none focus:ring-brand placeholder-muted/30 placeholder:text-xs transition-all";
 
   return (
     <textarea

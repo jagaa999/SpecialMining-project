@@ -99,7 +99,7 @@ const CloseButton = ({
       value={CloseButtonObject?.value || "material-symbols:close"}
       type="icon"
       className={`absolute ${positionClass} cursor-pointer text-white hover:brightness-90 z-20 transition-transform duration-300 ease-in-out
-  hover:rotate-180 ${CloseButtonObject?.className || ""}`}
+  hover:rotate-180 text-4xl ${CloseButtonObject?.className || ""}`}
       onClick={() => setIsShowDrawer(false)}
     />
   );

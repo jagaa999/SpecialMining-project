@@ -3,23 +3,29 @@
 import { Input } from "antd";
 import { Control, Controller, FieldValues, Path } from "react-hook-form";
 
-interface AtomInputAntdV2Props<T extends FieldValues> {
+const { TextArea } = Input;
+
+interface AtomTextareaAntdV2Props<T extends FieldValues> {
   name?: Path<T>;
   control?: Control<T>;
   rules?: any;
   placeholder?: string;
   disabled?: boolean;
   className?: string;
+  rows?: number;
+  autoSize?: boolean | { minRows?: number; maxRows?: number };
 }
 
-export default function AtomInputAntdV2<T extends FieldValues>({
+export default function AtomTextareaAntdV2<T extends FieldValues>({
   name,
   control,
   rules,
   placeholder,
   disabled,
   className = "",
-}: AtomInputAntdV2Props<T>) {
+  rows,
+  autoSize,
+}: AtomTextareaAntdV2Props<T>) {
   if (!name) return null;
   if (!control) return null;
 
@@ -29,11 +35,13 @@ export default function AtomInputAntdV2<T extends FieldValues>({
       control={control}
       rules={rules}
       render={({ field }) => (
-        <Input
+        <TextArea
           {...field}
           placeholder={placeholder}
           disabled={disabled}
-          className={`atom-input w-full placeholder-muted/30 placeholder:text-xs ${className}`}
+          className={`atom-textarea w-full placeholder:text-xs ${className}`}
+          rows={rows}
+          autoSize={autoSize}
         />
       )}
     />

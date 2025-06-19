@@ -12,6 +12,7 @@ interface MoleculeFormFieldProps {
   id?: string;
   name: string;
   label?: string;
+  title?: string;
   placeholder?: string;
   disabled?: boolean;
   className?: string;
@@ -25,6 +26,7 @@ export default function MoleculeFormField({
   id,
   name,
   label,
+  title,
   placeholder,
   disabled = false,
   className = "",
@@ -54,7 +56,7 @@ export default function MoleculeFormField({
         <AtomLabelV2
           htmlFor={name}
           required={Boolean(rules?.required)}
-          value={label}
+          value={label || title || name}
         />
 
         {/* Field */}

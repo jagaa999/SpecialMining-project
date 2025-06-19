@@ -89,6 +89,7 @@ body {
   --spacing-brand-x:          3rem;
   --spacing-brand-y:          1.2rem;
   --container-brand:          50rem;
+  --text-brand:               var(--text-base);
 
 
   /* Typography */
@@ -253,54 +254,103 @@ body {
 }
 
 /* Selector box */
-.atom-select .ant-select-selector {
+/* .atom-select .ant-select-selector {
   @apply !bg-white !rounded-brand !border-0 !ring-1 !ring-gray-200
-         !px-3 !py-2 !text-sm !shadow-none transition-all;
+         !px-3 !py-2 !text-sm !shadow-none transition-all; */
   /* padding: 0 18px !important; */
   /* font-family: var(--font-sans); */
-}
 
 /* .atom-select .ant-select-selector:focus {
   @apply !outline-none !ring !ring-brand;
 } */
-.atom-select.ant-select-focused .ant-select-selector {
+/* .atom-select.ant-select-focused .ant-select-selector {
    @apply !outline-none !ring !ring-brand;
-}
+} */
 
-.atom-input {
+/* .atom-input {
   @apply !bg-white !rounded-brand !border-0 !ring-1 !ring-gray-200
          !px-3 !py-2 !text-sm !shadow-none transition-all;
-  /* padding: 0 18px !important; */
-  /* font-family: var(--font-sans); */
-}
-.atom-input:focus {
-  @apply !outline-none !ring-brand;
 }
 
-/* Placeholder text */
-.atom-select .ant-select-selection-placeholder {
+.atom-input::placeholder {
   @apply text-muted/30 text-xs;
 }
 
-.atom-select .ant-select-selection-item {
-  /* font-family: var(--font-sans); */
+.atom-input:focus {
+  @apply !outline-none !ring-brand;
+} */
+
+
+/* Placeholder text */
+.atom-select .ant-select-selection-placeholder {
+  @apply text-xs text-muted/30;
 }
 
-.atom-select-popup .ant-select-item-option-content {
-  /* @apply font-roboto text-sm text-gray-800; */
-  /* font-family: var(--font-sans); */
-}
 
-.atom-select-popup .ant-select-dropdown {
-  /* @apply font-roboto text-sm; */
-  /* font-family: var(--font-sans); */
-}
+
+
+
+
 
 /* .atom-select .ant-select-selection-placeholder {
-  @apply font-roboto text-sm text-gray-400;
+  @apply font-roboto text-sm;
 } */
 
 /* Popup root */
 /* .atom-select-popup {
   @apply rounded-lg border border-gray-100 bg-white z-50;
+} */
+
+/* Radio */
+/* .atom-radio .ant-radio-wrapper {
+  @apply flex items-center gap-2 text-sm;
+}
+
+.atom-radio .ant-radio-inner {
+  @apply w-4 h-4 ring-gray-200;
+}
+
+.atom-radio .ant-radio-checked .ant-radio-inner {
+  @apply border-brand bg-brand;
+}
+
+.atom-radio .ant-radio-checked::after {
+  @apply border-brand;
+}
+
+/* Radio - hover, focus үед brand өнгө */
+/* .atom-radio .ant-radio:hover .ant-radio-inner,
+.atom-radio .ant-radio:focus .ant-radio-inner {
+  @apply border-brand ring-1 ring-brand;
+} */
+
+/* Checkbox */
+/* .atom-checkbox .ant-checkbox-wrapper {
+  @apply flex items-center gap-2 text-sm ;
+}
+
+.atom-checkbox .ant-checkbox-inner {
+  @apply w-4 h-4 border-gray-300 rounded-sm;
+}
+
+.atom-checkbox .ant-checkbox-checked .ant-checkbox-inner {
+  @apply border-brand bg-brand;
+}
+
+.atom-checkbox .ant-checkbox-checked::after {
+  @apply border-brand;
+} */
+
+/* Checkbox - hover, focus үед brand өнгө */
+/* .atom-checkbox .ant-checkbox:hover .ant-checkbox-inner,
+.atom-checkbox .ant-checkbox:focus .ant-checkbox-inner {
+  @apply !border-brand ring-1 !ring-brand;
+}
+
+.atom-checkbox:hover .ant-checkbox-inner {
+  @apply !border-brand !ring-1 !ring-brand;
+}
+
+.atom-checkbox .ant-checkbox-checked .ant-checkbox-inner {
+  @apply !bg-brand !border-brand;
 } */

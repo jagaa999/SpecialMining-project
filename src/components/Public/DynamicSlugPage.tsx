@@ -10,7 +10,7 @@ import { useStaticItem } from "src/config/hooks/useStaticItem";
 export default function DynamicSlugPage() {
   const params = useParams();
   const { domain } = useDomain(); // ✅ Контекстоос домэйн авч байна
-  console.log("🚀 ~ DynamicSlugPage ~ domain:", domain);
+  // console.log("🚀 ~ DynamicSlugPage ~ domain:", domain);
   const slug =
     typeof params.slug === "string"
       ? params.slug
@@ -32,9 +32,10 @@ export default function DynamicSlugPage() {
               `src/components/domains/${domain}/pages/Page${CapitalSlug}`
             )
           ).default;
-        } catch (err) {
+        } catch (err: any) {
           console.warn(
-            `❌ Page not found: src/components/domains/${domain}/pages/Page${CapitalSlug}, loading NotFoundPage`
+            `❌ Page not found: src/components/domains/${domain}/pages/Page${CapitalSlug}, loading NotFoundPage`,
+            `error: ${err.message}`
           );
           return (await import("src/components/Public/NotFoundPage")).default;
         }

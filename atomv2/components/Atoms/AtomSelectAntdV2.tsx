@@ -23,7 +23,6 @@ export default function AtomSelectAntdV2<T extends FieldValues>({
   rules,
   placeholder,
   disabled,
-  ...props
 }: AtomSelectAntdV2Props<T>) {
   if (!name) return null;
   if (!control) return null;
@@ -48,8 +47,6 @@ export default function AtomSelectAntdV2<T extends FieldValues>({
           classNames={{
             root: "atom-select-popup", // dropdown popup root override
           }}
-          size="large"
-          {...props}
         />
       )}
     />

@@ -25,7 +25,9 @@ export default function MoleculeBasketPanel({}: {}) {
             }}>
             Сагс ({totalCount})
           </BlockDiv>
-          <BlockDiv className="absolute inset-0 w-full h-full bg-brand rounded-r-lg opacity-75 animate-ping-soft1 transition-all duration-700 -z-10" />
+          {!_.isEmpty(datasrc) && (
+            <BlockDiv className="absolute inset-0 w-full h-full bg-brand rounded-r-lg opacity-75 animate-ping-soft1 transition-all duration-700 -z-10" />
+          )}
         </BlockDiv>
       </BlockDiv>
 

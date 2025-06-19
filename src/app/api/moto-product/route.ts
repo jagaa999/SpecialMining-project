@@ -18,7 +18,10 @@ export async function GET(req: NextRequest) {
     const data = await res.json();
 
     return NextResponse.json(data);
-  } catch (error) {
-    return NextResponse.json({ error: "Failed to fetch" }, { status: 500 });
+  } catch (error: any) {
+    return NextResponse.json(
+      { error: "Failed to fetch", message: error?.message },
+      { status: 500 }
+    );
   }
 }
