@@ -17,11 +17,6 @@ body {
 
 
 @layer components {  
-    p {
-      font-size: var(--text-base);
-      color: var(--color-fg);
-    }
-
     h1 {
       font-size: var(--text-4xl);       
       font-weight: var(--font-weight-bold);

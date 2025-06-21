@@ -4,7 +4,13 @@ import { AtomBaseProps } from "../../types/atomTypes";
 import { cn } from "../../util/atomHelperV2";
 
 interface AtomButtonProps extends AtomBaseProps {
-  variant?: "primary" | "secondary" | "danger" | "ghost";
+  variant?:
+    | "primary"
+    | "secondary"
+    | "danger"
+    | "ghost"
+    | "action1"
+    | "action2";
   type?: "button" | "submit" | "reset";
 }
 
@@ -21,6 +27,10 @@ export default function AtomButtonV2({
     secondary: "bg-secondary text-bg",
     danger: "bg-error text-bg",
     ghost: "bg-transparent text-fg",
+    action1:
+      "!px-4 !py-2 text-sm border border-slate-200 bg-white text-slate-500 shadow-none rounded w-fit",
+    action2:
+      "!px-4 !py-2 text-sm bg-brand text-white shadow-none rounded w-fit",
   };
 
   const buttonThemeBrandClass = `

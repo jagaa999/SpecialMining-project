@@ -46,10 +46,10 @@ export default function AntdThemeProvider({
   const { colorPrimary, fontSize, borderRadius, placeholderColor } =
     useBrandThemeDefaults();
 
-  console.log("AntdThemeProvider brandColor:", {
-    colorPrimary: colorPrimary,
-    fontSize,
-  });
+  // console.log("AntdThemeProvider brandColor:", {
+  //   colorPrimary: colorPrimary,
+  //   fontSize,
+  // });
 
   const theme: ThemeConfig = {
     token: {

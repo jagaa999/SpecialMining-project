@@ -1,7 +1,7 @@
 // components/Organisms/OrganismCheckout.tsx
 
 import { toMotoPrice } from "atomv2/util/widgetHelper";
-import { isArray, map } from "lodash";
+import { isArray, map, reduce } from "lodash";
 import { useRouter } from "next/navigation";
 import { useConfig } from "src/config/context/ConfigContext";
 import RenderAtom from "../Atoms/RenderAtom";
@@ -41,31 +41,31 @@ export default function OrganismCheckout() {
 const ЗахиалгынМэдээлэл = () => {
   const router = useRouter();
   const { localConfig, setLocalConfig } = useConfig();
-  console.log("Захиалгын мэдээлэл:", localConfig);
+  // console.log("Захиалгын мэдээлэл:", localConfig);
 
   const orderFields: any[] = [
     {
-      name: "fullname",
+      name: "customername",
       title: "Худалдан авагчийн нэр",
       placeholder: "Нэрээ бичнэ үү",
       type: "inputantd",
       rules: { required: "Заавал бичнэ үү" },
     },
     {
-      name: "phone",
+      name: "customerphone",
       title: "Утас",
       placeholder: "Утасны дугаараа оруулна уу",
       type: "inputantd",
       rules: { required: "Заавал бичнэ үү" },
     },
     {
-      name: "email",
+      name: "customeremail",
       title: "Имэйл",
       placeholder: "Имэйл хаяг",
       type: "inputantd",
     },
     {
-      name: "address",
+      name: "shippingaddress",
       title: "Хүргүүлэх хаяг",
       placeholder: "Хүргэлтийн хаягаа аль болох дэлгэрэнгүй бичээрэй",
       type: "textareaantd",
@@ -75,17 +75,22 @@ const ЗахиалгынМэдээлэл = () => {
   const onSubmit = (data: any) => {
     console.log("Захиалгын мэдээллийг хааш нь илгээх вэ?:", data);
 
-    const formattedOrderInfo = orderFields.map((field: any) => {
-      const value = data[field.name];
+    const orderInfo = reduce(
+      orderFields,
+      (item: any, field: any) => {
+        const value = data[field.name];
 
-      return {
-        name: field.name,
-        title: field?.label || field?.title,
-        value: value,
-      };
-    });
+        item[field.name] = {
+          title: field.label || field.title,
+          value,
+        };
 
-    setLocalConfig({ ...localConfig, orderInfo: formattedOrderInfo });
+        return item;
+      },
+      {}
+    );
+
+    setLocalConfig({ ...localConfig, orderInfo });
     router.push("/payment");
   };
 

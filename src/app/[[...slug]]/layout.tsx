@@ -3,6 +3,7 @@ import "public/fonts/roboto.css";
 import "public/globals.css";
 import AntdThemeProvider from "src/config/context/AntdThemeProvider";
 // import "src/components/domains/aikido/Theme/theme.css";
+import { AntdMessageProvider } from "src/config/context/AntdMessageContext";
 import { ConfigProvider } from "src/config/context/ConfigContext";
 import { DomainProvider } from "src/config/context/DomainContext";
 // import { ThemeInjector } from "src/config/context/ThemeInjector";
@@ -33,13 +34,15 @@ export default async function Layout({
       <DomainProvider domain={domain}>
         <ClientSWRProvider>
           <ConfigProvider>
-            <AntdThemeProvider>
-              {/* <ThemeInjector> */}
-              <body className={bodyClassname}>
-                <LayoutWrapper>{children}</LayoutWrapper>
-              </body>
-              {/* </ThemeInjector> */}
-            </AntdThemeProvider>
+            <AntdMessageProvider>
+              <AntdThemeProvider>
+                {/* <ThemeInjector> */}
+                <body className={bodyClassname}>
+                  <LayoutWrapper>{children}</LayoutWrapper>
+                </body>
+                {/* </ThemeInjector> */}
+              </AntdThemeProvider>
+            </AntdMessageProvider>
           </ConfigProvider>
         </ClientSWRProvider>
       </DomainProvider>
