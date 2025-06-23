@@ -72,6 +72,16 @@ const metadataContentMap: any = {
     image: "/images/dddd.jpg",
     creator: "@AikidoInMongolia",
   },
+  zenart: {
+    favicon:
+      "https://cdn.moto.mn/moto/landing/13_zenart/9f3f5b84-3ee3-49c6-953a-6266d13fff43.png",
+    title: "Artistic Living",
+    description: "Artistic Living  Zenart",
+    url: "https://www.zenart.mn",
+    image:
+      "https://cdn.moto.mn/moto/landing/13_zenart/d84557ed-ae22-41c7-8787-685ac76a073a.jpg",
+    creator: "@Zenart",
+  },
 };
 
 export async function getDomainMetadata() {
