@@ -3,7 +3,6 @@
 import BlockDiv from "atomv2/components/Blocks/BlockDiv";
 import PanelMain from "atomv2/components/Panel/PanelMain";
 import TextH3 from "atomv2/components/Text/TextH3";
-import TextH4 from "atomv2/components/Text/TextH4";
 import TextHtml from "atomv2/components/Text/TextHtml";
 
 export default function ZenartPageAbout() {
