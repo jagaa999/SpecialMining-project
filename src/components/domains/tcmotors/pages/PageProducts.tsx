@@ -1,11 +1,73 @@
 "use client";
 
-import BlockDiv from "atomv2/components/Blocks/BlockDiv";
-import PanelMain from "atomv2/components/Panel/PanelMain";
-import PanelTitle from "atomv2/components/Panel/PanelTitleMain";
-import PanelTextMain from "atomv2/components/Panel/PanelTextMain";
-import TcmotorsHomeHero from "../widget/TcmotorsHomeHero";
 import RenderAtom from "atomv2/components/Atoms/RenderAtom";
+import BlockDiv from "atomv2/components/Blocks/BlockDiv";
+import OrganismHeroPanel from "atomv2/components/Organisms/OrganismHeroPanel";
+import PanelMain from "atomv2/components/Panel/PanelMain";
+import PanelTextMain from "atomv2/components/Panel/PanelTextMain";
+import PanelTitle from "atomv2/components/Panel/PanelTitleMain";
+
+export default function TcmotorsPageProducts() {
+  return (
+    <>
+      <OrganismHeroPanel
+        keyword="japan car"
+        item={{
+          backgroundImage:
+            "https://images.unsplash.com/photo-1592194996308-7b43878e84a6",
+          title: "Хамгийн эрэлттэй бүтээгдэхүүнүүд",
+          subtitle: "Чанартай хуучин сэлбэгүүд — шалгагдсан, бэлэн нөөцтэй",
+          buttons: [
+            {
+              label: "Холбогдох",
+              href: "/contact",
+              style: "primary",
+            },
+          ],
+        }}
+      />
+
+      <PanelMain className="flex flex-col gap-12">
+        <PanelTitle value="Бидний санал болгож буй зарим бүтээгдэхүүн" />
+
+        <BlockDiv className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-8">
+          {sampleProducts.map((item) => (
+            <div
+              key={item.id}
+              className="bg-white border border-gray-200 shadow hover:shadow-lg rounded-xl overflow-hidden transition duration-300">
+              <img
+                src={item.image}
+                alt={item.name}
+                className="w-full h-48 object-cover"
+              />
+              <div className="p-4 flex flex-col gap-2">
+                <RenderAtom
+                  value={item.name}
+                  type="text"
+                  className="text-lg font-semibold"
+                />
+                <RenderAtom
+                  value={item.price}
+                  type="text"
+                  className="text-primary text-base font-medium"
+                />
+                <RenderAtom
+                  value={item.condition}
+                  type="text"
+                  className="text-gray-500 text-sm"
+                />
+              </div>
+            </div>
+          ))}
+        </BlockDiv>
+
+        <BlockDiv className="text-center mt-12">
+          <PanelTextMain value="Бүх төрлийн сэлбэгүүдийн дэлгэрэнгүй жагсаалтыг манай дэлгүүр дээрээс эсвэл чат, утсаар лавлана уу. Захиалга өгөх, зөвлөгөө авах бол манай мэргэжилтнүүд танд туслахад бэлэн." />
+        </BlockDiv>
+      </PanelMain>
+    </>
+  );
+}
 
 const sampleProducts = [
   {
@@ -93,64 +155,3 @@ const sampleProducts = [
     condition: "Сэвгүй, цэвэрхэн",
   },
 ];
-
-export default function TcmotorsPageProducts() {
-  return (
-    <>
-      <TcmotorsHomeHero
-        item={{
-          backgroundImage:
-            "https://images.unsplash.com/photo-1592194996308-7b43878e84a6",
-          title: "Хамгийн эрэлттэй бүтээгдэхүүнүүд",
-          subtitle: "Чанартай хуучин сэлбэгүүд — шалгагдсан, бэлэн нөөцтэй",
-          buttons: [
-            {
-              label: "Захиалга өгөх",
-              href: "/contact",
-              style: "primary",
-            },
-          ],
-        }}
-      />
-
-      <PanelMain className="flex flex-col gap-12">
-        <PanelTitle value="Бидний санал болгож буй зарим бүтээгдэхүүн" />
-
-        <BlockDiv className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-8">
-          {sampleProducts.map((item) => (
-            <div
-              key={item.id}
-              className="bg-white border border-gray-200 shadow hover:shadow-lg rounded-xl overflow-hidden transition duration-300">
-              <img
-                src={item.image}
-                alt={item.name}
-                className="w-full h-48 object-cover"
-              />
-              <div className="p-4 flex flex-col gap-2">
-                <RenderAtom
-                  value={item.name}
-                  type="text"
-                  className="text-lg font-semibold"
-                />
-                <RenderAtom
-                  value={item.price}
-                  type="text"
-                  className="text-primary text-base font-medium"
-                />
-                <RenderAtom
-                  value={item.condition}
-                  type="text"
-                  className="text-gray-500 text-sm"
-                />
-              </div>
-            </div>
-          ))}
-        </BlockDiv>
-
-        <BlockDiv className="text-center mt-12">
-          <PanelTextMain value="Бүх төрлийн сэлбэгүүдийн дэлгэрэнгүй жагсаалтыг манай дэлгүүр дээрээс эсвэл чат, утсаар лавлана уу. Захиалга өгөх, зөвлөгөө авах бол манай мэргэжилтнүүд танд туслахад бэлэн." />
-        </BlockDiv>
-      </PanelMain>
-    </>
-  );
-}
