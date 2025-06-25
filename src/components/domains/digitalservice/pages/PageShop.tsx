@@ -33,7 +33,7 @@ export default function DigitalServicePageShop() {
     <BlockDiv type="main" className="w-full bg-bg ">
       <Banner
         item={{
-          title: "Дэлгүр",
+          title: "Дэлгүүр",
           subtitle: "Принтерийн хор, цэнэглэгч",
           mainimage:
             "https://specialmining.bloomlink.mn/moavolen/2023/09/DSC_7513-1536x1025.jpg",
