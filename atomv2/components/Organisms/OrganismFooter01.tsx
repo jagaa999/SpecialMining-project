@@ -19,7 +19,7 @@ export default function OrganismFooter01({ item }: { item: any }) {
             <RenderAtom
               value={item?.contact.logo}
               type="image"
-              className="w-24 h-auto filter invert"
+              className="w-24 filter invert grayscale hover:grayscale-0 hover:invert-0 transition duration-300"
             />
           </BlockDiv>
 

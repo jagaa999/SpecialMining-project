@@ -2,7 +2,7 @@
 
 import BlockDiv from "atomv2/components/Blocks/BlockDiv";
 import DigitalServiceFooter from "../Widget/DigitalServiceFooter";
-import DigitalServiceNavbar from "../Widget/DigitalServiceNavMenu/DigitalServiceNavbar";
+import DigitalServiceNavbar from "../Widget/DigitalServiceNavbar";
 
 export default function LayoutWrapper({
   children,

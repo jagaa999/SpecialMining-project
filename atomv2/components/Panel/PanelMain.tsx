@@ -15,7 +15,7 @@ export default function PanelMain({
       data-block="PanelMain"
       className={cn(
         // generalTheme?.containerMain,
-        "max-w-4xl mx-auto py-20",
+        "max-w-4xl mx-auto py-20 px-5",
         // generalTheme?.textMain,
         className
       )}>

@@ -1,7 +1,6 @@
 "use client";
 
 import BlockDiv from "atomv2/components/Blocks/BlockDiv";
-import PanelMain from "atomv2/components/Panel/PanelMain";
 import TextH3 from "atomv2/components/Text/TextH3";
 import TextHtml from "atomv2/components/Text/TextHtml";
 
@@ -20,8 +19,7 @@ const Section0 = () => {
   return (
     <BlockDiv
       type="section"
-      className="relative w-full h-screen bg-cover bg-center flex items-center justify-center bg-gradient-to-r from-[#f6c99e] to-[#ce9871] animate-fade-in"
-    >
+      className="relative w-full h-screen bg-cover bg-center flex items-center justify-center bg-gradient-to-r from-[#f6c99e] to-[#ce9871] animate-fade-in">
       <BlockDiv className="relative z-10 text-center px-4 animate-fade-in">
         <img
           src="https://cdn.moto.mn/moto/landing/13_zenart/home/cf0fa9a4-4a6f-4a8c-81ad-f7c21f5a9344.png"
@@ -35,7 +33,9 @@ const Section0 = () => {
 
 const Section1 = () => {
   return (
-    <BlockDiv type="section" className="w-full h-screen flex flex-col lg:flex-row bg-[#171c21] animate-fade-in">
+    <BlockDiv
+      type="section"
+      className="w-full h-screen flex flex-col lg:flex-row bg-[#171c21] animate-fade-in">
       <BlockDiv className="w-full lg:w-1/2 flex flex-col justify-center px-10 lg:px-24 py-12">
         <img
           src="https://cdn.moto.mn/moto/landing/13_zenart/home/23f83c14-1e15-422d-a5ea-971c8b8bd28a.png"
@@ -71,7 +71,9 @@ const Section1 = () => {
 
 const Section2 = () => {
   return (
-    <BlockDiv type="section" className="w-full h-screen flex flex-col lg:flex-row bg-[#f6c99e] animate-fade-in">
+    <BlockDiv
+      type="section"
+      className="w-full h-screen flex flex-col lg:flex-row bg-[#f6c99e] animate-fade-in">
       <BlockDiv className="w-full lg:w-1/2 h-full flex items-center justify-center">
         <img
           src="https://cdn.moto.mn/moto/landing/13_zenart/temp/67da18bb-528b-4e03-a4a9-4ce067e86ab9.jpg?t=1750756608485"
@@ -102,7 +104,9 @@ const Section2 = () => {
 
 const Section3 = () => {
   return (
-    <BlockDiv type="section" className="w-full h-screen flex flex-col lg:flex-row bg-[#171c21] animate-fade-in">
+    <BlockDiv
+      type="section"
+      className="w-full h-screen flex flex-col lg:flex-row bg-[#171c21] animate-fade-in">
       <BlockDiv className="w-full lg:w-2/3 h-full">
         <img
           src="https://cdn.moto.mn/moto/landing/13_zenart/temp/f89304eb-f8ed-4c8c-9127-78fc2754307e.jpg?t=1750756711601"

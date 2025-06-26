@@ -1,41 +1,14 @@
 "use client";
 
-import { map } from "lodash";
-
-import PanelContainer from "atomv2/components/Panel/PanelContainer";
-import { Icon } from "@iconify/react";
-import BlockDiv from "atomv2/components/Blocks/BlockDiv";
-import AikidoNavbarMenu from "./AikidoNavbarMenu";
+import OrganismNavbarMenu from "atomv2/components/Organisms/OrganismNavbarMenu";
+import OrganismNavbarTopPanel from "atomv2/components/Organisms/OrganismNavbarTopPanel";
 
 export default function AikidoNavbar() {
   return (
-    <BlockDiv className="w-full">
-      <PanelContainer>
-        <BlockDiv className="hidden md:flex flex-row justify-between items-center py-3">
-          <BlockDiv className="flex flex-row gap-4">
-            {map(staticItem?.socials, (item: any, index: number) => (
-              <a
-                key={index}
-                href={item.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-brand text-xl block">
-                <Icon icon={item.icon} />
-              </a>
-            ))}
-          </BlockDiv>
-          <BlockDiv className="flex flex-row gap-6 items-center">
-            {map(staticItem?.contacts, (item: any, index: number) => (
-              <span key={item?.id || index} className="flex items-center gap-1">
-                <span className="text-brand">{item.icon}</span> {item.text}
-              </span>
-            ))}
-          </BlockDiv>
-        </BlockDiv>
-      </PanelContainer>
-      {/* Main Navbar */}
-      <AikidoNavbarMenu item={staticItem} />
-    </BlockDiv>
+    <>
+      <OrganismNavbarTopPanel item={staticItem} />
+      <OrganismNavbarMenu item={staticItem} />
+    </>
   );
 }
 
@@ -53,15 +26,15 @@ const staticItem = {
   contacts: [
     {
       icon: "",
-      text: "Хүн бүр айкидо хийж чадна",
+      title: "Хүн бүр айкидо хийж чадна",
     },
     {
       icon: "✉",
-      text: "info@aikido.mn",
+      title: "info@aikido.mn",
     },
     {
       icon: "📞",
-      text: "+976 8070-0888",
+      title: "+976 8070-0888",
     },
   ],
   logo: "https://cdn.moto.mn/moto/landing/11_aikido/4fbf4f4f-d6a2-4901-8a44-f3a5b5fd32fb.png",

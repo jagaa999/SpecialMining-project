@@ -1,13 +1,14 @@
 "use client";
 
-import _ from "lodash";
+import RenderAtom from "atomv2/components/Atoms/RenderAtom";
+import BlockDiv from "atomv2/components/Blocks/BlockDiv";
+import PanelMain from "atomv2/components/Panel/PanelMain";
+import _, { map } from "lodash";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import PanelContainer from "atomv2/components/Panel/PanelContainer";
-import BlockDiv from "atomv2/components/Blocks/BlockDiv";
 
-export default function AikidoNavbarMenu({ item }: { item: any }) {
+export default function OrganismNavbarMenu({ item }: { item: any }) {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const pathname = usePathname();
@@ -29,32 +30,30 @@ export default function AikidoNavbarMenu({ item }: { item: any }) {
   return (
     <BlockDiv
       type="nav"
+      data-block="OrganismNavbarMenu"
       className={`sticky top-0 z-50 transition-all duration-300 ${
         scrolled
           ? "bg-gradient-to-r from-white/50 via-pink-50/70 to-pink-100/80 backdrop-blur-md shadow-md py-2"
           : "bg-white shadow-none py-4"
       }`}>
-      <PanelContainer>
+      <PanelMain className="py-0">
         <BlockDiv className="w-full flex justify-between items-center">
           {/* Logo */}
-          <Link href="/">
-            <img
-              src={item?.logo}
-              className={`${
-                scrolled ? "w-[30px]" : "w-[50px]"
-              } h-auto object-contain`}
-              alt="Special Mining Logo"
-            />
-          </Link>
+          <RenderAtom
+            value={item?.logo}
+            type="image"
+            className={`${
+              scrolled ? "w-[30px]" : "w-[50px]"
+            } h-auto object-contain rounded-none`}
+            alt="Main Logo"
+            url={{ href: "/" }}
+          />
 
           {/* Desktop Menu */}
-          {/* <ul className="hidden md:flex flex-wrap gap-x-8 gap-y-1 items-center h-full"> */}
-
           <DesktopMenu item={item} />
-
           {/* Mobile menu button */}
           <button
-            className="md:hidden text-gray-800"
+            className="md:hidden"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
             {mobileMenuOpen ? (
               <svg
@@ -99,9 +98,7 @@ export default function AikidoNavbarMenu({ item }: { item: any }) {
                 <Link
                   href={item.href}
                   className={`block px-4 py-2 font-semibold text-[14px] ${
-                    pathname === item.href
-                      ? "text-[#c8102e]"
-                      : "text-gray-800 hover:text-[#c8102e]"
+                    pathname === item.href ? "text-brand" : "hover:text-brand"
                   }`}>
                   {item.title}
                 </Link>
@@ -109,7 +106,7 @@ export default function AikidoNavbarMenu({ item }: { item: any }) {
             ))}
           </ul>
         </BlockDiv>
-      </PanelContainer>
+      </PanelMain>
     </BlockDiv>
   );
 }
@@ -118,22 +115,32 @@ const DesktopMenu = ({ item }: { item: any }) => {
   const pathname = usePathname();
 
   return (
-    <>
-      <ul className="hidden md:flex flex-nowrap gap-x-8 gap-y-1 items-center h-full">
-        {_.map(item?.menu, (item: any, index: number) => (
-          <li key={index}>
-            <Link
-              href={item.href}
-              className={`flex items-center text-[14px] font-bold tracking-wide transition-all ${
-                pathname === item.href
-                  ? "text-[#c8102e]"
-                  : "text-[#111] hover:text-[#c8102e]"
-              }`}>
-              {item.title}
-            </Link>
-          </li>
-        ))}
-      </ul>
-    </>
+    <ul className="hidden md:flex flex-nowrap gap-x-6 gap-y-1 items-center h-full">
+      {map(item?.menu, (item: any, index: number) => (
+        <li key={item?.id || index}>
+          <RenderAtom
+            value={item?.title}
+            type="text"
+            className={`flex items-center text-sm font-bold tracking-wide transition-all ${
+              pathname === item.href ? "text-brand" : "hover:text-brand"
+            }`}
+            url={{ href: item.href }}
+          />
+        </li>
+      ))}
+      {item?.inquiryButton && (
+        <li>
+          <RenderAtom
+            value={item.inquiryButton.title}
+            type="text"
+            variant="action2"
+            className={
+              "px-3 py-[5px] rounded-full bg-brand text-white text-sm font-semibold"
+            }
+            url={{ href: item.inquiryButton.href }}
+          />
+        </li>
+      )}
+    </ul>
   );
 };
