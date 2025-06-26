@@ -15,7 +15,8 @@ export default function TcmotorsPageHome() {
   return (
     <BlockDiv className="w-full bg-bg">
       <OrganismHeroPanel
-        keyword="japan car"
+        keyword="toyota prius"
+        fade={{ className: "bg-black/70" }}
         item={{
           backgroundImage: "https://wallpapercave.com/wp/wp2848821.jpg",
           title: "TC Motors",

@@ -1,16 +1,19 @@
 // components/Organisms/OrganismCart.tsx
 
-import { map } from "lodash";
+import { get, map } from "lodash";
 import useUnsplash from "src/config/hooks/useUnsplash";
 import RenderAtom from "../Atoms/RenderAtom";
 import BlockDiv from "../Blocks/BlockDiv";
+import { ObjectLight } from "atomv2/types/objectTypes";
 
 export default function OrganismHeroPanel({
   keyword = "wallpaper",
   item,
+  fade = true,
 }: {
   keyword?: string;
   item: any;
+  fade?: boolean | ObjectLight;
 }) {
   const { imageUrl, loading, error } = useUnsplash(keyword);
   const defaultImage =
@@ -34,7 +37,15 @@ export default function OrganismHeroPanel({
         })`,
       }}>
       {/* Overlay */}
-      <BlockDiv className="absolute inset-0 bg-black/40" />
+      {fade && (
+        <BlockDiv
+          className={`absolute inset-0 bg-black/40 ${get(
+            fade,
+            "className",
+            ""
+          )}`}
+        />
+      )}
 
       {/* Content */}
       <BlockDiv className="relative z-10 text-center px-4">

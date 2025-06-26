@@ -12,7 +12,8 @@ export default function TcmotorsPageServices() {
   return (
     <>
       <OrganismHeroPanel
-        keyword="japan car"
+        keyword="toyota prius"
+        fade={{ className: "bg-black/70" }}
         item={{
           backgroundImage:
             "https://images.unsplash.com/photo-1580128637391-f3c8d51f17db?auto=format&fit=crop&w=1600&q=80",

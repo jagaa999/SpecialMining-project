@@ -10,7 +10,8 @@ export default function PageContacts() {
   return (
     <>
       <OrganismHeroPanel
-        keyword="japan car"
+        keyword="toyota prius"
+        fade={{ className: "bg-black/70" }}
         item={{
           backgroundImage: "https://source.unsplash.com/random/1920x1080?car",
           title: "Холбоо барих",
