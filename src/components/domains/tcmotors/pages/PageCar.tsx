@@ -7,7 +7,7 @@ import PanelMain from "atomv2/components/Panel/PanelMain";
 import PanelTextMain from "atomv2/components/Panel/PanelTextMain";
 import PanelTitle from "atomv2/components/Panel/PanelTitleMain";
 
-export default function TcmotorsPageProducts() {
+export default function TcmotorsPageCar() {
   return (
     <>
       <OrganismHeroPanel

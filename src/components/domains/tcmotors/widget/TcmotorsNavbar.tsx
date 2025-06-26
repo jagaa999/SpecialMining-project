@@ -17,7 +17,7 @@ const staticItem: any = {
   socials: [
     {
       icon: "fa6-brands:facebook-f",
-      href: "https://www.facebook.com/TCMotorsLV",
+      href: "https://www.facebook.com/TC.motorsp",
     },
     {
       icon: "fa6-brands:instagram",
@@ -42,7 +42,7 @@ const staticItem: any = {
   menu: [
     { title: "НҮҮР", href: "/" },
     { title: "ҮЙЛЧИЛГЭЭ", href: "/services" },
-    { title: "БҮТЭЭГДЭХҮҮН", href: "/products" },
+    { title: "АВТОМАШИН", href: "/car" },
     { title: "СЭЛБЭГ", href: "/parts" },
     { title: "ХОЛБОО БАРИХ", href: "/contact" },
   ],
