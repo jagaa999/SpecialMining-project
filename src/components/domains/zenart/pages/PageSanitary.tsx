@@ -90,17 +90,17 @@ const SectionFurniture = () => {
       </div>
 
       {/* ZEN ART logo */}
-      <div className="absolute bottom-[36px] left-[48px] bg-[#1a1a1a] w-[270px] h-[120px] px-6 py-4 z-20 flex flex-col items-start justify-center space-y-1 shadow-xl transition-all duration-300 hover:scale-105">
-        <img
-          src="/images/zenart-logo-white.png"
-          alt="ZenArt Logo"
-          className="h-[28px] mb-[6px]"
-        />
-        <TextHtml
-          value="ZEN ART"
-          className="text-white text-[15px] tracking-[0.15em] font-medium"
-        />
-      </div>
+      {/* <div className="absolute bottom-[36px] left-[48px] bg-[#1a1a1a] w-[270px] h-[120px] px-6 py-4 z-20 flex flex-col items-start justify-center space-y-1 shadow-xl transition-all duration-300 hover:scale-105">
+                <img
+                    src="/images/zenart-logo-white.png"
+                    alt="ZenArt Logo"
+                    className="h-[28px] mb-[6px]"
+                />
+                <TextHtml
+                    value="ZEN ART"
+                    className="text-white text-[15px] tracking-[0.15em] font-medium"
+                />
+            </div> */}
     </BlockDiv>
   );
 };
