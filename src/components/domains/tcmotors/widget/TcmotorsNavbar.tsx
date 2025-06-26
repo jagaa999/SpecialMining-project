@@ -17,11 +17,11 @@ const staticItem: any = {
   socials: [
     {
       icon: "fa6-brands:facebook-f",
-      href: "https://www.facebook.com/TC.motorsp",
+      href: "https://www.facebook.com/tcmotors.mn",
     },
     {
       icon: "fa6-brands:instagram",
-      href: "https://www.instagram.com/tcmotors.mn",
+      href: "#",
     },
   ],
   contacts: [
@@ -35,7 +35,7 @@ const staticItem: any = {
     },
     {
       icon: "mdi:phone-outline", // Утас
-      title: "+976 8800-1234",
+      title: "+976 7000-6787",
     },
   ],
   logo: "https://cdn.moto.mn/moto/landing/12_tcmotors/06f9c32c-3c7a-4d72-bf00-ebf8d7411ced.jpg",

@@ -1,0 +1,17 @@
+.theme-tcmotors {
+  --color-brand:          oklch(0.3532 0.144 239);
+
+  --color-secondary:      oklch(0.40  0.072 239);     /* Дунд зэргийн chroma, ижил hue → subtle secondary */
+  --color-accent:         oklch(0.65  0.20  239);     /* Илүү тод, акцент өнгө */
+  --color-muted:          oklch(0.30  0.04  239);     /* Нүүрний текст болон subtle border-д тохиромжтой */
+  --color-bg:             oklch(0.98  0.01  239);     /* Цэвэр, minimal background */
+  --color-fg:             oklch(0.08  0.01  239);     /* Харгалзах foreground, античный контрат */
+  --color-info:           oklch(0.80  0.10  239);     /* Info state — мэргэжлийн blue */
+  --color-success:        oklch(0.70  0.15  160);     /* Амжилттай → ногоон зүг рүү shifted */
+  --color-warning:        oklch(0.90  0.18  85);      /* Анхааруулах → шар-зэрэг рүү shifted */
+  --color-error:          oklch(0.65  0.18  30);      /* Алдаа → червон-зүрंतर рүү shifted */
+  --color-border:         oklch(0.90  0.02  239);     /* Subtle border */
+  --color-card:           oklch(0.95  0.015 239);     /* Card фон */
+  --color-hover:          oklch(0.60  0.18  239);     /* Hover дээр тодорч өнгө нэмэх эффект */
+  
+}

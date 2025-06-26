@@ -17,13 +17,13 @@ const staticItem = {
   contact: {
     logo: "https://cdn.moto.mn/moto/landing/12_tcmotors/06f9c32c-3c7a-4d72-bf00-ebf8d7411ced.jpg",
     description: "Орж ирсэн сэлбэгийн нийлүүлэлт",
-    phone1: "+976-99086787",
-    phone2: "+976-98108811",
+    phone1: "+976 7000-6787",
+    phone2: "+976 9908-6787",
   },
   socialLinks: [
     {
       icon: "fa6-brands:facebook",
-      href: "https://www.facebook.com/TC.motorsp",
+      href: "https://www.facebook.com/tcmotors.mn",
     },
     {
       icon: "fa6-brands:instagram",
