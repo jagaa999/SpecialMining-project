@@ -18,13 +18,10 @@ export default async function Layout({
 }) {
   const cookieStore = await cookies();
   const domain = cookieStore.get("domain")?.value || "default";
-  // console.log("🚀 ~ DOMAIN:", domain);
 
   // ЭНЭ ХАМГИЙН ЧУХАЛ НЬ!!
+  //Тухайн домэйний Page-ийг авчирч хучиж өгнө.
   const LayoutWrapper = await getLayoutWrapper(domain);
-
-  const bodyClassname =
-    "min-h-screen bg-gray-100 text-gray-900 antialiased font-roboto";
 
   return (
     <html lang="mn" className={`theme-${domain}`}>
@@ -36,11 +33,12 @@ export default async function Layout({
           <ConfigProvider>
             <AntdMessageProvider>
               <AntdThemeProvider>
-                {/* <ThemeInjector> */}
-                <body className={bodyClassname}>
+                <body
+                  className={
+                    "min-h-screen bg-gray-100 text-gray-900 antialiased font-roboto"
+                  }>
                   <LayoutWrapper>{children}</LayoutWrapper>
                 </body>
-                {/* </ThemeInjector> */}
               </AntdThemeProvider>
             </AntdMessageProvider>
           </ConfigProvider>
