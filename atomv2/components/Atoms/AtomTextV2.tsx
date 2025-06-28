@@ -17,7 +17,7 @@ interface AtomTextProps extends AtomBaseProps {
     | "small"
     | "li"
     | "blockquote";
-  variant?: "default" | "muted" | "error" | "highlight";
+  variant?: "default" | "muted" | "info" | "warning" | "error" | "highlight";
   isHtml?: boolean;
 }
 
@@ -35,6 +35,8 @@ export default function AtomTextV3({
   const variants = {
     default: "",
     muted: "text-muted",
+    info: "text-info",
+    warning: "text-warning",
     error: "text-error",
     highlight: "font-semibold text-primary",
   };

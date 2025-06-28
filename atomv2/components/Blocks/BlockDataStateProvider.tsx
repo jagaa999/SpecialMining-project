@@ -1,9 +1,11 @@
 // atomv2/components/Blocks/BlockDataStateProvider.tsx
 "use client";
 
-import useSWR from "swr";
 import { ReactNode } from "react";
 import { DataContext } from "src/config/context/DataContext";
+import useSWR from "swr";
+import MoleculeEmptyState from "../Molecules/MoleculeEmptyState";
+import MoleculeErrorState from "../Molecules/MoleculeErrorState";
 
 interface BlockDataStateProviderProps {
   endpoint: string;
@@ -24,9 +26,9 @@ export default function BlockDataStateProvider({
   pageSize = 15,
   setOffset,
   children,
-  loadingComponent = <div>Loading...</div>,
-  errorComponent = <div>Error loading data</div>,
-  emptyComponent = <div>No data found</div>,
+  loadingComponent,
+  errorComponent = <MoleculeErrorState />,
+  emptyComponent = <MoleculeEmptyState />,
 }: BlockDataStateProviderProps) {
   const queryString = new URLSearchParams({
     ...query,
@@ -37,7 +39,7 @@ export default function BlockDataStateProvider({
   const { data, error, isLoading } = useSWR(`${endpoint}?${queryString}`);
   const isEmpty = !data?.rows?.length;
 
-  if (isLoading) return loadingComponent;
+  if (isLoading && loadingComponent) return loadingComponent;
   if (error) return errorComponent;
   if (isEmpty) return emptyComponent;
 

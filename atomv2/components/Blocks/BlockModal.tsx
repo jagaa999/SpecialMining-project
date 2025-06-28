@@ -10,7 +10,7 @@ export default function BlockModal({
   defultClassName = "BlockModal2",
   width = "650",
   height = "70%",
-  destroyOnClose = false,
+  destroyOnHidden = false,
   CloseButtonObject,
   props,
   children = <></>,
@@ -20,7 +20,7 @@ export default function BlockModal({
   defultClassName?: string;
   width?: number | string;
   height?: number | string;
-  destroyOnClose?: boolean;
+  destroyOnHidden?: boolean;
   props?: any;
   CloseButtonObject?: ObjectLight;
   children?: any;
@@ -39,7 +39,7 @@ export default function BlockModal({
       className={defultClassName}
       width={widthReady}
       closable={false}
-      destroyOnClose={destroyOnClose}
+      destroyOnHidden={destroyOnHidden}
       {...props}>
       <BlockDiv className="relative min-h-[64px]" data-block="BlockModal2Outer">
         {children}

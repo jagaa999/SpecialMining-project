@@ -18,7 +18,7 @@ interface OrderPayload {
 }
 
 export function useActionMakeOrder() {
-  const { send } = usePostToMotoApi();
+  const { send, loading } = usePostToMotoApi();
   const domain = useDomain();
   const { localConfig } = useConfig();
 
@@ -56,5 +56,5 @@ export function useActionMakeOrder() {
     return result;
   };
 
-  return { actionMakeOrder };
+  return { actionMakeOrder, loading };
 }

@@ -12,12 +12,14 @@ interface AtomButtonProps extends AtomBaseProps {
     | "action1"
     | "action2";
   type?: "button" | "submit" | "reset";
+  disabled?: boolean;
 }
 
 export default function AtomButtonV2({
   value,
   variant = "primary",
   type = "button",
+  disabled = false,
   className,
   children,
   ...props
@@ -38,11 +40,13 @@ export default function AtomButtonV2({
       px-brand-x
       py-brand-y
       shadow-brand
+      ${disabled ? "opacity-40 cursor-not-allowed" : ""}
   `;
 
   return (
     <button
       type={type}
+      disabled={disabled}
       className={cn(
         "block w-fit h-fit cursor-pointer transition duration-200 hover:brightness-95",
         buttonThemeBrandClass,

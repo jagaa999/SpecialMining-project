@@ -2,15 +2,16 @@
 
 import { Spin } from "antd";
 import { RenderAtomProps } from "atomv2/types/atomTypes";
-import { isEmpty } from "lodash";
+import { cn } from "atomv2/util/atomHelperV2";
+import { get, isEmpty } from "lodash";
 import { Suspense } from "react";
+import { useDataContext } from "src/config/context/DataContext";
 import atomRegistry from "../../registry/atom.registry";
 import AtomAnimationV2 from "./AtomAnimationV2";
 import AtomLoadingV2 from "./AtomLoadingV2";
 import AtomSpinningV2 from "./AtomSpinningV2";
 import AtomTooltipV2 from "./AtomTooltipV2";
 import AtomUrlV2 from "./AtomUrlV2";
-import { cn } from "atomv2/util/atomHelperV2";
 
 export default function RenderAtom({
   item,
@@ -25,6 +26,9 @@ export default function RenderAtom({
   children,
   ...props
 }: RenderAtomProps) {
+  const dataContext = useDataContext();
+  const isLoading = get(dataContext, "isLoading", false);
+
   if (isEmpty(item) && isEmpty(value) && isEmpty(children)) return null;
 
   const DynamicComponent = atomRegistry[type]?.component;
@@ -47,8 +51,8 @@ export default function RenderAtom({
         <AtomUrlV2 {...url}>
           <AtomSpinningV2 {...spinning}>
             <AtomAnimationV2 {...animation}>
-              {loading ? (
-                <AtomLoadingV2 className={className} {...props} />
+              {isLoading ? (
+                <AtomLoadingV2 className={className} />
               ) : (
                 RenderComponent
               )}

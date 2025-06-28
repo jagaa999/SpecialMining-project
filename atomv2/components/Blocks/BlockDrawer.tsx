@@ -12,7 +12,7 @@ interface BlockDrawerProps {
   setIsShowDrawer: (show: boolean) => void;
   width?: number | string;
   height?: number | string;
-  destroyOnClose?: boolean;
+  destroyOnHidden?: boolean;
   maskClosable?: boolean;
   placement?: "top" | "left" | "right" | "bottom";
   closeButtonIsInside?: boolean;
@@ -29,7 +29,7 @@ export default function BlockDrawer({
   setIsShowDrawer,
   width = "390px",
   height = "50%",
-  destroyOnClose = false,
+  destroyOnHidden = false,
   maskClosable = true,
   placement = "right",
   closeButtonIsInside = false,
@@ -51,7 +51,7 @@ export default function BlockDrawer({
       closeIcon={false}
       onClose={() => setIsShowDrawer(false)}
       placement={placement}
-      destroyOnClose={destroyOnClose}
+      destroyOnHidden={destroyOnHidden}
       maskClosable={maskClosable}
       title={title}
       {...drawerProps}>

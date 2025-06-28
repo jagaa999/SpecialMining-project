@@ -32,7 +32,7 @@ export default function MoleculeBasketItem({
       <BlockFlexCol className="gap-0 w-full">
         <PosTitle
           item={item}
-          className="text-sm font-semibold group-hover:text-brand transition-colors duration-300 line-clamp-2"
+          className="text-sm text-gray-700 font-semibold group-hover:text-brand transition-colors duration-300 line-clamp-2"
           url={{ href: "/product" }}
         />
 

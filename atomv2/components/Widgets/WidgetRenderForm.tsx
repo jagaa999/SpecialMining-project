@@ -1,14 +1,15 @@
 "use client";
 
+import "@ant-design/v5-patch-for-react-19";
+import { message } from "antd";
+import { FormAtomType } from "atomv2/registry/atom.registry";
+import { find, forEach, isFunction, map } from "lodash";
 import { ReactNode } from "react";
 import { FormProvider, useForm } from "react-hook-form";
 import RenderAtom from "../Atoms/RenderAtom";
 import BlockDiv from "../Blocks/BlockDiv";
 import MoleculeFormField from "../Molecules/MoleculeFormField";
-import { FormAtomType } from "atomv2/registry/atom.registry";
-import { find, forEach, isFunction, map } from "lodash";
-import { message } from "antd";
-import "@ant-design/v5-patch-for-react-19";
+import { useUnsavedChangesWarning } from "atomv2/hooks/useUnsavedChangesWarning";
 
 export default function WidgetRenderForm({
   defaultValues = {},
@@ -18,6 +19,7 @@ export default function WidgetRenderForm({
   submitText = "Илгээх",
   children,
   className = "",
+  disableSubmitUntilValid = false, // 🔧 нэмэлт тохиргоо
 }: {
   defaultValues?: Record<string, any>;
   onSubmit: (data: any) => void;
@@ -25,7 +27,7 @@ export default function WidgetRenderForm({
   fields?: Array<{
     type: FormAtomType;
     name: string;
-    label?: string;
+    title?: string;
     placeholder?: string;
     options?: any[]; // select field-д зориулсан
     rules?: Record<string, any>;
@@ -34,9 +36,16 @@ export default function WidgetRenderForm({
   }>;
   submitText?: string;
   className?: string;
+  disableSubmitUntilValid?: boolean; // ✨ configurable
   children?: ReactNode;
 }) {
-  const methods = useForm({ defaultValues });
+  const methods = useForm({
+    defaultValues,
+    mode: "onChange", // validation бүрэн ажиллах нөхцөл
+  });
+
+  const { isDirty } = methods.formState;
+  useUnsavedChangesWarning(isDirty);
 
   const onSubmitHandle = (data: any) => {
     console.log("Form Data Successful:", data);
@@ -48,12 +57,12 @@ export default function WidgetRenderForm({
 
     forEach(errors, (error, field) => {
       const fieldMeta = find(fields, { name: field });
-      const label = fieldMeta?.label || field;
+      const title = fieldMeta?.title || field;
 
       message.error(
         error?.message
-          ? `${label} - ${error.message}`
-          : `"${label}" талбарт алдаа гарлаа.`
+          ? `${title} - ${error.message}`
+          : `"${title}" талбарт алдаа гарлаа.`
       );
     });
 
@@ -84,9 +93,16 @@ export default function WidgetRenderForm({
             type="button"
             value={submitText}
             variant="primary"
-            className="w-full py-3 text-lg bg-teal-500 hover:bg-teal-600 text-white rounded"
+            className="w-full"
             onClick={methods.handleSubmit(onSubmitHandle, onErrorHandle)}
+            disabled={disableSubmitUntilValid && !methods.formState.isValid}
+            tooltip={
+              disableSubmitUntilValid
+                ? "Шаардлагатай талбаруудыг бөглөнө үү"
+                : undefined
+            }
           />
+          {/* </Tooltip> */}
         </form>
       </BlockDiv>
     </FormProvider>
