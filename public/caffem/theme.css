@@ -1,0 +1,16 @@
+.theme-caffem {
+  --color-brand:            oklch(24% 0.068 253);
+  --color-secondary:        oklch(0.4 0.0144 264.4);  /* soft near-black with blue tint */
+  --color-accent:           oklch(0.72 0.14 240);  /* mid blue accent (button, link) */
+  --color-muted:            oklch(0.50 0.02 260);  /* subtle grey-blue (placeholder) */
+  --color-bg:               oklch(0.99 0.005 260); /* almost white background */
+  --color-fg:               oklch(0.18 0.02 250);  /* main blackish text */
+  --color-info:             oklch(0.85 0.08 250);  /* light blue info messages */
+  --color-success:          oklch(0.72 0.12 160);  /* soft green for positive */
+  --color-warning:          oklch(0.90 0.18 85);   /* muted yellow (less aggressive) */
+  --color-error:            oklch(0.65 0.18 30);   /* calm red */
+  --color-border:           oklch(0.85 0.01 260);  /* light grey-blue for lines */
+  --color-card:             oklch(0.97 0.005 250); /* card background */
+  --color-hover:            oklch(0.92 0.015 250); /* light hover */
+  
+}

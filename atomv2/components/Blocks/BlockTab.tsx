@@ -52,27 +52,27 @@ export default function BlockTab({
         <BlockDiv
           className={BlockTabTitleBlockClassName}
           data-block="BlockTabTitleBlock">
-          <BlockSlider
+          {/* <BlockSlider
             type="mini"
             divNumber="headerBanner"
             customProps={{
               slickslideRawClass: { padding: "0 25px 0 0" },
               slicklistRawClass: { margin: "0" },
-            }}>
-            {_.map(titleListReady, (item: any, index: number) => (
-              <RenderAtom
-                key={item?.id || index}
-                item={item?.title}
-                type="text"
-                className={`pb-3 cursor-pointer font-robotocondensed ${
-                  number === index ? activeTabClassName : normalTabClassName
-                }`}
-                customProps={{ type: "html" }}
-                onClick={() => setNumber(index)}
-                isAtomWorking={item?.loading}
-              />
-            ))}
-          </BlockSlider>
+            }}> */}
+          {_.map(titleListReady, (item: any, index: number) => (
+            <RenderAtom
+              key={item?.id || index}
+              item={item?.title}
+              type="text"
+              className={`pb-3 cursor-pointer font-robotocondensed ${
+                number === index ? activeTabClassName : normalTabClassName
+              }`}
+              customProps={{ type: "html" }}
+              onClick={() => setNumber(index)}
+              isAtomWorking={item?.loading}
+            />
+          ))}
+          {/* </BlockSlider> */}
         </BlockDiv>
       </BlockAffix>
 
