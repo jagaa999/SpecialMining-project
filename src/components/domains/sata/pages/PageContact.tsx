@@ -1,6 +1,6 @@
 import React from "react";
 import Layout from "../layout/Layout";
-import { Phone, Mail, MapPin, Clock } from "lucide-react";
+import { Icon } from "@iconify/react";
 
 const PageContact = () => {
     return (
@@ -28,7 +28,7 @@ const PageContact = () => {
                 <section className="max-w-screen-lg mx-auto py-24 px-6 grid md:grid-cols-2 gap-10">
                     {/* Card 1 */}
                     <div className="bg-white shadow-lg rounded-xl p-6 flex items-start gap-4">
-                        <MapPin className="text-green-600 w-8 h-8 mt-1" />
+                        <Icon icon="mdi:map-marker" className="text-green-600 w-8 h-8 mt-1" />
                         <div>
                             <h2 className="text-xl font-bold text-gray-800 mb-1">Хаяг</h2>
                             <p className="text-gray-700">
@@ -39,7 +39,7 @@ const PageContact = () => {
 
                     {/* Card 2 */}
                     <div className="bg-white shadow-lg rounded-xl p-6 flex items-start gap-4">
-                        <Phone className="text-green-600 w-7 h-7 mt-1" />
+                        <Icon icon="ic:baseline-phone" className="text-green-600 w-7 h-7 mt-1" />
                         <div>
                             <h2 className="text-xl font-bold text-gray-800 mb-1">Утас</h2>
                             <p className="text-gray-700">
@@ -52,7 +52,7 @@ const PageContact = () => {
 
                     {/* Card 3 */}
                     <div className="bg-white shadow-lg rounded-xl p-6 flex items-start gap-4">
-                        <Mail className="text-green-600 w-7 h-7 mt-1" />
+                        <Icon icon="mdi:email-outline" className="text-green-600 w-7 h-7 mt-1" />
                         <div>
                             <h2 className="text-xl font-bold text-gray-800 mb-1">Имэйл</h2>
                             <p className="text-gray-700">
@@ -65,7 +65,7 @@ const PageContact = () => {
 
                     {/* Card 4 */}
                     <div className="bg-white shadow-lg rounded-xl p-6 flex items-start gap-4">
-                        <Clock className="text-green-600 w-7 h-7 mt-1" />
+                        <Icon icon="mdi:clock-outline" className="text-green-600 w-7 h-7 mt-1" />
                         <div>
                             <h2 className="text-xl font-bold text-gray-800 mb-1">Цагийн хуваарь</h2>
                             <p className="text-gray-700">Даваа - Баасан: 09:00 - 18:00</p>
