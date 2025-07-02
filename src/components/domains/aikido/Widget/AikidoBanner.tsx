@@ -38,9 +38,8 @@ export default function Banner({
       <motion.div
         className="absolute inset-0 bg-cover bg-center scale-110"
         style={{
-          backgroundImage: `url(${
-            error ? defaultImage : imageUrl?.regular || defaultImage
-          })`, // Use default if there's an error
+          backgroundImage: `url(${error ? defaultImage : imageUrl?.regular || defaultImage
+            })`, // Use default if there's an error
         }}
         initial={{ scale: 1.1 }}
         animate={{ scale: hasLoaded ? 1 : 1.1 }}

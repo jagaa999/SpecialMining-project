@@ -6,6 +6,7 @@ module.exports = {
     "./src/config/tailwind/**/*.{js,ts,jsx,tsx,json}",
     "./atomv2/**/*.{js,ts,jsx,tsx}",
   ],
+
   safelist: [
     {
       pattern: /theme-.+/,
