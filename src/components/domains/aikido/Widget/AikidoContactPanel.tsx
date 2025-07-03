@@ -9,13 +9,13 @@ export default function AikidoContactPanel() {
       type="section"
       className="bg-slate-300 text-white text-center py-32 flex flex-col gap-12 items-center">
       <RenderAtom
-        value="Та ч бас бидэнтэй нэгдээрэй."
+        value="Бидэнтэй нэгдээрэй!"
         type="text"
         as="h2"
         className=""
       />
       <RenderAtom
-        value="Айкидо бол амьдралын ур чадварыг заадаг. Өнөөдөр л эхэл!"
+        value="Айкидо — өөрийгөө таних амьдралын зам. Өнөөдөр эхэл!"
         type="text"
         className="text-lg"
       />

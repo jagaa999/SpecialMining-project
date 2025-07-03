@@ -15,15 +15,15 @@ export default function AikidoPageHome() {
         item={{
           backgroundImage: "https://wallpapercave.com/wp/wp2848821.jpg",
           title: "Aikido in Mongolia",
-          subtitle: "Бүгд суралцах болох гайхамшигт бие хамгаалах урлаг",
+          subtitle: "Бүгд суралцах боломжтой гайхамшигт бие хамгаалах урлаг",
           buttons: [
             {
-              label: "Хичээллэх",
+              label: "Бүртгүүлэх ",
               href: "/class",
               style: "primary",
             },
             {
-              label: "About Us",
+              label: "Бидний тухай",
               href: "/about",
               style: "light",
             },
@@ -38,13 +38,13 @@ export default function AikidoPageHome() {
           <PanelMain className="h-full">
             <BlockFlexCol className="h-full items-center gap-12">
               <RenderAtom
-                value="Айкидо хичээллэхийг урьж байна."
+                value="Өөрийгөө танин мэдэх аяллаа айкидогоор эхлүүл!"
                 type="text"
                 as="h1"
                 className="text-center"
               />
               <RenderAtom
-                value="Хар бүс, дантай, туршлагатай, найрсаг багш нар<br />танд хичээнгүйлэн заах болно."
+                value="Хар бүстэй багш нар танд мэдлэг, ухаан, сэтгэл шингээн заах болно."
                 type="text"
                 as="p"
                 isHtml={true}
@@ -80,7 +80,7 @@ export default function AikidoPageHome() {
                 },
                 {
                   icon: "mdi:account-group", // олон нийтэд нээлттэй
-                  title: "Нас, хүйс хамаарахгүй хүн бүрт тохирсон хичээл",
+                  title: "Нас, хүйс хамаарахгүй хүн бүрд тохирсон хичээл",
                 },
               ].map((item: any, index: number) => (
                 <BlockDiv
@@ -108,7 +108,7 @@ export default function AikidoPageHome() {
               as="h2"
             />
             <RenderAtom
-              value="Хүүхэд, залуус, насанд хүрэгчдэд зориулсан ангилалтай хичээлүүдтэй.<br />Анхан шатнаас ахисан түвшин хүртэлх сургалтуудыг мэргэжлийн багш нар удирдан явуулдаг."
+              value="Хүүхэд, залуус болон насанд хүрэгчдэд зориулсан бүх түвшний сургалтыг мэргэжлийн багш нар удирдан явуулдаг."
               type="text"
               isHtml={true}
             />
