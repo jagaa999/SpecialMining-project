@@ -1,23 +1,17 @@
 // components/Organisms/OrganismCart.tsx
 
+import { useActionBasketButton } from "atomv2/hooks/actions/useActionBasketButton";
 import { toMotoPrice } from "atomv2/util/widgetHelper";
-import { useConfig } from "src/config/context/ConfigContext";
-import RenderAtom from "../Atoms/RenderAtom";
-import BlockAffix from "../Blocks/BlockAffix";
-import BlockDiv from "../Blocks/BlockDiv";
-import PanelMain from "../Panel/PanelMain";
-import TextH2 from "../Text/TextH2";
+import RenderAtom from "../../Atoms/RenderAtom";
+import BlockAffix from "../../Blocks/BlockAffix";
+import BlockDiv from "../../Blocks/BlockDiv";
+import PanelMain from "../../Panel/PanelMain";
+import TextH2 from "../../Text/TextH2";
+import TextH3 from "../../Text/TextH3";
 import OrganismBasketListPanel from "./OrganismBasketListPanel";
-import TextH3 from "../Text/TextH3";
 
 export default function OrganismCart() {
-  const { localConfig } = useConfig();
-  const basketItems = localConfig.basketList || [];
-
-  const total = basketItems.reduce(
-    (sum: number, item: any) => sum + (item.price || 0),
-    0
-  );
+  const { total } = useActionBasketButton({});
 
   return (
     <PanelMain className="grid grid-cols-12 gap-12">

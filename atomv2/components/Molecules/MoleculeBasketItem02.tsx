@@ -1,12 +1,11 @@
 import { BasketItemLight } from "atomv2/types/objectTypes";
 import { toMotoPrice } from "atomv2/util/widgetHelper";
 import { CSSProperties } from "react";
-import BlockDiv from "../Blocks/BlockDiv";
-import BlockFlexCol from "../Blocks/BlockFlexCol";
 import RenderAtom from "../Atoms/RenderAtom";
+import BlockFlexCol from "../Blocks/BlockFlexCol";
 import PosTitle from "../Position/PosTitle";
 
-export default function MoleculeBasketItem({
+export default function MoleculeBasketItem02({
   item,
   onRemove,
   className = "",
@@ -18,14 +17,14 @@ export default function MoleculeBasketItem({
   className?: string;
 }) {
   return (
-    <BlockDiv
-      className={`flex items-center gap-4 py-2 relative group ${className}`}
+    <BlockFlexCol
+      className={`gap-2 items-center relative group ${className}`}
       style={style}>
       {/* Зураг */}
       <RenderAtom
         value={item.mainimage || "/placeholder.png"}
         type="image"
-        className="w-16 h-16 object-contain object-center rounded border border-muted/30"
+        className="w-12 h-12 object-contain object-center rounded border border-muted/20"
       />
 
       {/* Гарчиг, үнэ */}
@@ -33,7 +32,7 @@ export default function MoleculeBasketItem({
         <PosTitle
           item={item}
           className="text-sm text-gray-700 font-semibold group-hover:text-brand transition-colors duration-300 line-clamp-2"
-          url={{ href: "/product" }}
+          // url={{ href: "/product" }}
         />
 
         <RenderAtom
@@ -43,14 +42,13 @@ export default function MoleculeBasketItem({
         />
       </BlockFlexCol>
 
-      {/* Үнэ + Устгах */}
-
+      {/* Устгах */}
       <RenderAtom
         type="icon"
-        value="material-symbols:delete-outline"
-        className="text-error text-xl cursor-pointer"
+        value="material-symbols:close"
+        className="text-error text-xl cursor-pointer absolute top-0 -right-5"
         onClick={onRemove}
       />
-    </BlockDiv>
+    </BlockFlexCol>
   );
 }

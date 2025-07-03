@@ -1,3 +1,5 @@
+import { AtomUrlV2Props } from "atomv2/components/Atoms/AtomUrlV2";
+
 export interface ObjectLight {
   value?: string | number | boolean;
   icon?: string;
@@ -11,6 +13,7 @@ export interface ObjectButton {
   icon?: string;
   className?: string;
   style?: React.CSSProperties;
+  url?: AtomUrlV2Props;
   onClick?: () => void;
   [key: string]: any;
 }

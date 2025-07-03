@@ -1,5 +1,5 @@
 .theme-caffem {
-  --color-brand:            oklch(24% 0.068 253);
+  --color-brand:            oklch(0.24 0.068 253);
   --color-secondary:        oklch(0.4 0.0144 264.4);  /* soft near-black with blue tint */
   --color-accent:           oklch(0.72 0.14 240);  /* mid blue accent (button, link) */
   --color-muted:            oklch(0.50 0.02 260);  /* subtle grey-blue (placeholder) */

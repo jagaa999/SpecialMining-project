@@ -1,7 +1,7 @@
 "use client";
 
 import BlockDiv from "atomv2/components/Blocks/BlockDiv";
-import MoleculeBasketPanel from "atomv2/components/Molecules/MoleculeBasketPanel";
+import OrganismBasketPanel from "atomv2/components/Organisms/eshop/OrganismBasketPanel";
 import OrganismProductList from "atomv2/components/Organisms/OrganismProductList";
 import PanelMain from "atomv2/components/Panel/PanelMain";
 import Banner from "../Widget/DigitalServiceBanner";
@@ -24,7 +24,7 @@ export default function DigitalServicePageShop() {
         </PanelMain>
       </BlockDiv>
 
-      <MoleculeBasketPanel />
+      <OrganismBasketPanel />
     </BlockDiv>
   );
 }

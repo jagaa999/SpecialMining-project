@@ -1495,4 +1495,20 @@ export function getHexWithOpacity(hexColor: string, opacity: number): string {
   return `${hexColor}${alphaHex}`;
 }
 
+/**
+ * Any төрлийн утгыг найдвартай number болгох (жишээ: "5000.00" → 5000)
+ */
+export const safeNumber = (value: any): number => {
+  if (_.isNil(value)) return 0;
+  const num = parseFloat(_.toString(value).replace(/,/g, ""));
+  return _.isFinite(num) ? num : 0;
+};
+
+export const totalPrice = (
+  items: Array<any>,
+  field: string = "price"
+): number => {
+  return _.reduce(items, (sum, item) => sum + safeNumber(item[field]), 0);
+};
+
 //jagaa end

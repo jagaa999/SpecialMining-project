@@ -5,24 +5,18 @@ import MoleculeEmptyItemState from "atomv2/components/Molecules/MoleculeEmptyIte
 import PosTitle from "atomv2/components/Position/PosTitle";
 import TextH5 from "atomv2/components/Text/TextH5";
 import TextHtml from "atomv2/components/Text/TextHtml";
+import { useActionBasketButton } from "atomv2/hooks/actions/useActionBasketButton";
 import { toMotoPrice } from "atomv2/util/widgetHelper";
 import { map } from "lodash";
-import { useConfig } from "src/config/context/ConfigContext";
 
 export default function OrganismPaymentСагсныХатууПанель() {
-  const { localConfig } = useConfig();
-  const basketItems = localConfig.basketList || [];
-
-  const total = basketItems.reduce(
-    (sum: number, item: any) => sum + (item.price || 0),
-    0
-  );
+  const { total, length, basketItems } = useActionBasketButton({});
 
   return (
     <BlockDiv className="bg-info/10 px-brand-x py-brand-y rounded-brand shadow-brand space-y-8">
       <TextH5 value="Таны захиалга" />
 
-      {basketItems.length <= 0 ? (
+      {length <= 0 ? (
         <MoleculeEmptyItemState
           icon={{ value: "mdi-light:cart" }}
           title={{ value: "Хоосон" }}
