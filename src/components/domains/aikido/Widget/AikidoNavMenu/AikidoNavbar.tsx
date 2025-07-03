@@ -26,7 +26,7 @@ const staticItem = {
   contacts: [
     {
       icon: "",
-      title: "Хүн бүр айкидо хийж чадна",
+      title: "Айкидо бол өөрийгөө таних урлаг",
     },
     {
       icon: "✉",
