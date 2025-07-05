@@ -53,10 +53,6 @@ export default function QpayCheckoutPanel() {
           if (res.ok && data.success?.count > 0) {
             console.log("Төлсөөөөн", { data });
             setPaidResult(data?.success);
-            await completeOrder(
-              prepareOrderData({ paidResult: data?.success, basketItems })
-              // { products: [], bill: {} }
-            );
             if (intervalRef.current) clearInterval(intervalRef.current);
           }
         } catch (err) {
@@ -69,6 +65,20 @@ export default function QpayCheckoutPanel() {
       if (intervalRef.current) clearInterval(intervalRef.current);
     };
   }, [invoice]);
+
+  // 🆕 paidResult өөрчлөгдөх үед л completeOrder дуудагдана
+  useEffect(() => {
+    const completeIfPaid = async () => {
+      if (!isEmpty(paidResult)) {
+        const orderResult = await completeOrder(
+          prepareOrderData({ paidResult, basketItems })
+        );
+        console.log("after orderResult", { orderResult });
+      }
+    };
+
+    completeIfPaid();
+  }, [paidResult]);
 
   return (
     <BlockFlexCol className="px-6 py-6 space-y-8 items-center">
@@ -164,34 +174,34 @@ const prepareOrderData = ({ paidResult, basketItems }: any) => {
 // "updated_at": "2023-03-09 11:02:51",
 // "invoice_code": "EGULEN_INVOICE"
 
-const testPaidResult = {
-  count: 1,
-  paid_amount: 50,
-  rows: [
-    {
-      payment_id: "148430023728147",
-      payment_status: "PAID",
-      payment_amount: "50.00",
-      trx_fee: "0.00",
-      payment_currency: "MNT",
-      payment_wallet: "Хаан банк апп",
-      payment_type: "P2P",
-      next_payment_date: null,
-      next_payment_datetime: null,
-      card_transactions: [],
-      p2p_transactions: [
-        {
-          id: "592817480024176",
-          transaction_bank_code: "050000",
-          account_bank_code: "050000",
-          account_bank_name: "Хаан банк",
-          account_number: "5072046569",
-          status: "SUCCESS",
-          amount: "50.00",
-          currency: "MNT",
-          settlement_status: "SETTLED",
-        },
-      ],
-    },
-  ],
-};
+// const testPaidResult = {
+//   count: 1,
+//   paid_amount: 50,
+//   rows: [
+//     {
+//       payment_id: "148430023728147",
+//       payment_status: "PAID",
+//       payment_amount: "50.00",
+//       trx_fee: "0.00",
+//       payment_currency: "MNT",
+//       payment_wallet: "Хаан банк апп",
+//       payment_type: "P2P",
+//       next_payment_date: null,
+//       next_payment_datetime: null,
+//       card_transactions: [],
+//       p2p_transactions: [
+//         {
+//           id: "592817480024176",
+//           transaction_bank_code: "050000",
+//           account_bank_code: "050000",
+//           account_bank_name: "Хаан банк",
+//           account_number: "5072046569",
+//           status: "SUCCESS",
+//           amount: "50.00",
+//           currency: "MNT",
+//           settlement_status: "SETTLED",
+//         },
+//       ],
+//     },
+//   ],
+// };
