@@ -12,6 +12,7 @@ import { map } from "lodash";
 import { useState } from "react";
 import { useEgulenProductsForOrder } from "src/config/hooks/egulen/useEgulenProductsForOrder";
 import QpayCheckoutPanel from "../Widget/QpayCheckoutPanel";
+import { extractObjectMain } from "atomv2/util/widgetHelper";
 
 export default function CaffemPageShop() {
   // `products` нь Sector[] гэж үзье
@@ -34,6 +35,18 @@ const БараануудтайЛангуу = () => {
   if (error) return <div className="p-6 text-red-500">Error: {error}</div>;
   console.log("dsfsdfdsfsd", products);
 
+  // "id": "117320",
+  // "cat_id": "14151",
+  // "sector_id": "2143",
+  // "category_name": "Coffee & Tea",
+  // "product_name": "Americano",
+  // "other_name": "Black coffee",
+  // "quantity": "5",
+  // "price": "10",
+  // "note": "Us bagatai mus ihtei",
+  // "bar_code": "",
+  // "plu_code": "K012345"
+
   return (
     <BlockTab
       titleList={map(products, (s) => ({ title: s.name }))}
@@ -53,15 +66,32 @@ const БараануудтайЛангуу = () => {
                   image: undefined,
                   mainimage: `${itemproduct.image_prefix}${itemproduct.image}`,
                 };
-                const { isInBasket, toggleItem } = useActionBasketButton({
-                  item: itemReady,
+                const { isInBasket, addNumber } = useActionBasketButton({
+                  item: {
+                    ...extractObjectMain(itemReady),
+                    itemToOrder: {
+                      id: itemproduct?.id,
+                      cat_id: itemcategory?.category_id,
+                      sector_id: sector?.sector_id,
+                      category_name: itemcategory?.name,
+                      product_name: itemproduct?.title,
+                      other_name: itemproduct?.other_name,
+                      quantity: "1",
+                      price: itemproduct?.price,
+                      note: "",
+                      bar_code: itemproduct?.bar_code,
+                      plu_code: itemproduct?.plu_code,
+                    },
+                  },
+                  convertToSimple: false,
                 });
                 return (
                   <MoleculeCard03
                     key={itemproduct?.id || index}
                     outerBlock={{
                       onClick: () => {
-                        toggleItem();
+                        // toggleItem();
+                        addNumber();
                       },
                       className: `cursor-pointer ${
                         isInBasket ? "border-brand shadow-lg" : ""

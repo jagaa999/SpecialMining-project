@@ -40,7 +40,7 @@ const ЭгүлэнПосPaymentMethods = () => {
 
   if (loading) return <div className="p-6">Loading...</div>;
   if (error) return <div className="p-6 text-red-500">Error: {error}</div>;
-  console.log("dsfsdfdsfsd", methods);
+  // console.log("dsfsdfdsfsd", methods);
 
   return (
     <BlockFlexCol className="gap-8 p-4">

@@ -15,7 +15,7 @@ export default function OrganismBasketDrawerSimple({
 }: {
   basketButton?: ObjectButton;
 }) {
-  const { total, length } = useActionBasketButton({});
+  const { total, length, clearAll } = useActionBasketButton({});
 
   return (
     <BlockFlexCol className="h-screen justify-between gap-12">
@@ -42,7 +42,14 @@ export default function OrganismBasketDrawerSimple({
       {/* </BlockFlexCol> */}
 
       {/* Footer fixed */}
-      <BlockDiv className="flex-none p-4 border-t border-gray-300">
+      <BlockFlexCol className="flex-none p-4 border-t border-gray-300 items-center">
+        <RenderAtom
+          value={"Сагс хоослох"}
+          variant="action1"
+          type="button"
+          className=""
+          onClick={clearAll}
+        />
         <BlockDiv className="flex justify-center mb-4">
           {/* <RenderAtom value={"Нийт дүн:"} type="text" className="text-lg" /> */}
           <RenderAtom
@@ -51,7 +58,6 @@ export default function OrganismBasketDrawerSimple({
             className="font-semibold text-lg"
           />
         </BlockDiv>
-
         <RenderAtom
           value={"Сагсны дэлгэрэнгүй"}
           type="button"
@@ -59,7 +65,7 @@ export default function OrganismBasketDrawerSimple({
           url={{ href: "/cart", className: "w-full" }}
           {...basketButton}
         />
-      </BlockDiv>
+      </BlockFlexCol>
     </BlockFlexCol>
   );
 }

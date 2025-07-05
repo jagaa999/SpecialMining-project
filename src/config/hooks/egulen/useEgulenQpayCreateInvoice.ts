@@ -9,10 +9,11 @@ export function useEgulenQpayCreateInvoice() {
 
   const userId = localStorage.getItem("USER_ID");
   const orgName = localStorage.getItem("ORG_NAME");
+  const orgId = localStorage.getItem("ORG_ID") || "2059";
 
   const fetchToken = async (): Promise<string | null> => {
     try {
-      const res = await fetch("/api/qpay/token", { method: "POST" });
+      const res = await fetch("/api/egulen/qpay/token", { method: "POST" });
       const data = await res.json();
       if (res.ok && data.access_token) {
         localStorage.setItem("QPAY_ACCESS_TOKEN", data.access_token);
@@ -27,8 +28,11 @@ export function useEgulenQpayCreateInvoice() {
   };
 
   const fetchInvoice = async (accessToken: string): Promise<Response> => {
+    const invoice_no = egulenGenerateInvoiceNumber(orgId);
+    localStorage.setItem("INVOICE_NO", invoice_no);
+
     const invoicePayload = {
-      invoice_no: "K" + new Date().getTime(),
+      invoice_no: invoice_no,
       amount: "50",
       bill_id: "",
       org_name: orgName,
@@ -103,3 +107,12 @@ export function useEgulenQpayCreateInvoice() {
     error,
   };
 }
+
+export const egulenGenerateInvoiceNumber = (orgId: string): string => {
+  const now = new Date();
+  const yy = String(now.getFullYear()).slice(-2);
+  const mm = String(now.getMonth() + 1).padStart(2, "0");
+  const dd = String(now.getDate()).padStart(2, "0");
+  const random = Math.floor(100000 + Math.random() * 900000);
+  return `K${orgId}${yy}${mm}${dd}${random}`;
+};

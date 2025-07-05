@@ -1,6 +1,6 @@
 import { formatMoney } from "accounting";
 import { decode, encode } from "html-entities";
-import _ from "lodash";
+import _, { reduce } from "lodash";
 import pupa from "pupa";
 import { useMemo } from "react";
 import { twMerge } from "tailwind-merge";
@@ -1498,17 +1498,23 @@ export function getHexWithOpacity(hexColor: string, opacity: number): string {
 /**
  * Any төрлийн утгыг найдвартай number болгох (жишээ: "5000.00" → 5000)
  */
-export const safeNumber = (value: any): number => {
-  if (_.isNil(value)) return 0;
+export const safeNumber = (value: any, defaultValue: number = 0): number => {
+  if (_.isNil(value)) return defaultValue;
   const num = parseFloat(_.toString(value).replace(/,/g, ""));
-  return _.isFinite(num) ? num : 0;
+  return _.isFinite(num) ? num : defaultValue;
 };
 
 export const totalPrice = (
   items: Array<any>,
-  field: string = "price"
+  field: string = "price",
+  countField: string = "count"
 ): number => {
-  return _.reduce(items, (sum, item) => sum + safeNumber(item[field]), 0);
+  return reduce(
+    items,
+    (sum, item) =>
+      sum + safeNumber(item[field]) * safeNumber(item[countField], 1),
+    0
+  );
 };
 
 //jagaa end
