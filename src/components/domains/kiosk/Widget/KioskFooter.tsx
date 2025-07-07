@@ -64,8 +64,7 @@ export default function KioskFooter() {
 
       {/* Bottom bar */}
       <BlockDiv className="mt-12 border-t border-gray-700 pt-6 text-center text-xs text-gray-500">
-        <RenderAtom
-          type="text"
+        <TextBody
           value={`© ${new Date().getFullYear()} <span class="text-white font-semibold">Kiosk.mn</span>. Бүх эрх хуулиар хамгаалагдсан.`}
         />
       </BlockDiv>
