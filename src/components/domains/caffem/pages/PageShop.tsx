@@ -20,15 +20,15 @@ export default function CaffemPageShop() {
     <BlockDiv className="px-10 py-10">
       <BlockHalf type="80">
         <BlockDiv className="h-screen">
-          <БараануудтайЛангуу />
+          <BaraanuudtaiLanguu />
         </BlockDiv>
-        <ТөлбөрТөлөхQPay />
+        <TulburTuluxQPay />
       </BlockHalf>
     </BlockDiv>
   );
 }
 
-const БараануудтайЛангуу = () => {
+const BaraanuudtaiLanguu = () => {
   const { products, loading, error } = useEgulenProductsForOrder();
 
   if (loading) return <div className="p-6">Loading...</div>;
@@ -109,7 +109,7 @@ const БараануудтайЛангуу = () => {
   );
 };
 
-const ТөлбөрТөлөхQPay = () => {
+const TulburTuluxQPay = () => {
   const [isShowModal, setIsShowModal] = useState(false);
 
   return (

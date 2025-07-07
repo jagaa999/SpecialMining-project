@@ -3,7 +3,7 @@
 import BlockDiv from "atomv2/components/Blocks/BlockDiv";
 import TextHtml from "atomv2/components/Text/TextHtml";
 
-export default function PageHome() {
+export default function KioskPageWeb() {
   return (
     <BlockDiv
       id="portfolio"

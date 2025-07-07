@@ -21,7 +21,7 @@ export default function CaffemPagePayment() {
             />
 
             {/* Төлбөрийн динамик мэдээлэл */}
-            <ЭгүлэнПосPaymentMethods />
+            <EgulenПосPaymentMethods />
           </BlockFlexCol>
         </BlockDiv>
 
@@ -35,7 +35,7 @@ export default function CaffemPagePayment() {
   );
 }
 
-const ЭгүлэнПосPaymentMethods = () => {
+const EgulenПосPaymentMethods = () => {
   const { methods, loading, error } = useEgulenPaymentMethods();
 
   if (loading) return <div className="p-6">Loading...</div>;
