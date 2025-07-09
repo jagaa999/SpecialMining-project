@@ -1,6 +1,7 @@
 "use client";
 
 import BlockFlexRow from "atomv2/components/Blocks/BlockFlexRow";
+import BlockScrollSnapScreenBlock from "atomv2/components/Blocks/BlockScrollSnapScreenBlock";
 import TextH1 from "atomv2/components/Text/TextH1";
 import TextHtml from "atomv2/components/Text/TextHtml";
 import ZenartSectionImageOnly from "../Widget/ZenartSectionImageOnly";
@@ -13,10 +14,12 @@ import TextH3 from "atomv2/components/Text/TextH3";
 export default function PageFireplaceTextile() {
   return (
     <>
-      <SectionTextile />
-      <ZenartSectionImageOnly />
-      <SectionFireplace />
-      <ZenartSectionImageOnly />
+      <BlockScrollSnapScreenBlock>
+        <SectionTextile />
+        <ZenartSectionImageOnly />
+        <SectionFireplace />
+        <ZenartSectionImageOnly />
+      </BlockScrollSnapScreenBlock>
     </>
   );
 }

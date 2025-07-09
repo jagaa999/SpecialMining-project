@@ -1,3 +1,4 @@
+import BlockAnimateWrapper from "atomv2/components/Blocks/BlockAnimateWrapper";
 import BlockFlexCol from "atomv2/components/Blocks/BlockFlexCol";
 import BlockScroll from "atomv2/components/Blocks/BlockScroll";
 import BlockSection from "atomv2/components/Blocks/BlockSection";
@@ -18,7 +19,7 @@ export default function ZenartSectionWrapper({
   return (
     <BlockSection
       {...BlockSectionObject}
-      className={`w-full h-screen bg-[#171c21] ${BlockSectionObject?.className}`}>
+      className={`w-full h-screen overflow-hidden bg-[#171c21] ${BlockSectionObject?.className}`}>
       <BlockScroll className="h-screen">
         <PanelMain
           {...PanelMainObject}
@@ -26,7 +27,9 @@ export default function ZenartSectionWrapper({
           <BlockFlexCol
             {...BlockFlexColObject}
             className={`h-full relative gap-16 ${BlockFlexColObject?.className}`}>
-            {children}
+            <BlockAnimateWrapper type="wallpaper">
+              {children}
+            </BlockAnimateWrapper>
           </BlockFlexCol>
         </PanelMain>
       </BlockScroll>
