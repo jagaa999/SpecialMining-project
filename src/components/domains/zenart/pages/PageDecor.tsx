@@ -9,38 +9,21 @@ import TextH5 from "atomv2/components/Text/TextH5";
 import TextHtml from "atomv2/components/Text/TextHtml";
 import ZenartSectionImageOnly from "../Widget/ZenartSectionImageOnly";
 import ZenartSectionWrapper from "../Widget/ZenartSectionWrapper";
+import BlockScrollSnapScreenBlock from "atomv2/components/Blocks/BlockScrollSnapScreenBlock";
 
 export default function PageDecor() {
   return (
     <>
-      {/* <ZenArtLogoTop /> */}
-      <SectionArtDecor />
-      <ZenartSectionImageOnly />
-      <SectionLightingDecor />
-      {/* <ZenArtLogoBottom /> */}
+      <BlockScrollSnapScreenBlock>
+        {/* <ZenArtLogoTop /> */}
+        <SectionArtDecor />
+        <ZenartSectionImageOnly />
+        <SectionLightingDecor />
+        {/* <ZenArtLogoBottom /> */}
+      </BlockScrollSnapScreenBlock>
     </>
   );
 }
-
-// const ZenArtLogoTop = () => (
-//   <BlockDiv className="w-full flex justify-center items-center py-4 bg-[#f7f2eb]">
-//     <img
-//       src="https://cdn.moto.mn/moto/landing/13_zenart/home/23f83c14-1e15-422d-a5ea-971c8b8bd28a.png"
-//       alt="ZenArt Logo"
-//       className="h-8"
-//     />
-//   </BlockDiv>
-// );
-
-// const ZenArtLogoBottom = () => (
-//   <BlockDiv className="w-full flex justify-center items-center py-8 bg-[#1a1a1a]">
-//     <img
-//       src="https://cdn.moto.mn/moto/landing/13_zenart/home/836ea1dc-7e57-4c99-bbcd-763824fede9c.png"
-//       alt="ZenArt Logo"
-//       className="h-8"
-//     />
-//   </BlockDiv>
-// );
 
 const SectionArtDecor = () => {
   return (

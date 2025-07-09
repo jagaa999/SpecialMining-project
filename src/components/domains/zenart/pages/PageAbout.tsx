@@ -6,15 +6,18 @@ import BlockSection from "atomv2/components/Blocks/BlockSection";
 import TextH3 from "atomv2/components/Text/TextH3";
 import TextHtml from "atomv2/components/Text/TextHtml";
 import ZenartSectionWrapper from "../Widget/ZenartSectionWrapper";
+import BlockScrollSnapScreenBlock from "atomv2/components/Blocks/BlockScrollSnapScreenBlock";
 
 export default function ZenartPageAbout() {
   return (
     <>
-      <Section0 />
-      <Section1 />
-      <Section2 />
-      <Section3 />
-      <Section4 />
+      <BlockScrollSnapScreenBlock>
+        <Section0 />
+        <Section1 />
+        <Section2 />
+        <Section3 />
+        <Section4 />
+      </BlockScrollSnapScreenBlock>
     </>
   );
 }
@@ -50,18 +53,11 @@ const Section1 = () => {
         value="Интерьер дизайны мөн чанар нь хүмүүний амьдрах хэв маягийн тухай юм.<br />Дан ганц загварлаг байдлын талаар бус харин сэтгэл татам эргономик, утга учиртай бодит орчинг бий болгох тухай.<br />Энэ нь хүн бүрийн анхны төсөөлөл шиг тийм ч хялбар ажил биш юмаа."
         className="text-slate-400"
       />
+
       <TextH3
         value="Таны уран бүтээлч амьдралын хэв маяг..."
         className="bg-gradient-to-r from-[#f6c99e] to-[#ce9871] bg-clip-text text-transparent"
       />
-
-      {/* <RenderAtom
-            value={
-              "https://cdn.moto.mn/moto/landing/13_zenart/temp/8ae42cbe-c321-4781-b96c-4b41171c3e8c.jpg?t=1750756511474"
-            }
-            type="image"
-            className="w-[75%] h-auto rounded-tl-[80px] rounded-bl-[80px] shadow-xl transition-transform duration-500 hover:scale-105"
-          /> */}
 
       <RenderAtom
         value={

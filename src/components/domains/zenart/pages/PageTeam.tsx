@@ -10,14 +10,17 @@ import TextHtml from "atomv2/components/Text/TextHtml";
 import { map } from "lodash";
 import ZenartSectionImageOnly from "../Widget/ZenartSectionImageOnly";
 import ZenartSectionWrapper from "../Widget/ZenartSectionWrapper";
+import BlockScrollSnapScreenBlock from "atomv2/components/Blocks/BlockScrollSnapScreenBlock";
 
 export default function ZenartTeamPage() {
   return (
     <>
-      <SectionDesignTeam />
-      <ZenartSectionImageOnly />
-      <SectionExecutionTeam />
-      <ZenartSectionImageOnly />
+      <BlockScrollSnapScreenBlock>
+        <SectionDesignTeam />
+        <ZenartSectionImageOnly />
+        <SectionExecutionTeam />
+        <ZenartSectionImageOnly />
+      </BlockScrollSnapScreenBlock>
     </>
   );
 }
@@ -28,11 +31,23 @@ const SectionDesignTeam = () => {
       <TextH1
         value="01"
         className="text-8xl font-bold bg-gradient-to-b from-[#f6c99e] to-slate-900 bg-clip-text text-transparent tracking-tighter"
+        animation={{
+          type: "fadeIn",
+        }}
       />
-      <TextH1 value="Зураг төслийн баг" className="text-slate-300" />
+      <TextH1
+        value="Зураг төслийн баг"
+        className="text-slate-300"
+        animation={{
+          type: "slideUp",
+        }}
+      />
       <TextHtml
         value="Интерьер дизайнерын төлөвлөх орон зайн архитектурын шийдлээс шууд хамаарладаг бөгөөд энэ шийдэл нь тухайн интерьерийн үнсэн суурь болдог."
         className="text-[#f6c99e]"
+        animation={{
+          type: "slideUp",
+        }}
       />
 
       <BlockDiv className="grid grid-cols-2 gap-5 w-[60%]">
@@ -61,10 +76,22 @@ const SectionDesignTeam = () => {
                 value={"mdi-light:arrow-right"}
                 type="icon"
                 className="text-[#f6c99e] text-xl"
+                animation={{
+                  type: "fadeIn",
+                  loop: true,
+                  loopType: "mirror",
+                  duration: 2,
+                }}
               />
 
               <BlockFlexCol className="gap-1" key={index}>
-                <TextBody value={item?.title} className="text-slate-300" />
+                <TextBody
+                  value={item?.title}
+                  className="text-slate-300"
+                  animation={{
+                    type: "slideUp",
+                  }}
+                />
                 <TextBody value={item?.desc} className="text-slate-600" />
               </BlockFlexCol>
             </BlockFlexRow>
@@ -75,6 +102,9 @@ const SectionDesignTeam = () => {
       <TextHtml
         value="Бидний хамгийн чухал орон зай бол гэр, ажлын байр, болон үйлчилгээний талбайн төлөвлөлт, жанр, шал, таазны өнгө болон хэлбэр зэрэг, тухайн тавилга, гэрэл, хөшиг зэрэг сонголтоос тав тухтай орчин бий болдог. Тиймээс интерьерийн зураг төсөл зохиох нь барилгын дизайны суурьлсан цогц үйл ажиллагааны нэгэн юм. Манай компанийн баг мэргэжлийн чадвартай дизайнерууд бөгөөд амьдралын эх мэдрэмж, эргономик, биомик, кинетик, өнгө, инстинкт, функцийн шаардлагад нийцсэн дизайны төлөвлөөг боловсруулж ажилласаар байна."
         className="text-[#d1d5db] text-sm leading-6 pt-6"
+        animation={{
+          type: "slideUp",
+        }}
       />
       <RenderAtom
         value={

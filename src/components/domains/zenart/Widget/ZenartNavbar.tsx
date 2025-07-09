@@ -10,9 +10,10 @@ export default function ZenartNavbar() {
   return (
     <BlockDiv
       type="header"
-      className="w-full bg-[#f6c99e] shadow-md z-20 border-b border-[#f7d7ba]">
-      <PanelMain className="px-6 py-4">
-        <BlockFlexRow className="justify-between">
+      className="fixed w-full bg-[#f6c99e] shadow-md z-20 border-b border-[#f7d7ba]"
+      style={{ height: "64px" }}>
+      <PanelMain className="px-0 py-0 flex items-center h-full w-full">
+        <BlockFlexRow className="justify-between w-full">
           {/* Desktop Nav */}
           <BlockFlexRow className="gap-4">
             <RenderAtom
