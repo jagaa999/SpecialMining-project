@@ -64,7 +64,7 @@ const SectionArtDecor = () => {
           desc: "Соёлын үнэт өвийг хамгаалах, сэргээх, уламжлалыг орчин үеийн мэдрэмжтэйгээр үргэлжлүүлэх онцгой авьяас, ой санамж, тэвчээр, чадвар шаардсан мэргэжил. Түүний ур чадвараар 30 гаруй жил мэргэжлээрээ ажиллаж байна.",
         },
       ].map((item, index) => (
-        <BlockFlexRow className="items-start">
+        <BlockFlexRow className="items-start" key={index}>
           <RenderAtom
             value={"mdi-light:arrow-right"}
             type="icon"
