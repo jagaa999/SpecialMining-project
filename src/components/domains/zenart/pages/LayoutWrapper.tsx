@@ -11,7 +11,7 @@ export default function LayoutWrapper({
   return (
     <>
       <ZenartNavbar />
-      <BlockDiv type="main" className="pt-14 min-h-screen bg-gray-200">
+      <BlockDiv type="main" className="min-h-screen bg-gray-200">
         {children}
       </BlockDiv>
     </>
