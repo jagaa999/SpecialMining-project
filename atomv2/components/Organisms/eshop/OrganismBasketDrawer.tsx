@@ -1,32 +1,30 @@
+import { useActionBasketButton } from "atomv2/hooks/actions/useActionBasketButton";
+import { ObjectButton } from "atomv2/types/objectTypes";
 import { toMotoPrice } from "atomv2/util/widgetHelper";
-import { useConfig } from "src/config/context/ConfigContext";
-import RenderAtom from "../Atoms/RenderAtom";
-import BlockDiv from "../Blocks/BlockDiv";
-import BlockFlexRow from "../Blocks/BlockFlexRow";
-import BlockScroll from "../Blocks/BlockScroll";
-import TextH4 from "../Text/TextH4";
-import TextHtml from "../Text/TextHtml";
+import RenderAtom from "../../Atoms/RenderAtom";
+import BlockDiv from "../../Blocks/BlockDiv";
+import BlockFlexCol from "../../Blocks/BlockFlexCol";
+import BlockFlexRow from "../../Blocks/BlockFlexRow";
+import BlockScroll from "../../Blocks/BlockScroll";
+import TextH4 from "../../Text/TextH4";
+import TextHtml from "../../Text/TextHtml";
 import OrganismBasketListPanel from "./OrganismBasketListPanel";
-import BlockFlexCol from "../Blocks/BlockFlexCol";
 
-export default function OrganismBasketDrawer() {
-  const { localConfig } = useConfig();
-  const basketItems = localConfig.basketList || [];
-
-  const total = basketItems.reduce(
-    (sum: number, item: any) => sum + (item.price || 0),
-    0
-  );
+export default function OrganismBasketDrawer({
+  basketButton,
+}: {
+  basketButton?: ObjectButton;
+}) {
+  const { total, length } = useActionBasketButton({});
 
   return (
     <BlockFlexCol className="h-screen max-h-screen justify-between">
-      {/* <BlockFlexCol className="w-full h-full flex-none gap-5 justify-start"> */}
       {/* Header */}
       <BlockDiv className="flex-none p-4 border-b border-gray-300">
         <BlockFlexRow>
           <TextH4 value="Сагс" />
           <TextHtml
-            value={String(basketItems.length)}
+            value={String(length)}
             className="bg-info text-bg rounded px-2 py-0.5 text-sm"
           />
         </BlockFlexRow>
@@ -54,6 +52,7 @@ export default function OrganismBasketDrawer() {
           type="button"
           className="w-full bg-brand text-bg text-base"
           url={{ href: "/cart", className: "w-full" }}
+          {...basketButton}
         />
       </BlockDiv>
     </BlockFlexCol>

@@ -1,3 +1,7 @@
+import BlockFlexCol from "atomv2/components/Blocks/BlockFlexCol";
+import MoleculeBackButton from "atomv2/components/Molecules/MoleculeBackButton";
+import MoleculeEmptyItemState from "atomv2/components/Molecules/MoleculeEmptyItemState";
+import { useActionBasketButton } from "atomv2/hooks/actions/useActionBasketButton";
 import { toMotoPrice } from "atomv2/util/widgetHelper";
 import { isArray, map, mapValues, reduce } from "lodash";
 import { useRouter } from "next/navigation";
@@ -11,18 +15,9 @@ import PosTitle from "../../Position/PosTitle";
 import TextH5 from "../../Text/TextH5";
 import TextHtml from "../../Text/TextHtml";
 import WidgetRenderForm from "../../Widgets/WidgetRenderForm";
-import MoleculeBackButton from "atomv2/components/Molecules/MoleculeBackButton";
-import BlockFlexCol from "atomv2/components/Blocks/BlockFlexCol";
-import MoleculeEmptyItemState from "atomv2/components/Molecules/MoleculeEmptyItemState";
 
 export default function OrganismCheckout() {
-  const { localConfig } = useConfig();
-  const basketItems = localConfig.basketList || [];
-
-  const total = basketItems.reduce(
-    (sum: number, item: any) => sum + (item.price || 0),
-    0
-  );
+  const { total, basketItems } = useActionBasketButton({});
 
   return (
     <PanelMain className="grid grid-cols-12 gap-12">

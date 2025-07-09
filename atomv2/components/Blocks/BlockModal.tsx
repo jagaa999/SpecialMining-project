@@ -9,7 +9,7 @@ export default function BlockModal({
   setIsShowModal = null,
   defultClassName = "BlockModal2",
   width = "650",
-  height = "70%",
+  // height = "70%",
   destroyOnHidden = false,
   CloseButtonObject,
   props,
@@ -28,7 +28,7 @@ export default function BlockModal({
   const { isMobile } = useResponsiveBreakpoint();
   const widthReady = isMobile ? "100%" : width; //утсанд байвал дүүргэе.
 
-  console.log("BlockModal2", height, width, isMobile);
+  // console.log("BlockModal2", height, width, isMobile);
 
   return (
     <Modal

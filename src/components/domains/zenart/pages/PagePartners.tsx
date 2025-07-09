@@ -1,7 +1,11 @@
 "use client";
 
-import { Icon } from "@iconify/react";
+import RenderAtom from "atomv2/components/Atoms/RenderAtom";
 import BlockDiv from "atomv2/components/Blocks/BlockDiv";
+import BlockFlexCol from "atomv2/components/Blocks/BlockFlexCol";
+import BlockFlexRow from "atomv2/components/Blocks/BlockFlexRow";
+import BlockSection from "atomv2/components/Blocks/BlockSection";
+import PanelMain from "atomv2/components/Panel/PanelMain";
 import TextHtml from "atomv2/components/Text/TextHtml";
 
 export default function PagePartners() {
@@ -83,52 +87,51 @@ const SectionPartnerLogos = () => {
 
 const SectionFooter = () => {
   return (
-    <BlockDiv type="section" className="relative w-full h-[720px] text-white">
+    <BlockSection className="relative w-full h-screen">
       {/* Background Left + Right layout */}
-      <div className="absolute top-0 left-0 w-[calc(100%-100px)] h-full bg-[#0f1117] z-[-2]" />
-      <div className="absolute top-0 right-0 w-[20%] h-full bg-gradient-to-b from-[#f2cba8] to-[#e3b892] z-[-2]" />
-
-      {/* Pattern line */}
-      <div className="absolute top-0 left-0 w-full z-10">
-        <img
-          src="/mnt/data/4d6a1e38-94a0-4c26-adc5-7c5f5fca69c3.png"
-          alt="Pattern Line"
-          className="w-full h-auto object-contain"
-        />
-      </div>
+      <BlockDiv className="absolute top-0 left-0 w-[calc(100%-100px)] h-full bg-[#0f1117] z-[-2]" />
+      <BlockDiv className="absolute top-0 right-0 w-[20%] h-full bg-gradient-to-b from-[#f2cba8] to-[#e3b892] z-[-2]" />
 
       {/* Info Grid */}
-      <div className="absolute bottom-[80px] left-[64px]">
-        <div className="flex flex-col space-y-3 text-[15px]">
-          <div className="flex items-start space-x-2">
-            <Icon icon="mdi:map-marker" className="text-[#e3c3a2] mt-1" />
-            <div>
-              <p>Улаанбаатар хот, Хан-уул дүүрэг 3-р хороо</p>
-              <p>Чингисийн өргөн чөлөө-44 Алтартана хотхон, 1-давхарт</p>
-            </div>
-          </div>
-
-          <div className="flex items-center space-x-2">
-            <Icon icon="mdi:web" className="text-[#e3c3a2]" />
-            <span>www.zenart.mn</span>
-          </div>
-
-          <div className="flex items-center space-x-2">
-            <Icon icon="mdi:instagram" className="text-[#e3c3a2]" />
-            <span>zenartistic</span>
-          </div>
-
-          <div className="flex items-center space-x-2">
-            <Icon icon="mdi:facebook" className="text-[#e3c3a2]" />
-            <span>Zen Art</span>
-          </div>
-
-          <div className="flex items-center space-x-2">
-            <Icon icon="mdi:phone" className="text-[#e3c3a2]" />
-            <span>7707-5088  |  8860-5088</span>
-          </div>
-        </div>
-      </div>
-    </BlockDiv>
+      <PanelMain className="flex h-full items-center">
+        <BlockFlexCol className="max-w-lg h-fit">
+          {[
+            {
+              icon: "mdi:map-marker",
+              text: "Улаанбаатар хот, Хан-уул дүүрэг 3-р хороо<br />Чингисийн өргөн чөлөө-44 Алтартана хотхон, 1-давхарт",
+            },
+            {
+              icon: "mdi:web",
+              text: "www.zenart.mn",
+            },
+            {
+              icon: "mdi:instagram",
+              text: "zenartistic",
+            },
+            {
+              icon: "mdi:facebook",
+              text: "Zen Art",
+            },
+            {
+              icon: "mdi:phone",
+              text: "7707-5088  |  8860-5088",
+            },
+          ].map((item, index) => (
+            <BlockFlexRow key={item.icon + index} className={``}>
+              <RenderAtom
+                value={item.icon}
+                type="icon"
+                className={`text-[#e3c3a2] text-2xl flex-none`}
+              />
+              <RenderAtom
+                value={item.text}
+                type="text"
+                className="text-gray-300"
+              />
+            </BlockFlexRow>
+          ))}
+        </BlockFlexCol>
+      </PanelMain>
+    </BlockSection>
   );
 };

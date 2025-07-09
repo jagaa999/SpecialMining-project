@@ -4,6 +4,7 @@ import RenderAtom from "atomv2/components/Atoms/RenderAtom";
 import BlockDiv from "atomv2/components/Blocks/BlockDiv";
 import BlockFlexRow from "atomv2/components/Blocks/BlockFlexRow";
 import MoleculeOrderSummary from "atomv2/components/Molecules/MoleculeOrderSummary";
+import { useActionBasketButton } from "atomv2/hooks/actions/useActionBasketButton";
 import { useActionMakeOrder } from "atomv2/hooks/actions/useActionMakeOrder";
 import {
   generateMemorable5DigitId,
@@ -98,7 +99,7 @@ const ЗахиалгынҮйлдлүүд = ({
   total,
 }: any) => {
   const { actionMakeOrder, loading } = useActionMakeOrder();
-  const { localConfig, setLocalConfig } = useConfig();
+  const { clearAll } = useActionBasketButton({});
 
   return (
     <BlockFlexRow className="gap-2 justify-end">
@@ -120,13 +121,7 @@ const ЗахиалгынҮйлдлүүд = ({
           setResult(result);
           setIndex(1);
           //Одоо энд сагс, захиалгаа устгана
-          //basketList
-          // orderInfo
-          setLocalConfig({
-            ...localConfig,
-            basketList: undefined,
-            orderInfo: undefined,
-          });
+          clearAll();
         }}
         value={"OK"}
         type="button"

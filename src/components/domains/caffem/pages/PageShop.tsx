@@ -1,51 +1,155 @@
 "use client";
 
 import BlockDiv from "atomv2/components/Blocks/BlockDiv";
+import BlockHalf from "atomv2/components/Blocks/BlockHalf";
+import BlockModal from "atomv2/components/Blocks/BlockModal";
+import BlockScroll from "atomv2/components/Blocks/BlockScroll";
 import BlockTab from "atomv2/components/Blocks/BlockTab";
+import MoleculeCard03 from "atomv2/components/Molecules/MoleculeCard03";
+import OrganismBasketDrawerSimple from "atomv2/components/Organisms/eshop/OrganismBasketDrawerSimple";
+import { useActionBasketButton } from "atomv2/hooks/actions/useActionBasketButton";
 import { map } from "lodash";
-import { useProductsForOrder } from "src/config/hooks/egulen/useProductsForOrder";
+import { useState } from "react";
+import { useEgulenProductsForOrder } from "src/config/hooks/egulen/useEgulenProductsForOrder";
+import QpayCheckoutPanel from "../Widget/QpayCheckoutPanel";
+import { extractObjectMain } from "atomv2/util/widgetHelper";
 
-export default function ShopPage() {
-  const { products, loading, error } = useProductsForOrder();
+export default function CaffemPageShop() {
+  // `products` нь Sector[] гэж үзье
+  return (
+    <BlockDiv className="px-10 py-10">
+      <BlockHalf type="80">
+        <BlockDiv className="h-screen">
+          <BaraanuudtaiLanguu />
+        </BlockDiv>
+        <TulburTuluxQPay />
+      </BlockHalf>
+    </BlockDiv>
+  );
+}
+
+const BaraanuudtaiLanguu = () => {
+  const { products, loading, error } = useEgulenProductsForOrder();
 
   if (loading) return <div className="p-6">Loading...</div>;
   if (error) return <div className="p-6 text-red-500">Error: {error}</div>;
+  console.log("dsfsdfdsfsd", products);
 
-  // `products` нь Sector[] гэж үзье
+  // "id": "117320",
+  // "cat_id": "14151",
+  // "sector_id": "2143",
+  // "category_name": "Coffee & Tea",
+  // "product_name": "Americano",
+  // "other_name": "Black coffee",
+  // "quantity": "5",
+  // "price": "10",
+  // "note": "Us bagatai mus ihtei",
+  // "bar_code": "",
+  // "plu_code": "K012345"
+
   return (
-    <div className="p-6 max-w-7xl mx-auto">
-      <BlockTab
-        titleList={map(products, (s) => ({ title: s.name }))}
-        customProps={{ titleBlockClassName: "mb-6" }}>
-        {map(products, (sector) => (
-          <BlockTab
-            key={sector.name}
-            titleList={map(sector.categories, (c) => ({ title: c.name }))}
-            customProps={{ titleBlockClassName: "mb-4" }}>
-            {map(sector.categories, (category) => (
-              <BlockDiv key={category.name}>
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-                  {map(category.products, (p) => (
-                    <div
-                      key={p.id}
-                      className="border p-4 rounded-lg shadow hover:shadow-md transition">
-                      <img
-                        src={`${p.image_prefix}${p.image}`}
-                        alt={p.title}
-                        className="w-full h-40 object-cover rounded-md mb-2"
-                      />
-                      <h3 className="font-semibold text-lg">{p.title}</h3>
-                      <p className="mt-1 text-blue-600 font-bold">
-                        ₮{Number(p.price).toLocaleString()}
-                      </p>
-                    </div>
-                  ))}
-                </div>
-              </BlockDiv>
-            ))}
-          </BlockTab>
-        ))}
-      </BlockTab>
-    </div>
+    <BlockTab
+      titleList={map(products, (s) => ({ title: s.name }))}
+      customProps={{ titleBlockClassName: "mb-6" }}>
+      {map(products, (itemsector) => (
+        <BlockTab
+          key={itemsector.name}
+          titleList={map(itemsector.categories, (c) => ({ title: c.name }))}
+          customProps={{ titleBlockClassName: "mb-4" }}>
+          {map(itemsector.categories, (itemcategory, index) => (
+            <BlockScroll
+              key={itemcategory?.id || index}
+              className="grid grid-cols-3 gap-8">
+              {map(itemcategory.products, (itemproduct) => {
+                return (
+                  <CaffemProductCard
+                    key={itemproduct?.id || index}
+                    item={itemproduct}
+                    category={itemcategory}
+                    sector={itemsector}
+                  />
+                );
+              })}
+            </BlockScroll>
+          ))}
+        </BlockTab>
+      ))}
+    </BlockTab>
   );
-}
+};
+
+const CaffemProductCard = ({
+  item,
+  category,
+  sector,
+}: {
+  item: any;
+  category: any;
+  sector: any;
+}) => {
+  const itemReady = {
+    ...item,
+    image: undefined,
+    mainimage: `${item.image_prefix}${item.image}`,
+  };
+  const { isInBasket, addNumber } = useActionBasketButton({
+    item: {
+      ...extractObjectMain(itemReady),
+      itemToOrder: {
+        id: item?.id,
+        cat_id: category?.category_id,
+        sector_id: sector?.sector_id,
+        category_name: category?.name,
+        product_name: item?.title,
+        other_name: item?.other_name,
+        quantity: "1",
+        price: item?.price,
+        note: "",
+        bar_code: item?.bar_code,
+        plu_code: item?.plu_code,
+      },
+    },
+    convertToSimple: false,
+  });
+  return (
+    <MoleculeCard03
+      outerBlock={{
+        onClick: () => {
+          // toggleItem();
+          addNumber();
+        },
+        className: `cursor-pointer ${
+          isInBasket ? "border-brand shadow-lg" : ""
+        }`,
+      }}
+      item={itemReady}
+    />
+  );
+};
+
+const TulburTuluxQPay = () => {
+  const [isShowModal, setIsShowModal] = useState(false);
+
+  return (
+    <>
+      <OrganismBasketDrawerSimple
+        basketButton={{
+          value: "Төлөх",
+          onClick: () => {
+            console.log("Төлөх даржээ");
+            setIsShowModal(true);
+          },
+          url: {},
+        }}
+      />
+
+      <BlockModal
+        isShowModal={isShowModal}
+        setIsShowModal={setIsShowModal}
+        width={450}
+        destroyOnHidden={true}>
+        <QpayCheckoutPanel />
+      </BlockModal>
+    </>
+  );
+};

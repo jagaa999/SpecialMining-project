@@ -1,18 +1,14 @@
-import { cn } from "atomv2/util/atomHelperV2";
 import BlockDiv from "../Blocks/BlockDiv";
 
 export default function PanelSection({
-  className,
+  props,
   children,
 }: {
-  className?: string;
+  [key: string]: any;
   children: React.ReactNode;
 }) {
   return (
-    <BlockDiv
-      type="section"
-      data-block="PanelSection"
-      className={cn("max-w-2xl py-20", className)}>
+    <BlockDiv type="section" data-block="PanelSection" {...props}>
       {children}
     </BlockDiv>
   );

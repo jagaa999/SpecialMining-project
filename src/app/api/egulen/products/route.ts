@@ -4,7 +4,7 @@ export async function POST(req: NextRequest) {
   try {
     const { USER_ID, ACCESS_TOKEN, ORG_ID } = await req.json();
 
-    console.log("dfsdfdsf", { USER_ID, ACCESS_TOKEN, ORG_ID });
+    // console.log("dfsdfdsf", { USER_ID, ACCESS_TOKEN, ORG_ID });
 
     if (!USER_ID || !ACCESS_TOKEN || !ORG_ID) {
       return NextResponse.json(

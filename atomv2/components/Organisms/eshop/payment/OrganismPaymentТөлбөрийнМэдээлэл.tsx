@@ -2,23 +2,22 @@ import RenderAtom from "atomv2/components/Atoms/RenderAtom";
 import BlockDiv from "atomv2/components/Blocks/BlockDiv";
 import BlockFlexCol from "atomv2/components/Blocks/BlockFlexCol";
 import BlockModal from "atomv2/components/Blocks/BlockModal";
+import MoleculeEmptyItemState from "atomv2/components/Molecules/MoleculeEmptyItemState";
 import PosTitle from "atomv2/components/Position/PosTitle";
 import TextH3 from "atomv2/components/Text/TextH3";
+import { useActionBasketButton } from "atomv2/hooks/actions/useActionBasketButton";
 import { map } from "lodash";
 import { useState } from "react";
 import { useToggle } from "react-use";
 import OrganismPaymentТөлбөрQPay from "./OrganismPaymentТөлбөрQPay";
 import OrganismPaymentТөлбөрДансаар from "./OrganismPaymentТөлбөрДансаар";
 import OrganismPaymentТөлбөрЗахиалгаарАвчрах from "./OrganismPaymentТөлбөрЗахиалгаарАвчрах";
-import MoleculeEmptyItemState from "atomv2/components/Molecules/MoleculeEmptyItemState";
-import { useConfig } from "src/config/context/ConfigContext";
 
 export default function OrganismPaymentТөлбөрийнМэдээлэл() {
   const [isShowModal, setIsShowModal] = useToggle(false);
   const [number, setNumber] = useState(0);
 
-  const { localConfig } = useConfig();
-  const basketItems = localConfig.basketList || [];
+  const { basketItems } = useActionBasketButton({});
 
   const paymentOptions = [
     { title: "Захиалгаар авах", icon: "material-symbols:payments-rounded" },

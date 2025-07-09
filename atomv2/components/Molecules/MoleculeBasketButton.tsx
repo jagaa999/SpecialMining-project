@@ -1,12 +1,6 @@
+import { useActionBasketButton } from "atomv2/hooks/actions/useActionBasketButton";
 import { ObjectLight } from "atomv2/types/objectTypes";
-import _ from "lodash";
 import { CSSProperties } from "react";
-import { useConfig } from "src/config/context/ConfigContext";
-import {
-  extractObjectMain,
-  removeItemArrayBasket2,
-  updateArrayBasket2,
-} from "../../util/widgetHelper";
 import RenderAtom from "../Atoms/RenderAtom";
 
 export default function MoleculeBasketButton({
@@ -24,9 +18,7 @@ export default function MoleculeBasketButton({
   objectRemove?: ObjectLight;
   onClick?: () => void;
 }) {
-  const { localConfig, setLocalConfig } = useConfig();
-  const itemReady = extractObjectMain(item);
-  const isInBasket = _.find(localConfig?.basketList, itemReady);
+  const { isInBasket, toggleItem } = useActionBasketButton(item);
 
   return (
     <RenderAtom
@@ -41,15 +33,7 @@ export default function MoleculeBasketButton({
           : `bg-brand ${objectAdd?.className || ""}`
       } ${className}`}
       onClick={() => {
-        const updatedList = isInBasket
-          ? removeItemArrayBasket2(localConfig.basketList, item)
-          : updateArrayBasket2(localConfig.basketList, {
-              ...itemReady,
-              count: 1,
-            });
-
-        setLocalConfig({ ...localConfig, basketList: updatedList });
-
+        toggleItem();
         if (onClick) onClick();
       }}
     />

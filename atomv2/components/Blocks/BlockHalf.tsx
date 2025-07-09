@@ -4,7 +4,16 @@ import React, { ReactNode } from "react";
 import { cn } from "../../util/atomHelperV2";
 import BlockDiv from "./BlockDiv";
 
-type BlockHalfType = "50" | "40" | "30" | "20" | "10";
+type BlockHalfType =
+  | "90"
+  | "80"
+  | "70"
+  | "60"
+  | "50"
+  | "40"
+  | "30"
+  | "20"
+  | "10";
 
 interface BlockHalfProps {
   children: [ReactNode, ReactNode];
@@ -21,6 +30,10 @@ const typeToWidth: Record<BlockHalfType, [string, string]> = {
   "30": ["md:w-1/3", "md:w-2/3"],
   "40": ["md:w-2/5", "md:w-3/5"],
   "50": ["md:w-1/2", "md:w-1/2"],
+  "60": ["md:w-3/5", "md:w-2/5"],
+  "70": ["md:w-2/3", "md:w-1/3"],
+  "80": ["md:w-4/5", "md:w-1/5"],
+  "90": ["md:w-5/6", "md:w-1/6"],
 };
 
 /**

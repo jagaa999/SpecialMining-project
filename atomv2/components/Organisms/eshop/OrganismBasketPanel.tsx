@@ -1,11 +1,16 @@
 import _ from "lodash";
 import { useToggle } from "react-use";
 import { useConfig } from "src/config/context/ConfigContext";
-import BlockDiv from "../Blocks/BlockDiv";
-import BlockDrawer from "../Blocks/BlockDrawer";
-import OrganismBasketDrawer from "../Organisms/OrganismBasketDrawer";
+import BlockDiv from "../../Blocks/BlockDiv";
+import BlockDrawer from "../../Blocks/BlockDrawer";
+import OrganismBasketDrawer from "./OrganismBasketDrawer";
+import { ObjectButton } from "atomv2/types/objectTypes";
 
-export default function MoleculeBasketPanel({}: {}) {
+export default function OrganismBasketPanel({
+  basketButton,
+}: {
+  basketButton?: ObjectButton;
+}) {
   const [isOpenSidebar, setIsOpenSidebar] = useToggle(false);
 
   const { localConfig } = useConfig();
@@ -19,7 +24,7 @@ export default function MoleculeBasketPanel({}: {}) {
           <BlockDiv
             className={`py-3 px-5 ${
               _.isEmpty(datasrc) ? "bg-muted" : "bg-brand"
-            } flex flex-col items-center justify-center shadow-md rounded-r-lg cursor-pointer focus:outline-none text-base z-50 transition-all duration-700 `}
+            } flex flex-col items-center justify-center shadow-md rounded-r-lg cursor-pointer focus:outline-none text-bg z-50 transition-all duration-700 `}
             onClick={() => {
               setIsOpenSidebar(true);
             }}>
@@ -42,7 +47,7 @@ export default function MoleculeBasketPanel({}: {}) {
         BlockDrawerOuter={{
           className: "p-0",
         }}>
-        <OrganismBasketDrawer />
+        <OrganismBasketDrawer basketButton={basketButton} />
       </BlockDrawer>
     </>
   );
