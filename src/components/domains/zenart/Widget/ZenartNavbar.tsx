@@ -1,7 +1,6 @@
 "use client";
 
 import BlockDiv from "atomv2/components/Blocks/BlockDiv";
-import BlockFlexCol from "atomv2/components/Blocks/BlockFlexCol";
 import BlockFlexRow from "atomv2/components/Blocks/BlockFlexRow";
 import PanelMain from "atomv2/components/Panel/PanelMain";
 import Link from "next/link";
