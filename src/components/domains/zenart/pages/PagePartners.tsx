@@ -4,6 +4,7 @@ import RenderAtom from "atomv2/components/Atoms/RenderAtom";
 import BlockDiv from "atomv2/components/Blocks/BlockDiv";
 import BlockFlexCol from "atomv2/components/Blocks/BlockFlexCol";
 import BlockFlexRow from "atomv2/components/Blocks/BlockFlexRow";
+import BlockScrollSnapScreenBlock from "atomv2/components/Blocks/BlockScrollSnapScreenBlock";
 import BlockSection from "atomv2/components/Blocks/BlockSection";
 import PanelMain from "atomv2/components/Panel/PanelMain";
 import TextHtml from "atomv2/components/Text/TextHtml";
@@ -11,9 +12,11 @@ import TextHtml from "atomv2/components/Text/TextHtml";
 export default function PagePartners() {
   return (
     <>
-      <SectionPartners />
-      <SectionPartnerLogos />
-      <SectionFooter />
+      <BlockScrollSnapScreenBlock>
+        <SectionPartners />
+        <SectionPartnerLogos />
+        <SectionFooter />
+      </BlockScrollSnapScreenBlock>
     </>
   );
 }

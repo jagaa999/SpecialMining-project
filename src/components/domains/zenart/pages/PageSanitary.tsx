@@ -8,12 +8,15 @@ import TextH3 from "atomv2/components/Text/TextH3";
 import TextHtml from "atomv2/components/Text/TextHtml";
 import { map } from "lodash";
 import ZenartSectionWrapper from "../Widget/ZenartSectionWrapper";
+import BlockScrollSnapScreenBlock from "atomv2/components/Blocks/BlockScrollSnapScreenBlock";
 
 export default function PageSanitaryFurniture() {
   return (
     <>
-      <SectionSanitary />
-      <SectionFurniture />
+      <BlockScrollSnapScreenBlock>
+        <SectionSanitary />
+        <SectionFurniture />
+      </BlockScrollSnapScreenBlock>
     </>
   );
 }
@@ -71,7 +74,7 @@ const SectionSanitary = () => {
         value=" "
         type="line"
         className="w-full bg-[#d69559]"
-        // height="1px"
+      // height="1px"
       />
 
       <TextHtml

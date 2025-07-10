@@ -5,7 +5,7 @@ import TextH3 from "atomv2/components/Text/TextH3";
 
 export default function ZenartSectionImageOnly() {
   return (
-    <BlockSection className="relative w-full h-screen">
+    <BlockSection className="relative w-full h-screen overflow-hidden">
       <RenderAtom
         value={
           "https://images.pexels.com/photos/269252/pexels-photo-269252.jpeg"

@@ -18,11 +18,11 @@ export interface AtomAnimationV2Props extends AtomBaseProps {
 export default function AtomAnimationV2({
   children,
   delay,
-  duration,
+  duration = 1.0,
   type = "fadeIn",
   loop,
   loopType,
-  triggerOnce = true,
+  triggerOnce = false,
   threshold = 0.2,
   className,
   ...rest

@@ -51,53 +51,22 @@ const BaraanuudtaiLanguu = () => {
     <BlockTab
       titleList={map(products, (s) => ({ title: s.name }))}
       customProps={{ titleBlockClassName: "mb-6" }}>
-      {map(products, (sector) => (
+      {map(products, (itemsector) => (
         <BlockTab
-          key={sector.name}
-          titleList={map(sector.categories, (c) => ({ title: c.name }))}
+          key={itemsector.name}
+          titleList={map(itemsector.categories, (c) => ({ title: c.name }))}
           customProps={{ titleBlockClassName: "mb-4" }}>
-          {map(sector.categories, (itemcategory, index) => (
+          {map(itemsector.categories, (itemcategory, index) => (
             <BlockScroll
               key={itemcategory?.id || index}
               className="grid grid-cols-3 gap-8">
               {map(itemcategory.products, (itemproduct) => {
-                const itemReady = {
-                  ...itemproduct,
-                  image: undefined,
-                  mainimage: `${itemproduct.image_prefix}${itemproduct.image}`,
-                };
-                const { isInBasket, addNumber } = useActionBasketButton({
-                  item: {
-                    ...extractObjectMain(itemReady),
-                    itemToOrder: {
-                      id: itemproduct?.id,
-                      cat_id: itemcategory?.category_id,
-                      sector_id: sector?.sector_id,
-                      category_name: itemcategory?.name,
-                      product_name: itemproduct?.title,
-                      other_name: itemproduct?.other_name,
-                      quantity: "1",
-                      price: itemproduct?.price,
-                      note: "",
-                      bar_code: itemproduct?.bar_code,
-                      plu_code: itemproduct?.plu_code,
-                    },
-                  },
-                  convertToSimple: false,
-                });
                 return (
-                  <MoleculeCard03
+                  <CaffemProductCard
                     key={itemproduct?.id || index}
-                    outerBlock={{
-                      onClick: () => {
-                        // toggleItem();
-                        addNumber();
-                      },
-                      className: `cursor-pointer ${
-                        isInBasket ? "border-brand shadow-lg" : ""
-                      }`,
-                    }}
-                    item={itemReady}
+                    item={itemproduct}
+                    category={itemcategory}
+                    sector={itemsector}
                   />
                 );
               })}
@@ -106,6 +75,55 @@ const BaraanuudtaiLanguu = () => {
         </BlockTab>
       ))}
     </BlockTab>
+  );
+};
+
+const CaffemProductCard = ({
+  item,
+  category,
+  sector,
+}: {
+  item: any;
+  category: any;
+  sector: any;
+}) => {
+  const itemReady = {
+    ...item,
+    image: undefined,
+    mainimage: `${item.image_prefix}${item.image}`,
+  };
+  const { isInBasket, addNumber } = useActionBasketButton({
+    item: {
+      ...extractObjectMain(itemReady),
+      itemToOrder: {
+        id: item?.id,
+        cat_id: category?.category_id,
+        sector_id: sector?.sector_id,
+        category_name: category?.name,
+        product_name: item?.title,
+        other_name: item?.other_name,
+        quantity: "1",
+        price: item?.price,
+        note: "",
+        bar_code: item?.bar_code,
+        plu_code: item?.plu_code,
+      },
+    },
+    convertToSimple: false,
+  });
+  return (
+    <MoleculeCard03
+      outerBlock={{
+        onClick: () => {
+          // toggleItem();
+          addNumber();
+        },
+        className: `cursor-pointer ${
+          isInBasket ? "border-brand shadow-lg" : ""
+        }`,
+      }}
+      item={itemReady}
+    />
   );
 };
 

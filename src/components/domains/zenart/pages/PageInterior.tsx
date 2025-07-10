@@ -1,18 +1,25 @@
 "use client";
 
 import BlockFlexRow from "atomv2/components/Blocks/BlockFlexRow";
+import BlockScrollSnapScreenBlock from "atomv2/components/Blocks/BlockScrollSnapScreenBlock";
 import TextH1 from "atomv2/components/Text/TextH1";
 import TextHtml from "atomv2/components/Text/TextHtml";
 import ZenartSectionImageOnly from "../Widget/ZenartSectionImageOnly";
 import ZenartSectionWrapper from "../Widget/ZenartSectionWrapper";
+import BlockDiv from "atomv2/components/Blocks/BlockDiv";
+import TextH3 from "atomv2/components/Text/TextH3";
+
+
 
 export default function PageFireplaceTextile() {
   return (
     <>
-      <SectionTextile />
-      <ZenartSectionImageOnly />
-      <SectionFireplace />
-      <ZenartSectionImageOnly />
+      <BlockScrollSnapScreenBlock>
+        <SectionTextile />
+        <ZenartSectionImageOnly />
+        <SectionFireplace />
+        <ZenartSectionImageOnly />
+      </BlockScrollSnapScreenBlock>
     </>
   );
 }
@@ -57,35 +64,48 @@ const SectionTextile = () => {
 
 const SectionFireplace = () => {
   return (
-    <ZenartSectionWrapper BlockSectionObject={{ className: "bg-[#faebdd]" }}>
-      <TextH1
-        value="06"
-        className="text-8xl font-bold bg-gradient-to-b from-[#d69559] to-[#faebdd] bg-clip-text text-transparent tracking-tighter"
-      />
-
-      <TextH1 value="Камин зуух" className="text-gray-700" />
-
-      <TextHtml
-        value="Дэлхийн хамгийн арвин туршлагатай камин зуух үйлдвэрлэгч 170 жилийн түүхтэй Норвеги улсын <b class='text-[#e6b78d]'>JØTUL</b> брэнд сайн чанарын ширэм, Scandinavian дизайнерын төгс дизайн, ухаалаг болон орчин үеийн хэв маягийг тусгаж камин зуухыг урладаг.<br /><br />1922 оноос хойш үйл ажиллагаа явуулж байгаа Хорват улсын хамгийн шилдэг ширмэн зуух үйлдвэрлэгч Plamen брэнд нь өндөр гүйцэтгэлийн жослон, орчин үеийн загвар, сайн чанарын ширмээр энгийн ч гярхай интерьер төсөл нийцэх камин зуухыг бүтээдэг."
-        className="text-gray-700 text-justify"
-      />
-
-      <TextHtml
-        value="Орчин цагт камин зуух нь хэрэглэл гэхээсээ илүүтэй интерьер дизайны шийдлийн нэг болон хувьсаж байна."
-        className="text-gray-800 font-bold py-8 border-t border-[#d69559] border-b max-w-xl"
-      />
-      <BlockFlexRow className="justify-between">
+    <BlockDiv
+      type="section"
+      className="w-full flex flex-col lg:flex-row-reverse bg-gradient-to-br from-[#fdf5ef] to-[#f5eadd] text-[#1a1a1a] py-28 px-6 lg:px-32 gap-12">
+      <BlockDiv className="w-full lg:w-1/2 rounded-[1.5rem] overflow-hidden shadow-2xl hover:shadow-[0_0_60px_rgba(230,183,141,0.4)] transition-shadow duration-500 border border-[#e0d8ce]">
         <img
-          src="https://cdn.moto.mn/moto/landing/13_zenart/temp/e48c14d9-88a3-452d-a6c4-9cd3fe650240.png?t=1750833212311"
-          alt="Bru Logo"
-          className="h-16 w-auto"
+          src="https://images.pexels.com/photos/6301175/pexels-photo-6301175.jpeg"
+          alt="Fireplace"
+          className="w-full h-full object-cover object-center"
         />
-        <img
-          src="https://upload.wikimedia.org/wikipedia/commons/d/d9/Flag_of_Norway.svg"
-          alt="Belgium Flag"
-          className="h-12 w-auto"
+      </BlockDiv>
+
+      <BlockDiv className="w-full lg:w-1/2 px-4 lg:px-10 space-y-6">
+        <TextH3 value="06" className="text-[#e6b78d] text-5xl font-black" />
+        <TextH3
+          value="Камин зуух"
+          className="text-[#1a1a1a] text-3xl font-extrabold"
         />
-      </BlockFlexRow>
-    </ZenartSectionWrapper>
+        <TextHtml
+          value="Дэлхийн хамгийн арвин туршлагатай камин зуух үйлдвэрлэгч 170 жилийн түүхтэй Норвеги улсын <b class='text-[#e6b78d]'>JØTUL</b> брэнд сайн чанарын ширэм, Scandinavian дизайнерын төгс дизайн, ухаалаг болон орчин үеийн хэв маягийг тусгаж камин зуухыг урладаг."
+          className="text-[#2a2a2a] text-[15px] leading-7"
+        />
+        <TextHtml
+          value="1922 оноос хойш үйл ажиллагаа явуулж байгаа Хорват улсын хамгийн шилдэг ширмэн зуух үйлдвэрлэгч Plamen брэнд нь өндөр гүйцэтгэлийн жослон, орчин үеийн загвар, сайн чанарын ширмээр энгийн ч гярхай интерьер төсөл нийцэх камин зуухыг бүтээдэг."
+          className="text-[#2a2a2a] text-[15px] leading-7"
+        />
+        <TextHtml
+          value="<b class='text-[#e6b78d]'>Орчин цагт камин зуух нь хэрэглэл гэхээсээ илүүтэй интерьер дизайны шийдлийн нэг болон хувьсаж байна.</b>"
+          className="text-[#2a2a2a] text-[15px] leading-7"
+        />
+        <BlockDiv className="flex items-center justify-between pt-4">
+          <img
+            src="https://cdn.moto.mn/moto/landing/13_zenart/temp/e48c14d9-88a3-452d-a6c4-9cd3fe650240.png?t=1750833212311"
+            alt="Jotul Logo"
+            className="h-10"
+          />
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/d/d9/Flag_of_Norway.svg"
+            alt="Norway Flag"
+            className="h-6"
+          />
+        </BlockDiv>
+      </BlockDiv>
+    </BlockDiv>
   );
 };

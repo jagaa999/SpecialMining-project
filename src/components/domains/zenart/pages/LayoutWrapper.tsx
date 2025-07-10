@@ -2,8 +2,9 @@
 
 import BlockDiv from "atomv2/components/Blocks/BlockDiv";
 import ZenartNavbar from "../Widget/ZenartNavbar";
+import OrganismScrollToTopButton from "atomv2/components/Organisms/OrganismScrollToTopButton";
 
-export default function LayoutWrapper({
+export default function ZenartLayoutWrapper({
   children,
 }: {
   children: React.ReactNode;
@@ -11,9 +12,10 @@ export default function LayoutWrapper({
   return (
     <>
       <ZenartNavbar />
-      <BlockDiv type="main" className="pt-14 min-h-screen bg-gray-200">
+      <BlockDiv type="main" className="min-h-screen bg-gray-200">
         {children}
       </BlockDiv>
+      <OrganismScrollToTopButton />
     </>
   );
 }
