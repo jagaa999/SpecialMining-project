@@ -1187,6 +1187,7 @@ export const extractFromKeys = (item: any, keys: string[]): any => {
 };
 
 export const titleKeys = ["title", "name", "label", "key"];
+export const subTitleKeys = ["subtitle", "second", "label", "key"];
 export const descriptionKeys = ["description", "text", "value"];
 export const valueKeys = ["value", "text", "description"];
 export const subKeys = ["sub", "second", "footer", "dataContent", "note"];
@@ -1195,6 +1196,9 @@ export const iconKeys = ["icon", "logo"];
 export const mainNumberKeys = ["mainnumber", "price"];
 
 export const prepareTitle = (item: any) => extractFromKeys(item, titleKeys);
+
+export const prepareSubTitle = (item: any) =>
+  extractFromKeys(item, subTitleKeys);
 
 export const prepareDescription = (item: any) =>
   extractFromKeys(item, descriptionKeys);

@@ -16,12 +16,34 @@ export default function useResponsiveBreakpoint() {
 
   const [isMobile, setIsMobile] = useToggle(false);
   const [isDesktop, setIsDesktop] = useToggle(false);
+  const [isLargeDesktop, setIsLargeDesktop] = useToggle(false);
+  const [isTablet, setIsTablet] = useToggle(false);
+  const [isSmallLaptop, setIsSmallLaptop] = useToggle(false);
+  const [isWideScreen, setIsWideScreen] = useToggle(false);
 
   useEffect(() => {
     const isMobileDevice = _.includes(["mobile", "sm"], breakpoint);
-    setIsMobile(isMobileDevice);
-    setIsDesktop(!isMobileDevice);
-  }, [breakpoint, setIsMobile, setIsDesktop]);
+    const isDesktopDevice = _.includes(["md", "lg", "xl", "2xl"], breakpoint);
+    const isLargeDesktopDevice = _.includes(["xl", "2xl"], breakpoint);
+    const isTabletDevice = _.includes(["md"], breakpoint);
+    const isSmallLaptopDevice = _.includes(["lg"], breakpoint);
+    const isWideScreenDevice = _.includes(["2xl"], breakpoint);
 
-  return { breakpoint, isMobile, isDesktop };
+    setIsMobile(isMobileDevice);
+    setIsDesktop(isDesktopDevice);
+    setIsLargeDesktop(isLargeDesktopDevice);
+    setIsTablet(isTabletDevice);
+    setIsSmallLaptop(isSmallLaptopDevice);
+    setIsWideScreen(isWideScreenDevice);
+  }, [breakpoint, setIsMobile, setIsDesktop, setIsLargeDesktop]);
+
+  return {
+    breakpoint,
+    isMobile,
+    isTablet,
+    isSmallLaptop,
+    isDesktop,
+    isLargeDesktop,
+    isWideScreen,
+  };
 }

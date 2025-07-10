@@ -27,13 +27,9 @@ export default function ZenartNavbar() {
             />
 
             {[
-              { href: "/", label: "Home" },
-              { href: "/team", label: "Team" },
-              { href: "/about", label: "About" },
-              { href: "/decor", label: "Decor" },
-              { href: "/interior", label: "Interior" },
+              { href: "/zenart", label: "Zenart" },
+              { href: "/decor", label: "Чимэглэл" },
               { href: "/partners", label: "Partners" },
-              { href: "/sanitary", label: "Sanitary" },
             ].map(({ href, label }) => (
               <Link
                 href={href}
