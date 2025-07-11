@@ -5,13 +5,19 @@ import BlockDiv from "atomv2/components/Blocks/BlockDiv";
 import BlockFlexRow from "atomv2/components/Blocks/BlockFlexRow";
 import PanelMain from "atomv2/components/Panel/PanelMain";
 import Link from "next/link";
+// import { useWindowScroll } from "react-use";
 
 export default function ZenartNavbar() {
+  // const { y: scrollY } = useWindowScroll();
+
+  // console.log("dfdsfs", { scrollY });
+
   return (
     <BlockDiv
       type="header"
-      className="fixed w-full bg-[#f6c99e] shadow-md z-20 border-b border-[#f7d7ba]"
-      style={{ height: "64px" }}>
+      // className="fixed w-full bg-[#f6c99e] z-20 border-b border-[#f7d7ba]  bg-gradient-to-r from-white/50 via-pink-50/70 to-pink-100/80 backdrop-blur-md shadow-md"
+      className={`fixed w-full z-20 border-b border-slate-300  bg-gradient-to-r from-white/50 via-pink-50/70 to-slate-100/80 backdrop-blur-md shadow-md`}
+      style={{ height: "52px" }}>
       <PanelMain className="px-0 py-0 flex items-center h-full w-full">
         <BlockFlexRow className="justify-between w-full">
           {/* Desktop Nav */}

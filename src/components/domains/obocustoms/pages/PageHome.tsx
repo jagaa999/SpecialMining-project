@@ -30,7 +30,6 @@ export default function PageHome() {
             <span className="w-3 h-3 border-b-2 border-r-2 border-white rotate-45" />
           </div>
         </section>
-        import Image from "next/image";
         {/* Services Grid Gallery */}
         <section className="w-full bg-black py-10 px-6">
           <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
