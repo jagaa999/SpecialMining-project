@@ -37,12 +37,14 @@ export default function AtomAnimationV2({
 }: AtomAnimationV2Props) {
   const hasAnimationProps =
     delay ||
-    duration ||
+    duration !== 1.0 ||
     loop ||
     loopType ||
-    !triggerOnce ||
+    triggerOnce !== false ||
     threshold !== 0.2 ||
     type !== "fadeIn";
+
+  // console.log("dfsfdsfsd", { hasAnimationProps });
 
   if (!hasAnimationProps) return children;
 

@@ -6,7 +6,7 @@ import AtomIconV2 from "atomv2/components/Atoms/AtomIconV2";
 import AtomTextV2 from "atomv2/components/Atoms/AtomTextV2";
 import BlockAffix from "atomv2/components/Blocks/BlockAffix";
 import BlockDiv from "atomv2/components/Blocks/BlockDiv";
-import BlockSliderSlick from "atomv2/components/Blocks/BlockSlider";
+import BlockSlider from "atomv2/components/Blocks/BlockSlider";
 import PanelMain from "atomv2/components/Panel/PanelMain";
 import RenderAtom from "atomv2/components/Atoms/RenderAtom";
 import useScrollTop from "atomv2/hooks/useScrollTop";
@@ -23,7 +23,7 @@ export default function HomePage({ item = item_local }: { item: any }) {
       <PanelMain>
         {/* <p className={generalTheme?.titleMain}>{item?.title}</p>
         <p className={generalTheme?.textMain}>{item?.description}</p> */}
-        <BlockSliderSlick>
+        <BlockSlider>
           <BlockDiv type="span" className="bg-yellow-200 p-5 rounded-lg h-48">
             hahaыбөб ыө
           </BlockDiv>
@@ -34,7 +34,7 @@ export default function HomePage({ item = item_local }: { item: any }) {
             icon="mdi-light:alert-circle"
             className="text-2xl text-blue-500"
           />
-        </BlockSliderSlick>
+        </BlockSlider>
         hahaha
         <BlockAffix offsetTop={150}>dsfdsf dsfdsfdsf dsfsdfdsfdsf</BlockAffix>
         killer
