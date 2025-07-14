@@ -5,15 +5,25 @@ import BlockDiv from "atomv2/components/Blocks/BlockDiv";
 import BlockFlexCol from "atomv2/components/Blocks/BlockFlexCol";
 import BlockFlexRow from "atomv2/components/Blocks/BlockFlexRow";
 import BlockScrollSnapScreenBlock from "atomv2/components/Blocks/BlockScrollSnapScreenBlock";
-import BlockSection from "atomv2/components/Blocks/BlockSection";
-import PanelMain from "atomv2/components/Panel/PanelMain";
-import TextHtml from "atomv2/components/Text/TextHtml";
+import OrganismBannerUnsplash from "atomv2/components/Organisms/banner/OrganismBannerUnsplash";
+import TextH1 from "atomv2/components/Text/TextH1";
+import { motion } from "framer-motion";
+import { map } from "lodash";
+import { useEffect, useState } from "react";
+import ZenartSectionWrapper from "../Widget/ZenartSectionWrapper";
 
 export default function PagePartners() {
   return (
     <>
       <BlockScrollSnapScreenBlock>
-        <SectionPartners />
+        <OrganismBannerUnsplash
+          keyWord="interior"
+          item={{
+            title: "Articstic Living...",
+            description: "We are know about it",
+          }}
+        />
+        {/* <SectionPartners /> */}
         <SectionPartnerLogos />
         <SectionFooter />
       </BlockScrollSnapScreenBlock>
@@ -21,84 +31,67 @@ export default function PagePartners() {
   );
 }
 
-const SectionPartners = () => {
-  return (
-    <BlockDiv
-      type="section"
-      className="relative w-full h-[720px] overflow-hidden">
-      {/* --- Background Image (Blurred) --- */}
-      <img
-        src="https://images.pexels.com/photos/12289388/pexels-photo-12289388.jpeg"
-        alt="ZenArt Room Background"
-        className="absolute top-0 left-0 w-full h-full object-cover object-center blur-[8px] brightness-[0.85] scale-110 z-0"
-      />
-
-      {/* --- Top Left Logo + Divider + Text --- */}
-      <BlockDiv className="absolute top-[56px] left-[64px] z-20 flex items-start space-x-6">
-        {/* Logos */}
-        <div className="flex flex-col space-y-2">
-          <img
-            src="https://cdn.moto.mn/moto/landing/13_zenart/home/23f83c14-1e15-422d-a5ea-971c8b8bd28a.png"
-            alt="ZenArt Icon Logo"
-            className="h-[50px] w-auto"
-          />
-          <img
-            src="https://cdn.moto.mn/moto/landing/13_zenart/home/836ea1dc-7e57-4c99-bbcd-763824fede9c.png"
-            alt="ZenArt Text Logo"
-            className="h-[28px] w-auto"
-          />
-        </div>
-
-        {/* Divider */}
-        <div className="h-[90px] w-[2px] bg-[#e3c3a2] rounded-sm" />
-
-        {/* Quote Text */}
-        <div className="max-w-[520px] text-left">
-          <TextHtml
-            value={`<span class='text-white drop-shadow-[0_2px_6px_rgba(0,0,0,0.9)] text-[22px] lg:text-[28px] font-light leading-snug'>
-                            Дотоод мэдрэмжид тань байх тэр л амар амгаланг,<br/>биет болгоход бид тусална...
-                        </span>`}
-          />
-        </div>
-      </BlockDiv>
-
-      {/* --- Foreground Image (Right-aligned framed box, no rounded corners) --- */}
-      <div className="absolute bottom-[20px] right-[80px] w-[68%] max-w-[920px] z-10 shadow-[0_4px_30px_rgba(0,0,0,0.4)] border border-white/30">
-        <img
-          src="https://images.pexels.com/photos/12289388/pexels-photo-12289388.jpeg"
-          alt="ZenArt Foreground"
-          className="w-full h-auto object-cover"
-        />
-      </div>
-    </BlockDiv>
-  );
-};
-
 const SectionPartnerLogos = () => {
+  const [pulseIndexes, setPulseIndexes] = useState<number[]>([]);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const newIndexes = partnerlogo
+        .map((_, i) => (Math.random() < 0.3 ? i : -1))
+        .filter((i) => i !== -1);
+      setPulseIndexes(newIndexes);
+    }, 2000); // Every 2 sec random logos pulse
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
-    <BlockDiv
-      type="section"
-      className="relative w-full bg-white py-16 flex justify-center items-center">
-      <img
-        src="https://cdn.moto.mn/moto/landing/13_zenart/temp/d8dc8233-1ff7-4042-8871-e74d99d4f59c.png?t=1750904788381"
-        alt="ZenArt Partners"
-        className="w-full max-w-6xl h-auto object-contain"
-      />
-    </BlockDiv>
+    <>
+      <ZenartSectionWrapper BlockSectionObject={{ className: "bg-white" }}>
+        <TextH1
+          value="Trusted by leading organizations"
+          className="text-gray-700"
+        />
+
+        <BlockDiv className="flex flex-wrap gap-7 items-center justify-start w-full">
+          {map(partnerlogo, (item, index) => {
+            const isPulsing = pulseIndexes.includes(index);
+
+            return (
+              <motion.div
+                key={index}
+                animate={{
+                  scale: isPulsing ? 1.2 : 1,
+                  boxShadow: isPulsing
+                    ? "0 0 25px rgba(255, 179, 90, 0.7)"
+                    : "0 0 0 rgba(0,0,0,0)",
+                }}
+                transition={{
+                  duration: 0.6,
+                  ease: "easeInOut",
+                }}
+                className="w-24 h-24 flex items-center justify-center">
+                <RenderAtom
+                  value={item}
+                  type="image"
+                  className="w-full h-full object-contain rounded-xl transition-all duration-300"
+                  alt={`Partner ${index + 1}`}
+                />
+              </motion.div>
+            );
+          })}
+        </BlockDiv>
+      </ZenartSectionWrapper>
+    </>
   );
 };
 
 const SectionFooter = () => {
   return (
-    <BlockSection className="relative w-full h-screen">
-      {/* Background Left + Right layout */}
-      <BlockDiv className="absolute top-0 left-0 w-[calc(100%-100px)] h-full bg-[#0f1117] z-[-2]" />
-      <BlockDiv className="absolute top-0 right-0 w-[20%] h-full bg-gradient-to-b from-[#f2cba8] to-[#e3b892] z-[-2]" />
-
-      {/* Info Grid */}
-      <PanelMain className="flex h-full items-center">
-        <BlockFlexCol className="max-w-lg h-fit">
-          {[
+    <ZenartSectionWrapper>
+      <BlockFlexCol className="max-w-lg">
+        {map(
+          [
             {
               icon: "mdi:map-marker",
               text: "Улаанбаатар хот, Хан-уул дүүрэг 3-р хороо<br />Чингисийн өргөн чөлөө-44 Алтартана хотхон, 1-давхарт",
@@ -119,7 +112,8 @@ const SectionFooter = () => {
               icon: "mdi:phone",
               text: "7707-5088  |  8860-5088",
             },
-          ].map((item, index) => (
+          ],
+          (item, index) => (
             <BlockFlexRow key={item.icon + index} className={``}>
               <RenderAtom
                 value={item.icon}
@@ -132,9 +126,41 @@ const SectionFooter = () => {
                 className="text-gray-300"
               />
             </BlockFlexRow>
-          ))}
-        </BlockFlexCol>
-      </PanelMain>
-    </BlockSection>
+          )
+        )}
+      </BlockFlexCol>
+    </ZenartSectionWrapper>
   );
 };
+
+const partnerlogo = [
+  "https://res.cloudinary.com/dcww202aa/image/upload/v1752460874/landing/02_zenart/partner_logos/264545822_1524667854583726_3191891196663018406_n_iyfrnt.jpg",
+  "https://res.cloudinary.com/dcww202aa/image/upload/v1752460874/landing/02_zenart/partner_logos/50099071_2045690192177799_7192680936318697472_n_cll80s.jpg",
+  "https://res.cloudinary.com/dcww202aa/image/upload/v1752460874/landing/02_zenart/partner_logos/244394824_148230907517481_6448091910736338880_n_fpzuma.jpg",
+  "https://res.cloudinary.com/dcww202aa/image/upload/v1752460874/landing/02_zenart/partner_logos/129638447_1399957367040045_9067169882251855799_n_kud98f.jpg",
+  "https://res.cloudinary.com/dcww202aa/image/upload/v1752460874/landing/02_zenart/partner_logos/49608191_817923828545976_4060094823279886336_n_shg0oy.jpg",
+  "https://res.cloudinary.com/dcww202aa/image/upload/v1752460874/landing/02_zenart/partner_logos/45683116_313777302787033_4942831316958707712_n_fzakbg.jpg",
+  "https://res.cloudinary.com/dcww202aa/image/upload/v1752460874/landing/02_zenart/partner_logos/28423430_414159202369207_8433898635442870902_o_ike23p.jpg",
+  "https://res.cloudinary.com/dcww202aa/image/upload/v1752460874/landing/02_zenart/partner_logos/skygarden_1_uvkadw.jpg",
+  "https://res.cloudinary.com/dcww202aa/image/upload/v1752460874/landing/02_zenart/partner_logos/greatstonehill1_mfinrb.jpg",
+  "https://res.cloudinary.com/dcww202aa/image/upload/v1752460874/landing/02_zenart/partner_logos/468283692_864976812383780_7597887702292046414_n_vemqnc.jpg",
+  "https://res.cloudinary.com/dcww202aa/image/upload/v1752460874/landing/02_zenart/partner_logos/448606069_330429360104814_1811128440460950677_n_ohkrvj.jpg",
+  "https://res.cloudinary.com/dcww202aa/image/upload/v1752460874/landing/02_zenart/partner_logos/441923653_122117153042296412_1567069594404795783_n_uut8b6.jpg",
+  "https://res.cloudinary.com/dcww202aa/image/upload/v1752460874/landing/02_zenart/partner_logos/439959303_831760805655819_6872603605893634696_n_wcxqhc.jpg",
+  "https://res.cloudinary.com/dcww202aa/image/upload/v1752460874/landing/02_zenart/partner_logos/428707038_956364466193125_1578593875411270503_n_rbkb9h.jpg",
+  "https://res.cloudinary.com/dcww202aa/image/upload/v1752460874/landing/02_zenart/partner_logos/417431457_683707530613332_8028056910368859343_n_vzrwfc.jpg",
+  "https://res.cloudinary.com/dcww202aa/image/upload/v1752460874/landing/02_zenart/partner_logos/404804432_122103906998130749_4703858419526461883_n_ezgc5v.jpg",
+  "https://res.cloudinary.com/dcww202aa/image/upload/v1752460874/landing/02_zenart/partner_logos/377591000_122109701378031823_2027091067163695948_n_g1zrmd.jpg",
+  "https://res.cloudinary.com/dcww202aa/image/upload/v1752460874/landing/02_zenart/partner_logos/371358581_690321926460695_5712133141508584877_n_noiegi.jpg",
+  "https://res.cloudinary.com/dcww202aa/image/upload/v1752460874/landing/02_zenart/partner_logos/354245982_668211572015294_1919942337956419482_n_ggf2td.jpg",
+  "https://res.cloudinary.com/dcww202aa/image/upload/v1752460874/landing/02_zenart/partner_logos/339261305_580288797381594_5805913969321358649_n_tj16l9.jpg",
+  "https://res.cloudinary.com/dcww202aa/image/upload/v1752460874/landing/02_zenart/partner_logos/354204321_641437184675257_1762161453469178587_n_vjzi7u.jpg",
+  "https://res.cloudinary.com/dcww202aa/image/upload/v1752460874/landing/02_zenart/partner_logos/352277731_786020192974265_7823639347692531789_n_msa5ml.jpg",
+  "https://res.cloudinary.com/dcww202aa/image/upload/v1752460874/landing/02_zenart/partner_logos/349085511_1643878096025117_2506749158000474705_n_csckqq.jpg",
+  "https://res.cloudinary.com/dcww202aa/image/upload/v1752460874/landing/02_zenart/partner_logos/327437664_497316512341773_8386575325559828457_n_pedmbz.jpg",
+  "https://res.cloudinary.com/dcww202aa/image/upload/v1752460874/landing/02_zenart/partner_logos/326566454_918528629166414_8324171781287217176_n_lls4jn.jpg",
+  "https://res.cloudinary.com/dcww202aa/image/upload/v1752460874/landing/02_zenart/partner_logos/327043706_5878420618871202_9046690168835276921_n_tic1qu.jpg",
+  "https://res.cloudinary.com/dcww202aa/image/upload/v1752460874/landing/02_zenart/partner_logos/325487030_723311555810830_1507403070875726249_n_qnapon.jpg",
+  "https://res.cloudinary.com/dcww202aa/image/upload/v1752460874/landing/02_zenart/partner_logos/327162218_844105743317531_2230310619584372785_n_nwma3p.jpg",
+  "https://res.cloudinary.com/dcww202aa/image/upload/v1752460874/landing/02_zenart/partner_logos/310546895_479188254251253_4649186243264145970_n_mbr0t1.jpg",
+];

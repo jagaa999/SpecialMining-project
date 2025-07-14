@@ -33,9 +33,10 @@ export default function ZenartNavbar() {
             />
 
             {[
-              { href: "/zenart", label: "Zenart" },
+              { href: "/zenart", label: "Зэнарт" },
               { href: "/decor", label: "Чимэглэл" },
               { href: "/partners", label: "Partners" },
+              { href: "/price", label: "Үнэ" },
             ].map(({ href, label }) => (
               <Link
                 href={href}

@@ -12,7 +12,6 @@ import TextH1 from "atomv2/components/Text/TextH1";
 import TextH3 from "atomv2/components/Text/TextH3";
 import TextHtml from "atomv2/components/Text/TextHtml";
 import { map } from "lodash";
-import ZenartSectionImageOnly from "../Widget/ZenartSectionImageOnly";
 import ZenartSectionWrapper from "../Widget/ZenartSectionWrapper";
 
 export default function ZenartPageZenart() {
@@ -45,9 +44,21 @@ export default function ZenartPageZenart() {
           }}
         />
         <SectionDesignTeam />
-        <ZenartSectionImageOnly />
+        <OrganismBannerUnsplash
+          keyWord="room"
+          item={{
+            title: "Articstic Living...",
+            description: "We are know about it",
+          }}
+        />
         <SectionExecutionTeam />
-        <ZenartSectionImageOnly />
+        <OrganismBannerUnsplash
+          keyWord="design"
+          item={{
+            title: "Articstic Living...",
+            description: "We are know about it",
+          }}
+        />
       </BlockScrollSnapScreenBlock>
     </>
   );
