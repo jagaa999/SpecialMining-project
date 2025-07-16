@@ -19,7 +19,7 @@ export async function POST(req: NextRequest) {
   }`;
   const body = await req.json(); // 👈 client-оос ирсэн data
 
-  console.log("API before:", { apiUrl, body });
+  // console.log("API before:", { apiUrl, body });
 
   try {
     const res = await fetch(apiUrl, {
@@ -32,7 +32,7 @@ export async function POST(req: NextRequest) {
 
     const data = await res.json();
 
-    console.log("API response:", data);
+    // console.log("API response:", data);
 
     return NextResponse.json(data);
   } catch (error: any) {

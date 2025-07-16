@@ -17,7 +17,13 @@ const typesenseAdapter = new TypesenseInstantSearchAdapter({
   },
   additionalSearchParameters: {
     query_by: "title,description,body",
+    // sort_by: "createddate:asc",
   },
+  // collectionSpecificSearchParameters: {
+  //   moto_news_v2: {
+  //     sort_by: "createddate:asc", // Default sort энд тодорхойлогдоно
+  //   },
+  // },
 });
 
 export const InstantSearchWrapper = ({
@@ -29,7 +35,6 @@ export const InstantSearchWrapper = ({
     <InstantSearch
       searchClient={typesenseAdapter.searchClient}
       indexName="moto_news_v2"
-      //   insights
       routing={routing}>
       {children}
     </InstantSearch>
