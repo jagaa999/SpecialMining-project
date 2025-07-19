@@ -1,12 +1,11 @@
+import BlockDiv from "atomv2/components/Blocks/BlockDiv";
 import { cookies } from "next/headers";
 import "public/fonts/roboto.css";
 import "public/globals.css";
-import AntdThemeProvider from "src/config/context/AntdThemeProvider";
-// import "src/components/domains/aikido/Theme/theme.css";
 import { AntdMessageProvider } from "src/config/context/AntdMessageContext";
+import AntdThemeProvider from "src/config/context/AntdThemeProvider";
 import { ConfigProvider } from "src/config/context/ConfigContext";
 import { DomainProvider } from "src/config/context/DomainContext";
-// import { ThemeInjector } from "src/config/context/ThemeInjector";
 import { ClientSWRProvider } from "src/config/provider/ClientSWRProvider";
 import { getDomainMetadata } from "src/config/utils/getDomainMetadata";
 import { getLayoutWrapper } from "src/config/utils/getLayoutWrapper";
@@ -23,6 +22,8 @@ export default async function Layout({
   //Тухайн домэйний Page-ийг авчирч хучиж өгнө.
   const LayoutWrapper = await getLayoutWrapper(domain);
 
+  // console.log("-----dfdf", { domain, LayoutWrapper });
+
   return (
     <html lang="mn" className={`theme-${domain}`}>
       <head>
@@ -33,12 +34,14 @@ export default async function Layout({
           <ConfigProvider>
             <AntdMessageProvider>
               <AntdThemeProvider>
-                <body
+                <BlockDiv
+                  type="body"
+                  data-block="BodyBlock"
                   className={
                     "min-h-screen bg-gray-100 text-gray-900 antialiased font-roboto"
                   }>
                   <LayoutWrapper>{children}</LayoutWrapper>
-                </body>
+                </BlockDiv>
               </AntdThemeProvider>
             </AntdMessageProvider>
           </ConfigProvider>

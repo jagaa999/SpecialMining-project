@@ -1,4 +1,3 @@
-// src/components/DynamicSlugPage.tsx
 "use client";
 
 import dynamic from "next/dynamic";
@@ -9,32 +8,42 @@ import { useStaticItem } from "src/config/hooks/useStaticItem";
 
 export default function DynamicSlugPage() {
   const params = useParams();
-  const { domain } = useDomain(); // ✅ Контекстоос домэйн авч байна
-  // console.log("🚀 ~ DynamicSlugPage ~ domain:", domain);
-  const slug =
+  const { domain } = useDomain();
+
+  const slugSegments =
     typeof params.slug === "string"
-      ? params.slug
+      ? [params.slug]
       : Array.isArray(params.slug)
-      ? params.slug[0]
-      : "home";
+      ? params.slug
+      : ["home"];
+
+  const slug = slugSegments.join("/");
 
   const { staticItem, loading, error } = useStaticItem({ pageslug: slug });
 
-  // ✅ slug болон domain-аар dynamic import хийх
   const PageComponent: any = useMemo(() => {
-    const CapitalSlug = capitalize(slug);
+    const capitalizedSegments = slugSegments.map(capitalize);
+
+    // Сүүлийн сегментэд 'Page' урд нь нэмнэ
+    if (capitalizedSegments.length > 0) {
+      const lastIndex = capitalizedSegments.length - 1;
+      capitalizedSegments[lastIndex] = `Page${capitalizedSegments[lastIndex]}`;
+    }
+
+    // Фолдерын зам: domain-ийн дагуу бүрдүүлнэ
+    const importPath = `src/components/domains/${domain}/pages/${capitalizedSegments.join(
+      "/"
+    )}`;
+
+    // console.log("🚀 ~ DynamicSlugPage ~ slug:", { slug, importPath });
 
     return dynamic(
       async () => {
         try {
-          return (
-            await import(
-              `src/components/domains/${domain}/pages/Page${CapitalSlug}`
-            )
-          ).default;
+          return (await import(importPath)).default;
         } catch (err: any) {
           console.warn(
-            `❌ Page not found: src/components/domains/${domain}/pages/Page${CapitalSlug}, loading NotFoundPage`,
+            `❌ Page not found: ${importPath}, loading NotFoundPage`,
             `error: ${err.message}`
           );
           return (await import("src/components/Public/NotFoundPage")).default;
@@ -42,7 +51,7 @@ export default function DynamicSlugPage() {
       },
       { ssr: false }
     );
-  }, [slug, domain]); // ✅ slug болон domain өөрчлөгдөхөд дахин ажиллана
+  }, [slug, domain]);
 
   if (loading) {
     return (
@@ -54,7 +63,6 @@ export default function DynamicSlugPage() {
   if (error) return <div>Error: {error}</div>;
 
   if (!staticItem) {
-    // return <div>Content not found</div>;
     console.warn(
       `❌ Content not found for slug: ${slug}, loading NotFoundPage`
     );
@@ -63,7 +71,6 @@ export default function DynamicSlugPage() {
   return <PageComponent item={staticItem} />;
 }
 
-// Хуудасны нэрийг том үсгээр эхлүүлэх туслах функц
 function capitalize(str: string) {
   return str.charAt(0).toUpperCase() + str.slice(1);
 }

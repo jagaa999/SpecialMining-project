@@ -15,7 +15,7 @@ export default function CustomFacetList() {
         const res = await fetch("/api/typesense/typesense-schema");
         const result = await res.json();
 
-        console.log("facet is", result);
+        // console.log("facet is", result);
 
         if (Array.isArray(result.facets)) {
           setFacets(result.facets);
@@ -28,7 +28,7 @@ export default function CustomFacetList() {
     fetchFacets();
   }, []);
 
-  console.log("dfsdeweeeeeeeeee", facets);
+  // console.log("dfsdeweeeeeeeeee", facets);
 
   return (
     <BlockDiv className="space-y-6">

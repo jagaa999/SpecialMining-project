@@ -1,6 +1,6 @@
 "use client";
 
-import PanelContainer from "atomv2/components/Panel/PanelContainer";
+import BlockDiv from "atomv2/components/Blocks/BlockDiv";
 import MotoBanner from "../Widget/MotoLayout/MotoBanner";
 import MotoFooter from "../Widget/MotoLayout/MotoFooter";
 import MotoHeader from "../Widget/MotoLayout/MotoHeader";
@@ -11,26 +11,17 @@ export default function LayoutWrapper({
   children: React.ReactNode;
 }) {
   return (
-    <div className="w-full min-h-screen flex flex-col">
-      <header className=" bg-amber-300">
-        <MotoHeader />
-      </header>
+    <BlockDiv
+      type="main"
+      className="flex flex-col min-h-screen"
+      data-block="MotoLayoutWrapper">
+      <MotoHeader />
 
-      <section className="w-full h-full relative" data-widget="MotoBanner">
-        <MotoBanner />
-      </section>
+      <MotoBanner />
 
-      <main className="flex-grow">
-        <PanelContainer>
-          <div className="bg-blue-300 h-full">{children}</div>
-        </PanelContainer>
-      </main>
+      {children}
 
-      <footer className="bg-gray-800">
-        <PanelContainer>
-          <MotoFooter />
-        </PanelContainer>
-      </footer>
-    </div>
+      <MotoFooter />
+    </BlockDiv>
   );
 }

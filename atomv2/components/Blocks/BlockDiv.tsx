@@ -14,7 +14,8 @@ export type BlockElementType =
   | "aside"
   | "header"
   | "footer"
-  | "main";
+  | "main"
+  | "body";
 
 export interface BlockDivProps extends HTMLAttributes<HTMLElement> {
   type?: BlockElementType;

@@ -1,7 +1,11 @@
 import { useRef, useState } from "react";
 import { useAntdMessageApi } from "src/config/context/AntdMessageContext";
 
-type MotoApiPath = "moto-order-v2" | "moto-product-v2" | "moto-ref-v2";
+type MotoApiPath =
+  | "moto-order-v2"
+  | "moto-product-v2"
+  | "moto-ref-v2"
+  | "moto-news-v2";
 
 interface SendResult<T> {
   data?: T;

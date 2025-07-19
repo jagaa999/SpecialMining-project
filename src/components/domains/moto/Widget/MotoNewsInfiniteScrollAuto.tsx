@@ -1,6 +1,7 @@
 "use client";
 
 import BlockDiv from "atomv2/components/Blocks/BlockDiv";
+import PanelMain from "atomv2/components/Panel/PanelMain";
 import CustomFacetList from "./CustomFacetList";
 import CustomPageSizeDropdown from "./CustomPageSizeDropdown";
 import CustomSearchBox from "./CustomSearchBox";
@@ -10,24 +11,38 @@ import MotoNewsCustomHits from "./MotoNewsCustomHits";
 
 export default function MotoNewsInfiniteScrollAuto() {
   return (
-    <BlockDiv className="grid grid-cols-1 md:grid-cols-4 gap-6">
-      {/* Filter */}
-      <BlockDiv className="md:col-span-1 space-y-6">
-        <CustomFacetList />
-      </BlockDiv>
+    <PanelMain className="max-w-5xl">
+      <BlockDiv className="flex gap-12">
+        <BlockDiv className="w-[250px] shrink-0">
+          <LeftFilter />
+        </BlockDiv>
 
-      {/* Search + Results */}
-      <BlockDiv className="md:col-span-3 space-y-6">
-        <div className="flex flex-wrap items-center justify-between gap-4">
-          <CustomSearchBox />
-          <div className="flex gap-3">
-            <CustomSortDropdown />
-            <CustomPageSizeDropdown />
-          </div>
-        </div>
-        <CustomStats />
-        <MotoNewsCustomHits />
+        <BlockDiv className="flex-1">
+          <RightMain />
+        </BlockDiv>
       </BlockDiv>
-    </BlockDiv>
+    </PanelMain>
   );
 }
+
+const LeftFilter = () => {
+  return <CustomFacetList />;
+};
+
+const RightMain = () => {
+  return (
+    <BlockDiv>
+      <BlockDiv className="flex flex-wrap items-center justify-between gap-4">
+        <CustomSearchBox />
+
+        <BlockDiv className="flex gap-3">
+          <CustomSortDropdown />
+          <CustomPageSizeDropdown />
+        </BlockDiv>
+      </BlockDiv>
+
+      <CustomStats />
+      <MotoNewsCustomHits />
+    </BlockDiv>
+  );
+};
