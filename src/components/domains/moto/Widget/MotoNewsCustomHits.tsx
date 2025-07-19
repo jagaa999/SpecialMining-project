@@ -1,10 +1,13 @@
 "use client";
 
-import RenderAtom from "atomv2/components/Atoms/RenderAtom";
 import BlockDiv from "atomv2/components/Blocks/BlockDiv";
 import BlockFlexCol from "atomv2/components/Blocks/BlockFlexCol";
-import TextBody from "atomv2/components/Text/TextBody";
-import TextH5 from "atomv2/components/Text/TextH5";
+import BlockFlexRow from "atomv2/components/Blocks/BlockFlexRow";
+import MoleculeIconText from "atomv2/components/Molecules/MoleculeIconText";
+import PosDesc from "atomv2/components/Position/PosDesc";
+import PosImage from "atomv2/components/Position/PosImage";
+import PosTitle from "atomv2/components/Position/PosTitle";
+import { toMotoDate } from "atomv2/util/widgetHelper";
 import { map } from "lodash";
 import { useInfiniteHits } from "react-instantsearch";
 import LoadMoreTrigger from "./LoadMoreTrigger";
@@ -20,32 +23,53 @@ export default function MotoNewsCustomHits() {
 
 const MainItems = () => {
   const { items } = useInfiniteHits();
+  // console.log("🚀 ~ MainItems ~ items:", items);
 
   return (
-    <BlockFlexCol className="gap-4">
-      {map(items, (hit: any) => (
-        <BlockDiv
-          key={hit.id}
-          className="flex gap-4 p-4 border rounded-xl shadow-sm hover:shadow-md transition bg-white">
-          <BlockDiv className="w-24 h-24 flex-shrink-0 overflow-hidden rounded-lg bg-gray-100">
-            <RenderAtom
-              value={hit.mainimage}
-              type="image"
-              alt={hit.title}
-              className="w-full h-full object-cover"
-            />
-          </BlockDiv>
+    <BlockFlexCol className="gap-7">
+      {map(items, (hit: any) => {
+        return (
+          <BlockFlexRow
+            key={hit.id}
+            className="w-full h-44 rounded-brand hover:shadow-md transition bg-white pr-3">
+            <BlockDiv className="w-56 h-full shrink-0 overflow-hidden bg-gray-100">
+              <PosImage
+                item={hit}
+                alt={hit.title}
+                className="w-full h-full object-cover object-center px-0 py-0 rounded-r-none hover:text-brand"
+                url={{
+                  href: `/news/detail?id=${hit.id}`,
+                  className: "block w-full h-full",
+                }}
+              />
+            </BlockDiv>
 
-          <BlockFlexCol className="gap-2">
-            <TextH5
-              value={hit.title}
-              url={{ href: `/news/detail?id=${hit.id}` }}
-            />
+            <BlockFlexCol className="gap-2 flex-1">
+              <PosTitle
+                item={hit}
+                url={{ href: `/news/detail?id=${hit.id}` }}
+                className="text-lg font-semibold hover:text-brand line-clamp-2"
+                animation={{
+                  type: "slideLeft",
+                }}
+              />
+              <PosDesc
+                item={hit}
+                className="line-clamp-2 text-sm"
+                animation={{
+                  type: "slideLeft",
+                }}
+              />
 
-            <TextBody value={hit.description} className="line-clamp-2" />
-          </BlockFlexCol>
-        </BlockDiv>
-      ))}
+              <MoleculeIconText
+                className="text-sm text-slate-500"
+                icon={{ value: "material-symbols:date-range" }}
+                title={{ value: toMotoDate(hit?.createddate) }}
+              />
+            </BlockFlexCol>
+          </BlockFlexRow>
+        );
+      })}
     </BlockFlexCol>
   );
 };

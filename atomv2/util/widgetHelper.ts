@@ -826,8 +826,13 @@ export function processFormDataToSplit(myValue: any) {
   return { id: newValue, value: newDesc };
 }
 
-export function toMotoDate(myDate: any) {
-  return dayjs(myDate)?.fromNow();
+export function toMotoDate(myDate: any): string {
+  if (_.isEmpty(String(myDate))) return "";
+
+  const isUnix10 = /^\d{10}$/.test(String(myDate));
+  const parsed = isUnix10 ? dayjs.unix(Number(myDate)) : dayjs(myDate);
+
+  return parsed.isValid() ? parsed.fromNow() : "";
 }
 
 export function toMotoPrice(myPrice: any) {
