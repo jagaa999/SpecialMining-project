@@ -6,8 +6,9 @@ export const routing = {
       const indexState = routeState.moto_news_v2 || {};
       const refinementList = indexState.refinementList || {};
       const query = indexState.query || "";
-      const urlParams = new URLSearchParams();
+      const urlParams = new URLSearchParams(location.search); // 🟢 location.search-ийг хадгална
 
+      // InstantSearch-тэй холбоотой query-г нэмж тавих
       if (query) {
         urlParams.set("q", query);
       }
@@ -29,7 +30,8 @@ export const routing = {
       for (const [key, value] of queryParams.entries()) {
         if (key === "q") {
           query = value;
-        } else {
+        } else if (key !== "id") {
+          // 🟢 бусад query-г үлдээ
           refinementList[key] = value.split(",");
         }
       }

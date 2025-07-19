@@ -1,13 +1,15 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import { useParams } from "next/navigation";
+import { useParams, useSearchParams } from "next/navigation";
+
 import { useMemo } from "react";
 import { useDomain } from "src/config/context/DomainContext";
 import { useStaticItem } from "src/config/hooks/useStaticItem";
 
 export default function DynamicSlugPage() {
   const params = useParams();
+  const searchParams = useSearchParams();
   const { domain } = useDomain();
 
   const slugSegments =
@@ -35,7 +37,12 @@ export default function DynamicSlugPage() {
       "/"
     )}`;
 
-    // console.log("🚀 ~ DynamicSlugPage ~ slug:", { slug, importPath });
+    console.log("🚀 ~ DynamicSlugPage ~ slug:", {
+      slug,
+      importPath,
+      params,
+      searchParams,
+    });
 
     return dynamic(
       async () => {
@@ -64,7 +71,7 @@ export default function DynamicSlugPage() {
 
   if (!staticItem) {
     console.warn(
-      `❌ Content not found for slug: ${slug}, loading NotFoundPage`
+      `⚠ Цаанаас content ирсэнгүй. Байгааг нь гаргана. slug: ${slug}`
     );
   }
 

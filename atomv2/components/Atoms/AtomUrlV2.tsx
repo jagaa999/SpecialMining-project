@@ -4,8 +4,10 @@ import { cn } from "atomv2/util/atomHelperV2";
 import _ from "lodash";
 import Link from "next/link";
 import { ReactNode } from "react";
+import { UrlObject } from "url";
 
 export interface AtomUrlV2Props {
+  href?: string | UrlObject;
   baseUrl?: string; // external URL (e.g., https://google.com)
   isExternal?: boolean; // should open in new tab
   prefetch?: boolean; // Next.js prefetch
