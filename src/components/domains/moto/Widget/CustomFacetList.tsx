@@ -1,7 +1,7 @@
 "use client";
 
-import BlockDiv from "atomv2/components/Blocks/BlockDiv";
-import { includes, map } from "lodash";
+import BlockFlexCol from "atomv2/components/Blocks/BlockFlexCol";
+import { includes, isArray, map } from "lodash";
 import { useEffect, useState } from "react";
 import CustomFacetDatePreset from "./CustomFacetDatePreset";
 import CustomRefinementList from "./CustomRefinementList";
@@ -17,7 +17,7 @@ export default function CustomFacetList() {
 
         // console.log("facet is", result);
 
-        if (Array.isArray(result.facets)) {
+        if (isArray(result.facets)) {
           setFacets(result.facets);
         }
       } catch (err) {
@@ -31,12 +31,18 @@ export default function CustomFacetList() {
   // console.log("dfsdeweeeeeeeeee", facets);
 
   return (
-    <BlockDiv className="space-y-6">
+    <BlockFlexCol className="">
       {map(facets, (item, index) => {
-        const title = getFacetTitle(item.title); // гарчиг болгох функц (доор тайлбарлав)
+        const title = getFacetTitle(item.title);
 
         // Хэрвээ date төрлийн attribute байвал тусгай компонент дуудаж рендерлэнэ
-        if (includes(dateLikeFields, item.attribute)) {
+        if (
+          includes(
+            ["createddate", "modifieddate", "updateddate"],
+            item.attribute
+          )
+        ) {
+          return null;
           return (
             <CustomFacetDatePreset
               key={item.attribute}
@@ -54,16 +60,14 @@ export default function CustomFacetList() {
           />
         );
       })}
-    </BlockDiv>
+    </BlockFlexCol>
   );
 }
 
-const dateLikeFields = ["createddate", "modifieddate", "updateddate"]; // Та хүссэнээр өргөтгөж болно
-
 function getFacetTitle(category: string): string {
   const titles: Record<string, string> = {
-    ref_newstype: "Мэдээний төрөл",
-    ref_newssource: "Мэдээний эх сурвалж",
+    ref_newstype: "Төрөл",
+    ref_newssource: "Эх сурвалж",
     ref_carfirm: "Машины фирм",
     ref_carmark: "Машины марк",
     // өөр facet нэрсийг нэмж болно

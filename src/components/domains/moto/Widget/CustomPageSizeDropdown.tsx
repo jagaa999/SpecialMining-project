@@ -1,32 +1,45 @@
 "use client";
 
-import { Button, Dropdown } from "antd";
+import { Dropdown, MenuProps } from "antd";
+import RenderAtom from "atomv2/components/Atoms/RenderAtom";
+import BlockFlexRow from "atomv2/components/Blocks/BlockFlexRow";
+import TextBody from "atomv2/components/Text/TextBody";
 import { map } from "lodash";
 import { useHitsPerPage } from "react-instantsearch";
 
 export default function CustomPageSizeDropdown() {
   const { items, refine } = useHitsPerPage({
     items: [
-      { label: "2", value: 2 },
-      { label: "10", value: 10, default: true },
-      { label: "20", value: 20 },
-      //   { label: "50", value: 50 },
-      //   { label: "100", value: 100 },
+      { label: "12 ширхэг", value: 12, default: true },
+      { label: "24 ширхэг", value: 24 },
+      { label: "50 ширхэг", value: 50 },
     ],
   });
 
   const currentRefinement = items.find((item) => item.isRefined)?.value;
 
+  // const menu: MenuProps = map(items, (item) => ({
+  //   key: String(item.value),
+  //   label: item.label,
+  //   onClick: () => refine(item.value),
+  // }));
+
+  const menu: MenuProps = {
+    items: map(items, ({ value, label }) => ({ key: String(value), label })),
+    onClick: ({ key }) => refine(Number(key)),
+    selectedKeys: [String(currentRefinement)],
+  };
+
   return (
-    <Dropdown
-      menu={{
-        items: map(items, (item) => ({
-          key: item.value.toString(),
-          label: item.label,
-          onClick: () => refine(item.value),
-        })),
-      }}>
-      <Button>Хуудасны хэмжээ: {currentRefinement}</Button>
+    <Dropdown menu={menu} trigger={["click"]}>
+      <BlockFlexRow className="cursor-pointer hover:brightness-90 text-sm text-gray-600 gap-1">
+        <TextBody value={`${String(currentRefinement)} ширхэг`} />
+        <RenderAtom
+          value={"material-symbols-light:keyboard-arrow-down-rounded"}
+          type="icon"
+          className="text-lg"
+        />
+      </BlockFlexRow>
     </Dropdown>
   );
 }

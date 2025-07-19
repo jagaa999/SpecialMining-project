@@ -1,21 +1,23 @@
 "use client";
 
+import { Checkbox } from "antd";
+import BlockFlexCol from "atomv2/components/Blocks/BlockFlexCol";
+import BlockFlexRow from "atomv2/components/Blocks/BlockFlexRow";
+import TextBody from "atomv2/components/Text/TextBody";
 import { usePostToMotoApi } from "atomv2/hooks/api/usePostToMotoApi";
 import { find, isEmpty, last, map, sortBy, split } from "lodash";
 import { useEffect } from "react";
 import { useRefinementList, UseRefinementListProps } from "react-instantsearch";
 
-type Props = {
-  attribute: string;
-  title?: string;
-  refCategory?: string; // newstype, newssource гэх мэт
-};
-
 export default function CustomRefinementList({
   attribute,
   title,
   refCategory,
-}: Props) {
+}: {
+  attribute: string;
+  title?: string;
+  refCategory?: string; // newstype, newssource гэх мэт
+}) {
   // category байхгүй бол attribute-аас ref_ хэсгийг хасч category гаргаж авна
   const categoryReady = refCategory || last(split(attribute, "ref_"));
 
@@ -45,9 +47,10 @@ export default function CustomRefinementList({
   });
 
   return (
-    <div className="mb-6">
-      {title && <h3 className="text-lg font-semibold mb-2">{title}</h3>}
-      <ul className="space-y-2">
+    <BlockFlexCol className="gap-3">
+      <TextBody value={title} className="font-semibold" />
+
+      <BlockFlexCol className="gap-2">
         {map(itemsSorted, (item, index) => {
           const itemRef = find(
             refData,
@@ -55,23 +58,26 @@ export default function CustomRefinementList({
           );
 
           return (
-            <li
+            <BlockFlexRow
               key={item?.value || index}
-              className="flex items-center justify-between">
-              <label className="flex items-center gap-2 cursor-pointer">
-                <input
-                  type="checkbox"
-                  checked={item.isRefined}
-                  onChange={() => refine(item.value)}
-                  className="accent-blue-600"
+              className="justify-between gap-2 cursor-pointer w-full">
+              <Checkbox
+                checked={item.isRefined}
+                onChange={() => refine(item.value)}>
+                <TextBody
+                  value={itemRef?.title ?? item.label}
+                  className="text-sm"
                 />
-                <span className="text-sm">{itemRef?.title ?? item.label}</span>
-              </label>
-              <span className="text-gray-400 text-sm">({item.count})</span>
-            </li>
+              </Checkbox>
+
+              <TextBody
+                value={`(${item.count})`}
+                className="text-gray-400 text-sm ml-auto"
+              />
+            </BlockFlexRow>
           );
         })}
-      </ul>
-    </div>
+      </BlockFlexCol>
+    </BlockFlexCol>
   );
 }

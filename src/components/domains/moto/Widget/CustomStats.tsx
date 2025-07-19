@@ -1,25 +1,30 @@
 "use client";
 
+import BlockDiv from "atomv2/components/Blocks/BlockDiv";
+import BlockFlexRow from "atomv2/components/Blocks/BlockFlexRow";
+import TextBody from "atomv2/components/Text/TextBody";
 import { useStats } from "react-instantsearch";
 
 export default function CustomStats() {
-  const { nbHits, processingTimeMS, query } = useStats();
+  const { nbHits, processingTimeMS } = useStats();
 
   return (
-    <div className="text-sm text-gray-600 mb-4">
+    <BlockDiv className="text-sm text-gray-600">
       {nbHits > 0 ? (
-        <>
-          <strong>{nbHits}</strong> үр дүн{" "}
-          {query && (
-            <>
-              ‘<span className="text-blue-600">{query}</span>’
-            </>
-          )}{" "}
-          хайлтаар олдлоо. ({processingTimeMS}мс)
-        </>
+        <BlockFlexRow className="gap-1">
+          <TextBody
+            value={`Нийт: <span class="font-semibold">${String(nbHits)}</span>`}
+            className=""
+          />
+          <TextBody
+            value={`(${processingTimeMS}мс)`}
+            className="text-xs text-gray-200"
+            tooltip={`Хайлт хийхэд ${processingTimeMS} мс зарцуулсан.`}
+          />
+        </BlockFlexRow>
       ) : (
-        <>Хайлтаар илэрц олдсонгүй.</>
+        <>Илэрц олдсонгүй.</>
       )}
-    </div>
+    </BlockDiv>
   );
 }

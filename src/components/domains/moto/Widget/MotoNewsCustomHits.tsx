@@ -31,7 +31,7 @@ const MainItems = () => {
         return (
           <BlockFlexRow
             key={hit.id}
-            className="w-full h-44 rounded-brand hover:shadow-md transition bg-white pr-3">
+            className="w-full h-44 rounded-brand hover:shadow-md transition bg-white pr-3 border border-slate-200">
             <BlockDiv className="w-56 h-full shrink-0 overflow-hidden bg-gray-100">
               <PosImage
                 item={hit}
