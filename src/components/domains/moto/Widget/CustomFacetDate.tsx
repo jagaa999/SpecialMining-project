@@ -10,7 +10,7 @@ export default function CustomFacetDate({
   attribute: string;
   title?: string;
 }) {
-  const { start, range, canRefine, refine } = useRange({ attribute });
+  const { canRefine, refine } = useRange({ attribute });
 
   const handleChange = (e: any) => {
     e.preventDefault();

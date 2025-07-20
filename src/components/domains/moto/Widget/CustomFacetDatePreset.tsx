@@ -54,7 +54,7 @@ export default function CustomFacetDatePreset({
 }) {
   const { start, range, canRefine, refine } = useRange({ attribute });
   const [selectedPreset, setSelectedPreset] = useState("custom");
-  const [customRange, setCustomRange] = useState<[number, number]>([
+  const [customRange] = useState<[number, number]>([
     start[0] || Number(range.min),
     start[1] || Number(range.max),
   ]);
@@ -79,16 +79,16 @@ export default function CustomFacetDatePreset({
     }
   };
 
-  const handleSliderChange = (val: [number, number]) => {
-    setCustomRange(val);
-    if (selectedPreset !== "custom") {
-      setSelectedPreset("custom");
-    }
-  };
+  // const handleSliderChange = (val: [number, number]) => {
+  //   setCustomRange(val);
+  //   if (selectedPreset !== "custom") {
+  //     setSelectedPreset("custom");
+  //   }
+  // };
 
-  const handleSliderAfterChange = (val: [number, number]) => {
-    refine(val);
-  };
+  // const handleSliderAfterChange = (val: [number, number]) => {
+  //   refine(val);
+  // };
 
   if (!canRefine || !range.min || !range.max) return null;
 
