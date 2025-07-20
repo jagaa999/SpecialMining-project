@@ -3,39 +3,51 @@
 import RenderAtom from "atomv2/components/Atoms/RenderAtom";
 import BlockDiv from "atomv2/components/Blocks/BlockDiv";
 import PanelMain from "atomv2/components/Panel/PanelMain";
+import { ObjectLight } from "atomv2/types/objectTypes";
 import _, { map } from "lodash";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
+import { useWindowScroll } from "react-use";
 
-export default function OrganismNavbarMenu({ item }: { item: any }) {
-  const [scrolled, setScrolled] = useState(false);
+export default function OrganismNavbarMenu({
+  item,
+  Outer,
+  variant = "white", // default white
+}: {
+  item: any;
+  Outer?: ObjectLight;
+  variant?: "white" | "dark" | "transparent";
+}) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { y: scrollY } = useWindowScroll();
   const pathname = usePathname();
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const isScrolled = window.scrollY > 20;
-      setScrolled(isScrolled);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  const scrolled = scrollY > 30;
 
   useEffect(() => {
     setMobileMenuOpen(false);
   }, [pathname]);
+
+  const variantClass = {
+    white: scrolled
+      ? "bg-gradient-to-r from-white/50 via-pink-50/70 to-pink-100/80 backdrop-blur-md shadow-md"
+      : "bg-white shadow-none",
+    dark: scrolled
+      ? "bg-black/70 backdrop-blur-md shadow-md text-white"
+      : "bg-black text-white",
+    transparent: scrolled
+      ? "bg-white/20 backdrop-blur-md shadow-md"
+      : "bg-transparent",
+  }[variant];
 
   return (
     <BlockDiv
       type="nav"
       data-block="OrganismNavbarMenu"
       className={`sticky top-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "bg-gradient-to-r from-white/50 via-pink-50/70 to-pink-100/80 backdrop-blur-md shadow-md py-2"
-          : "bg-white shadow-none py-4"
-      }`}>
+        scrolled ? "py-2" : "py-3"
+      } ${variantClass} ${Outer?.className || ""}`}>
       <PanelMain className="py-0">
         <BlockDiv className="w-full flex justify-between items-center">
           {/* Logo */}

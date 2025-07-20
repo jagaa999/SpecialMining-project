@@ -62,6 +62,16 @@ const atomRegistry = {
     category: "Basic",
     description: "Input-ийн шошго",
   },
+  clob: {
+    type: "clob",
+    component: dynamic(() => import("../components/Atoms/AtomClobV2"), {
+      ssr: false,
+    }),
+    displayName: "Clob Text",
+    icon: "mdi:label-outline",
+    category: "Basic",
+    description: "Clob HTML текст",
+  },
   input: {
     type: "input",
     component: dynamic(() => import("../components/Atoms/AtomInputV2"), {

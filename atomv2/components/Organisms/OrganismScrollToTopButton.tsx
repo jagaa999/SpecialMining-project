@@ -1,20 +1,17 @@
 "use client";
 
 import BlockDiv from "atomv2/components/Blocks/BlockDiv";
-import { AnimatePresence, motion } from "framer-motion";
-import { useEffect, useState } from "react";
+import { cn } from "atomv2/util/atomHelperV2";
+import { useWindowScroll } from "react-use";
+import RenderAtom from "../Atoms/RenderAtom";
 
-export default function OrganismScrollToTopButton() {
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    const toggleVisibility = () => {
-      setIsVisible(window.scrollY > 300);
-    };
-
-    window.addEventListener("scroll", toggleVisibility);
-    return () => window.removeEventListener("scroll", toggleVisibility);
-  }, []);
+export default function OrganismScrollToTopButton({
+  className,
+}: {
+  className?: string;
+}) {
+  const { y: scrollY } = useWindowScroll();
+  const isVisible = scrollY > 300;
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -22,32 +19,18 @@ export default function OrganismScrollToTopButton() {
 
   return (
     <BlockDiv className="fixed bottom-6 right-6 z-50">
-      <AnimatePresence>
-        {isVisible && (
-          <motion.button
-            key="scrollToTop"
-            onClick={scrollToTop}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: 20 }}
-            transition={{ duration: 0.4 }}
-            className="bg-brand text-bg w-12 h-12 flex items-center justify-center rounded shadow-lg cursor-pointer hover:brightness-90 transition duration-300 ease-in-out">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="w-5 h-5"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              strokeWidth={2}>
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M5 15l7-7 7 7"
-              />
-            </svg>
-          </motion.button>
-        )}
-      </AnimatePresence>
+      {isVisible && (
+        <RenderAtom
+          value="material-symbols-light:keyboard-arrow-up"
+          type="icon"
+          className={cn(
+            "bg-brand text-bg w-12 h-12 flex items-center justify-center rounded shadow-lg cursor-pointer hover:brightness-90 transition duration-300 ease-in-out text-lg",
+            className
+          )}
+          animation={{ type: "slideUp" }}
+          onClick={scrollToTop}
+        />
+      )}
     </BlockDiv>
   );
 }

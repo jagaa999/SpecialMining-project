@@ -12,7 +12,7 @@ export default function PanelContainer({
     <BlockDiv
       type="div"
       data-block="PanelContainer"
-      className={cn("max-w-brand mx-auto", className)}>
+      className={cn("container mx-auto px-5 py-20", className)}>
       {children}
     </BlockDiv>
   );

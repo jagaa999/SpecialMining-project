@@ -1,9 +1,9 @@
 "use client";
 
 import BlockDiv from "atomv2/components/Blocks/BlockDiv";
-import MotoBanner from "../Widget/MotoLayout/MotoBanner";
+import OrganismNavbarMenu from "atomv2/components/Organisms/OrganismNavbarMenu";
 import MotoFooter from "../Widget/MotoLayout/MotoFooter";
-import MotoHeader from "../Widget/MotoLayout/MotoHeader";
+import OrganismScrollToTopButton from "atomv2/components/Organisms/OrganismScrollToTopButton";
 
 export default function LayoutWrapper({
   children,
@@ -13,15 +13,28 @@ export default function LayoutWrapper({
   return (
     <BlockDiv
       type="main"
-      className="flex flex-col min-h-screen"
+      className="min-h-screen flex flex-col justify-between"
       data-block="MotoLayoutWrapper">
-      <MotoHeader />
+      <OrganismNavbarMenu item={staticItem} variant="dark" />
 
-      <MotoBanner />
-
-      {children}
+      <BlockDiv className="flex-1">{children}</BlockDiv>
 
       <MotoFooter />
+      <OrganismScrollToTopButton className="bg-black w-10 h-10" />
     </BlockDiv>
   );
 }
+
+const staticItem: any = {
+  logo: "https://cdn.moto.mn/moto/landing/15_moto/7b8f9eaf-8fea-4fdc-be78-93a2881b2757.png?t=1752997033943",
+  menu: [
+    { title: "НҮҮР", href: "/" },
+    { title: "НИЙТЛЭЛ", href: "/news" },
+    // { title: "АВТОМАШИН", href: "/car" },
+    // { title: "СЭЛБЭГ", href: "/parts" },
+  ],
+  inquiryButton: {
+    title: "Холбогдох",
+    href: "/contact",
+  },
+};

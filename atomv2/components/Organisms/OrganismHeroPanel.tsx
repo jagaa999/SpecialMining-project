@@ -10,10 +10,12 @@ export default function OrganismHeroPanel({
   keyword = "wallpaper",
   item,
   fade = true,
+  Outer,
 }: {
   keyword?: string;
   item: any;
   fade?: boolean | ObjectLight;
+  Outer?: ObjectLight;
 }) {
   const { imageUrl, loading, error } = useUnsplash(keyword);
   const defaultImage =
@@ -30,12 +32,15 @@ export default function OrganismHeroPanel({
   return (
     <BlockDiv
       type="section"
-      className="h-screen bg-cover bg-center flex items-center justify-center text-white relative"
+      className={`h-screen bg-cover bg-center flex items-center justify-center text-white relative ${
+        Outer?.className || ""
+      }`}
       style={{
         backgroundImage: `url(${
           error ? defaultImage : imageUrl?.regular || defaultImage
         })`,
-      }}>
+      }}
+      data-block="OrganismHeroPanelOuter">
       {/* Overlay */}
       {fade && (
         <BlockDiv

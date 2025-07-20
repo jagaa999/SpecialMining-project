@@ -1,9 +1,13 @@
 "use client";
 
+import RenderAtom from "atomv2/components/Atoms/RenderAtom";
 import BlockDiv from "atomv2/components/Blocks/BlockDiv";
+import PanelMain from "atomv2/components/Panel/PanelMain";
 import { usePostToMotoApi } from "atomv2/hooks/api/usePostToMotoApi";
 import { useSearchParams } from "next/navigation";
 import { useEffect } from "react";
+import MotoNewsDetailBackgroundImageV3 from "../../Widget/News/Detail/MotoNewsDetailBackgroundImageV3";
+import MotoNewsDetailBodyV3 from "../../Widget/News/Detail/MotoNewsDetailBodyV3";
 
 export interface NewsDetailType {
   id: string;
@@ -42,24 +46,27 @@ export default function NewsDetailPage() {
   if (!data) return null;
 
   return (
-    <BlockDiv className="max-w-3xl mx-auto p-6 bg-white rounded-xl shadow-md">
-      <div className="flex items-center mb-4">
-        <button
-          onClick={() => window.history.back()}
-          className="mr-3 px-3 py-1 bg-gray-200 rounded hover:bg-gray-300 transition"
-          aria-label="Буцах">
-          ← Буцах
-        </button>
-        <h1 className="text-2xl font-bold">{data.title}</h1>
-      </div>
-      {data.image && (
-        <img
-          src={data.image}
-          alt={data.title}
-          className="w-full h-64 object-cover rounded-md mb-4"
-        />
-      )}
-      <p className="text-gray-700 whitespace-pre-line">{data.description}</p>
-    </BlockDiv>
+    <>
+      <MotoNewsDetailBackgroundImageV3 item={data} />
+      <BackButton />
+      <MotoNewsDetailBodyV3 item={data} />
+    </>
   );
 }
+
+const BackButton = () => {
+  return (
+    <PanelMain className="py-0 pt-8 flex items-start justify-start w-full">
+      <RenderAtom
+        value="material-symbols-light:keyboard-arrow-left"
+        type="icon"
+        className={
+          "bg-brand text-bg w-10 h-10 flex items-center justify-center rounded shadow-lg cursor-pointer hover:brightness-90 transition duration-300 ease-in-out text-lg"
+        }
+        animation={{ type: "slideUp" }}
+        url={{ href: "/news" }}
+        tooltip={{ title: "Жагсаалт руу буцах" }}
+      />
+    </PanelMain>
+  );
+};

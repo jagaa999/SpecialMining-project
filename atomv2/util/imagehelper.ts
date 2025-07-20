@@ -77,33 +77,33 @@ export const processResponsiveCDNImage = (imageUrl: string) => {
 };
 
 export const processResponsiveCDNImageV2 = (imageUrl: string) => {
-  if (!_.includes(imageUrl, "cdn.moto")) return {};
-  if (_.includes(imageUrl, "/thumb/")) return {};
+  if (!_.includes(imageUrl, "cdn.moto")) return { src: imageUrl };
+  if (_.includes(imageUrl, "/thumb/")) return { src: imageUrl };
 
   const parts = imageUrl.split("/");
-  const filenameWithExtension = _.last(parts);
+  const filename = _.last(parts);
   const baseUrl = _.join(_.dropRight(parts), "/");
 
-  const imageUrl500px = `${baseUrl}/thumb/w_500/${filenameWithExtension}`;
-  const imageUrl250px = `${baseUrl}/thumb/w_250/${filenameWithExtension}`;
-  const imageUrl50px = `${baseUrl}/thumb/w_50/${filenameWithExtension}`;
+  const url50 = `${baseUrl}/thumb/w_50/${filename}`;
+  const url250 = `${baseUrl}/thumb/w_250/${filename}`;
+  const url500 = `${baseUrl}/thumb/w_500/${filename}`;
 
   return {
+    src: imageUrl, // ✅ Original зураг (хамгийн өндөр resolution)
     srcSet: `
-      ${imageUrl50px} 50w,
-      ${imageUrl250px} 250w,
-      ${imageUrl500px} 500w
+      ${url50} 50w,
+      ${url250} 250w,
+      ${url500} 500w,
+      ${imageUrl} 1000w
     `
       .trim()
       .replace(/\s+/g, " "),
     sizes: `
-      (max-width: 150px) 50px,
-      (max-width: 250px) 250px,
-      (max-width: 500px) 500px,
-      100vw
+      (max-width: 640px) 100vw,
+      (max-width: 1024px) 50vw,
+      1000px
     `
       .trim()
       .replace(/\s+/g, " "),
-    src: imageUrl500px, // Default
   };
 };

@@ -1,4 +1,7 @@
-import { processResponsiveCDNImageV2 } from "atomv2/util/imagehelper";
+import {
+  processCloudinaryImage,
+  processResponsiveCDNImageV2,
+} from "atomv2/util/imagehelper";
 import { isEmpty } from "lodash";
 import { ImageProps } from "next/image";
 import { AtomBaseProps } from "../../types/atomTypes";
@@ -24,7 +27,14 @@ export default function AtomImageV2({
 
   if (isEmpty(imgSrc)) return null;
 
-  const imgProps = processResponsiveCDNImageV2(imgSrc);
+  const imgSrcReady = processCloudinaryImage(
+    imgSrc, // `fl_progressive${!_.isEmpty(cloudinaryParam) ? `,${cloudinaryParam}` : ""}` //w_200,h_150,c_scale гэх мэтээр өгч болно.
+    cloudinaryParam //w_50 w_250 w_500
+  );
+
+  const imgProps = processResponsiveCDNImageV2(imgSrcReady);
+
+  // console.log("🚀 ~ imgSrc:", { imgSrc, imgProps, imgSrcReady });
 
   return (
     <img
@@ -37,7 +47,7 @@ export default function AtomImageV2({
         currentTarget.src = "/images/icon-no-image_tcse9o.svg";
       }}
       className={cn("object-contain rounded-brand", className)}
-      alt={alt || imgSrc}
+      alt={alt || imgSrcReady}
       role="img"
       {...props}
     />
