@@ -20,48 +20,48 @@ export default function PageDecor() {
       <OrganismBannerUnsplash
         keyWord="decor"
         item={{
-          title: "Articstic Living...",
-          description: "We are know about it",
+          title: "Decorative Art",
+          description: "Чимэглэлийн жинхэнэ урлаг нь мэдрэмж",
         }}
       />
       <SectionLightingDecor />
       <OrganismBannerUnsplash
         keyWord="lighting"
         item={{
-          title: "Articstic Living...",
-          description: "We are know about it",
+          title: "Lighting Design",
+          description: "Орон зайг тодорхойлох гэрэл",
         }}
       />
       <SectionTextile />
       <OrganismBannerUnsplash
         keyWord="curtain"
         item={{
-          title: "Articstic Living...",
-          description: "We are know about it",
+          title: "Curtains ",
+          description: "Цонхны гэрэл бүрийг зөөллөж, орон зайд уянгалаг уур амьсгал шингээнэ.",
         }}
       />
       <SectionFireplace />
       <OrganismBannerUnsplash
         keyWord="fireplace"
         item={{
-          title: "Articstic Living...",
-          description: "We are know about it",
+          title: "The Heart of the Home",
+          description: "Мөнхийн гоо үзэсгэлэн, дөлөнд бүжнэ.",
         }}
       />
       <SectionSanitary />
       <OrganismBannerUnsplash
         keyWord="sanitare"
         item={{
-          title: "Articstic Living...",
-          description: "We are know about it",
+          title: "Essential Elegance: Sanitary Ware",
+          description: "Бид хэрэгцээг гоо зүйтэй хослуулж, угаалгын өрөөг тань интерьерийн чимэг болгоно.",
         }}
       />
       <SectionFurniture />
       <OrganismBannerUnsplash
         keyWord="furniture"
         item={{
-          title: "Articstic Living...",
-          description: "We are know about it",
+          title: " Where Function Feels Beautiful",
+          description: "Манай тавилгууд хэрэгцээг хангаад зогсохгүй, таны амьдралын хэв маягийг баяжуулж, мэдрэмжийг тань илэрхийлдэг.",
         }}
       />
     </BlockScrollSnapScreenBlock>
@@ -269,7 +269,7 @@ const SectionSanitary = () => {
         value=" "
         type="line"
         className="w-full bg-[#d69559]"
-        // height="1px"
+      // height="1px"
       />
 
       <TextHtml

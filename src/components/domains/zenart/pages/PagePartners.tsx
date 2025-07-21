@@ -19,8 +19,8 @@ export default function PagePartners() {
         <OrganismBannerUnsplash
           keyWord="interior"
           item={{
-            title: "Articstic Living...",
-            description: "We are know about it",
+            title: "Valued Partnerships",
+            description: "Итгэлцэл, харилцан хүндлэл, чанартай бүтээлийн хүсэл дээр үндэслэсэн урт хугацааны хамтын ажиллагаа.",
           }}
         />
         {/* <SectionPartners /> */}
@@ -49,7 +49,7 @@ const SectionPartnerLogos = () => {
     <>
       <ZenartSectionWrapper BlockSectionObject={{ className: "bg-white" }}>
         <TextH1
-          value="Trusted by leading organizations"
+          value="Тэргүүлэх компаниуд бидэнд итгэдэг"
           className="text-gray-700"
         />
 
