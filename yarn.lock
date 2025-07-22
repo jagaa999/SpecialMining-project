@@ -3121,7 +3121,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"framer-motion@npm:^12.6.3":
+"framer-motion@npm:^12.23.6":
   version: 12.23.6
   resolution: "framer-motion@npm:12.23.6"
   dependencies:
@@ -6871,7 +6871,7 @@ __metadata:
     eslint: "npm:^9.29.0"
     eslint-config-next: "npm:15.2.4"
     eslint-plugin-unused-imports: "npm:^4.1.4"
-    framer-motion: "npm:^12.6.3"
+    framer-motion: "npm:^12.23.6"
     html-entities: "npm:^2.6.0"
     html-react-parser: "npm:^5.2.6"
     knex: "npm:^3.1.0"
