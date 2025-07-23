@@ -13,7 +13,6 @@ export async function GET() {
   ];
 
   try {
-    console.log("Ийшээ орсон Get");
     const schema = await typesenseAdminClient
       .collections(COLLECTION_NAME)
       .retrieve();
@@ -26,8 +25,6 @@ export async function GET() {
         facet: field.facet,
         title: field.name,
       }));
-
-    console.log("ssdsd", schema, facetFields);
 
     return NextResponse.json({ facets: facetFields });
   } catch (error: any) {
