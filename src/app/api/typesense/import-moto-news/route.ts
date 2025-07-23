@@ -40,7 +40,7 @@ export async function GET() {
 
     // 4. Typesense рүү илгээх
     const res = await fetch(
-      "http://139.162.31.19:8108/collections/moto_news_v2/documents/import?action=upsert",
+      "https://typesense.moto.mn/collections/moto_news_v2/documents/import?action=upsert",
       {
         method: "POST",
         headers: {

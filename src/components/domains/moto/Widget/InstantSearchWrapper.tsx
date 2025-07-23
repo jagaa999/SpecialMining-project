@@ -9,9 +9,9 @@ const typesenseAdapter = new TypesenseInstantSearchAdapter({
     apiKey: process.env.NEXT_PUBLIC_TYPESENSE_SEARCH_KEY!,
     nodes: [
       {
-        host: "139.162.31.19",
-        port: 8108,
-        protocol: "http",
+        host: "typesense.moto.mn",
+        port: 443,
+        protocol: "https",
       },
     ],
   },
