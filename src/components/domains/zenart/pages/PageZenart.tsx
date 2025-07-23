@@ -23,7 +23,7 @@ export default function ZenartPageZenart() {
           keyWord="interior"
           item={{
             title: "Zenart",
-            description: "Living Art",
+            description: "Амьд урлаг",
           }}
         />
         <SectionText02 />
@@ -32,23 +32,23 @@ export default function ZenartPageZenart() {
           keyWord="furniture"
           item={{
             title: "Luxury",
-            description: "Living Art",
+            description: "Тансаг мэдрэмж шингэсэн, амьд урлагийн орон зай",
           }}
         />
         <SectionБиднийҮйлАжиллагаа />
         <OrganismBannerUnsplash
           keyWord="interior"
           item={{
-            title: "Articstic Living...",
-            description: "We are know about it",
+            title: "Our Creative Force in Action",
+            description: " Эерэг, эрэлхийлэгч vibe",
           }}
         />
         <SectionDesignTeam />
         <OrganismBannerUnsplash
           keyWord="room"
           item={{
-            title: "Articstic Living...",
-            description: "We are know about it",
+            title: "Execution Team",
+            description: "Төсөөлөл бодит болдог цэг",
           }}
         />
         <SectionExecutionTeam />
@@ -56,7 +56,7 @@ export default function ZenartPageZenart() {
           keyWord="design"
           item={{
             title: "Articstic Living...",
-            description: "We are know about it",
+            description: "энэ бол бидний “Artistic Living.”",
           }}
         />
       </BlockScrollSnapScreenBlock>

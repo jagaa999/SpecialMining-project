@@ -92,7 +92,7 @@ function PricingSection() {
           <BlockDiv className="absolute inset-0 bg-black/60 flex items-center justify-center p-6">
             <TextH2
               value={
-                "Your Dreams,<span class='text-yellow-400'>Our Mission</span>, Let's Make It Happen."
+                "Таны мөрөөдөл,<span class='text-yellow-400'>Бидний эрхэм зорилго.</span> Бид хамтдаа бодит болгоно."
               }
               className="text-white font-semibold text-center"
             />
@@ -103,17 +103,17 @@ function PricingSection() {
         <BlockFlexCol className="bg-white rounded-lg shadow-md p-10 justify-between">
           {(() => {
             const basicPlan = {
-              title: "Basic Plan",
+              title: "Үндсэн Багц",
               description:
-                "Our foundation plan offers essential features at an affordable price, without breaking the bank.",
+                "Манай суурь багц нь хэрэгцээтэй бүх үндсэн боломжуудыг хамгийн боломжийн үнээр санал болгодог.",
               price: "$99.0",
               period: "/ Нэг удаад",
               features: [
-                "Individuals & Small Projects",
-                "Access To Design Features",
-                "Limited Library Of Decorative Items",
-                "Email Support",
-                "Monthly Updates",
+                "Жижиг баг & хувь хүмүүс",
+                "Дизайны үндсэн боломжууд",
+                "Хязгаарлагдмал чимэглэлийн сан",
+                "Имэйл дэмжлэг",
+                "Сарын шинэчлэлт",
               ],
             };
             return (
@@ -146,7 +146,7 @@ function PricingSection() {
                 </BlockDiv>
                 <BlockDiv className="mt-6">
                   <button className="px-6 py-3 w-full bg-yellow-500 hover:bg-yellow-600 text-white rounded-full font-semibold transition">
-                    Call Us Now
+                    Одоо залгах
                   </button>
                 </BlockDiv>
               </>
@@ -158,17 +158,17 @@ function PricingSection() {
         <BlockFlexCol className="bg-white rounded-lg shadow-md p-10 justify-between">
           {(() => {
             const blueprintPlan = {
-              title: "Blueprint Plan",
+              title: "Өргөтгөсөн Багц",
               description:
-                "Our blueprint plan unlocks tools and broader, ideal for growing teams ready to take their projects to the next level.",
+                "Манай өргөтгөсөн багц нь илүү өргөн хүрээний хэрэгсэл, шийдлүүдийг нээж, дараагийн түвшинд хүрэхийг хүссэн багуудад зориулсан.",
               price: "$169.0",
               period: "/ Нэг удаад",
               features: [
-                "Small Teams & Growing Businesses",
-                "Full Access To Design Features",
-                "Extended Library Of Decorative Items",
-                "Priority Email Support",
-                "Bi-Weekly Updates",
+                "Томроход бэлэн багууд",
+                "Дизайны бүх боломжид нэвтрэх",
+                "Тэлсэн чимэглэлийн сан",
+                "Тэргүүлэх имэйл дэмжлэг",
+                "2 долоо хоног тутмын шинэчлэлт",
               ],
             };
             return (
@@ -201,7 +201,7 @@ function PricingSection() {
                 </BlockDiv>
                 <BlockDiv className="mt-6">
                   <button className="px-6 py-3 w-full bg-yellow-500 hover:bg-yellow-600 text-white rounded-full font-semibold transition">
-                    Get Started Now
+                    Одоо эхлэх
                   </button>
                 </BlockDiv>
               </>
@@ -225,7 +225,7 @@ const MyTestimonial = () => {
 
       {/* Testimonial Text */}
       <TextBody
-        value="I absolutely love my the new modern living room! The clean lines, a neutral tones, and minimalist interior create such a calming & stylish atmosphere. Highly recommend their modern interior design services!"
+        value="Би өөрийн шинэ, орчин үеийн зочны өрөөндөө үнэхээр дуртай! Тэгш шулуун хийц, зөөлөн өнгөний хослол, минималист интерьерийн шийдэл нь тайвшралтай бөгөөд чамин уур амьсгалыг бүрдүүлж өгсөн. Тэдний интерьер дизайны үйлчилгээг өндөр хэмжээнд санал болгож байна!"
         className="text-xl font-medium text-gray-800 text-justify"
       />
 
@@ -238,7 +238,7 @@ const MyTestimonial = () => {
           alt="Morgan Dufresne"
         />
         <TextH4 value="Morgan Dufresne" className="" />
-        <TextBody value="Company owner" className="text-sm text-gray-500" />
+        <TextBody value="Компанийг үүсгэн байгуулагч" className="text-sm text-gray-500" />
       </BlockFlexCol>
     </ZenartSectionWrapper>
   );

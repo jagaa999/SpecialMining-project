@@ -10,6 +10,7 @@ import TextH2 from "atomv2/components/Text/TextH2";
 import TextH4 from "atomv2/components/Text/TextH4";
 import TextH5 from "atomv2/components/Text/TextH5";
 import TextHtml from "atomv2/components/Text/TextHtml";
+import { motion } from "framer-motion";
 
 export default function TcmotorsPageHome() {
   return (
@@ -18,7 +19,14 @@ export default function TcmotorsPageHome() {
         keyword="toyota prius"
         fade={{ className: "bg-black/70" }}
         item={{
-          backgroundImage: "https://wallpapercave.com/wp/wp2848821.jpg",
+          backgroundImage: (
+            <div
+              className="absolute inset-0 bg-cover bg-center animate-zoom-slow"
+              style={{
+                backgroundImage: `url("https://wallpapercave.com/wp/wp2848821.jpg")`,
+              }}
+            />
+          ),
           title: "TC Motors",
           subtitle: "Япон авто сэлбэг, суурилуулалт, засвар үйлчилгээ",
           buttons: [
@@ -35,6 +43,7 @@ export default function TcmotorsPageHome() {
           ],
         }}
       />
+
 
       {/* Танилцуулга */}
       <BlockDiv

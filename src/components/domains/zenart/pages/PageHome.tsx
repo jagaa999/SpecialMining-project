@@ -30,8 +30,8 @@ export default function DefaultHomePage() {
       <OrganismBannerUnsplash
         keyWord="interior"
         item={{
-          title: "Articstic Living...",
-          description: "We are know about it",
+          title: "Интерьер дизайны урлаг...",
+          description: "Интерьер дизайны урлаг, ухаалаг төлөвлөлтөөр таны орон зайг онцгой болгож, амьдралын урам зоригийг мэдрүүлнэ.",
         }}
       />
 
@@ -67,7 +67,7 @@ const HomeMainLogo = () => {
           />
 
           <TextBody
-            value="A new artistic experience is on the horizon.<br />Please stay connected."
+            value="Шинэ уран бүтээлийн аялал эхлэхэд ойрхон байна.<br />Бидэнтэй үргэлжлүүлэн хамт байгаарай."
             className="text-base md:text-lg text-gray-500 tracking-wide text-center"
           />
         </BlockAnimateWrapper>
@@ -86,13 +86,13 @@ function WhoWeAreSection() {
         />
 
         <TextH1
-          value="Experience <span class='text-brand'>the art of Interior </span>
-          Design"
+          value="Интерьер <span class='text-brand'>дизайны урлагийг </span>
+          мэдэр"
           className="text-gray-200"
         />
         <TextBody
-          value="We specialize in transforming visions into reality.
-          <br />Explore our portfolio of innovative architectural and interior design projects crafted with precision."
+          value="Бид таны төсөөллийг бодит байдал болгоход мэргэшсэн.
+          <br />Уран сэтгэмж, нарийн нягт хийцтэй архитектур болон интерьер дизайн төслүүдийнхээ багцыг танд танилцуулж байна."
           className="text-gray-300 max-w-2xl text-left"
         />
       </BlockFlexCol>
@@ -101,24 +101,24 @@ function WhoWeAreSection() {
         {map(
           [
             {
-              title: "Architectural Design",
+              title: "Архитектур дизайн",
               icon: "mdi-light:flash",
-              text: "Dream it, we’ll design it! From big picture layouts to the tiniest details, our architectural magic brings your ideas to life with creativity and precision!",
+              text: "Зүүдэл, бид бүтээгээд өгье! Томоохон төлөвлөлтөөс эхлээд хамгийн жижиг деталь хүртэл — бидний архитектурын шидэт шийдлүүд таны санааг амилуулна. Бүтээлч байдал ба нарийвчлалын гайхамшиг энд бий!",
             },
             {
-              title: "Interior Design & Planning",
+              title: "Интерьер дизайн ба төлөвлөлт",
               icon: "mdi-light:home",
-              text: "Make your space shine! Our team creates inviting, beautiful interiors that reflect your style and make every room a favorite place to be.",
+              text: "Өрөөгөө амилуул! Манай баг таны хэв маягийг тусгасан, дулаан уур амьсгалтай, гоёмсог интерьерүүдийг урлан, таны дуртай орон зайг бий болгоно.",
             },
             {
-              title: "Consulting Services",
+              title: "Зөвлөх үйлчилгээ",
               icon: "mdi-light:trophy",
-              text: "Consider us your design whisperers! We provide expert advice to help your project sparkle with creativity, efficiency, and spot-on solutions.",
+              text: "Бид таны дизайн шивнэгч! Төсөл тань бүтээлч, үр дүнтэй, оновчтой байдлаар гялалзахын тулд бид мэргэжлийн зөвлөгөөг өгч, хамгийн зохистой шийдлийг санал болгодог.",
             },
             {
-              title: "Project Management",
+              title: "Төслийн менежмент",
               icon: "mdi-light:table",
-              text: "We handle the hustle! From start to finish, we keep your project on track, on budget, and stress-free – so you can sit back and watch the magic happen.",
+              text: "Ажил мундсан ч санаа бүү зов! Эхлэлээс нь эцсийн цэг хүртэл бид таны төслийг хянаж, төсөвт нь багтааж, сэтгэл амар гүйцэтгэхэд тусална — та тайван сууж, шидэт үр дүнг харахад л хангалттай.",
             },
           ],
           (item, index) => (
@@ -159,7 +159,7 @@ function HeroSection() {
 
           <TextH1
             value={
-              "Where Spaces <br />Inspire, And <span class='text-[#f6c99e]'>Design Comes Alive</span>"
+              "Урам зориг <br />төрүүлсэн орчин <span class='text-[#f6c99e]'>гайхамшигтай дизайнаар амилна.</span>"
             }
           />
 
@@ -170,14 +170,14 @@ function HeroSection() {
                   value: "mdi-light:table",
                   className: "text-[#f6c99e] text-2xl",
                 }}
-                title={{ value: "Latest Technologies" }}
+                title={{ value: "Хамгийн сүүлийн үеийн технологи" }}
               />
               <MoleculeIconText
                 icon={{
                   value: "mdi-light:star",
                   className: "text-[#f6c99e] text-2xl",
                 }}
-                title={{ value: "5 Years Warranty" }}
+                title={{ value: "5 жилийн баталгаа" }}
               />
             </BlockFlexCol>
             <BlockFlexCol className="gap-2">
@@ -186,21 +186,21 @@ function HeroSection() {
                   value: "mdi-light:diamond-stone",
                   className: "text-[#f6c99e] text-2xl",
                 }}
-                title={{ value: "High-Quality Designs" }}
+                title={{ value: "Өндөр чанартай дизайн" }}
               />
               <MoleculeIconText
                 icon={{
                   value: "mdi-light:heart",
                   className: "text-[#f6c99e] text-2xl",
                 }}
-                title={{ value: "Residential Design" }}
+                title={{ value: "Орон сууцны интерьер дизайн" }}
               />
             </BlockFlexCol>
           </BlockFlexRow>
 
           <TextBody
             value={
-              "Whether it’s your home, office, or a commercial project, we are always dedicated to bringing your vision to life. Our numbers speak better than words:"
+              "Таны гэр, оффис эсвэл худалдааны төсөл ямар ч байсан — бид таны төсөөллийг амьдралд хэрэгжүүлэхэд өөрсдийгөө бүрэн зориулдаг. Тоон үзүүлэлтүүд маань үгнээс илүү тодорхой."
             }
           />
 
@@ -208,7 +208,7 @@ function HeroSection() {
             type="button"
             className="bg-[#f6c99e] text-gray-800 !px-6 !py-3 rounded-full flex items-center gap-2 w-fit"
             url={{ href: "/zenart" }}>
-            More About Us
+            Бидний тухай илүү ихийг үзэх
             <RenderAtom
               value={"mdi-light:arrow-right"}
               type="icon"
@@ -243,12 +243,12 @@ function ServicesSection() {
 
         <TextH1
           value={
-            "Explore Our <span class='text-[#f6c99e]'>Comprehensive</span><br />Interior Design <span class='text-[#f6c99e]'>Services</span>"
+            "Бид иж бүрэн <span class='text-[#f6c99e]'>интерьер дизайны</span><br />үйлчилгээг <span class='text-[#f6c99e]'>танилцуулж байна</span>"
           }
         />
         <TextBody
           value={
-            "We specialize in transforming visions into reality. Explore our portfolio of innovative architectural and interior design projects crafted with precision."
+            "Бид таны төсөөллийг бодит байдал болгоход чиглэсэн уран бүтээлч шийдлүүдийг санал болгодог. Архитектур ба интерьер дизайны шинэлэг, нарийн хийцтэй төслүүдээс бүрдсэн багцтай танилцана уу."
           }
         />
       </BlockFlexCol>
@@ -266,7 +266,7 @@ function ServicesSection() {
 
           <TextBody
             value={
-              "Tailored design services for private homes, including room makeovers and complete home transformations."
+              "Гэрийн өрөө бүрийг шинэчилж, бүрэн өөрчлөх зориулалттай уялдаа холбоотой дизайн үйлчилгээ."
             }
             className="absolute bottom-4 left-4 right-4 bg-black/30 text-white text-sm p-4 rounded-md backdrop-blur-sm"
           />
@@ -275,11 +275,11 @@ function ServicesSection() {
         {/* Right - List */}
         <BlockFlexCol className="gap-3">
           {[
-            "Residential Interior Design",
-            "Outdoor & Landscape Design",
-            "Interior Design Consultation",
-            "Commercial Interior Design",
-            "Renovation and Remodeling",
+            "Орон сууцны интерьер дизайн",
+            "Гадна орчин ба ландшафт дизайн",
+            "Интерьер зөвлөгөө ба төсөл",
+            "Худалдааны зориулалттай интерьер дизайн",
+            "Шинэчлэл ба засварын шийдлүүд",
           ].map((title, idx) => (
             <BlockFlexRow
               key={idx}
@@ -312,23 +312,23 @@ function StatsWithImageSection() {
   const stats = [
     {
       number: "2013",
-      title: "Years Experience",
-      desc: "Improving homes with expert craftsmanship for years",
+      title: "Туршлагатай жилийн тоо",
+      desc: "Бид олон жилийн турш нарийн хийцтэй, чанартай ажлуудаар гэр орчныг сайжруулж ирсэн.",
     },
     {
       number: "190+",
-      title: "Projects Completed",
-      desc: "Over 250 successful projects delivered with quality and care",
+      title: "Амжилттай дууссан төслүүд",
+      desc: "250 гаруй амжилттай хэрэгжсэн төсөл — чанар, анхаарал шингэсэн ажлууд.",
     },
     {
       number: "260+",
-      title: "Skilled Tradespeople",
-      desc: "Our team of 30 experts ensures top-quality results",
+      title: "Мэргэшсэн ажилчид",
+      desc: "30 гаруй мэргэжлийн мэргэшсэн хамт олон — хамгийн өндөр үр дүнг баталгаажуулдаг.",
     },
     {
       number: "328+",
-      title: "Client Satisfaction",
-      desc: "All of our clients are satisfied with our work and service",
+      title: "Захиалагчийн сэтгэл ханамж",
+      desc: "Манай бүх харилцагч үйлчилгээ болон ажлын чанарт бүрэн сэтгэл хангалуун байдаг.",
     },
   ];
 
@@ -370,19 +370,19 @@ function ArchitectureProcessSection() {
       <BlockFlexRow className="justify-between gap-8">
         <BlockFlexCol className="gap-2 w-8/12">
           <TextBody
-            value={"• How We Work"}
+            value={"• Бид хэрхэн ажилладаг вэ"}
             className="text-sm text-[#f6c99e] uppercase font-bold"
           />
 
           <TextH1
             value={
-              "Description <span class='text-[#f6c99e]'>Architecture Process</span> For Exceptional Results."
+              "Онцгой үр дүнгийн төлөөх <span class='text-[#f6c99e]'>архитектурын ажлын шат</span> дамжлага."
             }
           />
         </BlockFlexCol>
         <TextBody
           value={
-            "Our process is alive – adapting, refining, and growing with your vision. Always. Like artists with a blank canvas, we transform rooms into living works of art."
+            "Манай ажил үргэлж “амьтай” — Таны алсын хараатай уялдан, шинэчлэгдэн, сайжирч, өсөж хөгждөг."
           }
           className="w-4/12 block"
         />
@@ -423,26 +423,26 @@ function ArchitectureProcessSection() {
 const processSteps = [
   {
     step: "01",
-    title: "Initial Consultation",
-    desc: "We begin by understanding your vision, goals, and needs, followed Antra.",
+    title: "Анхны зөвлөлдөх уулзалт",
+    desc: "Бид таны хүсэл, зорилго, хэрэгцээг ойлгож, дараагийн алхмуудыг нарийвчлан тодорхойлохоос ажлаа эхэлдэг.",
     img: "https://demo2.themelexus.com/antra/wp-content/uploads/2025/06/h1-banner04.jpg",
   },
   {
     step: "02",
-    title: "Design & Planning",
-    desc: "Our team creates detailed designs that reflect your requirements.",
+    title: "Дизайн ба төлөвлөлт",
+    desc: "Манай баг таны шаардлагад бүрэн нийцсэн, нарийн нягт төлөвлөгдсөн загваруудыг боловсруулдаг.",
     img: "https://demo2.themelexus.com/antra/wp-content/uploads/2025/06/h1-banner04.jpg",
   },
   {
     step: "03",
-    title: "Implementation",
-    desc: "With carefully selected contractors, we manage every phase.",
+    title: "Хэрэгжилт",
+    desc: "Нарийн шалгаруулсан гүйцэтгэгч нартай хамтран төслийн бүхий л үе шат бүрийг хариуцан удирддаг.",
     img: "https://demo2.themelexus.com/antra/wp-content/uploads/2025/06/h1-banner04.jpg",
   },
   {
     step: "04",
-    title: "Project Handover",
-    desc: "Upon completion, we conduct a thorough review, making sure all details.",
+    title: "Төсөл хүлээлгэн өгөх",
+    desc: "Төсөл дуусмагц бид нягт нямбай шалгалт хийж, бүх деталь бүрийг баталгаажуулан танд бүрэн хүлээлгэн өгдөг.",
     img: "https://demo2.themelexus.com/antra/wp-content/uploads/2025/06/h1-banner04.jpg",
   },
 ];
@@ -451,30 +451,30 @@ const projects = [
   {
     image:
       "https://thearchitectsdiary.com/wp-content/uploads/2024/10/modern-home-interior-design-6.jpg",
-    tags: ["SINGLE HOME"],
+    tags: ["Ганц гэр бүлийн орон сууц"],
     title: "Golden Ratio Residence",
-    location: "Tokyo, Japan",
+    location: "Токио, Япон",
   },
   {
     image:
       "https://thearchitectsdiary.com/wp-content/uploads/2024/10/modern-home-interior-design-6.jpg",
-    tags: ["RESIDENTIAL", "SINGLE HOME"],
+    tags: ["Орон сууц + Ганц гэр бүлийн хэв маягтай"],
     title: "Nordic Minimalist Loft",
-    location: "Berlin, Germany",
+    location: "Берлин, Герман",
   },
   {
     image:
       "https://thearchitectsdiary.com/wp-content/uploads/2024/10/modern-home-interior-design-6.jpg",
-    tags: ["RESIDENTIAL"],
+    tags: ["Орчин үеийн гоёмсог орон сууц"],
     title: "Industrial Elegance Condo",
-    location: "Paris, France",
+    location: "Парис, Франц",
   },
   {
     image:
       "https://thearchitectsdiary.com/wp-content/uploads/2024/10/modern-home-interior-design-6.jpg",
-    tags: ["RESIDENTIAL"],
+    tags: ["Тайван, тухтай амьдрах орон зай"],
     title: "Serene Villa",
-    location: "Germany",
+    location: "Герман",
   },
 ];
 
@@ -483,18 +483,18 @@ function OurProjectsSection() {
     <ZenartSectionWrapper BlockSectionObject={{ className: "bg-white" }}>
       <BlockFlexCol className="gap-3">
         <TextBody
-          value={"• Our Projects"}
+          value={"• БИДНИЙ ТӨСЛҮҮД"}
           className="text-sm text-[#f6c99e] uppercase font-bold"
         />
 
         <TextH1
           value={
-            "Creative <span class='text-[#f6c99e]'>Projects That Define</span> Our Style"
+            "Бүтээлч <span class='text-[#f6c99e]'>төслүүд бидний хэв маягийг</span> илэрхийлдэг"
           }
         />
         <TextBody
           value={
-            "Our portfolio showcases a diverse range of projects, from beautifully crafted residential spaces to functional and stylish commercial interiors."
+            "Манай бүтээлийн сан нь тансаг хийц бүхий орон сууцаас эхлээд ухаалаг төлөвлөлттэй, загварлаг худалдааны орчин хүртэл олон төрлийн төслүүдийг хамардаг."
           }
         />
       </BlockFlexCol>
@@ -549,27 +549,27 @@ function TeamSection() {
   const team = [
     {
       name: "Mark Jackson",
-      role: "CO-FOUNDER & CEO",
+      role: "Хамтран үүсгэн байгуулагч, Гүйцэтгэх захирал",
       active: false,
     },
     {
       name: "Valeria Novikova",
-      role: "LIGHTING SPECIALIST",
+      role: "Гэрэлтүүлгийн дизайн мэргэжилтэн",
       active: true,
     },
     {
       name: "Alex Podzemsky",
-      role: "GRAPHICS DESIGNER",
+      role: "График дизайны мэргэжилтэн",
       active: false,
     },
     {
       name: "Helen Reeves",
-      role: "MATERIAL CONSULTANT",
+      role: "Материалын сонголтын зөвлөх",
       active: false,
     },
     {
       name: "Jake Nicholson",
-      role: "3D VISUALIZATION",
+      role: "3D дүрслэлийн загвар зохион бүтээгч",
       active: false,
     },
   ];
@@ -588,13 +588,13 @@ function TeamSection() {
         {/* Text Content */}
         <BlockFlexCol>
           <TextBody
-            value={"● Amazing Design Team"}
+            value={"● БИДНИЙ ГАЙХАЛТАЙ ДИЗАЙНЫ БАГ"}
             className="text-sm text-[#f6c99e] uppercase font-bold"
           />
 
           <TextH1
             value={
-              "Meet The <span class='text-[#f6c99e]'>Experts</span> Our <br /><span class='text-[#f6c99e]'>Interior</span> Designers"
+              "Бидний <span class='text-[#f6c99e]'>интерьер дизайны</span> <span class='text-[#f6c99e]'>мэргэжилтнүүдтэй </span> танилцана уу"
             }
           />
 
@@ -610,9 +610,8 @@ function TeamSection() {
                   />
                   <TextH5
                     value={member.name}
-                    className={` ${
-                      member.active ? "text-[#f6c99e]" : "text-gray-900"
-                    }`}
+                    className={` ${member.active ? "text-[#f6c99e]" : "text-gray-900"
+                      }`}
                   />
                 </BlockFlexRow>
                 <BlockFlexRow className="gap-3">
