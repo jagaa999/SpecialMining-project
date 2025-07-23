@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import Image from 'next/image';
 
-const navLinks = ['MODELS', 'TECHNOLOGY', 'DISCOVER', 'CONTACT US', 'SERVICE'];
+const navLinks = ['МОДЕЛИУД', 'ТЕХНОЛОГИ', 'БИДЭНТЭЙ ХОЛБОГДОХ', 'ҮЙЛЧИЛГЭЭ'];
 
 export default function Header() {
     const [open, setOpen] = useState(false);
@@ -22,10 +22,11 @@ export default function Header() {
 
     // Hover үед цагаан фон, scroll үед хар фон
     const backgroundClass = isScrolled
-        ? 'bg-black/60'
+        ? 'bg-black/60'               // scroll хийсэн үед 60% opacity-тай хар
         : isHovered
-            ? 'bg-white bg-opacity-90'
-            : 'bg-transparent';
+            ? 'bg-white/90'             // hover үед цагаан
+            : 'bg-transparent';         // энгийн үед бүрэн тунгалаг
+
 
     const navTextClass = isScrolled
         ? 'text-white hover:text-orange-400'
@@ -43,7 +44,7 @@ export default function Header() {
         <header
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
-            className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${backgroundClass} backdrop-blur-sm`}
+            className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${backgroundClass}`}
         >
             <div className="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">
                 {/* Logo */}
