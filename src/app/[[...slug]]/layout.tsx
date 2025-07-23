@@ -4,6 +4,7 @@ import "public/fonts/roboto.css";
 import "public/globals.css";
 import { AntdMessageProvider } from "src/config/context/AntdMessageContext";
 import AntdThemeProvider from "src/config/context/AntdThemeProvider";
+import { AuthProvider } from "src/config/context/AuthContext";
 import { ConfigProvider } from "src/config/context/ConfigContext";
 import { DomainProvider } from "src/config/context/DomainContext";
 import { ClientSWRProvider } from "src/config/provider/ClientSWRProvider";
@@ -34,14 +35,16 @@ export default async function Layout({
           <ConfigProvider>
             <AntdMessageProvider>
               <AntdThemeProvider>
-                <BlockDiv
-                  type="body"
-                  data-block="BodyBlock"
-                  className={
-                    "min-h-screen bg-gray-100 text-gray-900 antialiased font-roboto"
-                  }>
-                  <LayoutWrapper>{children}</LayoutWrapper>
-                </BlockDiv>
+                <AuthProvider>
+                  <BlockDiv
+                    type="body"
+                    data-block="BodyBlock"
+                    className={
+                      "min-h-screen bg-gray-100 text-gray-900 antialiased font-roboto"
+                    }>
+                    <LayoutWrapper>{children}</LayoutWrapper>
+                  </BlockDiv>
+                </AuthProvider>
               </AntdThemeProvider>
             </AntdMessageProvider>
           </ConfigProvider>
