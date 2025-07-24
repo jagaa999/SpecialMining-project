@@ -1,7 +1,9 @@
 import BlockDiv from "atomv2/components/Blocks/BlockDiv";
 import { cookies } from "next/headers";
+import Script from "next/script";
 import "public/fonts/roboto.css";
 import "public/globals.css";
+import { GoogleOneTap } from "src/components/Public/GoogleOneTap";
 import { AntdMessageProvider } from "src/config/context/AntdMessageContext";
 import AntdThemeProvider from "src/config/context/AntdThemeProvider";
 import { AuthProvider } from "src/config/context/AuthContext";
@@ -19,16 +21,17 @@ export default async function Layout({
   const cookieStore = await cookies();
   const domain = cookieStore.get("domain")?.value || "default";
 
-  // ЭНЭ ХАМГИЙН ЧУХАЛ НЬ!!
   //Тухайн домэйний Page-ийг авчирч хучиж өгнө.
   const LayoutWrapper = await getLayoutWrapper(domain);
-
-  // console.log("-----dfdf", { domain, LayoutWrapper });
 
   return (
     <html lang="mn" className={`theme-${domain}`}>
       <head>
         <link rel="stylesheet" href={`/${domain}/theme.css`} />
+        <Script
+          src="https://accounts.google.com/gsi/client"
+          strategy="beforeInteractive"
+        />
       </head>
       <DomainProvider domain={domain}>
         <ClientSWRProvider>
@@ -42,7 +45,10 @@ export default async function Layout({
                     className={
                       "min-h-screen bg-gray-100 text-gray-900 antialiased font-roboto"
                     }>
-                    <LayoutWrapper>{children}</LayoutWrapper>
+                    <LayoutWrapper>
+                      {children}
+                      <GoogleOneTap />
+                    </LayoutWrapper>
                   </BlockDiv>
                 </AuthProvider>
               </AntdThemeProvider>

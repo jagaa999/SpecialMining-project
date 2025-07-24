@@ -9,7 +9,7 @@ export function extractDomainFromHost(hostname: string): string {
   const matchedTLD = secondLevelTLDs.find((tld) => baseHost.endsWith(tld));
   const parts = baseHost.split(".");
 
-  let domain = "special"; // default fallback
+  let domain = "moto"; // default fallback
 
   if (matchedTLD) {
     if (parts.length > 2) {

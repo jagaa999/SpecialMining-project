@@ -4,6 +4,7 @@ import {
   GoogleAuthProvider,
   FacebookAuthProvider,
   signInWithPopup,
+  signInWithCredential as firebaseSignInWithCredential,
   signOut as firebaseSignOut,
   onAuthStateChanged,
   User,
@@ -22,6 +23,10 @@ export const googleProvider = new GoogleAuthProvider();
 export const facebookProvider = new FacebookAuthProvider();
 export const signInWithGoogle = () => signInWithPopup(auth, googleProvider);
 export const signInWithFacebook = () => signInWithPopup(auth, facebookProvider);
+export const signInWithCredential = async (idToken: string) => {
+  const credential = GoogleAuthProvider.credential(idToken);
+  return firebaseSignInWithCredential(auth, credential);
+};
 export const signOut = () => firebaseSignOut(auth);
 export const onAuthState = (cb: (u: User | null) => void) =>
   onAuthStateChanged(auth, cb);

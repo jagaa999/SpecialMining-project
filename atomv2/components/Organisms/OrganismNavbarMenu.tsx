@@ -9,6 +9,8 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { useWindowScroll } from "react-use";
+import BlockFlexRow from "../Blocks/BlockFlexRow";
+import OrganismUserAvatar from "./OrganismUserAvatar";
 
 export default function OrganismNavbarMenu({
   item,
@@ -19,15 +21,9 @@ export default function OrganismNavbarMenu({
   Outer?: ObjectLight;
   variant?: "white" | "dark" | "transparent";
 }) {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { y: scrollY } = useWindowScroll();
-  const pathname = usePathname();
 
   const scrolled = scrollY > 30;
-
-  useEffect(() => {
-    setMobileMenuOpen(false);
-  }, [pathname]);
 
   const variantClass = {
     white: scrolled
@@ -50,7 +46,6 @@ export default function OrganismNavbarMenu({
       } ${variantClass} ${Outer?.className || ""}`}>
       <PanelMain className="py-0">
         <BlockDiv className="w-full flex justify-between items-center">
-          {/* Logo */}
           <RenderAtom
             value={item?.logo}
             type="image"
@@ -60,68 +55,85 @@ export default function OrganismNavbarMenu({
             alt="Main Logo"
             url={{ href: "/" }}
           />
-
-          {/* Desktop Menu */}
-          <DesktopMenu item={item} />
-          {/* Mobile menu button */}
-          <button
-            className="md:hidden"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
-            {mobileMenuOpen ? (
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="w-6 h-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth={2}>
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              </svg>
-            ) : (
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="w-6 h-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth={2}>
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M4 6h16M4 12h16M4 18h16"
-                />
-              </svg>
-            )}
-          </button>
-        </BlockDiv>
-
-        {/* Mobile Menu */}
-        <BlockDiv
-          className={`md:hidden mt-4 transition-all duration-300 overflow-hidden ${
-            mobileMenuOpen ? "max-h-[1000px]" : "max-h-0"
-          }`}>
-          <ul className="flex flex-col gap-2">
-            {_.map(item?.menu, (item: any, index: number) => (
-              <li key={index}>
-                <Link
-                  href={item.href}
-                  className={`block px-4 py-2 font-semibold text-[14px] ${
-                    pathname === item.href ? "text-brand" : "hover:text-brand"
-                  }`}>
-                  {item.title}
-                </Link>
-              </li>
-            ))}
-          </ul>
+          <BlockFlexRow className="">
+            <RightMenu item={item} />
+            <OrganismUserAvatar />
+          </BlockFlexRow>
         </BlockDiv>
       </PanelMain>
     </BlockDiv>
   );
 }
+
+const RightMenu = ({ item }: { item: any }) => {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const pathname = usePathname();
+
+  useEffect(() => {
+    setMobileMenuOpen(false);
+  }, [pathname]);
+
+  return (
+    <>
+      {/* Desktop Menu */}
+      <DesktopMenu item={item} />
+      {/* Mobile menu button */}
+      <button
+        className="md:hidden"
+        onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
+        {mobileMenuOpen ? (
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="w-6 h-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            strokeWidth={2}>
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M6 18L18 6M6 6l12 12"
+            />
+          </svg>
+        ) : (
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="w-6 h-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            strokeWidth={2}>
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M4 6h16M4 12h16M4 18h16"
+            />
+          </svg>
+        )}
+      </button>
+
+      {/* Mobile Menu */}
+      <BlockDiv
+        className={`md:hidden mt-4 transition-all duration-300 overflow-hidden ${
+          mobileMenuOpen ? "max-h-[1000px]" : "max-h-0"
+        }`}>
+        <ul className="flex flex-col gap-2">
+          {_.map(item?.menu, (item: any, index: number) => (
+            <li key={index}>
+              <Link
+                href={item.href}
+                className={`block px-4 py-2 font-semibold text-[14px] ${
+                  pathname === item.href ? "text-brand" : "hover:text-brand"
+                }`}>
+                {item.title}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </BlockDiv>
+    </>
+  );
+};
 
 const DesktopMenu = ({ item }: { item: any }) => {
   const pathname = usePathname();

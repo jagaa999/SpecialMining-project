@@ -6,18 +6,21 @@ import { usePostToMotoApi } from "atomv2/hooks/api/usePostToMotoApi";
 
 interface AuthContextValue {
   user: User | null;
+  motoUser: any;
   loading: boolean;
   logout: () => Promise<void>;
 }
 
 export const AuthContext = createContext<AuthContextValue>({
   user: null,
+  motoUser: null,
   loading: true,
   logout: async () => {},
 });
 
 export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [user, setUser] = useState<User | null>(null);
+  const [motoUser, setMotoUser] = useState(null);
   const [loading, setLoading] = useState(true);
   const { send } = usePostToMotoApi();
 
@@ -29,7 +32,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       if (firebaseUser) {
         console.log("Firebase user logged in:", firebaseUser);
         // Firebase-аас login хийсэн хэрэглэгчийг backend-тай sync хийнэ
-        const result = await send(
+        const result: any = await send(
           {
             firebaseuid: firebaseUser.uid,
             title: firebaseUser.displayName,
@@ -41,9 +44,11 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
           {
             path: "moto-user-v2",
             query: { apicommand: "login" },
-            toast: { mute: false },
+            toast: { mute: true },
           }
         );
+
+        setMotoUser(result.data);
 
         console.log("Backend login result:", result);
       }
@@ -56,7 +61,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   };
 
   return (
-    <AuthContext.Provider value={{ user, loading, logout }}>
+    <AuthContext.Provider value={{ user, motoUser, loading, logout }}>
       {children}
     </AuthContext.Provider>
   );
