@@ -28,9 +28,10 @@ export default function NewsDetailPage() {
 
     const fetchData = async () => {
       send(
-        { apicommand: "detail", id },
+        { id },
         {
           path: "moto-news-v2",
+          query: { apicommand: "detail" },
           toast: { mute: true },
         }
       );

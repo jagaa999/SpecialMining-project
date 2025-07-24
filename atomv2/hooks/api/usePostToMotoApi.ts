@@ -5,7 +5,8 @@ type MotoApiPath =
   | "moto-order-v2"
   | "moto-product-v2"
   | "moto-ref-v2"
-  | "moto-news-v2";
+  | "moto-news-v2"
+  | "moto-user-v2";
 
 interface SendResult<T> {
   data?: T;
@@ -44,7 +45,7 @@ export function usePostToMotoApi<T = any>(): FetcherResult<T> {
     new Promise((resolve) => setTimeout(resolve, ms));
 
   const send = async (
-    payload: any,
+    body: any,
     {
       path,
       query = {},
@@ -88,7 +89,7 @@ export function usePostToMotoApi<T = any>(): FetcherResult<T> {
         const res = await fetch(url, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(payload),
+          body: JSON.stringify(body),
           signal: controller.signal,
         });
 

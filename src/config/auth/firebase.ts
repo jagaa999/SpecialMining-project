@@ -20,12 +20,8 @@ if (!getApps().length) {
 export const auth = getAuth();
 export const googleProvider = new GoogleAuthProvider();
 export const facebookProvider = new FacebookAuthProvider();
-
 export const signInWithGoogle = () => signInWithPopup(auth, googleProvider);
-
 export const signInWithFacebook = () => signInWithPopup(auth, facebookProvider);
-
 export const signOut = () => firebaseSignOut(auth);
-
 export const onAuthState = (cb: (u: User | null) => void) =>
   onAuthStateChanged(auth, cb);
