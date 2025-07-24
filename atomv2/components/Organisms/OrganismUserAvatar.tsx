@@ -6,6 +6,7 @@ import { useAuth } from "src/config/hooks/useAuth";
 
 export default function OrganismUserAvatar() {
   const { motoUser } = useAuth();
+  // console.log("🚀 ~ OrganismUserAvatar ~ motoUser:", motoUser)
 
   if (isEmpty(motoUser)) return null;
 
