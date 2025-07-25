@@ -1,6 +1,8 @@
 // src/app/[[...slug]]/page.tsx
 
+import { map } from "lodash";
 import DynamicSlugPage from "src/components/Public/DynamicSlugPage";
+import { staticDomainList } from "src/config/staticgenerate/staticDomainList";
 
 export default function Page() {
   // const { params } = context;
@@ -19,12 +21,16 @@ export async function generateStaticParams() {
 
   // return staticPages;
 
-  const staticPages = [
-    { slug: ["home"] },
-    { slug: ["about"] },
-    { slug: ["contact"] },
-    { slug: ["career"] },
-  ];
+  return map(staticDomainList, (item) => ({
+    item,
+  }));
 
-  return staticPages;
+  // const staticPages = [
+  //   { slug: ["home"] },
+  //   { slug: ["about"] },
+  //   { slug: ["contact"] },
+  //   { slug: ["career"] },
+  // ];
+
+  // return staticPages;
 }

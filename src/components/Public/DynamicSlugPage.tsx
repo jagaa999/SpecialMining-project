@@ -1,7 +1,7 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import { useParams, useSearchParams } from "next/navigation";
+import { useParams } from "next/navigation";
 
 import { useMemo } from "react";
 import { useDomain } from "src/config/context/DomainContext";
@@ -9,7 +9,7 @@ import { useStaticItem } from "src/config/hooks/useStaticItem";
 
 export default function DynamicSlugPage() {
   const params = useParams();
-  const searchParams = useSearchParams();
+  // const searchParams = useSearchParams();
   const { domain } = useDomain();
 
   const slugSegments =
@@ -36,13 +36,6 @@ export default function DynamicSlugPage() {
     const importPath = `src/components/domains/${domain}/pages/${capitalizedSegments.join(
       "/"
     )}`;
-
-    console.log("🚀 ~ DynamicSlugPage ~ slug:", {
-      slug,
-      importPath,
-      params,
-      searchParams,
-    });
 
     return dynamic(
       async () => {

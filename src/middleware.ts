@@ -3,11 +3,11 @@ import { extractDomainFromHost } from "./config/utils/extractDomainFromHost";
 
 export function middleware(request: NextRequest) {
   const host = request.headers.get("host") || "";
-  const domain = extractDomainFromHost(host);
+  const domainId = extractDomainFromHost(host);
 
   const response = NextResponse.next();
-  response.cookies.set("domain", domain);
-  response.headers.set("x-theme", domain);
+  response.cookies.set("domain", domainId);
+  response.headers.set("x-theme", domainId);
   return response;
 }
 
