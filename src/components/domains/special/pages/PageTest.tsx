@@ -1,16 +1,11 @@
 "use client";
 
-import _ from "lodash";
 import PanelMain from "atomv2/components/Panel/PanelMain";
+import _ from "lodash";
 import { generalTheme } from "../generalConfig";
 import Banner from "../Widget/Banner";
-import { useDomain } from "src/config/context/DomainContext";
 
 export default function PageTest({ item = item_local }: { item: any }) {
-  // console.log("dfsdfdsf", item);
-  const domain = useDomain();
-  // console.log("MyContext Value:", domain);
-
   return (
     <main>
       <Banner item={item?.banner} />
