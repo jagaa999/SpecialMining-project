@@ -1,8 +1,8 @@
 "use client";
 
-import TcmotorsBanner from "@/components/domains/tcmotors/Widgetddd/TcmotorsBanner";
-import TcmotorsFooter from "@/components/domains/tcmotors/Widgetddd/TcmotorsFooter";
-import TcmotorsNavbar from "@/components/domains/tcmotors/Widgetddd/TcmotorsNavbar";
+import TcmotorsBanner from "@/components/domains/tcmotors/Widget/TcmotorsBanner";
+import TcmotorsFooter from "@/components/domains/tcmotors/Widget/TcmotorsFooter";
+import TcmotorsNavbar from "@/components/domains/tcmotors/Widget/TcmotorsNavbar";
 import BlockDiv from "atomv2/components/Blocks/BlockDiv";
 
 export default function LayoutWrapper({
