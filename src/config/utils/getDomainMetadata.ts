@@ -55,14 +55,14 @@ const metadataContentMap: any = {
     image: "/images/dddd.jpg",
     creator: "@Special",
   },
-  digitalservice: {
-    favicon: "/digitalservice/favicon.png",
-    title: "Дижитал Сервис",
-    description: "Принтерийн бүх төрлийн үйлчилгээ, засвар, худалдаа",
-    url: "https://www.digitalservice.mn",
-    image: "/images/dddd.jpg",
-    creator: "@DigitalService",
-  },
+  // digitalservice: {
+  //   favicon: "https://cdn-icons-png.flaticon.com/128/446/446991.png",
+  //   title: "Дижитал Сервис",
+  //   description: "Принтерийн бүх төрлийн үйлчилгээ, засвар, худалдаа",
+  //   url: "https://www.digitalservice.mn",
+  //   image: "/images/dddd.jpg",
+  //   creator: "@DigitalService",
+  // },
   aikido: {
     favicon:
       "https://cdn.moto.mn/moto/landing/11_aikido/4fbf4f4f-d6a2-4901-8a44-f3a5b5fd32fb.png",

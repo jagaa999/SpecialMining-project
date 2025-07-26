@@ -1,5 +1,3 @@
-"use client";
-
 import OrganismNavbarMenu from "atomv2/components/Organisms/OrganismNavbarMenu";
 import OrganismNavbarTopPanel from "atomv2/components/Organisms/OrganismNavbarTopPanel";
 

@@ -1,6 +1,6 @@
 "use client";
 
-import _ from "lodash";
+import _, { map } from "lodash";
 import { twMerge } from "tailwind-merge";
 import Banner from "../Widget/Banner";
 import PanelMain from "atomv2/components/Panel/PanelMain";
@@ -14,9 +14,9 @@ export default function SafetyPage({ item = item_local }: { item: any }) {
       <PanelMain>
         {/* Policy Text */}
         <section className="my-24">
-          <p>{item?.policy.text}</p>
-          <p className={generalTheme?.title2}>{item?.community.title}</p>
-          <p>{item?.community.text}</p>
+          <p>{item?.policy?.text}</p>
+          <p className={generalTheme?.title2}>{item?.community?.title}</p>
+          <p>{item?.community?.text}</p>
         </section>
 
         <img
@@ -27,17 +27,19 @@ export default function SafetyPage({ item = item_local }: { item: any }) {
 
         {/* People Section */}
         <section className="my-24">
-          <p className={generalTheme?.titleMain}>{item?.people.title}</p>
-          <p>{item?.people.text}</p>
+          <p className={generalTheme?.titleMain}>{item?.people?.title}</p>
+          <p>{item?.people?.text}</p>
         </section>
 
         {/* Safe operation */}
         <section className="my-24">
-          <p className={generalTheme?.titleMain}>{item?.safeOperation.title}</p>
-          <p>{item?.safeOperation.text}</p>
+          <p className={generalTheme?.titleMain}>
+            {item?.safeOperation?.title}
+          </p>
+          <p>{item?.safeOperation?.text}</p>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 my-8">
-            {item?.safeOperation.images.map((img: any, idx: number) => (
+            {map(item?.safeOperation?.images, (img: any, idx: number) => (
               <img
                 key={idx}
                 src={img}
@@ -57,7 +59,7 @@ export default function SafetyPage({ item = item_local }: { item: any }) {
               </p>
               <ul className="list-disc list-outside pl-5">
                 {_.map(
-                  item?.internalRegulations.internal,
+                  item?.internalRegulations?.internal,
                   (item: any, index: number) => (
                     <li key={item?.id || index} className="text-white">
                       {item}
@@ -73,7 +75,7 @@ export default function SafetyPage({ item = item_local }: { item: any }) {
               </p>
               <ul className="list-disc list-outside pl-5">
                 {_.map(
-                  item?.internalRegulations.legal,
+                  item?.internalRegulations?.legal,
                   (item: any, index: number) => (
                     <li key={item?.id || index} className="text-white">
                       {item}

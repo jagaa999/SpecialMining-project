@@ -1,3 +1,5 @@
+"use client";
+
 import _ from "lodash";
 import { useToggle } from "react-use";
 import { useConfig } from "src/config/context/ConfigContext";

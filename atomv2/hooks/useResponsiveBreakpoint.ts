@@ -1,3 +1,5 @@
+"use client";
+
 import { useEffect } from "react";
 import { createBreakpoint, useToggle } from "react-use";
 import _ from "lodash";

@@ -1,8 +1,8 @@
 // src/app/[[...slug]]/page.tsx
 
 import { map } from "lodash";
-import DynamicSlugPage from "src/components/Public/DynamicSlugPage";
 import { staticDomainList } from "src/config/staticgenerate/staticDomainList";
+import DynamicSlugPage from "src/components/Public/DynamicSlugPage";
 
 export default function Page() {
   // const { params } = context;

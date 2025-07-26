@@ -1,5 +1,3 @@
-"use client";
-
 import BlockDiv from "atomv2/components/Blocks/BlockDiv";
 import OrganismBasketPanel from "atomv2/components/Organisms/eshop/OrganismBasketPanel";
 import OrganismProductList from "atomv2/components/Organisms/OrganismProductList";

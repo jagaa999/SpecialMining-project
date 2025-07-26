@@ -1,8 +1,7 @@
-"use client";
-
 import BlockDiv from "atomv2/components/Blocks/BlockDiv";
 import ZenartNavbar from "../Widget/ZenartNavbar";
 import OrganismScrollToTopButton from "atomv2/components/Organisms/OrganismScrollToTopButton";
+import "../Widget/theme.css";
 
 export default function ZenartLayoutWrapper({
   children,

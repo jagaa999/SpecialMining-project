@@ -1,3 +1,5 @@
+"use client";
+
 import { Result } from "antd";
 import RenderAtom from "atomv2/components/Atoms/RenderAtom";
 import BlockDiv from "atomv2/components/Blocks/BlockDiv";

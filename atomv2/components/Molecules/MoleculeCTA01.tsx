@@ -1,3 +1,5 @@
+"use client";
+
 import { ObjectFull } from "atomv2/types/objectTypes";
 import RenderAtom from "../Atoms/RenderAtom";
 import BlockDiv from "../Blocks/BlockDiv";

@@ -1,5 +1,6 @@
+"use client";
+
 import { cn } from "atomv2/util/atomHelperV2";
-// import { generalTheme } from "src/components/domains/special/generalConfig";
 import BlockDiv from "../Blocks/BlockDiv";
 
 export default function PanelMain({

@@ -1,6 +1,6 @@
+import { InstantSearchWrapper } from "@/components/domains/moto/Widget/InstantSearchWrapper";
+import MotoNewsInfiniteScrollAuto from "@/components/domains/moto/Widget/MotoNewsInfiniteScrollAuto";
 import OrganismHeroPanel2 from "atomv2/components/Organisms/OrganismHeroPanel2";
-import { InstantSearchWrapper } from "../Widget/InstantSearchWrapper";
-import MotoNewsInfiniteScrollAuto from "../Widget/MotoNewsInfiniteScrollAuto";
 
 export const revalidate = 60; // 60 сек тутамд regenerate хийнэ
 

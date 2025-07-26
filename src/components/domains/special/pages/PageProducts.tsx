@@ -1,18 +1,21 @@
 "use client";
 
+import BlockDiv from "atomv2/components/Blocks/BlockDiv";
+import BlockSection from "atomv2/components/Blocks/BlockSection";
 import PanelMain from "atomv2/components/Panel/PanelMain";
+import { map } from "lodash";
 import Banner from "../Widget/Banner";
 
 export default function ProductsPage({ item = item_local }: { item: any }) {
   return (
-    <main>
+    <BlockDiv type="main">
       <Banner item={item?.banner} />
 
       {/* ✅ Logo Grid with Hover Text */}
       <PanelMain>
-        <section className="my-24">
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
-            {item.productList.map((item: any, index: number) => (
+        <BlockSection className="my-24">
+          <BlockDiv className="grid grid-cols-2 md:grid-cols-3 gap-6">
+            {map(item?.productList, (item: any, index: number) => (
               <div
                 key={item?.id || index}
                 className="bg-white rounded-lg shadow hover:shadow-lg transition-shadow duration-300 p-4 flex flex-col items-center text-center group cursor-pointer border border-gray-50">
@@ -32,68 +35,10 @@ export default function ProductsPage({ item = item_local }: { item: any }) {
                 <p className="text-gray-500 text-sm">{item?.description}</p>
               </div>
             ))}
-          </div>
-        </section>
-
-        {/* <section className="my-24">
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
-            {item.productList.map((product, i) => (
-              <div
-                key={i}
-                className="relative overflow-hidden rounded shadow group">
-                <img
-                  src={product.image}
-                  alt={`product-${i}`}
-                  className="w-full h-auto object-cover transition-transform duration-300 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
-                  <p className="text-white text-sm font-medium leading-snug mb-2">
-                    {product.description}
-                  </p>
-                  <div className="bg-[#c8102e] text-white w-8 h-8 flex items-center justify-center rounded-full">
-                    +
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </section> */}
-
-        {/* ✅ Product Images */}
-        {/* <section className="bg-white py-16 px-4">
-        <div className=" grid grid-cols-1 md:grid-cols-3 gap-8">
-          {item?.productImages.map((src, i) => (
-            <img
-              key={i}
-              src={src}
-              alt={`product-image-${i}`}
-              className="w-full rounded shadow object-cover hover:scale-105 transition-transform duration-300"
-            />
-          ))}
-        </div>
-      </section> */}
-
-        {/* ✅ Pagination */}
-        {/* <section className="py-10 bg-[#f5f6f8] flex justify-center">
-        <div className="flex gap-2">
-          <button className="px-3 py-1 bg-white border rounded hover:bg-gray-100">
-            ←
-          </button>
-          {item?.pagination.pages.map((page) => (
-            <button
-              key={page}
-              className={`px-3 py-1 border rounded hover:bg-gray-100 ${
-                page === item?.pagination.currentPage
-                  ? "bg-[#c8102e] text-white"
-                  : "bg-white"
-              }`}>
-              {page}
-            </button>
-          ))}
-        </div>
-      </section> */}
+          </BlockDiv>
+        </BlockSection>
       </PanelMain>
-    </main>
+    </BlockDiv>
   );
 }
 

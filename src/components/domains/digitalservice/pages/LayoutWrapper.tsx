@@ -1,8 +1,7 @@
-"use client";
-
 import BlockDiv from "atomv2/components/Blocks/BlockDiv";
-import DigitalServiceFooter from "../Widget/DigitalServiceFooter";
 import DigitalServiceNavbar from "../Widget/DigitalServiceNavbar";
+import DigitalServiceFooter from "../Widget/DigitalServiceFooter";
+import "../Widget/theme.css";
 
 export default function LayoutWrapper({
   children,

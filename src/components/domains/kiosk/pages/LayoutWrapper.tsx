@@ -1,8 +1,6 @@
-// LayoutWrapper.tsx
-"use client";
-
 import Header from "../Widget/KioskHeader";
 import Footer from "../Widget/KioskFooter";
+import "../Widget/theme.css";
 
 export default function LayoutWrapper({
   children,

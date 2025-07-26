@@ -1,5 +1,3 @@
-"use client";
-
 import RenderAtom from "atomv2/components/Atoms/RenderAtom";
 import BlockDiv from "atomv2/components/Blocks/BlockDiv";
 import BlockFlexCol from "atomv2/components/Blocks/BlockFlexCol";
@@ -186,9 +184,6 @@ export default function DigitalServicePageAbout() {
               "Бид танд хэрэгтэй бүхий л мэдээлэл, тусламжийг өгөхөд бэлэн байна. Өнөөдөр холбогдож захиалгаа өгөөрэй!",
             button: {
               value: "Холбогдох",
-              onClick: () => {
-                console.log("Холбогдох товч дарав");
-              },
             },
           }}
         />

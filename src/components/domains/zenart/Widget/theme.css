@@ -1,6 +1,6 @@
 .theme-zenart {
   --color-brand:         #38536f;
-  --color-secondary:       oklch(0.4 0.0144 264.4);  /* soft near-black with blue tint */
+  --color-secondary:       oklch(61.456% 0.1313 263.201);  /* soft near-black with blue tint */
   --color-accent:          oklch(0.72 0.14 240);  /* mid blue accent (button, link) */
   --color-muted:           oklch(0.50 0.02 260);  /* subtle grey-blue (placeholder) */
   --color-bg:              oklch(0.99 0.005 260); /* almost white background */
