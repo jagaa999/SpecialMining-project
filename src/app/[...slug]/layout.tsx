@@ -14,9 +14,9 @@ import { DomainProvider } from "src/config/context/DomainContext";
 import { getLayoutWrapper } from "src/config/utils/getLayoutWrapper";
 import { ClientSWRProvider } from "src/config/provider/ClientSWRProvider";
 
-// export const dynamicParams = true;
-// export const revalidate = 3;
-// export const dynamic = "force-static";
+export const dynamicParams = true;
+export const revalidate = 3600;
+export const dynamic = "force-static";
 
 export default async function RootLayout({
   children,
@@ -28,14 +28,11 @@ export default async function RootLayout({
   const { slug } = await params;
   const [domain = "default"] = slug;
 
-  console.log("KILLER 🚀 ~ RootLayout ~ domain:", domain);
-
   const LayoutWrapper = await getLayoutWrapper(domain);
 
   return (
     <html lang="mn" className={`theme-${domain}`}>
       <head>
-        {/* <link rel="stylesheet" href={`/${domain}/theme.css`} /> */}
         <Script
           src="https://accounts.google.com/gsi/client"
           strategy="beforeInteractive"

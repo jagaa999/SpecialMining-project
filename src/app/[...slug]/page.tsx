@@ -1,16 +1,12 @@
+import { fetchStaticItem } from "@/config/utils/fetchStaticItem";
 import { isEmpty } from "lodash";
 import { getPageComponent } from "src/config/utils/getPageComponent";
 // import MotoTest from "@/components/domains/moto/pages/PageTest";
 // import { fetchStaticItem } from "@/lib/api/fetchStaticItem";
 
 export const dynamicParams = true;
-export const revalidate = 3;
+export const revalidate = 3600;
 export const dynamic = "force-static";
-
-// export const dynamic = "auto";
-// export const revalidate = 3600;
-// export const dynamic = "force-dynamic"; // Force dynamic rendering for this page
-// export const dynamicParams = false; // Зөвхөн generateStaticParams-д тодорхойлсон роутуудыг зөвшөөрнө
 
 export default async function SlugPage({
   params,
@@ -20,14 +16,11 @@ export default async function SlugPage({
   const { slug } = await params;
   const [domain, ...slugSegments] = slug;
   const slugReady = isEmpty(slugSegments) ? ["home"] : slugSegments;
-  console.log("Rendering page for:", domain, slugReady);
 
   const PageComponent = await getPageComponent(domain, slugReady);
-  // const staticItem = await fetchStaticItem(slug);
-  const staticItem = {};
+  const staticItem = await fetchStaticItem(domain, slugReady.join("/"));
 
-  return <PageComponent item={staticItem} domain={domain} />;
-  // return <MotoTest />;
+  return <PageComponent item={staticItem?.[0]?.json} domain={domain} />;
 }
 
 export async function generateStaticParams() {
