@@ -23,7 +23,7 @@ export default function MotoNewsCustomHits() {
 
 const MainItems = () => {
   const { items } = useInfiniteHits();
-  // console.log("🚀 ~ MainItems ~ items:", items);
+  console.log("🚀 ~ MainItems ~ items:", items);
 
   return (
     <BlockFlexCol className="gap-7">

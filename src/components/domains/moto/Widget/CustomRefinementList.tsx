@@ -3,11 +3,14 @@
 import { Checkbox } from "antd";
 import BlockFlexCol from "atomv2/components/Blocks/BlockFlexCol";
 import BlockFlexRow from "atomv2/components/Blocks/BlockFlexRow";
+import { BlockSkeleton } from "atomv2/components/Blocks/BlockSkeleton";
 import TextBody from "atomv2/components/Text/TextBody";
 import { usePostToMotoApi } from "atomv2/hooks/api/usePostToMotoApi";
 import { find, isEmpty, last, map, sortBy, split } from "lodash";
 import { useEffect } from "react";
 import { useRefinementList, UseRefinementListProps } from "react-instantsearch";
+
+export const revalidate = 3600;
 
 export default function CustomRefinementList({
   attribute,
@@ -25,7 +28,7 @@ export default function CustomRefinementList({
     attribute,
   } as UseRefinementListProps);
 
-  const { data: refData, send } = usePostToMotoApi();
+  const { data: refData, send, loading } = usePostToMotoApi();
 
   useEffect(() => {
     if (!isEmpty(categoryReady)) {
@@ -38,6 +41,10 @@ export default function CustomRefinementList({
       );
     }
   }, [categoryReady]);
+
+  if (loading) {
+    return <BlockSkeleton variant="text" className="mt-4" />;
+  }
 
   const itemsSorted = sortBy(items, (item) => {
     const index = refData?.findIndex(

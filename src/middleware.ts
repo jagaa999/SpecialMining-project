@@ -5,17 +5,12 @@ export function middleware(request: NextRequest) {
   const host = request.headers.get("host") || "";
   const domain = extractDomainFromHost(host);
 
-  // Хуучин нь
-  // const response = NextResponse.next();
-  // response.cookies.set("domain", domain);
-  // response.headers.set("x-theme", domain);
-  // return response;
-
-  // Шинэ нь
   if (!domain) return new NextResponse("Unknown domain", { status: 404 });
 
   const url = request.nextUrl.clone();
   url.pathname = `/${domain}${url.pathname}`;
+
+  console.log("DDDDDDDD🚀 ~ middleware ~ domain:", domain);
 
   const response = NextResponse.rewrite(url);
   response.headers.set("x-domain-id", domain); // headers-д domain-ийг хадгална
@@ -24,17 +19,7 @@ export function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: [
-    /*
-     * Match all request paths except for the ones starting with:
-     * - api (API routes)
-     * - _next/static (static files)
-     * - _next/image (image optimization files)
-     * - favicon.ico (favicon file)
-     */
-    "/((?!api|_next/static|_next/image|favicon.ico).*)",
-    // "/((?!api|_next/static|_next/image|favicon.ico|.*\\.ico$).*)",
-  ],
+  matcher: ["/((?!api|_next/static|_next/image|images|favicon.ico).*)"],
 };
 
 // Жич

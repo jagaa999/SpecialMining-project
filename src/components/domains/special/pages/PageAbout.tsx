@@ -3,14 +3,13 @@
 import AtomImageV3 from "atomv2/components/Atoms/AtomImageV3";
 import PanelMain from "atomv2/components/Panel/PanelMain";
 import _ from "lodash";
-import { useDomain } from "src/config/context/DomainContext";
 import { generalTheme } from "../generalConfig";
 import Banner from "../Widget/Banner";
 
 export default function AboutPage({ item = item_local }: { item: any }) {
-  console.log("dfsdfdsf", item);
-  const domain = useDomain();
-  console.log("MyContext Value:", domain);
+  // console.log("dfsdfdsf", item);
+  // const domain = useDomain();
+  // console.log("MyContext Value:", domain);
 
   return (
     <main>

@@ -7,9 +7,9 @@ import Banner from "../Widget/Banner";
 import { useDomain } from "src/config/context/DomainContext";
 
 export default function PageTest({ item = item_local }: { item: any }) {
-  console.log("dfsdfdsf", item);
+  // console.log("dfsdfdsf", item);
   const domain = useDomain();
-  console.log("MyContext Value:", domain);
+  // console.log("MyContext Value:", domain);
 
   return (
     <main>

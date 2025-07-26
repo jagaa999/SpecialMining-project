@@ -46,15 +46,15 @@ const metadataTemplate = ({
 });
 
 const metadataContentMap: any = {
-  special: {
-    favicon: "/special/favicon.png",
-    title: "Special Mining",
-    description:
-      "Special Mining Services LLC (SMS) is a mining technology company that established in 2012 and is specialized in Drill & Blast and industrial chemicals. We are truly committed to safety, responsible operation and our clients’ interest.",
-    url: "https://www.special.mn",
-    image: "/images/dddd.jpg",
-    creator: "@Special",
-  },
+  // special: {
+  //   // favicon: "/special/favicon.png",
+  //   title: "Special Mining",
+  //   description:
+  //     "Special Mining Services LLC (SMS) is a mining technology company that established in 2012 and is specialized in Drill & Blast and industrial chemicals. We are truly committed to safety, responsible operation and our clients’ interest.",
+  //   url: "https://www.special.mn",
+  //   image: "/images/dddd.jpg",
+  //   creator: "@Special",
+  // },
   // digitalservice: {
   //   favicon: "https://cdn-icons-png.flaticon.com/128/446/446991.png",
   //   title: "Дижитал Сервис",
