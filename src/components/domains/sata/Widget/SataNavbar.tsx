@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
-const Navbar = () => {
+export default function SataNavbar() {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -59,6 +59,4 @@ const Navbar = () => {
       </div>
     </header>
   );
-};
-
-export default Navbar;
+}

@@ -1,12 +1,9 @@
-"use client";
-
 import BlockFlexCol from "atomv2/components/Blocks/BlockFlexCol";
 import { includes, isArray, map } from "lodash";
 import { useEffect, useState } from "react";
-import CustomFacetDatePreset from "./CustomFacetDatePreset";
-import CustomRefinementList from "./CustomRefinementList";
+import OrganismTypesenseFacetCheckbox from "./OrganismTypesenseFacetCheckbox";
 
-export default function CustomFacetList() {
+export default function OrganismTypesenseFacetList() {
   const [facets, setFacets] = useState<any[]>([]);
 
   useEffect(() => {
@@ -28,8 +25,6 @@ export default function CustomFacetList() {
     fetchFacets();
   }, []);
 
-  // console.log("dfsdeweeeeeeeeee", facets);
-
   return (
     <BlockFlexCol className="">
       {map(facets, (item, index) => {
@@ -43,17 +38,17 @@ export default function CustomFacetList() {
           )
         ) {
           return null;
-          return (
-            <CustomFacetDatePreset
-              key={item.attribute}
-              attribute={item.attribute}
-              title={title}
-            />
-          );
+          // return (
+          //   <CustomFacetDatePreset
+          //     key={item.attribute}
+          //     attribute={item.attribute}
+          //     title={title}
+          //   />
+          // );
         }
 
         return (
-          <CustomRefinementList
+          <OrganismTypesenseFacetCheckbox
             key={item.title || index}
             attribute={item.attribute}
             title={title}
@@ -64,13 +59,12 @@ export default function CustomFacetList() {
   );
 }
 
-function getFacetTitle(category: string): string {
+const getFacetTitle = (category: string) => {
   const titles: Record<string, string> = {
     ref_newstype: "Төрөл",
     ref_newssource: "Эх сурвалж",
     ref_carfirm: "Машины фирм",
     ref_carmark: "Машины марк",
-    // өөр facet нэрсийг нэмж болно
   };
   return titles[category] || category;
-}
+};

@@ -1,5 +1,3 @@
-"use client";
-
 import { Checkbox } from "antd";
 import BlockFlexCol from "atomv2/components/Blocks/BlockFlexCol";
 import BlockFlexRow from "atomv2/components/Blocks/BlockFlexRow";
@@ -12,7 +10,7 @@ import { useRefinementList, UseRefinementListProps } from "react-instantsearch";
 
 export const revalidate = 3600;
 
-export default function CustomRefinementList({
+export default function OrganismTypesenseFacetCheckbox({
   attribute,
   title,
   refCategory,

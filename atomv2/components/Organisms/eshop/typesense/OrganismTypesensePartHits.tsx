@@ -10,13 +10,13 @@ import PosTitle from "atomv2/components/Position/PosTitle";
 import { toMotoDate } from "atomv2/util/widgetHelper";
 import { map } from "lodash";
 import { useInfiniteHits } from "react-instantsearch";
-import LoadMoreTrigger from "./LoadMoreTrigger";
+import OrganismTypesenseLisLoadMoreTrigger from "./OrganismTypesenseLisLoadMoreTrigger";
 
-export default function MotoNewsCustomHits() {
+export default function OrganismTypesensePartHits() {
   return (
     <BlockFlexCol>
       <MainItems />
-      <LoadMoreTrigger />
+      <OrganismTypesenseLisLoadMoreTrigger />
     </BlockFlexCol>
   );
 }

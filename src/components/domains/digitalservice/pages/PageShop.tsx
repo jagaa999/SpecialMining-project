@@ -3,6 +3,7 @@ import OrganismBasketPanel from "atomv2/components/Organisms/eshop/OrganismBaske
 import OrganismProductList from "atomv2/components/Organisms/OrganismProductList";
 import PanelMain from "atomv2/components/Panel/PanelMain";
 import Banner from "../Widget/DigitalServiceBanner";
+import BlockSection from "atomv2/components/Blocks/BlockSection";
 
 export default function DigitalServicePageShop() {
   return (
@@ -16,11 +17,11 @@ export default function DigitalServicePageShop() {
         }}
       />
 
-      <BlockDiv type="section">
+      <BlockSection>
         <PanelMain className="flex flex-col gap-12">
           <OrganismProductList companyId="1733312860727929" pageSize={9} />
         </PanelMain>
-      </BlockDiv>
+      </BlockSection>
 
       <OrganismBasketPanel />
     </BlockDiv>

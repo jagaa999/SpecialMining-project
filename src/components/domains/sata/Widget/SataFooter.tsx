@@ -1,4 +1,4 @@
-const Footer = () => {
+export default function SataFooter() {
   return (
     <footer className="bg-[#0e1013] text-white py-12 px-6">
       <div className="max-w-screen-xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 text-sm">
@@ -44,6 +44,4 @@ const Footer = () => {
       </div>
     </footer>
   );
-};
-
-export default Footer;
+}

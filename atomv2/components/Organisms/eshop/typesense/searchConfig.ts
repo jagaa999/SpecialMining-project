@@ -1,14 +1,13 @@
 import { history } from "instantsearch.js/es/lib/routers";
 
-export const routing = {
+export const createRouting = (collectionName: string) => ({
   router: history({
     createURL({ location, routeState }) {
-      const indexState = routeState.moto_news_v2 || {};
+      const indexState = routeState[collectionName] || {};
       const refinementList = indexState.refinementList || {};
       const query = indexState.query || "";
-      const urlParams = new URLSearchParams(location.search); // 🟢 location.search-ийг хадгална
+      const urlParams = new URLSearchParams(location.search);
 
-      // InstantSearch-тэй холбоотой query-г нэмж тавих
       if (query) {
         urlParams.set("q", query);
       }
@@ -31,13 +30,12 @@ export const routing = {
         if (key === "q") {
           query = value;
         } else if (key !== "id") {
-          // 🟢 бусад query-г үлдээ
           refinementList[key] = value.split(",");
         }
       }
 
       return {
-        moto_news_v2: {
+        [collectionName]: {
           query,
           refinementList,
         },
@@ -47,12 +45,12 @@ export const routing = {
 
   stateMapping: {
     stateToRoute(uiState: any) {
-      const indexUiState = uiState.moto_news_v2 || {};
+      const indexUiState = uiState[collectionName] || {};
       const refinementList = indexUiState.refinementList || {};
       const query = indexUiState.query || "";
 
       return {
-        moto_news_v2: {
+        [collectionName]: {
           query,
           refinementList,
         },
@@ -61,11 +59,11 @@ export const routing = {
 
     routeToState(routeState: any) {
       return {
-        moto_news_v2: {
-          query: routeState.moto_news_v2?.query || "",
-          refinementList: routeState.moto_news_v2?.refinementList || {},
+        [collectionName]: {
+          query: routeState[collectionName]?.query || "",
+          refinementList: routeState[collectionName]?.refinementList || {},
         },
       };
     },
   },
-};
+});

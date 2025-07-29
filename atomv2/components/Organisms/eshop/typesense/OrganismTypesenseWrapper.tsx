@@ -1,8 +1,8 @@
 "use client";
 
+import { createRouting } from "./searchConfig";
 import { InstantSearch } from "react-instantsearch";
 import TypesenseInstantSearchAdapter from "typesense-instantsearch-adapter";
-import { routing } from "./searchConfig";
 
 const typesenseAdapter = new TypesenseInstantSearchAdapter({
   server: {
@@ -20,16 +20,18 @@ const typesenseAdapter = new TypesenseInstantSearchAdapter({
   },
 });
 
-export const InstantSearchWrapper = ({
+export const OrganismTypesenseWrapper = ({
+  collectionName,
   children,
 }: {
+  collectionName: string;
   children: React.ReactNode;
 }) => {
   return (
     <InstantSearch
       searchClient={typesenseAdapter.searchClient}
-      indexName="moto_news_v2"
-      routing={routing}>
+      indexName={collectionName}
+      routing={createRouting(collectionName)}>
       {children}
     </InstantSearch>
   );

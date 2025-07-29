@@ -7,7 +7,7 @@ import TextBody from "atomv2/components/Text/TextBody";
 import { map } from "lodash";
 import { useHitsPerPage } from "react-instantsearch";
 
-export default function CustomPageSizeDropdown() {
+export default function OrganismTypesenseListPageSizeDropdown() {
   const { items, refine } = useHitsPerPage({
     items: [
       { label: "12 ширхэг", value: 12, default: true },

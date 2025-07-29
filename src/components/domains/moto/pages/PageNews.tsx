@@ -1,11 +1,11 @@
 import OrganismHeroPanel2 from "atomv2/components/Organisms/OrganismHeroPanel2";
-import { InstantSearchWrapper } from "../Widget/InstantSearchWrapper";
-import MotoNewsInfiniteScrollAuto from "../Widget/MotoNewsInfiniteScrollAuto";
+import { OrganismTypesenseWrapper } from "atomv2/components/Organisms/eshop/typesense/OrganismTypesenseWrapper";
+import OrganismNewsInfiniteScrollAuto from "atomv2/components/Organisms/eshop/typesense/OrganismNewsInfiniteScrollAuto";
+import OrganismTypesenseNewsHits from "atomv2/components/Organisms/eshop/typesense/OrganismTypesenseNewsHits";
 
-export const revalidate = 60; // 60 сек тутамд regenerate хийнэ
+export const revalidate = 60;
 
 export default function MotoPageNews() {
-  // return <>dsf dsfdsf s This is News</>;
   return (
     <>
       <OrganismHeroPanel2
@@ -16,9 +16,11 @@ export default function MotoPageNews() {
           subtitle: "Авто Ертөнцөөр Аялцгаая",
         }}
       />
-      <InstantSearchWrapper>
-        <MotoNewsInfiniteScrollAuto />
-      </InstantSearchWrapper>
+      <OrganismTypesenseWrapper collectionName="moto_news_v2">
+        <OrganismNewsInfiniteScrollAuto>
+          <OrganismTypesenseNewsHits />
+        </OrganismNewsInfiniteScrollAuto>
+      </OrganismTypesenseWrapper>
     </>
   );
 }

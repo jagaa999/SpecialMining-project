@@ -5,7 +5,7 @@ import BlockFlexRow from "atomv2/components/Blocks/BlockFlexRow";
 import TextBody from "atomv2/components/Text/TextBody";
 import { useStats } from "react-instantsearch";
 
-export default function CustomStats() {
+export default function OrganismTypesenseListStats() {
   const { nbHits, processingTimeMS } = useStats();
 
   return (

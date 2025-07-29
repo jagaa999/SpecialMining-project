@@ -44,7 +44,7 @@ const ProductList = () => {
   return (
     <>
       <BlockDiv className="grid grid-cols-2 md:grid-cols-3 gap-8">
-        {map(data.rows, (item: any, index: number) => (
+        {map(data?.rows, (item: any, index: number) => (
           <ProductCard key={item?.id || index} item={item} />
         ))}
       </BlockDiv>

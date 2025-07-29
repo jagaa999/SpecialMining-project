@@ -8,7 +8,7 @@ import TextBody from "atomv2/components/Text/TextBody";
 import { map } from "lodash";
 import { useSortBy } from "react-instantsearch";
 
-export default function CustomSortDropdown() {
+export default function OrganismTypesenseListSortDropdown() {
   const { refine, currentRefinement } = useSortBy({
     items: sortOptions,
   });
