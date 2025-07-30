@@ -1,8 +1,17 @@
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import { typesenseAdminClient } from "../typesenseAdminClient";
 
-export async function GET() {
-  const COLLECTION_NAME = "moto_news_v2";
+export async function GET(req: NextRequest) {
+  const { searchParams } = new URL(req.url);
+  const COLLECTION_NAME = searchParams.get("collection") || "";
+
+  if (!COLLECTION_NAME) {
+    return NextResponse.json(
+      { error: "Collection нэр заавал шаардлагатай" },
+      { status: 400 }
+    );
+  }
+
   // ⛔️ Blacklist хийх facet нэрс
   const blacklist = [
     "authorid",

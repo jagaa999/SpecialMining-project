@@ -10,10 +10,9 @@ import OrganismNewsInfiniteScrollAuto from "atomv2/components/Organisms/eshop/ty
 import OrganismTypesensePartHits from "atomv2/components/Organisms/eshop/typesense/OrganismTypesensePartHits";
 import { OrganismTypesenseWrapper } from "atomv2/components/Organisms/eshop/typesense/OrganismTypesenseWrapper";
 
-const PageShop = () => {
+export default function SataPageShop() {
   return (
     <>
-      {/* <pre>{JSON.stringify(data, null, 4)}</pre>; */}
       {/* ✅ Hero */}
       <BlockSection
         className="relative py-32 text-center bg-cover bg-center transition-all duration-300 text-white"
@@ -31,13 +30,22 @@ const PageShop = () => {
         </PanelMain>
       </BlockSection>
 
-      <OrganismTypesenseWrapper collectionName="moto_product">
-        <OrganismNewsInfiniteScrollAuto>
+      <OrganismTypesenseWrapper
+        collectionName="moto_product"
+        look_company={1733312860727931}>
+        <OrganismNewsInfiniteScrollAuto
+          collectionName="moto_product"
+          facetConfig={{
+            look_company: { isShow: false },
+            isspecial: { isShow: false },
+            ref_carfirm: { isShow: false },
+            ref_carmark: { isShow: false },
+            look_user: { isShow: false },
+            ref_brand: { isShow: false },
+          }}>
           <OrganismTypesensePartHits />
         </OrganismNewsInfiniteScrollAuto>
       </OrganismTypesenseWrapper>
     </>
   );
-};
-
-export default PageShop;
+}

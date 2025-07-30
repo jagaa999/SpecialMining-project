@@ -10,7 +10,7 @@ export default function OrganismTypesenseListSearchBox() {
   return (
     <Input
       size="middle"
-      placeholder="Мэдээ хайх..."
+      placeholder="үгээр хайх..."
       className="placeholder:text-cs"
       classNames={{
         input: "placeholder:text-sm",

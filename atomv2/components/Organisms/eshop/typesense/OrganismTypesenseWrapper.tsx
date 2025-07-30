@@ -1,7 +1,8 @@
 "use client";
 
+import React from "react";
 import { createRouting } from "./searchConfig";
-import { InstantSearch } from "react-instantsearch";
+import { Configure, InstantSearch } from "react-instantsearch";
 import TypesenseInstantSearchAdapter from "typesense-instantsearch-adapter";
 
 const typesenseAdapter = new TypesenseInstantSearchAdapter({
@@ -22,9 +23,11 @@ const typesenseAdapter = new TypesenseInstantSearchAdapter({
 
 export const OrganismTypesenseWrapper = ({
   collectionName,
+  look_company,
   children,
 }: {
   collectionName: string;
+  look_company?: string | number;
   children: React.ReactNode;
 }) => {
   return (
@@ -32,6 +35,13 @@ export const OrganismTypesenseWrapper = ({
       searchClient={typesenseAdapter.searchClient}
       indexName={collectionName}
       routing={createRouting(collectionName)}>
+      {look_company && (
+        <Configure
+          {...({
+            filters: `look_company:=${look_company}`,
+          } as any)}
+        />
+      )}
       {children}
     </InstantSearch>
   );

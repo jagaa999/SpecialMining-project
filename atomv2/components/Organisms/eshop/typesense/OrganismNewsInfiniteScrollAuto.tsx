@@ -10,17 +10,27 @@ import OrganismTypesenseListPageSizeDropdown from "./OrganismTypesenseListPageSi
 import OrganismTypesenseListSearchBox from "./OrganismTypesenseListSearchBox";
 import OrganismTypesenseListSortDropdown from "./OrganismTypesenseListSortDropdown";
 import OrganismTypesenseListStats from "./OrganismTypesenseListStats";
+import { FacetConfig } from "@/config/typesense/facetConfig";
 
 export default function OrganismNewsInfiniteScrollAuto({
+  collectionName,
+  facetConfig,
   children,
 }: {
+  collectionName: string;
+  facetConfig?: Record<string, Partial<FacetConfig>>;
   children: ReactNode;
 }) {
   return (
     <PanelMain className="max-w-5xl w-full">
       <BlockFlexRow className="gap-8 w-full justify-start items-start">
         <BlockDiv className="w-[250px] shrink-0">
-          <LeftFilter />
+          <BlockDiv className="bg-white border border-slate-200 px-4 py-7 rounded-brand overflow-hidden">
+            <OrganismTypesenseFacetList
+              collectionName={collectionName}
+              facetConfig={facetConfig}
+            />
+          </BlockDiv>
         </BlockDiv>
 
         <BlockDiv className="flex-1 w-full min-w-0 min-h-[1px]">
@@ -30,14 +40,6 @@ export default function OrganismNewsInfiniteScrollAuto({
     </PanelMain>
   );
 }
-
-const LeftFilter = () => {
-  return (
-    <BlockDiv className="bg-white border border-slate-200 px-4 py-7 rounded-brand overflow-hidden">
-      <OrganismTypesenseFacetList />
-    </BlockDiv>
-  );
-};
 
 const RightMain = ({ children }: { children: ReactNode }) => {
   return (
@@ -54,7 +56,6 @@ const RightMain = ({ children }: { children: ReactNode }) => {
       </BlockFlexCol>
 
       {/* body */}
-      {/* <OrganismTypesenseNewsHits /> */}
       {children}
     </BlockFlexCol>
   );

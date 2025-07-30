@@ -1,5 +1,6 @@
 "use client";
 
+import { useDomain } from "@/config/context/DomainContext";
 import BlockDiv from "atomv2/components/Blocks/BlockDiv";
 import BlockFlexCol from "atomv2/components/Blocks/BlockFlexCol";
 import BlockFlexRow from "atomv2/components/Blocks/BlockFlexRow";
@@ -23,11 +24,13 @@ export default function OrganismTypesenseNewsHits() {
 
 const MainItems = () => {
   const { items } = useInfiniteHits();
+  const { slugs } = useDomain();
   console.log("🚀 ~ MainItems ~ items:", items);
 
   return (
     <BlockFlexCol className="gap-7">
       {map(items, (hit: any) => {
+        const myUrl = `/${slugs?.[0]}/detail?id=${hit.id}`;
         return (
           <BlockFlexRow
             key={hit.id}
@@ -38,7 +41,7 @@ const MainItems = () => {
                 alt={hit.title}
                 className="w-full h-full object-cover object-center px-0 py-0 rounded-r-none hover:text-brand rounded-brand"
                 url={{
-                  href: `/news/detail?id=${hit.id}`,
+                  href: myUrl,
                   className: "block w-full h-full",
                 }}
               />
@@ -47,7 +50,7 @@ const MainItems = () => {
             <BlockFlexCol className="gap-2 flex-1">
               <PosTitle
                 item={hit}
-                url={{ href: `/news/detail?id=${hit.id}` }}
+                url={{ href: myUrl }}
                 className="text-lg font-semibold hover:text-brand line-clamp-2"
                 animation={{
                   type: "slideLeft",

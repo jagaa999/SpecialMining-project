@@ -17,7 +17,7 @@ export default function MotoPageNews() {
         }}
       />
       <OrganismTypesenseWrapper collectionName="moto_news_v2">
-        <OrganismNewsInfiniteScrollAuto>
+        <OrganismNewsInfiniteScrollAuto collectionName="moto_news_v2">
           <OrganismTypesenseNewsHits />
         </OrganismNewsInfiniteScrollAuto>
       </OrganismTypesenseWrapper>
