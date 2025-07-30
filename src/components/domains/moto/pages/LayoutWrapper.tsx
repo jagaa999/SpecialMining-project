@@ -1,15 +1,15 @@
-"use client";
-
 import BlockDiv from "atomv2/components/Blocks/BlockDiv";
 import OrganismNavbarMenu from "atomv2/components/Organisms/OrganismNavbarMenu";
 import MotoFooter from "../Widget/MotoLayout/MotoFooter";
 import OrganismScrollToTopButton from "atomv2/components/Organisms/OrganismScrollToTopButton";
+import "../Widget/theme.css";
 
 export default function LayoutWrapper({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  console.log("MotoLayoutWrapper орж байна ааааааааааа");
   return (
     <BlockDiv
       type="main"

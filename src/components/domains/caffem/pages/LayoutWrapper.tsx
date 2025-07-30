@@ -1,6 +1,5 @@
-"use client";
-
 import BlockDiv from "atomv2/components/Blocks/BlockDiv";
+import "../Widget/theme.css";
 
 export default function LayoutWrapper({
   children,

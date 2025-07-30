@@ -1,7 +1,7 @@
-"use client";
-
+import BlockDiv from "atomv2/components/Blocks/BlockDiv";
 import Footer from "../Widget/Footer";
 import Navbar from "../Widget/NavMenu/Navbar";
+import BlockSection from "atomv2/components/Blocks/BlockSection";
 
 export default function LayoutWrapper({
   children,
@@ -9,10 +9,10 @@ export default function LayoutWrapper({
   children: React.ReactNode;
 }) {
   return (
-    <main className="flex flex-col min-h-screen">
+    <BlockDiv type="main" className="flex flex-col min-h-screen">
       <Navbar />
-      <section className="flex-grow">{children}</section>
+      <BlockSection className="flex-grow">{children}</BlockSection>
       <Footer />
-    </main>
+    </BlockDiv>
   );
 }

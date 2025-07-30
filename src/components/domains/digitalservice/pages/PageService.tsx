@@ -1,5 +1,3 @@
-"use client";
-
 import RenderAtom from "atomv2/components/Atoms/RenderAtom";
 import BlockDiv from "atomv2/components/Blocks/BlockDiv";
 import MoleculeCard02 from "atomv2/components/Molecules/MoleculeCard02";
@@ -114,9 +112,6 @@ export default function DigitalServicePageService() {
               "7012-2038 дугаар руу залгах эсвэл манай фэйсбүүк хуудсаар холбогдоорой.",
             button: {
               value: "Холбогдох",
-              onClick: () => {
-                console.log("Холбогдох товч дарав");
-              },
             },
           }}
         />

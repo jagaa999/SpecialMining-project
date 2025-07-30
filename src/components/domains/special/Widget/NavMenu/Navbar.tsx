@@ -9,7 +9,7 @@ export default function Navbar() {
   return (
     <>
       {/* Top Bar */}
-      <PanelContainer>
+      <PanelContainer className="py-1">
         <div className="hidden md:flex justify-between items-center py-3 border-b border-gray-100">
           {/* Social Icons */}
           <div className="flex flex-row gap-4">

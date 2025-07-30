@@ -1,4 +1,4 @@
-// components/Organisms/OrganismCart.tsx
+"use client";
 
 import { get, map } from "lodash";
 import useUnsplash from "src/config/hooks/useUnsplash";

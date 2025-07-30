@@ -1,9 +1,8 @@
-"use client";
-
 import BlockDiv from "atomv2/components/Blocks/BlockDiv";
 import AikidoFooter from "../Widget/AikidoFooter";
 import AikidoNavbar from "../Widget/AikidoNavMenu/AikidoNavbar";
 import AikidoContactPanel from "../Widget/AikidoContactPanel";
+import "../Widget/theme.css";
 
 export default function LayoutWrapper({
   children,

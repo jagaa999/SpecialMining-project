@@ -32,7 +32,7 @@ export default function NavbarMenu({ item }: { item: any }) {
           ? "bg-gradient-to-r from-white/50 via-pink-50/70 to-pink-100/80 backdrop-blur-md shadow-md py-2"
           : "bg-white shadow-none py-4"
       }`}>
-      <PanelContainer>
+      <PanelContainer className="py-1">
         <div className="w-full flex justify-between items-center">
           {/* Logo */}
           <Link href="/">

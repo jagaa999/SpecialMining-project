@@ -16,11 +16,11 @@ export default function HomePage({ item = item_local }: { item: any }) {
         <video
           controls
           className="w-full h-auto rounded-lg shadow-xl bg-gray-500 pt-16"
-          poster={item?.video.poster}
+          poster={item?.video?.poster}
           autoPlay
           loop
           muted>
-          <source src={item?.video.src} type="video/mp4" />
+          <source src={item?.video?.src} type="video/mp4" />
           Your browser does not support the video tag.
         </video>
       </PanelMain>

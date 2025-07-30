@@ -27,7 +27,7 @@ export async function GET() {
   console.log("энд орсон уу?", { schema });
 
   try {
-    const res = await fetch("http://139.162.31.19:8108/collections", {
+    const res = await fetch("https://typesense.moto.mn/collections", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

@@ -1,5 +1,3 @@
-"use client";
-
 import RenderAtom from "atomv2/components/Atoms/RenderAtom";
 import BlockDiv from "atomv2/components/Blocks/BlockDiv";
 import BlockHalf from "atomv2/components/Blocks/BlockHalf";
@@ -183,9 +181,6 @@ export default function DigitalServicePageHome() {
               "Та бидэнтэй холбогдож хүссэн хороо яг одоо захиалаарай. Бид 1-3 цагийн дотор юмуу маргааш өдөр хүргэж өгнө!",
             button: {
               value: "Захиалга өгөх",
-              onClick: () => {
-                console.log("Захиалга өгөх товч дарав");
-              },
             },
           }}
         />

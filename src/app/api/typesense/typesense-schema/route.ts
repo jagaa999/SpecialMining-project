@@ -26,8 +26,6 @@ export async function GET() {
         title: field.name,
       }));
 
-    // console.log("ssdsd", schema, facetFields);
-
     return NextResponse.json({ facets: facetFields });
   } catch (error: any) {
     return NextResponse.json({ error: error.message }, { status: 500 });

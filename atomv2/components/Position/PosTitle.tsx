@@ -9,5 +9,5 @@ export default function PosTitle({
   [key: string]: any;
 }) {
   const valueReady = prepareTitle(item);
-  return <RenderAtom value={valueReady} type="text" {...props} />;
+  return <RenderAtom value={valueReady} type="text" isHtml={true} {...props} />;
 }

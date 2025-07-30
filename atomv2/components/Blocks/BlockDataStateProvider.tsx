@@ -4,7 +4,7 @@
 import { ReactNode } from "react";
 import { DataContext } from "src/config/context/DataContext";
 import useSWR from "swr";
-import MoleculeEmptyState from "../Molecules/MoleculeEmptyState";
+// import MoleculeEmptyState from "../Molecules/MoleculeEmptyState";
 import MoleculeErrorState from "../Molecules/MoleculeErrorState";
 
 interface BlockDataStateProviderProps {
@@ -28,8 +28,8 @@ export default function BlockDataStateProvider({
   children,
   loadingComponent,
   errorComponent = <MoleculeErrorState />,
-  emptyComponent = <MoleculeEmptyState />,
-}: BlockDataStateProviderProps) {
+}: // emptyComponent = <MoleculeEmptyState />,
+BlockDataStateProviderProps) {
   const queryString = new URLSearchParams({
     ...query,
     offset: String(offset),
@@ -37,11 +37,11 @@ export default function BlockDataStateProvider({
   }).toString();
 
   const { data, error, isLoading } = useSWR(`${endpoint}?${queryString}`);
-  const isEmpty = !data?.rows?.length;
+  // const isEmpty = !data?.rows?.length;
 
   if (isLoading && loadingComponent) return loadingComponent;
   if (error) return errorComponent;
-  if (isEmpty) return emptyComponent;
+  // if (isEmpty) return emptyComponent;
 
   return (
     <DataContext.Provider

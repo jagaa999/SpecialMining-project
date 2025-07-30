@@ -1,6 +1,6 @@
 "use client";
 
-import _ from "lodash";
+import { map } from "lodash";
 import PanelMain from "atomv2/components/Panel/PanelMain";
 import { generalTheme } from "../generalConfig";
 import Banner from "../Widget/Banner";
@@ -15,27 +15,33 @@ export default function ServicesPage({ item = item_local }: { item: any }) {
       <PanelMain>
         {/* ✅ Blasting */}
         <section className="my-24" id="blasting">
-          <p className={generalTheme?.titleMain}>{sections.blasting.title1}</p>
+          <p className={generalTheme?.titleMain}>
+            {sections?.blasting?.title1}
+          </p>
 
           <ul className="list-disc list-inside space-y-2">
-            {sections.blasting.fields.map((field: any, index: number) => (
+            {sections?.blasting?.fields.map((field: any, index: number) => (
               <li key={index}>{field}</li>
             ))}
           </ul>
-          <p className={generalTheme?.titleMain}>{sections.blasting.title2}</p>
-          <p>{sections.blasting.description}</p>
-          <p className={generalTheme?.titleMain}>{sections.blasting.title3}</p>
+          <p className={generalTheme?.titleMain}>
+            {sections?.blasting?.title2}
+          </p>
+          <p>{sections?.blasting?.description}</p>
+          <p className={generalTheme?.titleMain}>
+            {sections?.blasting?.title3}
+          </p>
           <ul className="list-disc list-inside space-y-2">
-            {_.map(sections.blasting.works, (item: any, index: number) => (
+            {map(sections?.blasting?.works, (item: any, index: number) => (
               <li key={item?.id || index}>{item}</li>
             ))}
           </ul>
-          <p>{sections.blasting.commitment}</p>
+          <p>{sections?.blasting?.commitment}</p>
         </section>
 
         <section className="my-24">
           <img
-            src={sections.blasting.image}
+            src={sections?.blasting?.image}
             alt="Blasting"
             className="w-full h-auto rounded-lg shadow-lg"
           />
@@ -43,18 +49,20 @@ export default function ServicesPage({ item = item_local }: { item: any }) {
 
         {/* ✅ Production */}
         <section className="my-24" id="production">
-          <p className={generalTheme?.titleMain}>{sections.production.title}</p>
+          <p className={generalTheme?.titleMain}>
+            {sections?.production?.title}
+          </p>
           <div className="grid md:grid-cols-2 gap-12">
             <div className="space-y-6">
-              {_.map(
-                sections.production.paragraphs,
+              {map(
+                sections?.production?.paragraphs,
                 (item: any, index: number) => (
                   <p key={item?.id || index}>{item}</p>
                 )
               )}
             </div>
             <img
-              src={sections.production.image}
+              src={sections?.production?.image}
               alt="Production"
               className="w-full h-auto rounded-lg shadow-lg"
             />
@@ -63,7 +71,7 @@ export default function ServicesPage({ item = item_local }: { item: any }) {
 
         <section className="my-24">
           <img
-            src={sections.production.banner}
+            src={sections?.production?.banner}
             alt="Production Banner"
             className="w-full h-auto rounded-lg shadow-lg"
           />
@@ -71,15 +79,17 @@ export default function ServicesPage({ item = item_local }: { item: any }) {
 
         {/* ✅ Technical Services */}
         <section className="my-24" id="technical">
-          <p className={generalTheme?.titleMain}>{sections.technical.title}</p>
+          <p className={generalTheme?.titleMain}>
+            {sections?.technical?.title}
+          </p>
           <div className="grid md:grid-cols-3 gap-8">
-            {_.map(
-              [sections.technical.safe, sections.technical.efficient],
+            {map(
+              [sections?.technical?.safe, sections?.technical?.efficient],
               (item: any, index: number) => (
                 <div key={item?.id || index}>
-                  <p className={generalTheme?.title2}>{item.title}</p>
+                  <p className={generalTheme?.title2}>{item?.title}</p>
                   <ul className="list-disc list-outside pl-5">
-                    {item.items.map((text: any, jindex: number) => (
+                    {map(item?.items, (text: any, jindex: number) => (
                       <li key={jindex}>{text}</li>
                     ))}
                   </ul>
@@ -89,7 +99,7 @@ export default function ServicesPage({ item = item_local }: { item: any }) {
           </div>
 
           <img
-            src={sections.technical.image}
+            src={sections?.technical?.image}
             alt="Tech"
             className="w-full h-auto rounded-lg shadow-lg mt-8"
           />
@@ -97,20 +107,22 @@ export default function ServicesPage({ item = item_local }: { item: any }) {
 
         {/* ✅ Monitoring */}
         <section className="my-24" id="monitoring">
-          <p className={generalTheme?.titleMain}>{sections.monitoring.title}</p>
+          <p className={generalTheme?.titleMain}>
+            {sections?.monitoring?.title}
+          </p>
 
           <div className="grid md:grid-cols-3 gap-12 items-start">
-            <p className="col-span-1">{sections.monitoring.description}</p>
+            <p className="col-span-1">{sections?.monitoring?.description}</p>
             <div className="md:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-4">
-              {_.map(
-                [sections.monitoring.list1, sections.monitoring.list2],
+              {map(
+                [sections?.monitoring?.list1, sections?.monitoring?.list2],
                 (item: any, index: number) => (
                   <ul
                     key={item?.id || index}
                     className={`p-6 rounded-lg list-disc list-inside space-y-2 text-white ${
                       index === 0 ? "bg-[#3f60b7]" : "bg-[#252891]"
                     }`}>
-                    {item.map((item: any, j: number) => (
+                    {map(item, (item: any, j: number) => (
                       <li key={j}>{item}</li>
                     ))}
                   </ul>
@@ -122,20 +134,20 @@ export default function ServicesPage({ item = item_local }: { item: any }) {
 
         {/* ✅ Quality Management */}
         <section className="my-24" id="quality">
-          <p className={generalTheme?.titleMain}>{sections.quality.title}</p>
+          <p className={generalTheme?.titleMain}>{sections?.quality?.title}</p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
             <div>
-              <p>{sections.quality.description}</p>
+              <p>{sections?.quality?.description}</p>
               <ul className="list-disc list-inside text-gray-700 space-y-2 mt-8">
-                {sections.quality.tests.map((test: any, index: number) => (
+                {sections?.quality?.tests.map((test: any, index: number) => (
                   <li key={index}>{test}</li>
                 ))}
               </ul>
             </div>
 
             <div className="col-span-1 flex flex-col gap-4">
-              {sections.quality.images.map((src: any, index: number) => (
+              {sections?.quality?.images.map((src: any, index: number) => (
                 <img
                   key={index}
                   src={src}

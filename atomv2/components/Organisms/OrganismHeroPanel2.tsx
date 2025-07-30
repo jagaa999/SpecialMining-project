@@ -1,3 +1,5 @@
+"use client";
+
 // components/Organisms/OrganismCart.tsx
 
 import { ObjectLight } from "atomv2/types/objectTypes";

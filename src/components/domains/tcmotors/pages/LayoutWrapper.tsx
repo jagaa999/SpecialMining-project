@@ -1,9 +1,8 @@
-"use client";
-
 import BlockDiv from "atomv2/components/Blocks/BlockDiv";
-import TcmotorsFooter from "../widget/TcmotorsFooter";
-import TcmotorsNavbar from "../widget/TcmotorsNavbar";
-import TcmotorsBanner from "../widget/TcmotorsBanner";
+import TcmotorsFooter from "../Widget/TcmotorsFooter";
+import TcmotorsNavbar from "../Widget/TcmotorsNavbar";
+import TcmotorsBanner from "../Widget/TcmotorsBanner";
+import "../Widget/theme.css";
 
 export default function LayoutWrapper({
   children,

@@ -10,7 +10,6 @@ import TextH2 from "atomv2/components/Text/TextH2";
 import TextH4 from "atomv2/components/Text/TextH4";
 import TextH5 from "atomv2/components/Text/TextH5";
 import TextHtml from "atomv2/components/Text/TextHtml";
-import { motion } from "framer-motion";
 
 export default function TcmotorsPageHome() {
   return (
@@ -43,7 +42,6 @@ export default function TcmotorsPageHome() {
           ],
         }}
       />
-
 
       {/* Танилцуулга */}
       <BlockDiv

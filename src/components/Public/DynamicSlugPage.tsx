@@ -1,22 +1,25 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import { useParams, useSearchParams } from "next/navigation";
-
+import { useParams } from "next/navigation";
 import { useMemo } from "react";
 import { useDomain } from "src/config/context/DomainContext";
 import { useStaticItem } from "src/config/hooks/useStaticItem";
 
+function capitalize(str: string) {
+  return str.charAt(0).toUpperCase() + str.slice(1);
+}
+
 export default function DynamicSlugPage() {
   const params = useParams();
-  const searchParams = useSearchParams();
   const { domain } = useDomain();
+  const paramSlug = params?.slug || [];
 
-  const slugSegments =
-    typeof params.slug === "string"
-      ? [params.slug]
-      : Array.isArray(params.slug)
-      ? params.slug
+  const slugSegments: string[] =
+    typeof paramSlug === "string"
+      ? [paramSlug]
+      : Array.isArray(paramSlug)
+      ? paramSlug
       : ["home"];
 
   const slug = slugSegments.join("/");
@@ -24,60 +27,40 @@ export default function DynamicSlugPage() {
   const { staticItem, loading, error } = useStaticItem({ pageslug: slug });
 
   const PageComponent: any = useMemo(() => {
-    const capitalizedSegments = slugSegments.map(capitalize);
+    const segments = slugSegments.map(capitalize);
 
-    // Сүүлийн сегментэд 'Page' урд нь нэмнэ
-    if (capitalizedSegments.length > 0) {
-      const lastIndex = capitalizedSegments.length - 1;
-      capitalizedSegments[lastIndex] = `Page${capitalizedSegments[lastIndex]}`;
+    // Last segment = PageXxx
+    if (segments.length > 0) {
+      const last = segments.length - 1;
+      segments[last] = `Page${segments[last]}`;
     }
 
-    // Фолдерын зам: domain-ийн дагуу бүрдүүлнэ
-    const importPath = `src/components/domains/${domain}/pages/${capitalizedSegments.join(
+    const importPath = `src/components/domains/${domain}/pages/${segments.join(
       "/"
     )}`;
 
-    console.log("🚀 ~ DynamicSlugPage ~ slug:", {
-      slug,
-      importPath,
-      params,
-      searchParams,
-    });
+    console.log("dsddddddfdsf", { params, slug, domain, importPath });
 
     return dynamic(
       async () => {
         try {
-          return (await import(importPath)).default;
-        } catch (err: any) {
-          console.warn(
-            `❌ Page not found: ${importPath}, loading NotFoundPage`,
-            `error: ${err.message}`
-          );
-          return (await import("src/components/Public/NotFoundPage")).default;
+          const mod = await import(importPath);
+          return mod.default;
+        } catch (err) {
+          console.warn(`❌ Page not found: ${importPath}`, err);
+          const fallback = await import("src/components/Public/NotFoundPage");
+          return fallback.default;
         }
       },
       { ssr: false }
     );
   }, [slug, domain]);
 
-  if (loading) {
+  if (loading)
     return (
-      <div className="flex justify-center items-center h-64 animate-pulse text-gray-400">
-        Уншиж байна... (пэйжийн агуулга)
-      </div>
+      <div className="text-gray-400 animate-pulse p-8">Уншиж байна...</div>
     );
-  }
-  if (error) return <div>Error: {error}</div>;
-
-  if (!staticItem) {
-    console.warn(
-      `⚠ Цаанаас content ирсэнгүй. Байгааг нь гаргана. slug: ${slug}`
-    );
-  }
+  if (error) return <div>Алдаа: {error}</div>;
 
   return <PageComponent item={staticItem} />;
-}
-
-function capitalize(str: string) {
-  return str.charAt(0).toUpperCase() + str.slice(1);
 }

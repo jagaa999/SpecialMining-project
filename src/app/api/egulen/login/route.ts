@@ -4,8 +4,8 @@ import { NextResponse } from "next/server";
 
 export async function POST() {
   const credentials = {
-    username: "uniqcash",
-    password: "cash1",
+    username: "mcoffee2767",
+    password: "12345678",
     group_id: "4",
   };
 
@@ -36,3 +36,6 @@ export async function POST() {
     );
   }
 }
+
+// "login_id": "RICH_SUPER_STAR",
+// "login_password": "VshoTFVk",

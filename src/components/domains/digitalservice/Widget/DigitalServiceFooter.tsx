@@ -1,5 +1,3 @@
-"use client";
-
 import OrganismFooter01 from "atomv2/components/Organisms/OrganismFooter01";
 import OrganismScrollToTopButton from "atomv2/components/Organisms/OrganismScrollToTopButton";
 

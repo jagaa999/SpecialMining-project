@@ -1,5 +1,3 @@
-"use client";
-
 import BlockDiv from "atomv2/components/Blocks/BlockDiv";
 import MoleculeCard02 from "atomv2/components/Molecules/MoleculeCard02";
 import MoleculeCTA01 from "atomv2/components/Molecules/MoleculeCTA01";
@@ -14,8 +12,7 @@ export default function DigitalServicePageContact() {
     <>
       <OrganismHeroPanel keyword="beatiful wallpaper" item={item_local?.hero} />
 
-      {/* <PanelMain> */}
-      <div className="w-full bg-white text-gray-900">
+      <BlockDiv className="w-full bg-white text-gray-900">
         {/* Hero */}
         <MoleculeCTA01
           item={{
@@ -24,13 +21,9 @@ export default function DigitalServicePageContact() {
             description: "Таны дуртай суваг — доор таныг хүлээж байна!",
             button: {
               value: "Холбогдох",
-              onClick: () => {
-                console.log("Холбогдох товч дарав");
-              },
             },
           }}
         />
-
         {/* Contact Grid */}
         <BlockDiv type="section" className="min-h-screen h-auto bg-brand/7">
           <PanelMain className="text-center space-y-12">
@@ -68,7 +61,7 @@ export default function DigitalServicePageContact() {
                     title: "Байршил",
                     value:
                       "Улаанбаатар, ЧД, 9-р хороо, Их тойруу 54, Компьютер Молл төв, 5007 тоот",
-                    baseUrl: "https://goo.gl/maps/abc123", // өөрийнхөө map холбоосоор солиорой
+                    baseUrl: "https://goo.gl/maps/abc123",
                   },
                 ],
                 (item: any, index: number) => (
@@ -91,8 +84,7 @@ export default function DigitalServicePageContact() {
             </BlockDiv>
           </PanelMain>
         </BlockDiv>
-      </div>
-      {/* </PanelMain> */}
+      </BlockDiv>
     </>
   );
 }

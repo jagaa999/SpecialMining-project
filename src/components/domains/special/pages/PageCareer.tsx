@@ -1,19 +1,21 @@
 import Banner from "../Widget/Banner";
 import PanelMain from "atomv2/components/Panel/PanelMain";
 import { generalTheme } from "../generalConfig";
+import BlockSection from "atomv2/components/Blocks/BlockSection";
+import BlockDiv from "atomv2/components/Blocks/BlockDiv";
 
 export default function CareerPage({ item = item_local }: { item: any }) {
   return (
-    <main>
+    <BlockDiv type="main">
       <Banner item={item?.banner} />
 
       <PanelMain>
         {/* Policy Text */}
-        <section className="my-24">
-          <p>{item?.policy.text}</p>
-          <p className={generalTheme?.title2}>{item?.community.title}</p>
-          <p>{item?.community.text}</p>
-        </section>
+        <BlockSection className="my-24">
+          <p>{item?.policy?.text}</p>
+          <p className={generalTheme?.title2}>{item?.community?.title}</p>
+          <p>{item?.community?.text}</p>
+        </BlockSection>
 
         <section className="min-h-screen flex justify-center items-center">
           <iframe
@@ -25,7 +27,7 @@ export default function CareerPage({ item = item_local }: { item: any }) {
           </iframe>
         </section>
       </PanelMain>
-    </main>
+    </BlockDiv>
   );
 }
 

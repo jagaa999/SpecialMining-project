@@ -1,3 +1,5 @@
+"use client";
+
 import BlockFlexCol from "atomv2/components/Blocks/BlockFlexCol";
 import MoleculeBackButton from "atomv2/components/Molecules/MoleculeBackButton";
 import MoleculeEmptyItemState from "atomv2/components/Molecules/MoleculeEmptyItemState";
