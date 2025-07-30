@@ -6,10 +6,12 @@ import Image from 'next/image';
 import dynamic from 'next/dynamic';
 import { AnimatePresence, motion } from 'framer-motion';
 
+
 const NavbarModel = dynamic(() => import('../layout/NavbarModel'), { ssr: false });
 const NavbarTechnology = dynamic(() => import('../layout/NavbarTechnology'), { ssr: false });
 const NavbarContact = dynamic(() => import('../layout/NavbarContact'), { ssr: false });
 const NavbarService = dynamic(() => import('../layout/NavbarService'), { ssr: false });
+
 
 const navLinks = ['МОДЕЛИУД', 'ТЕХНОЛОГИ', 'БИДЭНТЭЙ ХОЛБОГДОХ', 'ҮЙЛЧИЛГЭЭ'];
 

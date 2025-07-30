@@ -5,7 +5,7 @@ import Image from 'next/image';
 const serviceItem = {
     title: 'Our Service',
     image: 'https://res.cloudinary.com/dg2qmka48/image/upload/v1753338146/autozar6/mainimages/2025/gac/service_bvdymn.jpg',
-    link: '#',
+    link: 'Service',
 };
 
 export default function NavbarService() {
