@@ -34,14 +34,20 @@ export default function OrganismNewsInfiniteScrollAuto({
         </BlockDiv>
 
         <BlockDiv className="flex-1 w-full min-w-0 min-h-[1px]">
-          <RightMain children={children} />
+          <RightMain collectionName={collectionName} children={children} />
         </BlockDiv>
       </BlockFlexRow>
     </PanelMain>
   );
 }
 
-const RightMain = ({ children }: { children: ReactNode }) => {
+const RightMain = ({
+  collectionName,
+  children,
+}: {
+  collectionName: string;
+  children: ReactNode;
+}) => {
   return (
     <BlockFlexCol>
       {/* header */}
@@ -50,7 +56,7 @@ const RightMain = ({ children }: { children: ReactNode }) => {
 
         <BlockFlexRow className="justify-end">
           <OrganismTypesenseListStats />
-          <OrganismTypesenseListSortDropdown />
+          <OrganismTypesenseListSortDropdown collectionName={collectionName} />
           <OrganismTypesenseListPageSizeDropdown />
         </BlockFlexRow>
       </BlockFlexCol>

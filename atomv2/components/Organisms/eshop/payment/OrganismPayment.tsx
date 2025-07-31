@@ -8,7 +8,11 @@ import OrganismPaymentЗахиалгынМэдээлэл from "./OrganismPayment
 import OrganismPaymentСагсныХатууПанель from "./OrganismPaymentСагсныХатууПанель";
 import OrganismPaymentТөлбөрийнМэдээлэл from "./OrganismPaymentТөлбөрийнМэдээлэл";
 
-export default function OrganismPayment() {
+export default function OrganismPayment({
+  lastUrl = "shop",
+}: {
+  lastUrl?: string;
+}) {
   return (
     <PanelMain className="grid grid-cols-12 gap-12">
       {/* Зүүн талд: Захиалгын форм */}
@@ -24,14 +28,14 @@ export default function OrganismPayment() {
           <OrganismPaymentЗахиалгынМэдээлэл />
 
           {/* Төлбөрийн динамик мэдээлэл */}
-          <OrganismPaymentТөлбөрийнМэдээлэл />
+          <OrganismPaymentТөлбөрийнМэдээлэл lastUrl={lastUrl} />
         </BlockFlexCol>
       </BlockDiv>
 
       {/* Баруун талд: Сагсны мэдээлэл */}
       <BlockDiv className="col-span-6">
         {/* Сагсны хатуу мэдээлэл */}
-        <OrganismPaymentСагсныХатууПанель />
+        <OrganismPaymentСагсныХатууПанель lastUrl={lastUrl} />
       </BlockDiv>
     </PanelMain>
   );

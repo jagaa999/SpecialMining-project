@@ -1,8 +1,9 @@
 import { FacetConfig, getFacetConfig } from "@/config/typesense/facetConfig";
 import BlockFlexCol from "atomv2/components/Blocks/BlockFlexCol";
-import { includes, isArray, map } from "lodash";
+import { filter, includes, map } from "lodash";
 import { useEffect, useState } from "react";
 import OrganismTypesenseFacetCheckbox from "./OrganismTypesenseFacetCheckbox";
+import { useFacets } from "@/config/hooks/useFacets";
 
 export default function OrganismTypesenseFacetList({
   collectionName,
@@ -11,28 +12,10 @@ export default function OrganismTypesenseFacetList({
   collectionName: string;
   facetConfig?: Record<string, Partial<FacetConfig>>;
 }) {
-  const [facets, setFacets] = useState<any[]>([]);
+  const { facets, isLoading, isError } = useFacets(collectionName);
 
-  useEffect(() => {
-    async function fetchFacets() {
-      try {
-        const res = await fetch(
-          `/api/typesense/typesense-schema?collection=${collectionName}`
-        );
-        const result = await res.json();
-
-        console.log("facet is", result);
-
-        if (isArray(result.facets)) {
-          setFacets(result.facets);
-        }
-      } catch (err) {
-        console.error("Facet fetch error:", err);
-      }
-    }
-
-    fetchFacets();
-  }, []);
+  if (isLoading) return <div>Түр хүлээнэ үү...</div>;
+  if (isError) return <div>Алдаа гарлаа</div>;
 
   return (
     <BlockFlexCol className="">

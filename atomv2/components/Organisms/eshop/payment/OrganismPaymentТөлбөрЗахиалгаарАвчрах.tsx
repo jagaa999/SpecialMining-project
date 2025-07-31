@@ -8,8 +8,12 @@ import OrganismPaymentТөлбөрЗахиалгаарАвчрах01Before from 
 import OrganismPaymentТөлбөрЗахиалгаарАвчрах02After from "./OrganismPaymentТөлбөрЗахиалгаарАвчрах02After";
 
 export default function OrganismPaymentТөлбөрЗахиалгаарАвчрах({
+  lastUrl = "shop",
   setIsShowModal,
-}: any) {
+}: {
+  lastUrl?: string;
+  setIsShowModal: any;
+}) {
   const [index, setIndex] = useState(0);
   const [result, setResult]: any = useState();
 
@@ -29,6 +33,7 @@ export default function OrganismPaymentТөлбөрЗахиалгаарАвчр�
         <OrganismPaymentТөлбөрЗахиалгаарАвчрах02After
           setIsShowModal={setIsShowModal}
           result={result}
+          lastUrl={lastUrl}
         />
       </BlockShowOnlyOne>
     </BlockDiv>

@@ -1,6 +1,7 @@
 "use client";
 
 import BlockSection from "atomv2/components/Blocks/BlockSection";
+import OrganismBasketPanel from "atomv2/components/Organisms/eshop/OrganismBasketPanel";
 import OrganismNewsInfiniteScrollAuto from "atomv2/components/Organisms/eshop/typesense/OrganismNewsInfiniteScrollAuto";
 import OrganismTypesensePartHits from "atomv2/components/Organisms/eshop/typesense/OrganismTypesensePartHits";
 import { OrganismTypesenseWrapper } from "atomv2/components/Organisms/eshop/typesense/OrganismTypesenseWrapper";
@@ -8,7 +9,7 @@ import PanelMain from "atomv2/components/Panel/PanelMain";
 import TextH2 from "atomv2/components/Text/TextH2";
 import TextHtml from "atomv2/components/Text/TextHtml";
 
-export default function PageParts() {
+export default function TcmotorsPageParts() {
   return (
     <>
       <BlockSection>
@@ -33,6 +34,8 @@ export default function PageParts() {
           <OrganismTypesensePartHits />
         </OrganismNewsInfiniteScrollAuto>
       </OrganismTypesenseWrapper>
+
+      <OrganismBasketPanel />
     </>
   );
 }

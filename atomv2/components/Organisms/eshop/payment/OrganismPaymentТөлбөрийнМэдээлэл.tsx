@@ -15,7 +15,11 @@ import OrganismPaymentТөлбөрQPay from "./OrganismPaymentТөлбөрQPay";
 import OrganismPaymentТөлбөрДансаар from "./OrganismPaymentТөлбөрДансаар";
 import OrganismPaymentТөлбөрЗахиалгаарАвчрах from "./OrganismPaymentТөлбөрЗахиалгаарАвчрах";
 
-export default function OrganismPaymentТөлбөрийнМэдээлэл() {
+export default function OrganismPaymentТөлбөрийнМэдээлэл({
+  lastUrl = "shop",
+}: {
+  lastUrl?: string;
+}) {
   const [isShowModal, setIsShowModal] = useToggle(false);
   const [number, setNumber] = useState(0);
 
@@ -41,7 +45,7 @@ export default function OrganismPaymentТөлбөрийнМэдээлэл() {
             type="button"
             variant="action1"
             className="opacity-40"
-            url={{ href: "/shop" }}
+            url={{ href: `/${lastUrl}` }}
           />
         </MoleculeEmptyItemState>
       ) : (
@@ -71,6 +75,7 @@ export default function OrganismPaymentТөлбөрийнМэдээлэл() {
         {number === 0 && (
           <OrganismPaymentТөлбөрЗахиалгаарАвчрах
             setIsShowModal={setIsShowModal}
+            lastUrl={lastUrl}
           />
         )}
         {number === 1 && (

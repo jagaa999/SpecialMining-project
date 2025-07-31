@@ -12,7 +12,12 @@ import { useRouter } from "next/navigation";
 export default function OrganismPaymentТөлбөрЗахиалгаарАвчрах02After({
   setIsShowModal,
   result,
-}: any) {
+  lastUrl = "shop",
+}: {
+  setIsShowModal: any;
+  result: any;
+  lastUrl?: string;
+}) {
   const router = useRouter();
   return (
     <BlockDiv className="space-y-8">
@@ -58,7 +63,7 @@ export default function OrganismPaymentТөлбөрЗахиалгаарАвчр�
           variant="action1"
           onClick={() => {
             setIsShowModal(false);
-            router.push("/shop");
+            router.push(`/${lastUrl}`);
           }}
         />
       </BlockFlexRow>

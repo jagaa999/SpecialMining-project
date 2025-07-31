@@ -8,7 +8,72 @@ import TextBody from "atomv2/components/Text/TextBody";
 import { map } from "lodash";
 import { useSortBy } from "react-instantsearch";
 
-export default function OrganismTypesenseListSortDropdown() {
+interface SortOption {
+  title: string;
+  value?: string;
+  isShow?: boolean;
+}
+
+export default function OrganismTypesenseListSortDropdown({
+  collectionName,
+  customSortOptions,
+}: {
+  collectionName: string;
+  customSortOptions?: SortOption[];
+}) {
+  const defaultSortOptions = [
+    {
+      title: "Шинэ эхэнд",
+      value: `${collectionName}/sort/createddate:desc`,
+      isShow: true,
+    },
+    {
+      title: "Хуучин эхэнд",
+      value: `${collectionName}/sort/createddate:asc`,
+      isShow: true,
+    },
+    {
+      title: "Гарчиг A-Z",
+      value: `${collectionName}/sort/title:asc`,
+      isShow: true,
+    },
+    {
+      title: "Гарчиг Z-A",
+      value: `${collectionName}/sort/title:desc`,
+      isShow: true,
+    },
+    {
+      title: "Хямдхан эхэндээ",
+      value: `${collectionName}/sort/price:asc`,
+      isShow: true,
+    },
+    {
+      title: "Үнэтэй эхэндээ",
+      value: `${collectionName}/sort/price:desc`,
+      isShow: true,
+    },
+  ];
+
+  // Merge default options with custom options based on title
+  const mergedOptions = defaultSortOptions.map((defaultOption) => {
+    const customOption = customSortOptions?.find(
+      (custom) => custom.title === defaultOption.title
+    );
+
+    return {
+      ...defaultOption,
+      ...customOption, // Custom options override default
+    };
+  });
+
+  // Use custom options or filter default options by isShow
+  const sortOptions = mergedOptions
+    .filter((option) => option.isShow !== false)
+    .map((option) => ({
+      ...option,
+      label: option.title, // title-г label болгох
+    }));
+
   const { refine, currentRefinement } = useSortBy({
     items: sortOptions,
   });
@@ -36,9 +101,3 @@ export default function OrganismTypesenseListSortDropdown() {
     </Dropdown>
   );
 }
-
-const sortOptions = [
-  { label: "Шинэ эхэнд", value: "moto_news_v2" },
-  { label: "Хуучин эхэнд", value: "moto_news_v2/sort/createddate:asc" },
-  //   { label: "Гарчиг A-Z", value: "moto_news_v2/sort/title:asc" },
-];

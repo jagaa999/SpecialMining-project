@@ -27,15 +27,16 @@ export async function GET(req: NextRequest) {
       .retrieve();
 
     const facetFields = schema.fields
-      .filter((field: any) => field.facet && !blacklist.includes(field.name))
+      .filter((field: any) => !blacklist.includes(field.name))
       .map((field: any) => ({
         attribute: field.name,
         type: field.type,
         facet: field.facet,
         title: field.name,
+        sort: field.sort,
       }));
 
-    return NextResponse.json({ facets: facetFields });
+    return NextResponse.json(facetFields);
   } catch (error: any) {
     return NextResponse.json({ error: error.message }, { status: 500 });
   }

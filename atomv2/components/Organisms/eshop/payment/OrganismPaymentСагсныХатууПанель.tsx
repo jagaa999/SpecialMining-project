@@ -9,7 +9,11 @@ import { useActionBasketButton } from "atomv2/hooks/actions/useActionBasketButto
 import { toMotoPrice } from "atomv2/util/widgetHelper";
 import { map } from "lodash";
 
-export default function OrganismPaymentСагсныХатууПанель() {
+export default function OrganismPaymentСагсныХатууПанель({
+  lastUrl = "shop",
+}: {
+  lastUrl?: string;
+}) {
   const { total, length, basketItems } = useActionBasketButton({});
 
   return (
@@ -26,7 +30,7 @@ export default function OrganismPaymentСагсныХатууПанель() {
             type="button"
             variant="action1"
             className="opacity-40"
-            url={{ href: "/shop" }}
+            url={{ href: `/${lastUrl}` }}
           />
         </MoleculeEmptyItemState>
       ) : (
