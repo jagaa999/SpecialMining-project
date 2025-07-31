@@ -72,6 +72,16 @@ const atomRegistry = {
     category: "Basic",
     description: "Clob HTML текст",
   },
+  googlemap: {
+    type: "googlemap",
+    component: dynamic(() => import("../components/Atoms/AtomGoogleMapV2"), {
+      ssr: false,
+    }),
+    displayName: "Google Map",
+    icon: "mdi:label-outline",
+    category: "basic",
+    description: "Google Map харуулна",
+  },
   input: {
     type: "input",
     component: dynamic(() => import("../components/Atoms/AtomInputV2"), {

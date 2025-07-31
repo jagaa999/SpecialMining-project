@@ -9,6 +9,7 @@ import TextH4 from "atomv2/components/Text/TextH4";
 import OrganismNewsInfiniteScrollAuto from "atomv2/components/Organisms/eshop/typesense/OrganismNewsInfiniteScrollAuto";
 import OrganismTypesensePartHits from "atomv2/components/Organisms/eshop/typesense/OrganismTypesensePartHits";
 import { OrganismTypesenseWrapper } from "atomv2/components/Organisms/eshop/typesense/OrganismTypesenseWrapper";
+import OrganismBasketPanel from "atomv2/components/Organisms/eshop/OrganismBasketPanel";
 
 export default function SataPageShop() {
   return (
@@ -46,6 +47,8 @@ export default function SataPageShop() {
           <OrganismTypesensePartHits />
         </OrganismNewsInfiniteScrollAuto>
       </OrganismTypesenseWrapper>
+
+      <OrganismBasketPanel />
     </>
   );
 }

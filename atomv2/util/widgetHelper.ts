@@ -23,6 +23,11 @@ export function toBoolean(x: any) {
   }
 }
 
+export function normalizeId(id: any): string {
+  if (id === null || id === undefined) return "";
+  return String(id);
+}
+
 export function preparePositionAllArray(list: any, positionConfig: any) {
   const result: any = _.map(list, (item) => {
     const myItem = _.isArray(item)

@@ -22,7 +22,7 @@ export default function OrganismNewsInfiniteScrollAuto({
   children: ReactNode;
 }) {
   return (
-    <PanelMain className="max-w-5xl w-full">
+    <PanelMain>
       <BlockFlexRow className="gap-8 w-full justify-start items-start">
         <BlockDiv className="w-[250px] shrink-0">
           <BlockDiv className="bg-white border border-slate-200 px-4 py-7 rounded-brand overflow-hidden">

@@ -1,7 +1,7 @@
 import BlockDiv from "atomv2/components/Blocks/BlockDiv";
 import Footer from "../Widget/SataFooter";
 import SataNavbar from "../Widget/SataNavbar";
-// import "../Widget/theme.css";
+import "../Widget/theme.css";
 
 export default function LayoutWrapper({
   children,

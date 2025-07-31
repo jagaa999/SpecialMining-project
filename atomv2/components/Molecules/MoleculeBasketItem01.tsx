@@ -49,6 +49,7 @@ export default function MoleculeBasketItem01({
         value="material-symbols:delete-outline"
         className="text-error text-xl cursor-pointer"
         onClick={onRemove}
+        tooltip={{ title: "Устах", placement: "left" }}
       />
     </BlockDiv>
   );

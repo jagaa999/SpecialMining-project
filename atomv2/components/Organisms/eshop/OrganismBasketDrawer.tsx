@@ -1,3 +1,5 @@
+"use client";
+
 import { useActionBasketButton } from "atomv2/hooks/actions/useActionBasketButton";
 import { ObjectButton } from "atomv2/types/objectTypes";
 import { toMotoPrice } from "atomv2/util/widgetHelper";
@@ -15,7 +17,7 @@ export default function OrganismBasketDrawer({
 }: {
   basketButton?: ObjectButton;
 }) {
-  const { total, length } = useActionBasketButton({});
+  const { total, length, clearBasket } = useActionBasketButton({});
 
   return (
     <BlockFlexCol className="h-screen max-h-screen justify-between">
@@ -47,13 +49,33 @@ export default function OrganismBasketDrawer({
           />
         </BlockDiv>
 
-        <RenderAtom
+        <BlockFlexRow className="gap-3 w-full">
+          {/* Clear basket button */}
+          <RenderAtom
+            value={"line-md:trash"}
+            type="icon"
+            className="text-2xl mx-3 text-red-400 cursor-pointer"
+            onClick={clearBasket}
+            tooltip={{ title: "Сагс хоослох" }}
+          />
+
+          {/* Cart details button */}
+          <RenderAtom
+            value={"Сагсны дэлгэрэнгүй"}
+            type="button"
+            className="flex-1 w-full bg-brand text-bg text-base"
+            url={{ href: "/cart", className: "flex-1" }}
+            {...basketButton}
+          />
+        </BlockFlexRow>
+
+        {/* <RenderAtom
           value={"Сагсны дэлгэрэнгүй"}
           type="button"
           className="w-full bg-brand text-bg text-base"
           url={{ href: "/cart", className: "w-full" }}
           {...basketButton}
-        />
+        /> */}
       </BlockDiv>
     </BlockFlexCol>
   );

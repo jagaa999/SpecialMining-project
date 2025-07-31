@@ -1,3 +1,5 @@
+"use client";
+
 import BlockDiv from "../../../Blocks/BlockDiv";
 import BlockFlexCol from "../../../Blocks/BlockFlexCol";
 import MoleculeBackButton from "../../../Molecules/MoleculeBackButton";

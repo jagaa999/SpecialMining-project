@@ -1,13 +1,15 @@
+"use client";
+
 import BlockDiv from "atomv2/components/Blocks/BlockDiv";
 import OrganismBasketPanel from "atomv2/components/Organisms/eshop/OrganismBasketPanel";
-import OrganismProductList from "atomv2/components/Organisms/OrganismProductList";
-import PanelMain from "atomv2/components/Panel/PanelMain";
+import OrganismNewsInfiniteScrollAuto from "atomv2/components/Organisms/eshop/typesense/OrganismNewsInfiniteScrollAuto";
+import OrganismTypesensePartHits from "atomv2/components/Organisms/eshop/typesense/OrganismTypesensePartHits";
+import { OrganismTypesenseWrapper } from "atomv2/components/Organisms/eshop/typesense/OrganismTypesenseWrapper";
 import Banner from "../Widget/DigitalServiceBanner";
-import BlockSection from "atomv2/components/Blocks/BlockSection";
 
 export default function DigitalServicePageShop() {
   return (
-    <BlockDiv type="main" className="w-full bg-bg ">
+    <BlockDiv type="main">
       <Banner
         item={{
           title: "Дэлгүүр",
@@ -16,12 +18,22 @@ export default function DigitalServicePageShop() {
             "https://specialmining.bloomlink.mn/moavolen/2023/09/DSC_7513-1536x1025.jpg",
         }}
       />
-
-      <BlockSection>
-        <PanelMain className="flex flex-col gap-12">
-          <OrganismProductList companyId="1733312860727929" pageSize={9} />
-        </PanelMain>
-      </BlockSection>
+      <OrganismTypesenseWrapper
+        collectionName="moto_product"
+        look_company={1733312860727929}>
+        <OrganismNewsInfiniteScrollAuto
+          collectionName="moto_product"
+          facetConfig={{
+            ref_brand: { isShow: true },
+            look_company: { isShow: false },
+            isspecial: { isShow: false },
+            ref_carfirm: { isShow: false },
+            ref_carmark: { isShow: false },
+            look_user: { isShow: false },
+          }}>
+          <OrganismTypesensePartHits />
+        </OrganismNewsInfiniteScrollAuto>
+      </OrganismTypesenseWrapper>
 
       <OrganismBasketPanel />
     </BlockDiv>

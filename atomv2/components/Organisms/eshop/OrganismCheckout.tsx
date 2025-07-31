@@ -51,7 +51,7 @@ const ЗахиалгынМэдээлэл = () => {
   const orderFields: any[] = [
     {
       name: "customername",
-      title: "Худалдан авагчийн нэр",
+      title: "Худалдан авагч",
       placeholder: "Нэрээ бичнэ үү",
       type: "inputantd",
       rules: { required: "Заавал бичнэ үү" },

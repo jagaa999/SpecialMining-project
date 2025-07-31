@@ -1,11 +1,13 @@
+"use client";
+
 import { useActionBasketButton } from "atomv2/hooks/actions/useActionBasketButton";
+import { ObjectLight } from "atomv2/types/objectTypes";
 import _ from "lodash";
 import RenderAtom from "../../Atoms/RenderAtom";
 import BlockDiv from "../../Blocks/BlockDiv";
 import MoleculeBasketItem01 from "../../Molecules/MoleculeBasketItem01";
 import MoleculeBasketItem02 from "../../Molecules/MoleculeBasketItem02";
 import MoleculeEmptyItemState from "../../Molecules/MoleculeEmptyItemState";
-import { ObjectLight } from "atomv2/types/objectTypes";
 
 interface Props {
   variant?: "MoleculeBasketItem01" | "MoleculeBasketItem02";
@@ -19,13 +21,6 @@ export default function OrganismBasketListPanel({
   OrganismBasketListPanelItemListOuter,
 }: Props) {
   const { basketItems, length } = useActionBasketButton({});
-
-  const ComponentMap: Record<string, any> = {
-    MoleculeBasketItem01,
-    MoleculeBasketItem02,
-  };
-
-  const BasketItemComponent = ComponentMap[variant] || MoleculeBasketItem01;
 
   return (
     <BlockDiv
@@ -51,13 +46,11 @@ export default function OrganismBasketListPanel({
           data-block="OrganismBasketListPanelItemListOuter"
           {...OrganismBasketListPanelItemListOuter}>
           {_.map(basketItems, (item: any, index: number) => {
-            const { toggleItem } = useActionBasketButton({ item });
-
             return (
-              <BasketItemComponent
+              <BasketItemWrapper
                 key={item.id || index}
                 item={item}
-                onRemove={() => toggleItem()}
+                variant={variant}
               />
             );
           })}
@@ -66,3 +59,24 @@ export default function OrganismBasketListPanel({
     </BlockDiv>
   );
 }
+
+const ComponentMap: Record<string, any> = {
+  MoleculeBasketItem01,
+  MoleculeBasketItem02,
+};
+
+// BasketItemWrapper.tsx
+const BasketItemWrapper = ({
+  item,
+  variant,
+  ...props
+}: {
+  item: any;
+  variant: string;
+  [key: string]: any;
+}) => {
+  const { toggleItem } = useActionBasketButton({ item });
+  const BasketItemComponent = ComponentMap[variant] || MoleculeBasketItem01;
+
+  return <BasketItemComponent item={item} onRemove={toggleItem} {...props} />;
+};

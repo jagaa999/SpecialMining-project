@@ -4,6 +4,7 @@ import { useDomain } from "@/config/context/DomainContext";
 import BlockDiv from "atomv2/components/Blocks/BlockDiv";
 import BlockFlexCol from "atomv2/components/Blocks/BlockFlexCol";
 import BlockListCard from "atomv2/components/Blocks/BlockListCard";
+import MoleculeBasketButton from "atomv2/components/Molecules/MoleculeBasketButton";
 import MoleculeIconText from "atomv2/components/Molecules/MoleculeIconText";
 import PosDesc from "atomv2/components/Position/PosDesc";
 import PosImage from "atomv2/components/Position/PosImage";
@@ -25,7 +26,7 @@ export default function OrganismTypesensePartHits() {
 const MainItems = () => {
   const { items } = useInfiniteHits();
   const { slugs } = useDomain();
-  console.log("🚀 ~ MainItems ~ items:", items);
+  // console.log("🚀 ~ MainItems ~ items:", items);
 
   return (
     <BlockListCard type="3">
@@ -34,7 +35,7 @@ const MainItems = () => {
         return (
           <BlockFlexCol
             key={hit.id}
-            className="w-full h-full rounded-brand hover:shadow-md transition bg-white border border-slate-200 hover:border-brand overflow-hidden gap-2">
+            className="w-full h-full rounded-brand hover:shadow-md transition bg-white border border-slate-200 hover:border-brand overflow-hidden gap-2 relative">
             <BlockDiv className="w-full h-44 shrink-0 overflow-hidden bg-white">
               <PosImage
                 item={hit}
@@ -47,7 +48,7 @@ const MainItems = () => {
               />
             </BlockDiv>
 
-            <BlockFlexCol className="gap-2 flex-1 px-3 py-2 justify-start">
+            <BlockFlexCol className="gap-2 flex-1 px-3 py-2 justify-start ">
               <PosTitle
                 item={hit}
                 url={{ href: myUrl }}
@@ -70,6 +71,10 @@ const MainItems = () => {
                 title={{ value: toMotoPrice(hit?.price) }}
               />
             </BlockFlexCol>
+
+            <BlockDiv className="px-3 py-2">
+              <MoleculeBasketButton item={hit} />
+            </BlockDiv>
           </BlockFlexCol>
         );
       })}

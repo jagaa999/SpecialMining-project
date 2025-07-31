@@ -1,6 +1,8 @@
 "use client";
 
+import RenderAtom from "atomv2/components/Atoms/RenderAtom";
 import BlockDiv from "atomv2/components/Blocks/BlockDiv";
+import BlockSection from "atomv2/components/Blocks/BlockSection";
 import OrganismHeroPanel from "atomv2/components/Organisms/OrganismHeroPanel";
 import PanelMain from "atomv2/components/Panel/PanelMain";
 import PanelTextMain from "atomv2/components/Panel/PanelTextMain";
@@ -36,10 +38,10 @@ export default function PageContacts() {
         {/* Contact Information */}
         <BlockDiv className="space-y-6">
           <PanelTitle value="Манай хаяг, холбоо барих" />
-          <PanelTextMain value="📍 Улаанбаатар, Сүхбаатар дүүрэг, 1-р хороо, Тээврийн товчооны зам" />
-          <PanelTextMain value="📞 +976 8800-1234" />
+          <PanelTextMain value="📍 Улаанбаатар, Дөлгөөн нуурын тойргоос хойшоо, 100 метр" />
+          <PanelTextMain value="📞 +976 9908-6787" />
           <PanelTextMain value="✉ info@tcmotors.mn" />
-          <PanelTextMain value="🕘 Ажлын цаг: Даваа–Бямба 09:00–18:00" />
+          <PanelTextMain value="🕘 Ажлын цаг: Даваа–Бямба 09:00–20:00" />
           <div className="flex gap-4 pt-4">
             <a href="https://facebook.com/tcmotors.mn" target="_blank">
               <img src="/social/facebook.svg" className="h-6" alt="Facebook" />
@@ -82,15 +84,16 @@ export default function PageContacts() {
       </PanelMain>
 
       {/* Map */}
-      <div className="w-full h-[400px]">
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3424.0145406222293!2d106.89641301512262!3d47.92254977920701!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5d96925d438bf227%3A0x53662d151fc4e3f9!2z0JzQvtC70YzRiNC-0L3QsNGPINGD0LsuLCAxLCDQotC10YDQvdC10L3RgtGA0LDRgNGMIDIwMDAw!5e0!3m2!1sen!2smn!4v1707048609203!5m2!1sen!2smn"
-          width="100%"
-          height="100%"
-          allowFullScreen
-          loading="lazy"
-          className="border-0"></iframe>
-      </div>
+      <BlockSection className="w-full h-[520px]">
+        <RenderAtom
+          value={
+            "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2673.3371110165226!2d106.90490605136938!3d47.92986253531843!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5d96935fa3211f81%3A0x1343db736f14194c!2zVEMg0LzQvtGC0L7RgNGB!5e0!3m2!1sen!2smn!4v1753929152732!5m2!1sen!2smn"
+          }
+          type="googlemap"
+          className=""
+        />
+        ;
+      </BlockSection>
     </>
   );
 }

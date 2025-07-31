@@ -34,7 +34,7 @@ export default function SataNavbar() {
           <span
             className={`transition-all duration-300 font-semibold tracking-wide ${
               scrolled ? "text-base" : "text-lg"
-            } text-green-400`}>
+            } text-gray-200`}>
             SATA Mongolia
           </span>
         </Link>

@@ -1,4 +1,7 @@
+"use client";
+
 import { find } from "lodash";
+import { useMemo } from "react";
 import { useConfig } from "src/config/context/ConfigContext";
 import {
   extractObjectMain,
@@ -14,11 +17,24 @@ export function useActionBasketButton({
   item?: any;
   convertToSimple?: boolean;
 }) {
-  const itemReady = convertToSimple ? extractObjectMain(item) : item;
-
   const { localConfig, setLocalConfig } = useConfig();
   const basketItems = localConfig.basketList || [];
-  const matchedItem = find(basketItems, (b) => b?.id === itemReady?.id);
+
+  // Item байхгүй бол early return
+  // if (!item) return null;
+
+  // useMemo ашиглан itemReady-г cache хийх
+  const itemReady = useMemo(() => {
+    if (!item) return null;
+    return convertToSimple ? extractObjectMain(item) : item;
+  }, [item, convertToSimple]);
+
+  const matchedItem = useMemo(() => {
+    if (!itemReady?.id) return null;
+    return find(basketItems, (b) => b?.id == itemReady?.id);
+  }, [basketItems, itemReady?.id]);
+
+  // const matchedItem = find(basketItems, (b) => b?.id === itemReady?.id);
   const total = totalPrice(basketItems);
 
   const toggleItem = () => {
