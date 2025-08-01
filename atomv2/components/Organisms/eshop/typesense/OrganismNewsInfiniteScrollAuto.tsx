@@ -1,5 +1,6 @@
 "use client";
 
+import { FacetConfig } from "@/config/typesense/facetConfig";
 import BlockDiv from "atomv2/components/Blocks/BlockDiv";
 import BlockFlexCol from "atomv2/components/Blocks/BlockFlexCol";
 import BlockFlexRow from "atomv2/components/Blocks/BlockFlexRow";
@@ -10,15 +11,16 @@ import OrganismTypesenseListPageSizeDropdown from "./OrganismTypesenseListPageSi
 import OrganismTypesenseListSearchBox from "./OrganismTypesenseListSearchBox";
 import OrganismTypesenseListSortDropdown from "./OrganismTypesenseListSortDropdown";
 import OrganismTypesenseListStats from "./OrganismTypesenseListStats";
-import { FacetConfig } from "@/config/typesense/facetConfig";
 
 export default function OrganismNewsInfiniteScrollAuto({
   collectionName,
   facetConfig,
+  sortConfig,
   children,
 }: {
   collectionName: string;
   facetConfig?: Record<string, Partial<FacetConfig>>;
+  sortConfig?: Record<string, Partial<FacetConfig>>;
   children: ReactNode;
 }) {
   return (
@@ -34,7 +36,11 @@ export default function OrganismNewsInfiniteScrollAuto({
         </BlockDiv>
 
         <BlockDiv className="flex-1 w-full min-w-0 min-h-[1px]">
-          <RightMain collectionName={collectionName} children={children} />
+          <RightMain
+            collectionName={collectionName}
+            sortConfig={sortConfig}
+            children={children}
+          />
         </BlockDiv>
       </BlockFlexRow>
     </PanelMain>
@@ -43,9 +49,11 @@ export default function OrganismNewsInfiniteScrollAuto({
 
 const RightMain = ({
   collectionName,
+  sortConfig,
   children,
 }: {
   collectionName: string;
+  sortConfig?: Record<string, Partial<FacetConfig>>;
   children: ReactNode;
 }) => {
   return (
@@ -56,7 +64,11 @@ const RightMain = ({
 
         <BlockFlexRow className="justify-end">
           <OrganismTypesenseListStats />
-          <OrganismTypesenseListSortDropdown collectionName={collectionName} />
+          <OrganismTypesenseListSortDropdown
+            collectionName={collectionName}
+            customSortOptions={sortConfig}
+          />
+
           <OrganismTypesenseListPageSizeDropdown />
         </BlockFlexRow>
       </BlockFlexCol>

@@ -3,6 +3,8 @@ export interface FacetConfig {
   icon?: string;
   className?: string;
   isShow?: boolean;
+  sortAscTitle?: string; // ✅ Sort asc title
+  sortDescTitle?: string; // ✅ Sort desc title
 }
 
 const facetConfigurations: Record<string, FacetConfig> = {
@@ -65,6 +67,50 @@ const facetConfigurations: Record<string, FacetConfig> = {
     icon: "fas fa-tag",
     className: "",
     isShow: true,
+  },
+
+  // ✅ Sort-тай талбарууд
+  createddate: {
+    title: "Үүссэн огноо",
+    icon: "fas fa-calendar",
+    isShow: true,
+    sortAscTitle: "Хуучин эхэнд",
+    sortDescTitle: "Шинэ эхэнд",
+  },
+  modifieddate: {
+    title: "Засварласан огноо",
+    icon: "fas fa-calendar",
+    isShow: true,
+    sortAscTitle: "Өмнө шинэчилсэн",
+    sortDescTitle: "Сүүлд шинэчилсэн",
+  },
+  title: {
+    title: "Гарчиг",
+    icon: "fas fa-heading",
+    isShow: true,
+    sortAscTitle: "Гарчиг A-Z",
+    sortDescTitle: "Гарчиг Z-A",
+  },
+  price: {
+    title: "Үнэ",
+    icon: "fas fa-dollar-sign",
+    isShow: true,
+    sortAscTitle: "Хямд эхэнд",
+    sortDescTitle: "Үнэтэй эхэнд",
+  },
+  views: {
+    title: "Үзсэн тоо",
+    icon: "fas fa-eye",
+    isShow: true,
+    sortAscTitle: "Цөөн үзсэн",
+    sortDescTitle: "Их үзсэн",
+  },
+  rating: {
+    title: "Үнэлгээ",
+    icon: "fas fa-star-half-alt",
+    isShow: true,
+    sortAscTitle: "Бага үнэлгээ",
+    sortDescTitle: "Өндөр үнэлгээ",
   },
 };
 

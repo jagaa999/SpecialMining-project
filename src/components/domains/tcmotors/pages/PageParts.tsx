@@ -30,6 +30,11 @@ export default function TcmotorsPageParts() {
             ref_carmark: { isShow: true },
             look_user: { isShow: false },
             ref_brand: { isShow: true },
+          }}
+          sortConfig={{
+            price2: { isShow: false },
+            createddate: { isShow: false },
+            modifieddate: { isShow: false },
           }}>
           <OrganismTypesensePartHits />
         </OrganismNewsInfiniteScrollAuto>

@@ -25,7 +25,7 @@ export default function OrganismTypesenseNewsHits() {
 const MainItems = () => {
   const { items } = useInfiniteHits();
   const { slugs } = useDomain();
-  console.log("🚀 ~ MainItems ~ items:", items);
+  // console.log("🚀 ~ MainItems ~ items:", items);
 
   return (
     <BlockFlexCol className="gap-7">

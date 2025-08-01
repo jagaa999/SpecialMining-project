@@ -30,10 +30,12 @@ export async function GET(req: NextRequest) {
       .filter((field: any) => !blacklist.includes(field.name))
       .map((field: any) => ({
         attribute: field.name,
+        name: field.name,
         type: field.type,
         facet: field.facet,
         title: field.name,
         sort: field.sort,
+        other: { ...field },
       }));
 
     return NextResponse.json(facetFields);

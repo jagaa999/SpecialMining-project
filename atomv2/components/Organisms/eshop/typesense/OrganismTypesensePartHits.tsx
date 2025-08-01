@@ -26,7 +26,7 @@ export default function OrganismTypesensePartHits() {
 const MainItems = () => {
   const { items } = useInfiniteHits();
   const { slugs } = useDomain();
-  console.log("🚀 ~ MainItems ~ items:", items);
+  // console.log("🚀 ~ MainItems ~ items:", items);
 
   return (
     <BlockListCard type="3">

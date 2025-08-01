@@ -1,78 +1,55 @@
 "use client";
 
+import { useTypesenseSchema } from "@/config/hooks/useTypesenseSchema";
+import { FacetConfig, getFacetConfig } from "@/config/typesense/facetConfig";
+
 import type { MenuProps } from "antd";
 import { Dropdown } from "antd";
 import RenderAtom from "atomv2/components/Atoms/RenderAtom";
 import BlockFlexRow from "atomv2/components/Blocks/BlockFlexRow";
 import TextBody from "atomv2/components/Text/TextBody";
-import { map } from "lodash";
+import { capitalize, map } from "lodash";
+import { useMemo } from "react";
 import { useSortBy } from "react-instantsearch";
-
-interface SortOption {
-  title: string;
-  value?: string;
-  isShow?: boolean;
-}
 
 export default function OrganismTypesenseListSortDropdown({
   collectionName,
   customSortOptions,
 }: {
   collectionName: string;
-  customSortOptions?: SortOption[];
+  customSortOptions?: Record<string, Partial<FacetConfig>>;
 }) {
-  const defaultSortOptions = [
-    {
-      title: "Шинэ эхэнд",
-      value: `${collectionName}/sort/createddate:desc`,
-      isShow: true,
-    },
-    {
-      title: "Хуучин эхэнд",
-      value: `${collectionName}/sort/createddate:asc`,
-      isShow: true,
-    },
-    {
-      title: "Гарчиг A-Z",
-      value: `${collectionName}/sort/title:asc`,
-      isShow: true,
-    },
-    {
-      title: "Гарчиг Z-A",
-      value: `${collectionName}/sort/title:desc`,
-      isShow: true,
-    },
-    {
-      title: "Хямдхан эхэндээ",
-      value: `${collectionName}/sort/price:asc`,
-      isShow: true,
-    },
-    {
-      title: "Үнэтэй эхэндээ",
-      value: `${collectionName}/sort/price:desc`,
-      isShow: true,
-    },
-  ];
+  const { sorts } = useTypesenseSchema(collectionName);
 
-  // Merge default options with custom options based on title
-  const mergedOptions = defaultSortOptions.map((defaultOption) => {
-    const customOption = customSortOptions?.find(
-      (custom) => custom.title === defaultOption.title
-    );
+  // Generate sort options from schema
+  const sortOptions = useMemo(() => {
+    const options = [{ label: "Үндсэн эрэмбэ", value: collectionName }];
 
-    return {
-      ...defaultOption,
-      ...customOption, // Custom options override default
-    };
-  });
+    sorts?.forEach((field: any) => {
+      const fieldName = field.title;
+      const config = {
+        ...getFacetConfig(fieldName),
+        ...(customSortOptions?.[fieldName] || {}),
+      };
 
-  // Use custom options or filter default options by isShow
-  const sortOptions = mergedOptions
-    .filter((option) => option.isShow !== false)
-    .map((option) => ({
-      ...option,
-      label: option.title, // title-г label болгох
-    }));
+      if (!config.isShow) return;
+
+      options.push(
+        {
+          label: config.sortAscTitle || `${capitalize(fieldName)} (өсөх)`,
+          value: `${collectionName}/sort/${fieldName}:asc`,
+        },
+        {
+          label: config.sortDescTitle || `${capitalize(fieldName)} (буурах)`,
+          value: `${collectionName}/sort/${fieldName}:desc`,
+        }
+      );
+    });
+
+    return options.filter((option) => option.value); // Ensure value exists
+  }, [sorts, collectionName]);
+
+  // console.log("FFFFFFF sorts:", { sorts, sortOptions });
 
   const { refine, currentRefinement } = useSortBy({
     items: sortOptions,
