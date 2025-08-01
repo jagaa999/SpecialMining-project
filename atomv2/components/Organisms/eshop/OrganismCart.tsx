@@ -24,14 +24,14 @@ export default function OrganismCart() {
       {/* Баруун талд: Сагсны мэдээлэл */}
       <BlockDiv className="col-span-5">
         <BlockAffix offsetTop={100}>
-          <СагсныМэдээлэл total={total} />
+          <СагсныМэдээлэлActions total={total} />
         </BlockAffix>
       </BlockDiv>
     </PanelMain>
   );
 }
 
-const СагсныМэдээлэл = ({ total }: any) => {
+const СагсныМэдээлэлActions = ({ total }: any) => {
   return (
     <BlockDiv className="bg-white px-brand-x py-brand-y rounded-brand shadow-brand space-y-8">
       <TextH3 value="Үнийн мэдээлэл" />
@@ -51,12 +51,14 @@ const СагсныМэдээлэл = ({ total }: any) => {
           type="button"
           className="bg-brand text-white py-2 text-base w-full shadow-none"
           url={{ href: "/checkout", className: "w-full" }}
+          tooltip={{ title: "Дараагийн алхам" }}
         />
-        <RenderAtom
+        {/* <RenderAtom
           value={"Төлбөр төлөх"}
           type="button"
           className="bg-sky-600 text-white py-2 text-base w-full shadow-none"
-        />
+          disabled={true}
+        /> */}
       </BlockDiv>
     </BlockDiv>
   );

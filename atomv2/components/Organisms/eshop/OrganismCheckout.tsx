@@ -22,23 +22,28 @@ export default function OrganismCheckout() {
   const { total, basketItems } = useActionBasketButton({});
 
   return (
-    <PanelMain className="grid grid-cols-12 gap-12">
-      {/* Зүүн талд: Захиалгын форм */}
-      <BlockDiv className="col-span-6">
-        <BlockFlexCol className="gap-16">
-          {/* Буцах товч */}
-          <MoleculeBackButton
-            item={{ value: "← Өмнөх алхам руу буцах" }}
-            url={{ href: "/cart" }}
-          />
-          <ЗахиалгынМэдээлэл />
-        </BlockFlexCol>
-      </BlockDiv>
+    <PanelMain className="pt-0">
+      <BlockFlexCol className="gap-12">
+        {/* Буцах товч */}
+        <MoleculeBackButton
+          item={{ value: "← Өмнөх алхам руу буцах" }}
+          url={{ href: "/cart" }}
+        />
 
-      {/* Баруун талд: Сагсны мэдээлэл */}
-      <BlockDiv className="col-span-6">
-        <СагсныХатууПанель basketItems={basketItems} total={total} />
-      </BlockDiv>
+        <BlockDiv className="grid grid-cols-12 gap-12">
+          {/* Зүүн талд: Захиалгын форм */}
+          <BlockDiv className="col-span-6">
+            <BlockFlexCol className="gap-16">
+              <ЗахиалгынМэдээлэл />
+            </BlockFlexCol>
+          </BlockDiv>
+
+          {/* Баруун талд: Сагсны мэдээлэл */}
+          <BlockDiv className="col-span-6">
+            <СагсныХатууПанель basketItems={basketItems} total={total} />
+          </BlockDiv>
+        </BlockDiv>
+      </BlockFlexCol>
     </PanelMain>
   );
 }
@@ -124,56 +129,58 @@ const ЗахиалгынМэдээлэл = () => {
 
 const СагсныХатууПанель = ({ basketItems, total }: any) => {
   return (
-    <BlockDiv className="bg-info/10 px-brand-x py-brand-y rounded-brand shadow-brand space-y-8">
-      <TextH5 value="Таны сагс" />
+    <BlockFlexCol className="gap-2">
+      <TextH5 value="Таны сагс" className="text-sm" />
 
-      {basketItems.length <= 0 ? (
-        <MoleculeEmptyItemState
-          icon={{ value: "mdi-light:cart" }}
-          title={{ value: "Хоосон" }}
-          description={{ value: "Сагс хоосон байна" }}>
-          <RenderAtom
-            value={"Дэлгүүр →"}
-            type="button"
-            variant="action1"
-            className="opacity-40"
-            url={{ href: "/shop" }}
-          />
-        </MoleculeEmptyItemState>
-      ) : (
-        <>
-          <BlockScroll className="pr-3 divide-gray-200 divide-y">
-            {map(basketItems, (item: any, index: number) => (
-              <BlockDiv
-                key={item.id || index}
-                className="flex flex-row items-center justify-between gap-4 py-2 w-full">
-                <BlockFlexRow className="gap-2 w-full grow">
+      <BlockDiv className="bg-white px-brand-x py-brand-y rounded-brand space-y-5 border border-dashed border-gray-400">
+        {basketItems.length <= 0 ? (
+          <MoleculeEmptyItemState
+            icon={{ value: "mdi-light:cart" }}
+            title={{ value: "Хоосон" }}
+            description={{ value: "Сагс хоосон байна" }}>
+            <RenderAtom
+              value={"Дэлгүүр →"}
+              type="button"
+              variant="action1"
+              className="opacity-40"
+              url={{ href: "/shop" }}
+            />
+          </MoleculeEmptyItemState>
+        ) : (
+          <>
+            <BlockScroll className="pr-3 divide-gray-200 divide-y">
+              {map(basketItems, (item: any, index: number) => (
+                <BlockDiv
+                  key={item.id || index}
+                  className="flex flex-row items-center justify-between gap-4 py-2 w-full">
+                  <BlockFlexRow className="gap-2 w-full grow">
+                    <RenderAtom
+                      value={item.mainimage}
+                      type="image"
+                      className="object-contain rounded-none border border-gray-200 w-12 h-12"
+                    />
+                    <PosTitle
+                      item={item}
+                      className="text-xs text-gray-700 line-clamp-2"
+                    />
+                  </BlockFlexRow>
+
                   <RenderAtom
-                    value={item.mainimage}
-                    type="image"
-                    className="object-contain rounded-none border border-gray-200 w-12 h-12"
+                    value={`${item.count} x ${toMotoPrice(item.price)}`}
+                    type="text"
+                    className="text-xs text-gray-600 block w-fit whitespace-nowrap"
                   />
-                  <PosTitle
-                    item={item}
-                    className="text-xs text-gray-700 line-clamp-2"
-                  />
-                </BlockFlexRow>
+                </BlockDiv>
+              ))}
+            </BlockScroll>
 
-                <RenderAtom
-                  value={`${item.count} x ${toMotoPrice(item.price)}`}
-                  type="text"
-                  className="text-xs text-gray-600 block w-fit whitespace-nowrap"
-                />
-              </BlockDiv>
-            ))}
-          </BlockScroll>
-
-          <BlockDiv className="flex justify-between">
-            <TextHtml value="Нийт дүн:" />
-            <TextHtml value={toMotoPrice(total)} />
-          </BlockDiv>
-        </>
-      )}
-    </BlockDiv>
+            <BlockDiv className="flex justify-between border-t border-dashed border-gray-200 pt-3">
+              <TextHtml value="Нийт дүн:" />
+              <TextHtml value={toMotoPrice(total)} />
+            </BlockDiv>
+          </>
+        )}
+      </BlockDiv>
+    </BlockFlexCol>
   );
 };
