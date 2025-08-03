@@ -1,22 +1,26 @@
+import { useActionBasketButton } from "atomv2/hooks/actions/useActionBasketButton";
 import { BasketItemLight } from "atomv2/types/objectTypes";
 import { toMotoPrice } from "atomv2/util/widgetHelper";
 import { CSSProperties } from "react";
+import RenderAtom from "../Atoms/RenderAtom";
 import BlockDiv from "../Blocks/BlockDiv";
 import BlockFlexCol from "../Blocks/BlockFlexCol";
-import RenderAtom from "../Atoms/RenderAtom";
+import BlockFlexRow from "../Blocks/BlockFlexRow";
 import PosTitle from "../Position/PosTitle";
 
 export default function MoleculeBasketItem01({
   item,
-  onRemove,
   className = "",
   style,
 }: {
   item: BasketItemLight;
-  onRemove?: () => void;
   style?: CSSProperties;
   className?: string;
 }) {
+  const { toggleItem, addNumber, removeNumber } = useActionBasketButton({
+    item,
+  });
+
   return (
     <BlockDiv
       className={`flex items-center gap-4 py-2 relative group ${className}`}
@@ -43,12 +47,27 @@ export default function MoleculeBasketItem01({
         />
       </BlockFlexCol>
 
+      <BlockFlexRow className="items-center gap-2 mt-1">
+        <RenderAtom
+          type="button"
+          value="-"
+          onClick={removeNumber}
+          variant="action1"
+        />
+        <RenderAtom
+          type="button"
+          value="+"
+          onClick={addNumber}
+          variant="action1"
+        />
+      </BlockFlexRow>
+
       {/* Устгах */}
       <RenderAtom
         type="icon"
         value="material-symbols:delete-outline"
         className="text-error text-xl cursor-pointer"
-        onClick={onRemove}
+        onClick={toggleItem}
         tooltip={{ title: "Устгах", placement: "left" }}
       />
     </BlockDiv>

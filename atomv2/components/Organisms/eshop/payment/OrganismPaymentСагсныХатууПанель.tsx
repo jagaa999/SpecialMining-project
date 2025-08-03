@@ -17,7 +17,7 @@ export default function OrganismPaymentСагсныХатууПанель({
   const { total, length, basketItems } = useActionBasketButton({});
 
   return (
-    <BlockDiv className="bg-info/10 px-brand-x py-brand-y rounded-brand shadow-brand space-y-8">
+    <BlockDiv className="bg-info/10 px-brand-x py-brand-y rounded-brand border border-dashed border-gray-400 space-y-8">
       <TextH5 value="Таны захиалга" />
 
       {length <= 0 ? (

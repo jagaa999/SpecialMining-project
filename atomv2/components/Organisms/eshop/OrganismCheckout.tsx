@@ -111,7 +111,9 @@ const ЗахиалгынМэдээлэл = () => {
           acc[curr.name] = curr.value;
           return acc;
         }, {})
-      : {}
+      : {},
+    "sdfsdsd",
+    mapValues(localConfig.orderInfo, (item) => item?.value)
   );
 
   return (

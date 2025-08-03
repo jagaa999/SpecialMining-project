@@ -75,8 +75,7 @@ const BasketItemWrapper = ({
   variant: string;
   [key: string]: any;
 }) => {
-  const { toggleItem } = useActionBasketButton({ item });
   const BasketItemComponent = ComponentMap[variant] || MoleculeBasketItem01;
 
-  return <BasketItemComponent item={item} onRemove={toggleItem} {...props} />;
+  return <BasketItemComponent item={item} {...props} />;
 };

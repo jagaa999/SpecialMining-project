@@ -2,14 +2,14 @@
 
 import "@ant-design/v5-patch-for-react-19";
 import { message } from "antd";
+import { useUnsavedChangesWarning } from "atomv2/hooks/useUnsavedChangesWarning";
 import { FormAtomType } from "atomv2/registry/atom.registry";
 import { find, forEach, isFunction, map } from "lodash";
-import { ReactNode } from "react";
+import { ReactNode, useEffect } from "react";
 import { FormProvider, useForm } from "react-hook-form";
 import RenderAtom from "../Atoms/RenderAtom";
 import BlockDiv from "../Blocks/BlockDiv";
 import MoleculeFormField from "../Molecules/MoleculeFormField";
-import { useUnsavedChangesWarning } from "atomv2/hooks/useUnsavedChangesWarning";
 
 export default function WidgetRenderForm({
   defaultValues = {},
@@ -46,6 +46,10 @@ export default function WidgetRenderForm({
 
   const { isDirty } = methods.formState;
   useUnsavedChangesWarning(isDirty);
+
+  useEffect(() => {
+    methods.reset(defaultValues);
+  }, [defaultValues, methods]);
 
   const onSubmitHandle = (data: any) => {
     console.log("Form Data Successful:", data);

@@ -33,7 +33,7 @@ export default function OrganismCart() {
 
 const СагсныМэдээлэлActions = ({ total }: any) => {
   return (
-    <BlockDiv className="bg-white px-brand-x py-brand-y rounded-brand shadow-brand space-y-8">
+    <BlockDiv className="bg-white px-brand-x py-brand-y rounded-brand border border-gray-200 space-y-8">
       <TextH3 value="Үнийн мэдээлэл" />
 
       <BlockDiv className="flex justify-between">
@@ -53,12 +53,6 @@ const СагсныМэдээлэлActions = ({ total }: any) => {
           url={{ href: "/checkout", className: "w-full" }}
           tooltip={{ title: "Дараагийн алхам" }}
         />
-        {/* <RenderAtom
-          value={"Төлбөр төлөх"}
-          type="button"
-          className="bg-sky-600 text-white py-2 text-base w-full shadow-none"
-          disabled={true}
-        /> */}
       </BlockDiv>
     </BlockDiv>
   );
