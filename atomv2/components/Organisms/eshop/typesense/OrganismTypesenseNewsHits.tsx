@@ -39,7 +39,8 @@ const MainItems = () => {
               <PosImage
                 item={hit}
                 alt={hit.title}
-                className="w-full h-full object-cover object-center px-0 py-0 rounded-r-none hover:text-brand rounded-brand"
+                className="w-full h-full object-cover object-center px-0 py-0 rounded-r-none hover:text-brand rounded-brand eeee"
+                // imageClassName="object-cover object-center gggg"
                 url={{
                   href: myUrl,
                   className: "block w-full h-full",

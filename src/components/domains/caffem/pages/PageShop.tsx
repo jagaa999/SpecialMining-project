@@ -8,11 +8,11 @@ import BlockTab from "atomv2/components/Blocks/BlockTab";
 import MoleculeCard03 from "atomv2/components/Molecules/MoleculeCard03";
 import OrganismBasketDrawerSimple from "atomv2/components/Organisms/eshop/OrganismBasketDrawerSimple";
 import { useActionBasketButton } from "atomv2/hooks/actions/useActionBasketButton";
+import { extractObjectMain } from "atomv2/util/widgetHelper";
 import { map } from "lodash";
 import { useState } from "react";
 import { useEgulenProductsForOrder } from "src/config/hooks/egulen/useEgulenProductsForOrder";
 import QpayCheckoutPanel from "../Widget/QpayCheckoutPanel";
-import { extractObjectMain } from "atomv2/util/widgetHelper";
 
 export default function CaffemPageShop() {
   // `products` нь Sector[] гэж үзье
@@ -21,6 +21,7 @@ export default function CaffemPageShop() {
       <BlockHalf type="80">
         <BlockDiv className="h-screen">
           <BaraanuudtaiLanguu />
+          {/* dsfdsf */}
         </BlockDiv>
         <TulburTuluxQPay />
       </BlockHalf>
@@ -34,18 +35,6 @@ const BaraanuudtaiLanguu = () => {
   if (loading) return <div className="p-6">Loading...</div>;
   if (error) return <div className="p-6 text-red-500">Error: {error}</div>;
   console.log("dsfsdfdsfsd", products);
-
-  // "id": "117320",
-  // "cat_id": "14151",
-  // "sector_id": "2143",
-  // "category_name": "Coffee & Tea",
-  // "product_name": "Americano",
-  // "other_name": "Black coffee",
-  // "quantity": "5",
-  // "price": "10",
-  // "note": "Us bagatai mus ihtei",
-  // "bar_code": "",
-  // "plu_code": "K012345"
 
   return (
     <BlockTab
@@ -142,7 +131,6 @@ const TulburTuluxQPay = () => {
           url: {},
         }}
       />
-
       <BlockModal
         isShowModal={isShowModal}
         setIsShowModal={setIsShowModal}
