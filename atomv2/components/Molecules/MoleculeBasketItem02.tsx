@@ -4,18 +4,21 @@ import { CSSProperties } from "react";
 import RenderAtom from "../Atoms/RenderAtom";
 import BlockFlexCol from "../Blocks/BlockFlexCol";
 import PosTitle from "../Position/PosTitle";
+import { useActionBasketButton } from "atomv2/hooks/actions/useActionBasketButton";
 
 export default function MoleculeBasketItem02({
   item,
-  onRemove,
   className = "",
   style,
 }: {
   item: BasketItemLight;
-  onRemove?: () => void;
   style?: CSSProperties;
   className?: string;
 }) {
+  const { toggleItem } = useActionBasketButton({
+    item,
+  });
+
   return (
     <BlockFlexCol
       className={`gap-2 items-center relative group ${className}`}
@@ -31,14 +34,14 @@ export default function MoleculeBasketItem02({
       <BlockFlexCol className="gap-0 w-full">
         <PosTitle
           item={item}
-          className="text-sm text-gray-700 font-semibold group-hover:text-brand transition-colors duration-300 line-clamp-2"
+          className="text-sm text-gray-700 font-semibold group-hover:text-brand transition-colors duration-300 line-clamp-2 text-center"
           // url={{ href: "/product" }}
         />
 
         <RenderAtom
           value={`${item.count} x ${toMotoPrice(item.price)}`}
           type="text"
-          className="font-light text-gray-600 text-sm"
+          className="font-light text-gray-600 text-sm text-center"
         />
       </BlockFlexCol>
 
@@ -47,7 +50,8 @@ export default function MoleculeBasketItem02({
         type="icon"
         value="material-symbols:close"
         className="text-error text-xl cursor-pointer absolute top-0 -right-5"
-        onClick={onRemove}
+        onClick={toggleItem}
+        tooltip={{ title: "Устгах", placement: "left" }}
       />
     </BlockFlexCol>
   );

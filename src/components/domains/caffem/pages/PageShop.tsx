@@ -21,7 +21,6 @@ export default function CaffemPageShop() {
       <BlockHalf type="80">
         <BlockDiv className="h-screen">
           <BaraanuudtaiLanguu />
-          {/* dsfdsf */}
         </BlockDiv>
         <TulburTuluxQPay />
       </BlockHalf>
@@ -112,6 +111,9 @@ const CaffemProductCard = ({
         }`,
       }}
       item={itemReady}
+      imageBlock={{
+        className: "rounded-full w-24 h-24 object-cover object-center",
+      }}
     />
   );
 };
