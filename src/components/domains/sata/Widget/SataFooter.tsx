@@ -10,16 +10,16 @@ export default function SataFooter() {
           </p>
           <p className="text-gray-400">
             📞 Утас:{" "}
-            <a href="tel:70112233" className="hover:text-green-400 transition">
-              7011-2233
+            <a href="tel:70173060" className="hover:text-green-400 transition">
+              7017-3060, 9111-7349
             </a>
           </p>
           <p className="text-gray-400">
             ✉️ Имэйл:{" "}
             <a
-              href="mailto:info@satatools.mn"
+              href="mailto:info@sata.mn"
               className="hover:text-green-400 transition">
-              info@satatools.mn
+              info@sata.mn
             </a>
           </p>
         </div>
