@@ -34,16 +34,18 @@ export default function PageContact() {
               {
                 icon: "mdi:map-marker",
                 title: "Хаяг",
-                desc: "Улаанбаатар хот, Баянгол дүүрэг, SATA Tools дэлгүүр",
+                desc: "БГД дүүрэг, 30-р хороо, 10-р хороолол, Доктор салбар (3-р эмнэлгийн зүүн талд)",
               },
               {
                 icon: "ic:baseline-phone",
                 title: "Утас",
                 desc: (
                   <a
-                    href="tel:70112233"
+                    href="tel:70173060"
                     className="hover:underline text-green-700 font-medium">
-                    7011-2233
+                    7017-3060
+                    <br />
+                    9111-7349
                   </a>
                 ),
               },
@@ -52,9 +54,9 @@ export default function PageContact() {
                 title: "Имэйл",
                 desc: (
                   <a
-                    href="mailto:info@satatools.mn"
+                    href="mailto:info@sata.mn"
                     className="hover:underline text-green-700 font-medium">
-                    info@satatools.mn
+                    info@sata.mn
                   </a>
                 ),
               },
@@ -63,9 +65,7 @@ export default function PageContact() {
                 title: "Цагийн хуваарь",
                 desc: (
                   <BlockFlexCol className="gap-1">
-                    <p>Даваа - Баасан: 09:00 - 18:00</p>
-                    <p>Бямба: 10:00 - 16:00</p>
-                    <p>Ням: Амарна</p>
+                    <p>Бүх өдрүүдэд: 10:00 - 20:00</p>
                   </BlockFlexCol>
                 ),
               },
